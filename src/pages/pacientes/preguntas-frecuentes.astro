@@ -1,0 +1,63 @@
+---
+/**
+ * /pacientes/preguntas-frecuentes — FAQ page.
+ *
+ * TODO (content-needed): Populate with real FAQs from customer service.
+ * TODO (design-needed): Accordion component for question/answer pairs.
+ * TODO (blocking-for-v1): Add FAQ JSON-LD schema (FAQPage type).
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const faqs = [
+  {
+    question: '¿Necesito cita previa para tomar mis muestras?',
+    answer: 'No. En todas nuestras sedes atendemos sin cita previa.',
+  },
+  {
+    question: '¿Cuándo están listos mis resultados?',
+    answer:
+      'La mayoría de exámenes están listos el mismo día. Te notificaremos cuando estén disponibles.',
+    // TODO (content-needed): Add specific times and exceptions
+  },
+  {
+    question: '¿Cómo puedo verificar la autenticidad de mis resultados?',
+    answer:
+      'Cada resultado incluye un código QR que puedes escanear para verificarlo en nuestro portal.',
+    // TODO (content-needed): Add link to QR portal
+  },
+  {
+    question: '¿Ofrecen servicio a domicilio?',
+    answer:
+      'Sí, disponible en Buga (gratis desde $50.000) y Tuluá. Contáctanos por WhatsApp para coordinar.',
+    // TODO (content-needed): Confirm pricing and availability details
+  },
+];
+---
+
+<BaseLayout
+  title="Preguntas Frecuentes"
+  description="Respuestas a las preguntas más frecuentes sobre los servicios, resultados y preparación en CIC Laboratorios."
+>
+  <h1>Preguntas frecuentes</h1>
+
+  <dl>
+    {faqs.map((faq) => (
+      <>
+        <dt><strong>{faq.question}</strong></dt>
+        <dd>{faq.answer}</dd>
+      </>
+    ))}
+  </dl>
+
+  <p>
+    ¿No encontraste tu respuesta?
+    <a href="/contacto">Contáctanos</a> o escríbenos por
+    <a
+      href="https://wa.me/573001234567"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      WhatsApp
+    </a>.
+  </p>
+</BaseLayout>

@@ -1,0 +1,57 @@
+---
+/**
+ * /servicios/[slug] — Individual service page.
+ *
+ * TODO (design-needed): Full service page layout with hero, benefits list, CTA.
+ * TODO (content-needed): Add detailed content for each service.
+ * TODO (content-needed): Cross-link to sedes where service is available.
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const servicios = await getCollection('servicios');
+  return servicios.map((servicio) => ({
+    params: { slug: servicio.data.slug },
+    props: { servicio: servicio.data },
+  }));
+}
+
+const { servicio } = Astro.props;
+
+const ctaUrl =
+  servicio.ctaTipo === 'whatsapp'
+    ? `https://wa.me/573001234567?text=${encodeURIComponent(`Quiero información sobre ${servicio.nombre}`)}`
+    : servicio.ctaTipo === 'mailto'
+    ? `mailto:info@ciclaboratorios.com?subject=${encodeURIComponent(servicio.nombre)}`
+    : '/contacto';
+---
+
+<BaseLayout
+  title={servicio.nombre}
+  description={servicio.descripcion}
+>
+  <h1>{servicio.nombre}</h1>
+  <p>{servicio.descripcion}</p>
+
+  <section aria-labelledby="disponibilidad-heading">
+    <h2 id="disponibilidad-heading">Disponibilidad</h2>
+    {servicio.sedesDisponibles[0] === 'todas' ? (
+      <p>Disponible en todas nuestras sedes.</p>
+    ) : (
+      <ul>
+        {servicio.sedesDisponibles.map((slug: string) => (
+          <li><a href={`/sedes/${slug}`}>{slug}</a></li>
+        ))}
+      </ul>
+    )}
+    {/* TODO (content-needed): Show sede nombre instead of slug */}
+  </section>
+
+  <a
+    href={ctaUrl}
+    {...(servicio.ctaTipo === 'whatsapp' ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+  >
+    {servicio.ctaTipo === 'whatsapp' ? 'Solicitar por WhatsApp' : 'Solicitar información'}
+  </a>
+</BaseLayout>

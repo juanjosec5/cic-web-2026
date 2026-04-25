@@ -1,0 +1,20 @@
+{
+  "id": "tsh-001",
+  "mongoId": "64a1b2c3d4e5f6a7b8c9d0e1",
+  "nombre": "Hormona Estimulante de la Tiroides (TSH)",
+  "codigoCups": "903836",
+  "slug": "tsh",
+  "categoria": "hormonas",
+  "nombresAlternativos": ["TSH", "Tirotropina", "Thyrotropin"],
+  "muestra": "Suero",
+  "requiereAyuno": false,
+  "preparacion": "No requiere preparación especial.",
+  "oportunidadResultados": "Mismo día (antes de las 5 pm si la muestra llega antes del mediodía)",
+  "descripcionQueEs": "La TSH es una hormona producida por la hipófisis que regula la función tiroidea.",
+  "descripcionParaQueSirve": "Se utiliza para diagnosticar y monitorear enfermedades de la tiroides como hipotiroidismo e hipertiroidismo.",
+  "sedesDisponibles": ["buga-centro", "tulua-principal"],
+  "examenesRelacionados": ["t3-libre", "t4-libre"],
+  "perfiles": ["prenatal"],
+  "imagen": null,
+  "activo": true
+}

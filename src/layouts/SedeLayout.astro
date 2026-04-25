@@ -1,0 +1,53 @@
+---
+/**
+ * SedeLayout.astro
+ * Layout for individual sede pages. Extends BaseLayout and injects
+ * MedicalBusiness JSON-LD automatically from the sede data.
+ *
+ * TODO (design-needed): Add sede hero image / photo gallery section.
+ * TODO (content-needed): Build openingHours array from horario object for
+ *   schema.org compliance.
+ */
+import BaseLayout from './BaseLayout.astro';
+import { buildSedeJsonLd } from '@/lib/seo';
+
+interface SedeData {
+  slug: string;
+  nombre: string;
+  ciudad: string;
+  direccion: string;
+  lat: number;
+  lng: number;
+  telefono: string;
+  whatsapp: string;
+  email?: string;
+  horario: Record<string, string | undefined>;
+  [key: string]: unknown;
+}
+
+interface Props {
+  sede: SedeData;
+  description?: string;
+}
+
+const { sede, description } = Astro.props;
+
+const jsonLd = buildSedeJsonLd({
+  nombre: sede.nombre,
+  descripcion: description,
+  direccion: sede.direccion,
+  ciudad: sede.ciudad,
+  telefono: sede.telefono,
+  lat: sede.lat,
+  lng: sede.lng,
+  url: `${Astro.site}sedes/${sede.slug}`,
+});
+---
+
+<BaseLayout
+  title={sede.nombre}
+  description={description ?? `Sede de CIC Laboratorios en ${sede.ciudad}. Exámenes clínicos, resultados el mismo día.`}
+  jsonLd={jsonLd}
+>
+  <slot />
+</BaseLayout>

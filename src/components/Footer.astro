@@ -1,0 +1,57 @@
+---
+/**
+ * Footer.astro
+ * Site-wide footer with sede principal contact info, site map links,
+ * social icons (placeholder), and copyright.
+ *
+ * TODO (content-needed): Replace placeholder contact info with real data from
+ *   buga-centro sede entry (or query via getCollection).
+ * TODO (content-needed): Add real social media profile URLs.
+ * TODO (design-needed): Style footer columns, social icons, legal links.
+ */
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer>
+  <div>
+    <div>
+      <h3>CIC Laboratorios — Sede Principal</h3>
+      <address>
+        <!-- TODO (content-needed): Pull from sedes collection entry -->
+        Calle 5 # 14-23, Centro, Guadalajara de Buga<br />
+        Tel: 602 228 0000<br />
+        <a href="mailto:buga@ciclaboratorios.com">buga@ciclaboratorios.com</a>
+      </address>
+    </div>
+
+    <nav aria-label="Mapa del sitio">
+      <h3>Mapa del sitio</h3>
+      <ul>
+        <li><a href="/sedes">Sedes</a></li>
+        <li><a href="/examenes">Exámenes</a></li>
+        <li><a href="/servicios">Servicios</a></li>
+        <li><a href="/empresas">Empresas</a></li>
+        <li><a href="/nosotros">Nosotros</a></li>
+        <li><a href="/pacientes/preparacion">Preparación de exámenes</a></li>
+        <li><a href="/pacientes/preguntas-frecuentes">Preguntas frecuentes</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <div>
+      <h3>Redes sociales</h3>
+      <!-- TODO (content-needed): Replace with real social URLs -->
+      <ul>
+        <li><a href="#" aria-label="Facebook (próximamente)">Facebook</a></li>
+        <li><a href="#" aria-label="Instagram (próximamente)">Instagram</a></li>
+        <li><a href="#" aria-label="LinkedIn (próximamente)">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <p>
+    &copy; {currentYear} CIC Laboratorios. Todos los derechos reservados.
+    <!-- TODO (content-needed): Add links to Política de privacidad, Términos de uso -->
+  </p>
+</footer>

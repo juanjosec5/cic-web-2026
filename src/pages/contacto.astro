@@ -1,0 +1,65 @@
+---
+/**
+ * /contacto — Contact page.
+ *
+ * TODO (design-needed): Style the contact section with sede cards.
+ * TODO (content-needed): Add real contact form if server-side form handling
+ *   is ever added (e.g. via Resend or Formspree). For now, mailto fallback.
+ * TODO (content-needed): Add Google Maps embed or LocationMap island
+ *   for each sede once LocationMap stub is replaced.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const sedes = await getCollection('sedes');
+---
+
+<BaseLayout
+  title="Contacto"
+  description="Ponerse en contacto con CIC Laboratorios. Encuentre teléfonos, correos y direcciones de nuestras sedes en Buga y Tuluá."
+>
+  <h1>Contáctenos</h1>
+
+  <section aria-labelledby="sedes-contacto-heading">
+    <h2 id="sedes-contacto-heading">Nuestras sedes</h2>
+    <ul>
+      {sedes.map((sede) => (
+        <li>
+          <h3>{sede.data.nombre}</h3>
+          <address>
+            <p>{sede.data.direccion}, {sede.data.ciudad}</p>
+            <p>
+              Tel: <a href={`tel:${sede.data.telefono}`}>{sede.data.telefono}</a>
+            </p>
+            <p>
+              WhatsApp:{' '}
+              <a
+                href={`https://wa.me/${sede.data.whatsapp}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {sede.data.whatsapp}
+              </a>
+            </p>
+            {sede.data.email && (
+              <p>
+                Email: <a href={`mailto:${sede.data.email}`}>{sede.data.email}</a>
+              </p>
+            )}
+          </address>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section aria-labelledby="formulario-heading">
+    <h2 id="formulario-heading">Envíanos un mensaje</h2>
+    <!-- TODO (design-needed): Replace mailto link with proper contact form
+         once form backend is available (Resend, Formspree, or Netlify Forms). -->
+    <p>
+      <a href="mailto:info@ciclaboratorios.com?subject=Consulta%20desde%20el%20sitio%20web">
+        Enviar correo electrónico
+      </a>
+    </p>
+  </section>
+</BaseLayout>

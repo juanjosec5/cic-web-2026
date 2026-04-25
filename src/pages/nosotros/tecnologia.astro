@@ -1,0 +1,44 @@
+---
+/**
+ * /nosotros/tecnologia — Technology page.
+ *
+ * TODO (content-needed): Add real equipment list (brands, models, capabilities).
+ * TODO (content-needed): Add equipment photos.
+ * TODO (design-needed): Equipment showcase grid/carousel.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Nuestra Tecnología"
+  description="CIC Laboratorios cuenta con equipos de última generación para garantizar resultados precisos y confiables."
+>
+  <nav aria-label="Migas de pan">
+    <a href="/nosotros">Nosotros</a> › Tecnología
+  </nav>
+
+  <h1>Nuestra tecnología</h1>
+  <p>
+    Inversión permanente en equipos y metodologías de vanguardia para ofrecer
+    diagnósticos precisos y oportunos.
+  </p>
+
+  <!-- TODO (content-needed): Replace with real equipment inventory -->
+  <section aria-labelledby="equipos-heading">
+    <h2 id="equipos-heading">Equipos principales</h2>
+    <ul>
+      <li>[ Analizador hematológico — modelo pendiente ]</li>
+      <li>[ Analizador de química clínica — modelo pendiente ]</li>
+      <li>[ Equipo de inmunoanálisis — modelo pendiente ]</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="qr-heading">
+    <h2 id="qr-heading">Validación QR de resultados</h2>
+    <p>
+      Cada resultado entregado incluye un código QR único que permite verificar
+      su autenticidad en línea.
+      <!-- TODO (content-needed): Add link to the QR validation portal -->
+    </p>
+  </section>
+</BaseLayout>

@@ -1,0 +1,46 @@
+---
+/**
+ * SEO.astro
+ * Renders <title>, meta description, canonical, Open Graph tags, and
+ * an optional JSON-LD script block.
+ *
+ * TODO (content-needed): Add real OG image once brand assets are available.
+ * TODO (content-needed): Add Twitter/X card meta tags.
+ */
+interface Props {
+  title: string;
+  description: string;
+  /** Defaults to the current page URL via Astro.url */
+  canonical?: string;
+  ogImage?: string;
+  /** Pass a JSON-LD object — it will be stringified into a <script> tag */
+  jsonLd?: Record<string, unknown>;
+}
+
+const {
+  title,
+  description,
+  canonical = Astro.url.href,
+  ogImage = '/images/og-default.png',
+  jsonLd,
+} = Astro.props;
+
+const siteName = 'CIC Laboratorios';
+---
+
+<title>{title} | {siteName}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:title" content={`${title} | ${siteName}`} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImage} />
+
+<!-- JSON-LD structured data -->
+{jsonLd && (
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+)}

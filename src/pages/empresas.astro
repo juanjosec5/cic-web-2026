@@ -1,0 +1,71 @@
+---
+/**
+ * /empresas — Landing page for B2B / corporate clients.
+ *
+ * TODO (design-needed): Full landing page layout.
+ * TODO (content-needed): Add client logos, case studies, pricing tiers.
+ * TODO (content-needed): Add proper contact form (mailto fallback for now).
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+// Filter services relevant for empresas
+const serviciosEmpresa = await getCollection('servicios', ({ data }) =>
+  ['jornadas-empresariales', 'salud-ocupacional', 'domicilio'].includes(data.slug)
+);
+---
+
+<BaseLayout
+  title="Servicios para Empresas"
+  description="Salud ocupacional, jornadas empresariales y toma de muestras para empresas. CIC Laboratorios — su aliado en bienestar corporativo."
+>
+  <h1>Soluciones para empresas</h1>
+  <p>
+    Acompañamos a su empresa en el cumplimiento de la normativa de salud
+    ocupacional y en el bienestar de sus colaboradores.
+  </p>
+
+  <section aria-labelledby="servicios-empresa-heading">
+    <h2 id="servicios-empresa-heading">Nuestros servicios empresariales</h2>
+    <ul>
+      {serviciosEmpresa.map((s) => (
+        <li>
+          <a href={`/servicios/${s.data.slug}`}>
+            <strong>{s.data.nombre}</strong>
+          </a>
+          <p>{s.data.descripcion}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section aria-labelledby="beneficios-heading">
+    <h2 id="beneficios-heading">¿Por qué elegirnos?</h2>
+    <ul>
+      <li>Resultados el mismo día</li>
+      <li>Personal capacitado para toma en sitio</li>
+      <li>Informes consolidados para RR.HH.</li>
+      <li><!-- TODO (content-needed): Add more benefit points --></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="contacto-empresa-heading">
+    <h2 id="contacto-empresa-heading">Solicitar cotización</h2>
+    <p>
+      <!-- TODO (design-needed): Replace with proper contact form -->
+      Contáctenos para recibir una propuesta personalizada:
+    </p>
+    <a
+      href="mailto:empresas@ciclaboratorios.com?subject=Solicitud%20de%20cotizaci%C3%B3n"
+    >
+      Enviar correo electrónico
+    </a>
+    <a
+      href="https://wa.me/573001234567?text=Quiero%20informaci%C3%B3n%20sobre%20servicios%20empresariales"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Contactar por WhatsApp
+    </a>
+  </section>
+</BaseLayout>

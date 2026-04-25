@@ -1,0 +1,31 @@
+---
+/**
+ * /servicios — Services listing page.
+ *
+ * TODO (design-needed): Icon cards for each service.
+ * TODO (content-needed): Add service images/icons.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const servicios = await getCollection('servicios');
+---
+
+<BaseLayout
+  title="Nuestros Servicios"
+  description="Servicios de CIC Laboratorios: toma a domicilio, ginecología y VPH, jornadas empresariales y salud ocupacional."
+>
+  <h1>Nuestros servicios</h1>
+
+  <ul>
+    {servicios.map((servicio) => (
+      <li>
+        <a href={`/servicios/${servicio.data.slug}`}>
+          <h2>{servicio.data.nombre}</h2>
+        </a>
+        <p>{servicio.data.descripcion}</p>
+        <a href={`/servicios/${servicio.data.slug}`}>Saber más →</a>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>

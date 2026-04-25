@@ -1,0 +1,51 @@
+---
+/**
+ * ExamenLayout.astro
+ * Layout for individual examen pages. Extends BaseLayout and injects
+ * MedicalTest JSON-LD automatically from the examen data.
+ *
+ * TODO (design-needed): Add breadcrumb navigation (Exámenes > Categoría > Nombre).
+ * TODO (design-needed): Add related exams sidebar/section.
+ */
+import BaseLayout from './BaseLayout.astro';
+import { buildExamenJsonLd } from '@/lib/seo';
+
+interface ExamenData {
+  slug: string;
+  nombre: string;
+  codigoCups: string;
+  descripcionQueEs?: string;
+  descripcionParaQueSirve?: string;
+  categoria: string;
+  [key: string]: unknown;
+}
+
+interface Props {
+  examen: ExamenData;
+}
+
+const { examen } = Astro.props;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
+
+const jsonLd = buildExamenJsonLd({
+  nombre: examen.nombre,
+  descripcionQueEs: examen.descripcionQueEs,
+  descripcionParaQueSirve: examen.descripcionParaQueSirve,
+  codigoCups: examen.codigoCups,
+  slug: examen.slug,
+  siteUrl,
+});
+
+const description =
+  examen.descripcionQueEs ??
+  `Información sobre el examen ${examen.nombre}: preparación, muestra requerida y resultados en CIC Laboratorios.`;
+---
+
+<BaseLayout
+  title={examen.nombre}
+  description={description}
+  jsonLd={jsonLd}
+>
+  <slot />
+</BaseLayout>

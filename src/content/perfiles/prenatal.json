@@ -1,0 +1,7 @@
+{
+  "slug": "prenatal",
+  "nombre": "Perfil Prenatal Básico",
+  "descripcion": "Batería de exámenes recomendada durante el control prenatal para evaluar el estado de salud de la gestante y detectar condiciones que requieran seguimiento.",
+  "examenesIncluidos": ["hemograma", "tsh", "glucosa"],
+  "precio": 85000
+}

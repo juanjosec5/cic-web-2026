@@ -1,0 +1,8 @@
+{
+  "slug": "cic-diagnostica",
+  "nombre": "CIC Diagnóstica",
+  "descripcion": "Unidad de diagnóstico por imágenes asociada al grupo CIC. Complementa los servicios de laboratorio clínico con radiología, ecografía y otros estudios.",
+  "logo": "/images/aliados/cic-diagnostica-logo.png",
+  "url": null,
+  "esEstrategico": true
+}

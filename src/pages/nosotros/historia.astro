@@ -1,0 +1,42 @@
+---
+/**
+ * /nosotros/historia — Company history page.
+ *
+ * TODO (content-needed): Add real timeline with founding year, milestones, expansions.
+ * TODO (design-needed): Visual timeline component.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Nuestra Historia"
+  description="La historia de CIC Laboratorios: fundación, crecimiento y compromiso con la salud en el Valle del Cauca."
+>
+  <nav aria-label="Migas de pan">
+    <a href="/nosotros">Nosotros</a> › Historia
+  </nav>
+
+  <h1>Nuestra historia</h1>
+  <!-- TODO (content-needed): Add real founding year, key milestones, expansion to Tuluá -->
+  <p>[ Contenido de historia pendiente ]</p>
+
+  <section aria-labelledby="timeline-heading">
+    <h2 id="timeline-heading">Línea de tiempo</h2>
+    <ol>
+      <li>
+        <strong>[Año fundación]</strong> —
+        Fundación de CIC Laboratorios en Guadalajara de Buga.
+        {/* TODO (content-needed): Add real year */}
+      </li>
+      <li>
+        <strong>[Año expansión]</strong> —
+        Apertura de sede Tuluá.
+        {/* TODO (content-needed): Add real year */}
+      </li>
+      <li>
+        <strong>Actualidad</strong> —
+        Más de 700 exámenes, 2 sedes y servicio a domicilio.
+      </li>
+    </ol>
+  </section>
+</BaseLayout>

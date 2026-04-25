@@ -1,0 +1,46 @@
+---
+/**
+ * Header.astro
+ * Site-wide navigation header.
+ *
+ * TODO (design-needed): Mobile hamburger menu / responsive nav.
+ * TODO (content-needed): Add "Resultados" external subdomain URL once confirmed.
+ * TODO (design-needed): Active link highlighting, sticky header behavior.
+ */
+
+const navLinks = [
+  { label: 'Sedes', href: '/sedes' },
+  { label: 'Exámenes', href: '/examenes' },
+  { label: 'Servicios', href: '/servicios' },
+  { label: 'Empresas', href: '/empresas' },
+  { label: 'Nosotros', href: '/nosotros' },
+  {
+    label: 'Resultados',
+    href: 'https://resultados.ciclaboratorios.com',
+    external: true,
+  },
+];
+---
+
+<header>
+  <a href="/">
+    <!-- TODO (design-needed): Replace text logo with SVG/image asset -->
+    <strong>CIC Laboratorios</strong>
+  </a>
+  <nav aria-label="Navegación principal">
+    <ul>
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            {...(link.external
+              ? { target: '_blank', rel: 'noopener noreferrer' }
+              : {})}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>

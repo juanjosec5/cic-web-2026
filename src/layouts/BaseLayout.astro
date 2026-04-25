@@ -1,0 +1,55 @@
+---
+/**
+ * BaseLayout.astro
+ * Root layout used by all pages. Renders <html>, SEO head, Header,
+ * default slot, Footer, and the WhatsApp floating island.
+ *
+ * TODO (design-needed): Add skip-to-main-content accessibility link.
+ * TODO (design-needed): Add cookie consent banner.
+ * TODO (content-needed): Replace hardcoded WhatsApp phone with env var or
+ *   sede principal data from collection.
+ */
+import SEO from '@/components/SEO.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import WhatsAppFloating from '@/components/islands/WhatsAppFloating.vue';
+import '@/styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  jsonLd?: Record<string, unknown>;
+}
+
+const { title, description, canonical, ogImage, jsonLd } = Astro.props;
+
+// TODO (content-needed): Move to env var or fetch from sedes collection
+const WHATSAPP_PHONE = '573001234567';
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- TODO (design-needed): Add real favicon assets -->
+    <SEO
+      title={title}
+      description={description}
+      canonical={canonical}
+      ogImage={ogImage}
+      jsonLd={jsonLd}
+    />
+  </head>
+  <body>
+    <Header />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer />
+    <WhatsAppFloating phone={WHATSAPP_PHONE} client:load />
+  </body>
+</html>

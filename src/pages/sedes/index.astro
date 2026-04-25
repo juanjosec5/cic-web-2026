@@ -1,0 +1,38 @@
+---
+/**
+ * /sedes — Listing page for all sedes.
+ *
+ * TODO (design-needed): Grid/map layout for sede cards.
+ * TODO (content-needed): Add sede thumbnail photos once available.
+ * TODO (blocking-for-v1): Add filter by servicios disponibles.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const sedes = await getCollection('sedes');
+const sedesOrdenadas = [...sedes].sort((a, b) =>
+  a.data.esSedePrincipal ? -1 : b.data.esSedePrincipal ? 1 : 0
+);
+---
+
+<BaseLayout
+  title="Nuestras Sedes"
+  description="Encuentra la sede de CIC Laboratorios más cercana a ti. Atención en Guadalajara de Buga y Tuluá."
+>
+  <h1>Nuestras sedes</h1>
+  <p>Atendemos en {sedes.length} sedes en el Valle del Cauca.</p>
+
+  <ul>
+    {sedesOrdenadas.map((sede) => (
+      <li>
+        <a href={`/sedes/${sede.data.slug}`}>
+          <h2>{sede.data.nombre}</h2>
+        </a>
+        <p>{sede.data.ciudad} — {sede.data.direccion}</p>
+        <p>Tel: {sede.data.telefono}</p>
+        {sede.data.esSedePrincipal && <span>Sede principal</span>}
+        <a href={`/sedes/${sede.data.slug}`}>Ver detalles →</a>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>

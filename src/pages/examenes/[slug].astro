@@ -1,0 +1,89 @@
+---
+/**
+ * /examenes/[slug] — Individual examen page.
+ *
+ * TODO (design-needed): Full page layout with sidebar for related exams/perfiles.
+ * TODO (design-needed): Add structured preparation checklist component.
+ * TODO (content-needed): Link sedesDisponibles to real sede pages.
+ * TODO (content-needed): Add precio once pricing data is available.
+ * TODO (blocking-for-v1): Cross-link to perfiles that include this examen.
+ */
+import { getCollection } from 'astro:content';
+import ExamenLayout from '@/layouts/ExamenLayout.astro';
+
+export async function getStaticPaths() {
+  const examenes = await getCollection('examenes', ({ data }) => data.activo);
+  return examenes.map((examen) => ({
+    params: { slug: examen.data.slug },
+    props: { examen: examen.data },
+  }));
+}
+
+const { examen } = Astro.props;
+---
+
+<ExamenLayout examen={examen}>
+  <article>
+    <header>
+      <h1>{examen.nombre}</h1>
+      <p>Código CUPS: {examen.codigoCups}</p>
+      <p>Categoría: {examen.categoria}</p>
+    </header>
+
+    {examen.descripcionQueEs && (
+      <section aria-labelledby="que-es-heading">
+        <h2 id="que-es-heading">¿Qué es?</h2>
+        <p>{examen.descripcionQueEs}</p>
+      </section>
+    )}
+
+    {examen.descripcionParaQueSirve && (
+      <section aria-labelledby="para-que-heading">
+        <h2 id="para-que-heading">¿Para qué sirve?</h2>
+        <p>{examen.descripcionParaQueSirve}</p>
+      </section>
+    )}
+
+    <section aria-labelledby="preparacion-heading">
+      <h2 id="preparacion-heading">Preparación</h2>
+      {examen.requiereAyuno && (
+        <p><strong>Requiere ayuno.</strong></p>
+      )}
+      {examen.muestra && (
+        <p>Muestra: {examen.muestra}</p>
+      )}
+      {examen.preparacion
+        ? <p>{examen.preparacion}</p>
+        : <p>Consulta con el personal de la sede para instrucciones específicas.</p>
+      }
+    </section>
+
+    {examen.oportunidadResultados && (
+      <section aria-labelledby="resultados-heading">
+        <h2 id="resultados-heading">Oportunidad de resultados</h2>
+        <p>{examen.oportunidadResultados}</p>
+      </section>
+    )}
+
+    {examen.sedesDisponibles.length > 0 && (
+      <section aria-labelledby="sedes-heading">
+        <h2 id="sedes-heading">Disponible en</h2>
+        <ul>
+          {examen.sedesDisponibles.map((slug: string) => (
+            <li>
+              <a href={`/sedes/${slug}`}>{slug}</a>
+              {/* TODO (content-needed): Show sede nombre instead of slug */}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    {examen.nombresAlternativos.length > 0 && (
+      <section aria-labelledby="nombres-heading">
+        <h2 id="nombres-heading">También conocido como</h2>
+        <p>{examen.nombresAlternativos.join(', ')}</p>
+      </section>
+    )}
+  </article>
+</ExamenLayout>

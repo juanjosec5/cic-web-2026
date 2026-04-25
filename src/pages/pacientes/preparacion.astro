@@ -1,0 +1,56 @@
+---
+/**
+ * /pacientes/preparacion — Exam preparation instructions page.
+ *
+ * TODO (content-needed): Add preparation instructions for most common exams.
+ * TODO (design-needed): Accordion or searchable FAQ component.
+ * TODO (blocking-for-v1): This page should eventually be dynamic, pulling
+ *   preparacion field from each examen in the collection.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const examenesConPreparacion = await getCollection(
+  'examenes',
+  ({ data }) => data.activo && !!data.preparacion
+);
+---
+
+<BaseLayout
+  title="Preparación para Exámenes"
+  description="Instrucciones de preparación para los exámenes de laboratorio de CIC Laboratorios: ayunos, medicamentos, muestras especiales."
+>
+  <h1>Preparación para exámenes</h1>
+  <p>
+    Seguir correctamente las instrucciones de preparación garantiza la
+    confiabilidad de sus resultados. Ante cualquier duda, consulte con el
+    personal de nuestra sede.
+  </p>
+
+  <section aria-labelledby="general-heading">
+    <h2 id="general-heading">Recomendaciones generales</h2>
+    <ul>
+      <li>Si el examen requiere ayuno, ayune mínimo 8 horas (puede tomar agua).</li>
+      <li>Informe al momento de la toma sobre medicamentos que esté tomando.</li>
+      <!-- TODO (content-needed): Add more general instructions -->
+    </ul>
+  </section>
+
+  <section aria-labelledby="examenes-prep-heading">
+    <h2 id="examenes-prep-heading">Instrucciones por examen</h2>
+    {examenesConPreparacion.length > 0 ? (
+      <dl>
+        {examenesConPreparacion.map((ex) => (
+          <>
+            <dt>
+              <a href={`/examenes/${ex.data.slug}`}>{ex.data.nombre}</a>
+            </dt>
+            <dd>{ex.data.preparacion}</dd>
+          </>
+        ))}
+      </dl>
+    ) : (
+      <p>[ Instrucciones detalladas por examen — pendiente carga de contenido ]</p>
+    )}
+  </section>
+</BaseLayout>

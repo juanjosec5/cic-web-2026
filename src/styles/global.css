@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+/* TODO (design-needed): Define CIC brand tokens here once design system is agreed:
+   - Primary color (CIC red/brand color)
+   - Secondary accent
+   - Font families (e.g. Inter for body, custom for headings)
+   - Spacing scale overrides if needed
+*/
+
+/* Minimal base: ensure images don't overflow their containers */
+img {
+  max-width: 100%;
+  height: auto;
+}

@@ -1,0 +1,7 @@
+{
+  "slug": "domicilio",
+  "nombre": "Toma de Muestras a Domicilio",
+  "descripcion": "Nuestro personal de enfermería se desplaza hasta tu hogar o lugar de trabajo para la toma de muestras, sin necesidad de desplazarte a la sede.",
+  "sedesDisponibles": ["buga-centro", "tulua-principal"],
+  "ctaTipo": "whatsapp"
+}

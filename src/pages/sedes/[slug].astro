@@ -1,0 +1,93 @@
+---
+/**
+ * /sedes/[slug] — Individual sede page.
+ *
+ * TODO (design-needed): Full page layout: hero photo, info card, map, hours table.
+ * TODO (blocking-for-v1.1): Replace LocationMap stub with real map.
+ * TODO (content-needed): Add exams available at this sede (query examenes collection
+ *   where sedesDisponibles includes this sede's slug).
+ * TODO (content-needed): Add gallery from sede.fotos array.
+ */
+import { getCollection } from 'astro:content';
+import SedeLayout from '@/layouts/SedeLayout.astro';
+import LocationMap from '@/components/islands/LocationMap.vue';
+
+export async function getStaticPaths() {
+  const sedes = await getCollection('sedes');
+  return sedes.map((sede) => ({
+    params: { slug: sede.data.slug },
+    props: { sede: sede.data },
+  }));
+}
+
+const { sede } = Astro.props;
+---
+
+<SedeLayout sede={sede}>
+  <h1>{sede.nombre}</h1>
+  <p>{sede.ciudad}</p>
+
+  <section aria-labelledby="info-heading">
+    <h2 id="info-heading">Información de contacto</h2>
+    <address>
+      <p>{sede.direccion}</p>
+      <p>Teléfono: <a href={`tel:${sede.telefono}`}>{sede.telefono}</a></p>
+      <p>
+        WhatsApp:
+        <a
+          href={`https://wa.me/${sede.whatsapp}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {sede.whatsapp}
+        </a>
+      </p>
+      {sede.email && (
+        <p>
+          Email: <a href={`mailto:${sede.email}`}>{sede.email}</a>
+        </p>
+      )}
+    </address>
+  </section>
+
+  <section aria-labelledby="horario-heading">
+    <h2 id="horario-heading">Horario de atención</h2>
+    <table>
+      <tbody>
+        {Object.entries(sede.horario).map(([dia, horas]) => (
+          <tr>
+            <th scope="row" style="text-transform: capitalize">{dia}</th>
+            <td>{horas ?? '—'}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </section>
+
+  {sede.domicilioGratisDesde !== undefined && (
+    <p>
+      Servicio a domicilio gratuito en pedidos desde $
+      {sede.domicilioGratisDesde.toLocaleString('es-CO')}.
+    </p>
+  )}
+
+  <section aria-labelledby="mapa-heading">
+    <h2 id="mapa-heading">Cómo llegar</h2>
+    <LocationMap
+      lat={sede.lat}
+      lng={sede.lng}
+      nombre={sede.nombre}
+      client:visible
+    />
+  </section>
+
+  <section aria-labelledby="servicios-sede-heading">
+    <h2 id="servicios-sede-heading">Servicios disponibles en esta sede</h2>
+    <ul>
+      {sede.servicios.map((s: string) => (
+        <li>{s}</li>
+      ))}
+    </ul>
+    <!-- TODO (content-needed): Replace raw slugs with human-readable labels -->
+  </section>
+</SedeLayout>

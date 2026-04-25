@@ -1,0 +1,26 @@
+---
+/**
+ * 404.astro — Custom 404 not-found page.
+ *
+ * TODO (design-needed): Add branded illustration/graphic.
+ * TODO (content-needed): Add helpful links relevant to common user journeys.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Página no encontrada"
+  description="La página que buscas no existe. Vuelve al inicio o busca un examen."
+>
+  <h1>404 — Página no encontrada</h1>
+  <p>Lo sentimos, no pudimos encontrar la página que buscas.</p>
+
+  <nav aria-label="Sugerencias de navegación">
+    <ul>
+      <li><a href="/">Ir al inicio</a></li>
+      <li><a href="/examenes">Ver catálogo de exámenes</a></li>
+      <li><a href="/sedes">Encontrar una sede</a></li>
+      <li><a href="/contacto">Contactarnos</a></li>
+    </ul>
+  </nav>
+</BaseLayout>

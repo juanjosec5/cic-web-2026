@@ -1,0 +1,64 @@
+---
+/**
+ * /examenes/categoria/[slug] — Exámenes filtered by category.
+ *
+ * TODO (design-needed): Add category hero/description section.
+ * TODO (content-needed): Add human-readable category descriptions.
+ * TODO (blocking-for-v1): Add pagination for categories with many exams.
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const CATEGORIA_LABELS: Record<string, string> = {
+  quimica: 'Química Sanguínea',
+  microbiologia: 'Microbiología',
+  hematologia: 'Hematología',
+  inmunologia: 'Inmunología',
+  genetica: 'Genética',
+  hormonas: 'Hormonas',
+  orina: 'Orina y Líquidos',
+  parasitologia: 'Parasitología',
+  otros: 'Otros',
+};
+
+export async function getStaticPaths() {
+  const examenes = await getCollection('examenes', ({ data }) => data.activo);
+
+  // Collect unique categorias
+  const categorias = [...new Set(examenes.map((e) => e.data.categoria))];
+
+  return categorias.map((categoria) => ({
+    params: { slug: categoria },
+    props: {
+      categoria,
+      examenes: examenes
+        .filter((e) => e.data.categoria === categoria)
+        .map((e) => e.data),
+    },
+  }));
+}
+
+const { categoria, examenes } = Astro.props;
+const label = CATEGORIA_LABELS[categoria] ?? categoria;
+---
+
+<BaseLayout
+  title={`Exámenes de ${label}`}
+  description={`Exámenes de ${label} disponibles en CIC Laboratorios. Resultados el mismo día.`}
+>
+  <nav aria-label="Migas de pan">
+    <a href="/examenes">Exámenes</a> › {label}
+  </nav>
+
+  <h1>Exámenes de {label}</h1>
+  <p>{examenes.length} examen(es) en esta categoría.</p>
+
+  <ul>
+    {examenes.map((ex) => (
+      <li>
+        <a href={`/examenes/${ex.slug}`}>{ex.nombre}</a>
+        {ex.requiereAyuno && <em> (requiere ayuno)</em>}
+      </li>
+    ))}
+  </ul>
+</BaseLayout>

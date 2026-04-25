@@ -1,0 +1,20 @@
+{
+  "id": "hemograma-001",
+  "mongoId": "64a1b2c3d4e5f6a7b8c9d0e3",
+  "nombre": "Hemograma Completo",
+  "codigoCups": "903381",
+  "slug": "hemograma",
+  "categoria": "hematologia",
+  "nombresAlternativos": ["CBC", "BHC", "Cuadro hemático", "Complete blood count"],
+  "muestra": "Sangre total con EDTA",
+  "requiereAyuno": false,
+  "preparacion": "No requiere preparación especial.",
+  "oportunidadResultados": "Mismo día",
+  "descripcionQueEs": "Análisis cuantitativo y cualitativo de los componentes de la sangre.",
+  "descripcionParaQueSirve": "Evaluación general del estado de salud, diagnóstico de anemia, infecciones, trastornos hematológicos.",
+  "sedesDisponibles": ["buga-centro", "tulua-principal"],
+  "examenesRelacionados": ["reticulocitos", "coagulacion"],
+  "perfiles": ["prenatal"],
+  "imagen": null,
+  "activo": true
+}

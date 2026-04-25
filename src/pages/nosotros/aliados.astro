@@ -1,0 +1,47 @@
+---
+/**
+ * /nosotros/aliados — Strategic partners and convenios page.
+ *
+ * TODO (content-needed): Add full list of EPS/ARL/insurance convenios.
+ * TODO (content-needed): Add aliado logos once available.
+ * TODO (design-needed): Logo grid layout for aliados.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const aliados = await getCollection('aliados');
+---
+
+<BaseLayout
+  title="Aliados y Convenios"
+  description="Conoce los aliados estratégicos y convenios de CIC Laboratorios con EPS, ARL, clínicas y laboratorios de la región."
+>
+  <nav aria-label="Migas de pan">
+    <a href="/nosotros">Nosotros</a> › Aliados
+  </nav>
+
+  <h1>Aliados y convenios</h1>
+
+  <section aria-labelledby="aliados-heading">
+    <h2 id="aliados-heading">Aliados estratégicos</h2>
+    <ul>
+      {aliados.map((aliado) => (
+        <li>
+          <strong>{aliado.data.nombre}</strong>
+          <p>{aliado.data.descripcion}</p>
+          {aliado.data.url && (
+            <a href={aliado.data.url} target="_blank" rel="noopener noreferrer">
+              Visitar sitio web
+            </a>
+          )}
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section aria-labelledby="convenios-heading">
+    <h2 id="convenios-heading">Convenios activos</h2>
+    <!-- TODO (content-needed): Add full list of EPS, ARL, pre-pagas with which CIC has agreements -->
+    <p>[ Lista de convenios pendiente ]</p>
+  </section>
+</BaseLayout>

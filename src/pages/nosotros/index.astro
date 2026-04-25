@@ -1,0 +1,31 @@
+---
+/**
+ * /nosotros — About us overview page.
+ *
+ * TODO (design-needed): Add photo of team/facility.
+ * TODO (content-needed): Add mission, vision, values text.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Nosotros"
+  description="Conoce la historia, el equipo y los valores de CIC Laboratorios, referente en diagnóstico clínico en el Valle del Cauca."
+>
+  <h1>Nosotros</h1>
+  <p>
+    <!-- TODO (content-needed): Add mission/vision/values copy -->
+    CIC Laboratorios es un laboratorio clínico con más de [X] años de
+    experiencia al servicio de la salud en el Valle del Cauca.
+  </p>
+
+  <nav aria-label="Secciones de Nosotros">
+    <ul>
+      <li><a href="/nosotros/historia">Historia</a></li>
+      <li><a href="/nosotros/equipo">Equipo</a></li>
+      <li><a href="/nosotros/tecnologia">Tecnología</a></li>
+      <li><a href="/nosotros/calidad">Calidad</a></li>
+      <li><a href="/nosotros/aliados">Aliados</a></li>
+    </ul>
+  </nav>
+</BaseLayout>
