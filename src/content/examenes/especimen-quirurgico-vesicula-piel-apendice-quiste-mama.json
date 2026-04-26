@@ -1,0 +1,17 @@
+{
+  "id": "898201",
+  "mongoId": "635afd054d2fd1d313dd4c05",
+  "nombre": "ESPECIMEN QUIRURGICO VESICULA\r\n- PIEL - APENDICE - QUISTE  - MAMA",
+  "codigoCups": "898201",
+  "slug": "especimen-quirurgico-vesicula-piel-apendice-quiste-mama",
+  "categoria": "otros",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "10 días hábiles a partir de la fecha de envío a la red de apoyo.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

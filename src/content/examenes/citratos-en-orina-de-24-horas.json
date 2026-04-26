@@ -1,0 +1,17 @@
+{
+  "id": "903052",
+  "mongoId": "635afd054d2fd1d313dd4bb1",
+  "nombre": "CITRATOS EN ORINA DE 24 HORAS",
+  "codigoCups": "903052",
+  "slug": "citratos-en-orina-de-24-horas",
+  "categoria": "orina",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud. Refrigerar después de la recolección.",
+  "oportunidadResultados": "5 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

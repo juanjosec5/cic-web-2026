@@ -1,0 +1,17 @@
+{
+  "id": "907104",
+  "mongoId": "635afd054d2fd1d313dd4cff",
+  "nombre": "RECUENTO DE ADDIS",
+  "codigoCups": "907104",
+  "slug": "recuento-de-addis",
+  "categoria": "parasitologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Orina recolección de 12 horas. Refrigerar la muestra durante la recolección.",
+  "oportunidadResultados": "3 días a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

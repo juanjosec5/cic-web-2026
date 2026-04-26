@@ -1,0 +1,17 @@
+{
+  "id": "906243",
+  "mongoId": "635afd054d2fd1d313dd4d0f",
+  "nombre": "Rubeola ANTICUERPOS Ig M AUTOMATIZADO",
+  "codigoCups": "906243",
+  "slug": "rubeola-anticuerpos-ig-m-automatizado",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

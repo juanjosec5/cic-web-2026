@@ -1,0 +1,17 @@
+{
+  "id": "903043",
+  "mongoId": "635afd054d2fd1d313dd4c47",
+  "nombre": "PRUEBA DE ALIENTO [13 C UREA] PARA Helicobacter pilory",
+  "codigoCups": "903043",
+  "slug": "prueba-de-aliento-13-c-urea-para-helicobacter-pilory",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "Se debe programar cita con el laboratorio previamente, enviar correo a logistica@ciclaboratorios.com para asistir al examen.",
+  "oportunidadResultados": "4 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

@@ -1,0 +1,17 @@
+{
+  "id": "906830",
+  "mongoId": "635afd054d2fd1d313dd4c94",
+  "nombre": "INMUNOGLOBULINA G [Ig G] SUBCLASES 1 2 3 4 SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906830",
+  "slug": "inmunoglobulina-g-ig-g-subclases-1-2-3-4-semiautomatizado-o-automatizado",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "7 días hábiles a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

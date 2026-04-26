@@ -1,0 +1,17 @@
+{
+  "id": "903846",
+  "mongoId": "635afd054d2fd1d313dd4c6e",
+  "nombre": "HIERRO TOTAL",
+  "codigoCups": "903846",
+  "slug": "hierro-total",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

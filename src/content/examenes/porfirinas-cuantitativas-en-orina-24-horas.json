@@ -1,0 +1,17 @@
+{
+  "id": "903038",
+  "mongoId": "635afd054d2fd1d313dd4cda",
+  "nombre": "PORFIRINAS CUANTITATIVAS EN ORINA 24 HORAS",
+  "codigoCups": "903038",
+  "slug": "porfirinas-cuantitativas-en-orina-24-horas",
+  "categoria": "orina",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud. Refrigerar durante y después de la recolección.",
+  "oportunidadResultados": "17 días a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

@@ -1,0 +1,17 @@
+{
+  "id": "904811",
+  "mongoId": "635afd054d2fd1d313dd4c6c",
+  "nombre": "HIDROXICORTICOSTEROIDES 17",
+  "codigoCups": "904811",
+  "slug": "hidroxicorticosteroides-17",
+  "categoria": "microbiologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud. Refrigerar después de la recolección.",
+  "oportunidadResultados": "10 días hábiles a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

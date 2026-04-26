@@ -1,0 +1,17 @@
+{
+  "id": "905726",
+  "mongoId": "635afd054d2fd1d313dd4bb8",
+  "nombre": "COCAINA O METABOLITOS AUTOMATIZADO",
+  "codigoCups": "905726",
+  "slug": "cocaina-o-metabolitos-automatizado",
+  "categoria": "inmunologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "Datos clínicos.\n*Modalidad atención directa: La muestra debe ser recolectada por el paciente directamente en la sede.",
+  "oportunidadResultados": "72 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

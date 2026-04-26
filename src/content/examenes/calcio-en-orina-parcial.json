@@ -1,0 +1,17 @@
+{
+  "id": "903873",
+  "mongoId": "635afd054d2fd1d313dd4b8e",
+  "nombre": "CALCIO EN ORINA PARCIAL",
+  "codigoCups": "903873",
+  "slug": "calcio-en-orina-parcial",
+  "categoria": "orina",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": " No tener relaciones sexuales el día anterior a la toma de muestra, no estar menstruando, realizar aseo genital completo antes de recolectar la muestra. Recolectar muestra a partir de la segunda parte de la micción.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

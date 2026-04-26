@@ -1,0 +1,17 @@
+{
+  "id": "908802",
+  "mongoId": "635afd054d2fd1d313dd4c34",
+  "nombre": "Virus de Inmunodeficiencia Humana GENOTIPO (Integrasa)",
+  "codigoCups": "908802",
+  "slug": "virus-de-inmunodeficiencia-humana-genotipo-integrasa",
+  "categoria": "genetica",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "Registrar resultado de la ultima carga viral con fecha.",
+  "oportunidadResultados": "17 días hábiles a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

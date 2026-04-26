@@ -1,0 +1,17 @@
+{
+  "id": "902113",
+  "mongoId": "635afd054d2fd1d313dd4c50",
+  "nombre": "HEMOGLOBINA PLASMATICA (LIBRE)",
+  "codigoCups": "902113",
+  "slug": "hemoglobina-plasmatica-libre",
+  "categoria": "hematologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "7 días hábiles a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

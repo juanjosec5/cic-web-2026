@@ -1,0 +1,17 @@
+{
+  "id": "903039",
+  "mongoId": "6495e8f19aa3821fed6088c7",
+  "nombre": "PORFIRINAS TOTALES EN SANGRE",
+  "codigoCups": "903039",
+  "slug": "porfirinas-totales-en-sangre",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud",
+  "oportunidadResultados": "18 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

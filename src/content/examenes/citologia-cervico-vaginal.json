@@ -1,0 +1,17 @@
+{
+  "id": "898001",
+  "mongoId": "635afd054d2fd1d313dd4ba7",
+  "nombre": "CITOLOGIA CERVICO VAGINAL",
+  "codigoCups": "898001",
+  "slug": "citologia-cervico-vaginal",
+  "categoria": "otros",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "El paciente debe tener abstinencia sexual de 3 días, No debe estar menstruando, no aplicarse duchas vaginales, no haberse realizado ecografía transvaginales, no uso de ovulos, no uso de cremas vaginales, no procedimientos quirurgicos vaginales recientes, Para realizar la citología cérvico uterina es recomendable que la última muestra haya sido tomada hace más de 1 mes. Embarazadas deben tener orden médica y la muestra se debe tomar después de la semana 12, virgenes o menores de edad deben tener orden médica y diligenciar el consentimiento.",
+  "oportunidadResultados": "6 días hábiles a partir del día de procesamiento + 8 días hábiles si requiere lectura por patologia.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

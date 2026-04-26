@@ -1,0 +1,17 @@
+{
+  "id": "903841",
+  "mongoId": "635afd054d2fd1d313dd4c3c",
+  "nombre": "GLUCOSA EN SUERO ",
+  "codigoCups": "903841",
+  "slug": "glucosa-en-suero",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": true,
+  "preparacion": "Ayuno de 10 -12 horas. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

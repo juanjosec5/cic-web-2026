@@ -1,0 +1,17 @@
+{
+  "id": "903013",
+  "mongoId": "635afd054d2fd1d313dd4c06",
+  "nombre": "ESPERMOGRAMA COMPLETO",
+  "codigoCups": "903013",
+  "slug": "espermograma-completo",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "Guardar abstinencia sexual de minimo 3 días y máximo 5 días.\nEvitar actividades que provoquen la eyaculación (montar bicicleta y otras) tres días antes de realizar el estudio.\nNo ingerir bebidas alcohólicas en las ultimas 48 horas. \nRealizar aseo genital y desocupar la vejiga antes de la toma de muestra.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

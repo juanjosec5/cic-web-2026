@@ -1,0 +1,17 @@
+{
+  "id": "907006",
+  "mongoId": "635afd054d2fd1d313dd4c43",
+  "nombre": "GRASAS NEUTRAS EN HECES [SUDÁN III]",
+  "codigoCups": "907006",
+  "slug": "grasas-neutras-en-heces-sudan-iii",
+  "categoria": "parasitologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "no haber utilizado ningun medicamento o producto via rectal o anal",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

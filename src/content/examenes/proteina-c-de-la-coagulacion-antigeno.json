@@ -1,0 +1,17 @@
+{
+  "id": "902034",
+  "mongoId": "635afd054d2fd1d313dd4ce8",
+  "nombre": "PROTEINA C DE LA COAGULACION ANTIGENO",
+  "codigoCups": "902034",
+  "slug": "proteina-c-de-la-coagulacion-antigeno",
+  "categoria": "inmunologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "En ayunas.\nInformar si el paciente está en tratamiento con Coumadin, este medicamento reduce la proteína C.",
+  "oportunidadResultados": "12 días a partir del envio a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

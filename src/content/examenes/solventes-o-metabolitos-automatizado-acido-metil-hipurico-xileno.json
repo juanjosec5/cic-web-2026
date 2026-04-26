@@ -1,0 +1,17 @@
+{
+  "id": "905758",
+  "mongoId": "635afd054d2fd1d313dd4d58",
+  "nombre": "SOLVENTES O METABOLITOS AUTOMATIZADO Ácido Metil Hipúrico (Xileno) ",
+  "codigoCups": "905758",
+  "slug": "solventes-o-metabolitos-automatizado-acido-metil-hipurico-xileno",
+  "categoria": "inmunologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "El paciente debe suspender la ingesta de Anti-Inflamatorios tipo AINEs (ASA, Ibuprofeno, Advil, Motrí), 5 días antes de la toma de muestra.",
+  "oportunidadResultados": "1  2 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

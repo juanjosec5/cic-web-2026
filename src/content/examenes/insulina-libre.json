@@ -1,0 +1,17 @@
+{
+  "id": "904705",
+  "mongoId": "635afd054d2fd1d313dd4c9b",
+  "nombre": "INSULINA LIBRE",
+  "codigoCups": "904705",
+  "slug": "insulina-libre",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "En ayunas. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "9 días hábiles a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

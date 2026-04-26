@@ -1,0 +1,17 @@
+{
+  "id": "7275",
+  "mongoId": "635afd054d2fd1d313dd4d59",
+  "nombre": "PROTEINA 14-3-3 EN FLUIDO ESPINAL (ENFERMEDAD CREUTZFELDT)",
+  "codigoCups": "7275",
+  "slug": "proteina-14-3-3-en-fluido-espinal-enfermedad-creutzfeldt",
+  "categoria": "otros",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "Adjuntar resumen de la historia clínica - Formato para Creutzfeldt Jakob 14-3-3, Antígeno.",
+  "oportunidadResultados": "34 días hábiles a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

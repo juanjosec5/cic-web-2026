@@ -1,0 +1,17 @@
+{
+  "id": "903432",
+  "mongoId": "635afd054d2fd1d313dd4cc4",
+  "nombre": "NUCLEOTIDASA-5",
+  "codigoCups": "903432",
+  "slug": "nucleotidasa-5",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "En ayunas. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "12 días hábiles a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

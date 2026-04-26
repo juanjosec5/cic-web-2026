@@ -1,0 +1,17 @@
+{
+  "id": "904708",
+  "mongoId": "635afd054d2fd1d313dd4d7c",
+  "nombre": "SOMATOSTATINA",
+  "codigoCups": "904708",
+  "slug": "somatostatina",
+  "categoria": "microbiologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "En ayunas. Relacionar datos clínicos del paciente.",
+  "oportunidadResultados": "22 días a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

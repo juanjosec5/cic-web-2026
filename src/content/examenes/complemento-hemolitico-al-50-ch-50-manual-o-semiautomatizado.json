@@ -1,0 +1,17 @@
+{
+  "id": "906904",
+  "mongoId": "635afd054d2fd1d313dd4bc5",
+  "nombre": "COMPLEMENTO HEMOLITICO AL 50% [CH 50] MANUAL O SEMIAUTOMATIZADO",
+  "codigoCups": "906904",
+  "slug": "complemento-hemolitico-al-50-ch-50-manual-o-semiautomatizado",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "5 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

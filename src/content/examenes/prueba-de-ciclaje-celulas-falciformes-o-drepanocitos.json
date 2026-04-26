@@ -1,0 +1,17 @@
+{
+  "id": "902121",
+  "mongoId": "635afd054d2fd1d313dd4cf7",
+  "nombre": "PRUEBA DE CICLAJE [CELULAS FALCIFORMES O DREPANOCITOS]",
+  "codigoCups": "902121",
+  "slug": "prueba-de-ciclaje-celulas-falciformes-o-drepanocitos",
+  "categoria": "hematologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

@@ -1,0 +1,17 @@
+{
+  "id": "903425",
+  "mongoId": "635afd054d2fd1d313dd4c31",
+  "nombre": "FRUCTOSAMINA",
+  "codigoCups": "903425",
+  "slug": "fructosamina",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "En ayunas. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "7 días hábiles a partir del día del envio a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

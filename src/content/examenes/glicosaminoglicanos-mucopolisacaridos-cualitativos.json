@@ -1,0 +1,17 @@
+{
+  "id": "908328",
+  "mongoId": "635afd054d2fd1d313dd4d67",
+  "nombre": "GLICOSAMINOGLICANOS [MUCOPOLISACARIDOS] CUALITATIVOS",
+  "codigoCups": "908328",
+  "slug": "glicosaminoglicanos-mucopolisacaridos-cualitativos",
+  "categoria": "orina",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "Para niños pequeños, recolectar las muestras con bolsa de recolección, una vez obtenida la muestra, pasarla a un frasco de orina y marcar con fecha y hora. Para estos pacientes se puede recolectar mínimo dos muestras en la mañana y dos en la tarde.\r\nNo aumentar la ingesta de líquidos durante el día de recolección de la muestra\r\nGuardar las muestras en congelación y entregar al día siguiente a primera hora en el laboratorio.",
+  "oportunidadResultados": "30 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

@@ -1,0 +1,17 @@
+{
+  "id": "903008",
+  "mongoId": "635afd054d2fd1d313dd4b9c",
+  "nombre": "CATECOLAMINAS FRACCIONADAS O  DIFERENCIADAS EN PLASMA",
+  "codigoCups": "903008",
+  "slug": "catecolaminas-fraccionadas-o-diferenciadas-en-plasma",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": true,
+  "preparacion": "Paciente en ayuno. Abstenerse de fumar, tomar café o té 4 horas antes de la toma de la muestra. Suspender uso de medicamentos y sustancias que interfieran con la prueba, como Alfa-metildopa, Mandelato de Metenamida, Isoprotenol y Labetol.",
+  "oportunidadResultados": "10 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

@@ -1,0 +1,17 @@
+{
+  "id": "906837",
+  "mongoId": "635afd054d2fd1d313dd4c98",
+  "nombre": "INMUNOGLOBULINAS CADENAS LIVIANAS KAPPA Y LAMBDA SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906837",
+  "slug": "inmunoglobulinas-cadenas-livianas-kappa-y-lambda-semiautomatizado-o-automatizado",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "7 días a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

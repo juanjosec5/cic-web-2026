@@ -1,0 +1,17 @@
+{
+  "id": "906625",
+  "mongoId": "635afd054d2fd1d313dd4c42",
+  "nombre": "GONADOTROPINA CORIÓNICA SUBUNIDAD BETA AUTOMATIZADO",
+  "codigoCups": "906625",
+  "slug": "gonadotropina-corionica-subunidad-beta-automatizado",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud (fecha de ultima menstruación).",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

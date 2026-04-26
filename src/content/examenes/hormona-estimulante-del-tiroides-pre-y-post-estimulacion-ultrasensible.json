@@ -1,0 +1,17 @@
+{
+  "id": "904906",
+  "mongoId": "635afd054d2fd1d313dd4c83",
+  "nombre": "HORMONA ESTIMULANTE DEL TIROIDES PRE Y POST ESTIMULACION ULTRASENSIBLE",
+  "codigoCups": "904906",
+  "slug": "hormona-estimulante-del-tiroides-pre-y-post-estimulacion-ultrasensible",
+  "categoria": "microbiologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": true,
+  "preparacion": "Paciente debe estar en ayuno,el médico indicará el estímulo en la dosis adecuada para el paciente. Posteriormente se tomaran las muestras post de acuerdo a lo indicado por la orden. Laboratorio No incluye medicamento. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

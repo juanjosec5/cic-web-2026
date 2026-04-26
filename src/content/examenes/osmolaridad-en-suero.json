@@ -1,0 +1,17 @@
+{
+  "id": "903034",
+  "mongoId": "635afd054d2fd1d313dd4cca",
+  "nombre": "OSMOLARIDAD EN SUERO",
+  "codigoCups": "903034",
+  "slug": "osmolaridad-en-suero",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "7 días a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

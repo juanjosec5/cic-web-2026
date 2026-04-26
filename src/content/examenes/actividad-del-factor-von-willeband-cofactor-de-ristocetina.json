@@ -1,0 +1,17 @@
+{
+  "id": "902072",
+  "mongoId": "635afd054d2fd1d313dd4bb9",
+  "nombre": "ACTIVIDAD DEL FACTOR VON WILLEBAND (COFACTOR DE RISTOCETINA)",
+  "codigoCups": "902072",
+  "slug": "actividad-del-factor-von-willeband-cofactor-de-ristocetina",
+  "categoria": "hematologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": true,
+  "preparacion": "En ayuno, tomar la muestra el día 10 posteriores al día de inicio de la última menstruación. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "9 días hábiles a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

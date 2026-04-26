@@ -1,0 +1,17 @@
+{
+  "id": "908338",
+  "mongoId": "635afd054d2fd1d313dd4b55",
+  "nombre": "AMINOACIDOS CUANTITATIVOS EN LCR (INCLUYE GLICINA)",
+  "codigoCups": "908338",
+  "slug": "aminoacidos-cuantitativos-en-lcr-incluye-glicina",
+  "categoria": "orina",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "Adjuntar resumen de la historia clínica. Anexar formato de errores Metabólicos.Informar modificación nutricional del paciente como restriccion proteica o dieta hiperproteica.",
+  "oportunidadResultados": "15 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

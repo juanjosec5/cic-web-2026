@@ -1,0 +1,17 @@
+{
+  "id": "904105",
+  "mongoId": "635afd054d2fd1d313dd4c84",
+  "nombre": "HORMONA FOLÍCULO ESTIMULANTE - FSH",
+  "codigoCups": "904105",
+  "slug": "hormona-foliculo-estimulante-fsh",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

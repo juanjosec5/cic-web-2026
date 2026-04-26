@@ -1,0 +1,17 @@
+{
+  "id": "903434",
+  "mongoId": "635afd054d2fd1d313dd4d1a",
+  "nombre": "SEROTONINA-5 HIDROXI-TRIPTAMINA",
+  "codigoCups": "903434",
+  "slug": "serotonina-5-hidroxi-triptamina",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "Pacientes deben evitar los alimentos altos en indoles: aguacate, banana, tomate, ciruela, nuez, piña, y berenjena. Paciente también deben evitar el tabaco, el té y el café tres días antes de la toma de muestra.",
+  "oportunidadResultados": "10 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

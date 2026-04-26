@@ -1,0 +1,17 @@
+{
+  "id": "906841",
+  "mongoId": "635afd054d2fd1d313dd4ce2",
+  "nombre": "PROCALCITONINA SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906841",
+  "slug": "procalcitonina-semiautomatizado-o-automatizado",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "En ayunas. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "3 días a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

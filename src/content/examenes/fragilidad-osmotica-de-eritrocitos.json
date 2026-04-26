@@ -1,0 +1,17 @@
+{
+  "id": "902107",
+  "mongoId": "635afd054d2fd1d313dd4c2d",
+  "nombre": "FRAGILIDAD OSMOTICA DE  ERITROCITOS",
+  "codigoCups": "902107",
+  "slug": "fragilidad-osmotica-de-eritrocitos",
+  "categoria": "hematologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "3 Días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

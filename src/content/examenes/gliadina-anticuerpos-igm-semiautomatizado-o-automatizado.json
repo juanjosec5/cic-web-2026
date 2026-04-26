@@ -1,0 +1,17 @@
+{
+  "id": "906476",
+  "mongoId": "635afd054d2fd1d313dd4b67",
+  "nombre": "GLIADINA ANTICUERPOS  IgM SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906476",
+  "slug": "gliadina-anticuerpos-igm-semiautomatizado-o-automatizado",
+  "categoria": "inmunologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "El paciente debe estar consumiendo una dieta que contenga gluten. Si la dieta no contiene gliadina, no se podrá medir la reacción a este anticuerpo.",
+  "oportunidadResultados": "15 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

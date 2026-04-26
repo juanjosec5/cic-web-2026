@@ -1,0 +1,17 @@
+{
+  "id": "902016",
+  "mongoId": "635afd054d2fd1d313dd4c14",
+  "nombre": "FACTOR V DE LA COAGULACION [LABIL O PROACELERINA]",
+  "codigoCups": "902016",
+  "slug": "factor-v-de-la-coagulacion-labil-o-proacelerina",
+  "categoria": "hematologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "En ayunas. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "4 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

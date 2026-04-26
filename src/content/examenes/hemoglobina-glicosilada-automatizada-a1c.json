@@ -1,0 +1,17 @@
+{
+  "id": "903426",
+  "mongoId": "635afd054d2fd1d313dd4c4f",
+  "nombre": "HEMOGLOBINA GLICOSILADA AUTOMATIZADA (A1C)",
+  "codigoCups": "903426",
+  "slug": "hemoglobina-glicosilada-automatizada-a1c",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": true,
+  "preparacion": "No requiere ayuno. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

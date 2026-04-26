@@ -1,0 +1,17 @@
+{
+  "id": "905801",
+  "mongoId": "635afd054d2fd1d313dd4d1b",
+  "nombre": "NIVEL DE SUSTANCIA TERAPEUTICA (ESPECIFICA)SIROLIMUS",
+  "codigoCups": "905801",
+  "slug": "nivel-de-sustancia-terapeutica-especificasirolimus",
+  "categoria": "inmunologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "Extraer la muestra inmediatamente antes de la dosis programada.",
+  "oportunidadResultados": "10 días a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

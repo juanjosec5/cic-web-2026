@@ -1,0 +1,17 @@
+{
+  "id": "907105",
+  "mongoId": "635afd054d2fd1d313dd4d04",
+  "nombre": "RECUENTO HAMBURGUER",
+  "codigoCups": "907105",
+  "slug": "recuento-hamburguer",
+  "categoria": "parasitologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "Después de la primera micción de la mañana recoger orina de 3 horas o 6 horas y enviar de inmediato al laboratorio.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

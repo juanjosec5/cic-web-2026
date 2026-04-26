@@ -1,0 +1,17 @@
+{
+  "id": "903056",
+  "mongoId": "635afd054d2fd1d313dd4cdb",
+  "nombre": "PORFIRINAS CUANTITATIVAS EN ORINA PARCIAL",
+  "codigoCups": "903056",
+  "slug": "porfirinas-cuantitativas-en-orina-parcial",
+  "categoria": "orina",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "Registrar actividad laboral y el tiempo. Adjuntar resumen de la historia clínica.",
+  "oportunidadResultados": "17 días hábiles a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

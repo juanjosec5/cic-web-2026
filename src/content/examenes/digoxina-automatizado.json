@@ -1,0 +1,17 @@
+{
+  "id": "905603",
+  "mongoId": "635afd054d2fd1d313dd4bef",
+  "nombre": "DIGOXINA AUTOMATIZADO",
+  "codigoCups": "905603",
+  "slug": "digoxina-automatizado",
+  "categoria": "inmunologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa nota: Los resultados pueden dar aumentados en casos de: administración de marcador radioactivo 24 horas antes de la toma de la muestra, desequilibrio de sodio, potasio o magnesio, interacciones con medicamentos (antiácidos, eritromicina, fenitoína, ibuprofeno, heparina, fenobarbital, entre otros) y disfunción hepática o renal.\r\nRelacionar dosis, fecha y hora de la última dosis, fecha y hora de la toma de la muestra, vía de administración y diagnóstico del paciente.",
+  "oportunidadResultados": "72 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

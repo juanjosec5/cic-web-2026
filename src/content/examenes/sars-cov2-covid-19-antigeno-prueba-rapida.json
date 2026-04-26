@@ -1,0 +1,17 @@
+{
+  "id": "906340",
+  "mongoId": "635afd054d2fd1d313dd4d85",
+  "nombre": "SARS CoV2 (COVID-19) Antígeno, Prueba Rápida ",
+  "codigoCups": "906340",
+  "slug": "sars-cov2-covid-19-antigeno-prueba-rapida",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "1 hora después de tomada la muestra.",
+  "oportunidadResultados": "No requiere ninguna preparación especial.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

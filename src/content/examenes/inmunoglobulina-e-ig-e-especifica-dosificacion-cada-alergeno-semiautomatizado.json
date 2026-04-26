@@ -1,0 +1,17 @@
+{
+  "id": "906834",
+  "mongoId": "635afd054d2fd1d313dd4c92",
+  "nombre": "INMUNOGLOBULINA E [Ig E] ESPECIFICA (DOSIFICACION CADA ALERGENO) SEMIAUTOMATIZADO",
+  "codigoCups": "906834",
+  "slug": "inmunoglobulina-e-ig-e-especifica-dosificacion-cada-alergeno-semiautomatizado",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "7 días a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

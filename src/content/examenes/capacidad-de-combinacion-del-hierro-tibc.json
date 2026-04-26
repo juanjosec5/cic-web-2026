@@ -1,0 +1,17 @@
+{
+  "id": "903812",
+  "mongoId": "635afd054d2fd1d313dd4b94",
+  "nombre": "CAPACIDAD DE COMBINACION DEL HIERRO [TIBC]",
+  "codigoCups": "903812",
+  "slug": "capacidad-de-combinacion-del-hierro-tibc",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "Tomar muestra preferiblemente en las primeras horas de la mañana. Relacionar datos clínicos del paciente en la solicitud de Exámen.",
+  "oportunidadResultados": "3 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

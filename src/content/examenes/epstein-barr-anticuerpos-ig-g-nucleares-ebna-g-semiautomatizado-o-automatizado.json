@@ -1,0 +1,17 @@
+{
+  "id": "906213",
+  "mongoId": "635afd054d2fd1d313dd4bff",
+  "nombre": "Epstein-Barr ANTICUERPOS Ig G (NUCLEARES EBNA-G) SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906213",
+  "slug": "epstein-barr-anticuerpos-ig-g-nucleares-ebna-g-semiautomatizado-o-automatizado",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "10 días hábiles a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

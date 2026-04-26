@@ -1,0 +1,17 @@
+{
+  "id": "906610",
+  "mongoId": "635afd054d2fd1d313dd4b77",
+  "nombre": "ANTÍGENO ESPECÍFICO DE PRÓSTATA  (PSA) AUTOMATIZADO",
+  "codigoCups": "906610",
+  "slug": "antigeno-especifico-de-prostata-psa-automatizado",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "Debe guardar 3 días si ha realizado ejercicio en bicicleta o equitación, si ha tenido relaciones sexuales, masturbación o Si conduce moto o bicicleta y guaradar 1 mes si se ha realizado masaje prostático, tacto rectal, biopsia de próstata o tratamiento para infección urinaria.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

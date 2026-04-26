@@ -1,0 +1,17 @@
+{
+  "id": "906431",
+  "mongoId": "635afd054d2fd1d313dd4caf",
+  "nombre": "MEMBRANA BASAL DEL GLOMERULO ANTICUERPOS Ig G SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906431",
+  "slug": "membrana-basal-del-glomerulo-anticuerpos-ig-g-semiautomatizado-o-automatizado",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "10 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

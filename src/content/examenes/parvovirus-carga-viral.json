@@ -1,0 +1,17 @@
+{
+  "id": "908813",
+  "mongoId": "635afd054d2fd1d313dd4d75",
+  "nombre": "Parvovirus CARGA VIRAL",
+  "codigoCups": "908813",
+  "slug": "parvovirus-carga-viral",
+  "categoria": "orina",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente.",
+  "oportunidadResultados": "10 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

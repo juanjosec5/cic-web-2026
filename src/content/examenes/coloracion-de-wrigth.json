@@ -1,0 +1,17 @@
+{
+  "id": "901107",
+  "mongoId": "635afd054d2fd1d313dd4bc2",
+  "nombre": "COLORACIÓN DE WRIGTH",
+  "codigoCups": "901107",
+  "slug": "coloracion-de-wrigth",
+  "categoria": "otros",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

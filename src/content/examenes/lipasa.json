@@ -1,0 +1,17 @@
+{
+  "id": "903847",
+  "mongoId": "635afd054d2fd1d313dd4caa",
+  "nombre": "LIPASA",
+  "codigoCups": "903847",
+  "slug": "lipasa",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "En ayunas. El uso de anticoagulante EDTA (tubo lila) y los valores altos de bilirrubinas pueden causar disminución en las concentraciones de lipasa.\nRelacionar datos clínicos del paciente en la solicitud de Exámenes\nSe pueden producir datos falsamente elevados por el uso de heparina como anticoagulante, así como por medicamentos que causen espasmo del esfínter de Oddi tales como los analgésicos opiáceos.",
+  "oportunidadResultados": "72 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

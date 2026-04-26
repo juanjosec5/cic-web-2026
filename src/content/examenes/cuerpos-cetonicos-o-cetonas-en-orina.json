@@ -1,0 +1,17 @@
+{
+  "id": "903826",
+  "mongoId": "635afd054d2fd1d313dd4bdb",
+  "nombre": "CUERPOS CETÓNICOS O CETONAS EN ORINA",
+  "codigoCups": "903826",
+  "slug": "cuerpos-cetonicos-o-cetonas-en-orina",
+  "categoria": "orina",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud. Recolectar muestra a partir de la segunda parte de la micción.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

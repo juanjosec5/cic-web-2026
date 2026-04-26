@@ -1,0 +1,17 @@
+{
+  "id": "898004",
+  "mongoId": "635afd054d2fd1d313dd4d64",
+  "nombre": "ESTUDIO DE COLORACION BASICA DE ASPIRADO DE MEDULA OSEA (MIELOGRAMA)",
+  "codigoCups": "898004",
+  "slug": "estudio-de-coloracion-basica-de-aspirado-de-medula-osea-mielograma",
+  "categoria": "otros",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente.",
+  "oportunidadResultados": "7 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

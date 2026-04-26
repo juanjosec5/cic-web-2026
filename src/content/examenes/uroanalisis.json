@@ -1,0 +1,17 @@
+{
+  "id": "907106",
+  "mongoId": "635afd054d2fd1d313dd4d46",
+  "nombre": "UROANALISIS",
+  "codigoCups": "907106",
+  "slug": "uroanalisis",
+  "categoria": "orina",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": " Previo aseo en la zona genital, en recipiente plástico estéril recolectar la primera orina de la mañana a partir de la segunda parte de la micción. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

@@ -1,0 +1,17 @@
+{
+  "id": "902023",
+  "mongoId": "635afd054d2fd1d313dd4c1c",
+  "nombre": "FACTOR XIII [FSF FACTOR ESTABILIZANTE DE LA FIBRINA O TIEMPO DE LISIS COAGULO]",
+  "codigoCups": "902023",
+  "slug": "factor-xiii-fsf-factor-estabilizante-de-la-fibrina-o-tiempo-de-lisis-coagulo",
+  "categoria": "hematologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "En ayunas. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "4 días habiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

@@ -1,0 +1,17 @@
+{
+  "id": "901317",
+  "mongoId": "635afd054d2fd1d313dd4d74",
+  "nombre": "Neisseria meningitidis SEROTIPIFICACION POR LATEX",
+  "codigoCups": "901317",
+  "slug": "neisseria-meningitidis-serotipificacion-por-latex",
+  "categoria": "otros",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente.",
+  "oportunidadResultados": "3 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

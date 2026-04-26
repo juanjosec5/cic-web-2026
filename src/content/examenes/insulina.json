@@ -1,0 +1,17 @@
+{
+  "id": "904704",
+  "mongoId": "635afd054d2fd1d313dd4c9a",
+  "nombre": "INSULINA",
+  "codigoCups": "904704",
+  "slug": "insulina",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": true,
+  "preparacion": "Paciente en ayuno. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

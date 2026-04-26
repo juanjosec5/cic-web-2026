@@ -1,0 +1,17 @@
+{
+  "id": "908337",
+  "mongoId": "635afd054d2fd1d313dd4d05",
+  "nombre": "RELACION LACTATO/PIRUVATO",
+  "codigoCups": "908337",
+  "slug": "relacion-lactatopiruvato",
+  "categoria": "orina",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud. Anexar formato de Errores Metabólicos y consentimiento informado.",
+  "oportunidadResultados": "10 días a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

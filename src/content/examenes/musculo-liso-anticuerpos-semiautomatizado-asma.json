@@ -1,0 +1,17 @@
+{
+  "id": "906438",
+  "mongoId": "635afd054d2fd1d313dd4cbb",
+  "nombre": "MUSCULO LISO ANTICUERPOS SEMIAUTOMATIZADO ASMA",
+  "codigoCups": "906438",
+  "slug": "musculo-liso-anticuerpos-semiautomatizado-asma",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "7 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

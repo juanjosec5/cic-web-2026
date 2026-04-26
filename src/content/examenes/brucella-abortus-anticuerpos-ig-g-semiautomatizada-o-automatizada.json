@@ -1,0 +1,17 @@
+{
+  "id": "906010",
+  "mongoId": "635afd054d2fd1d313dd4b89",
+  "nombre": "Brucella abortus ANTICUERPOS Ig G SEMIAUTOMATIZADA O AUTOMATIZADA",
+  "codigoCups": "906010",
+  "slug": "brucella-abortus-anticuerpos-ig-g-semiautomatizada-o-automatizada",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "3 días hábiles a partir del dia de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

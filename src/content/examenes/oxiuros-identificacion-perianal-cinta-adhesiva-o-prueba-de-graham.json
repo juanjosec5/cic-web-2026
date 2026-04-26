@@ -1,0 +1,17 @@
+{
+  "id": "907007",
+  "mongoId": "635afd054d2fd1d313dd4cce",
+  "nombre": "OXIUROS IDENTIFICACIÓN PERIANAL [CINTA ADHESIVA O PRUEBA DE GRAHAM]",
+  "codigoCups": "907007",
+  "slug": "oxiuros-identificacion-perianal-cinta-adhesiva-o-prueba-de-graham",
+  "categoria": "parasitologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No realizarse limpieza,\nNi usar pomadas, talco, cremas o aceites en la zona anal o perianal, no realizar deposiciones antes de tomarse el examen.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

@@ -1,0 +1,17 @@
+{
+  "id": "903852",
+  "mongoId": "635afd054d2fd1d313dd4baf",
+  "nombre": "LÍQUIDO PLEURAL (EXAMEN FÍSICO Y CITOQUÍMICO CON RECUENTO Y MORFOLOGÍA DE LEUCOCITOS GLUCOSA Y DESHIDROGENASA LÁCTICA)",
+  "codigoCups": "903852",
+  "slug": "liquido-pleural-examen-fisico-y-citoquimico-con-recuento-y-morfologia-de-leucocitos-glucosa-y-deshidrogenasa-lactica",
+  "categoria": "hematologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

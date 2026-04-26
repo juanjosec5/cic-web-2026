@@ -1,0 +1,17 @@
+{
+  "id": "904912",
+  "mongoId": "635afd054d2fd1d313dd4c88",
+  "nombre": "HORMONA PARATIROIDEA MOLECULAR INTACTA (PTHI)",
+  "codigoCups": "904912",
+  "slug": "hormona-paratiroidea-molecular-intacta-pthi",
+  "categoria": "genetica",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud. Drogas que pueden aumentar los niveles de PTH: anticonvulsivantes, furosemida, litio, esteroides y medicamentos que contienen fosfato.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

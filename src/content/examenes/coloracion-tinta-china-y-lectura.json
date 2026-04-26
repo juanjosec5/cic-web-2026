@@ -1,0 +1,17 @@
+{
+  "id": "901109",
+  "mongoId": "635afd054d2fd1d313dd4d30",
+  "nombre": "COLORACIÓN TINTA CHINA Y LECTURA",
+  "codigoCups": "901109",
+  "slug": "coloracion-tinta-china-y-lectura",
+  "categoria": "otros",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

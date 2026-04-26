@@ -1,0 +1,17 @@
+{
+  "id": "906238",
+  "mongoId": "635afd054d2fd1d313dd4ccf",
+  "nombre": "Parotiditis ANTICUERPOS Ig G SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906238",
+  "slug": "parotiditis-anticuerpos-ig-g-semiautomatizado-o-automatizado",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "11 días a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

@@ -1,0 +1,17 @@
+{
+  "id": "904104",
+  "mongoId": "635afd054d2fd1d313dd4c7c",
+  "nombre": "HORMONA DE CRECIMIENTO [SOMATOTROPICA]",
+  "codigoCups": "904104",
+  "slug": "hormona-de-crecimiento-somatotropica",
+  "categoria": "microbiologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": true,
+  "preparacion": "Ayuno mínimo de 8 horas.\nTomar la muestra entre 7:00 am y 10:00 am. Fármacos que la pueden aumentar: anfetaminas, dopamina, estrógenos e insulina. La disminuyen corticosteroides y fenotiazinas.\nLa secreción de hormona de crecimiento aumenta en situaciones de estrés, ejercicio y niveles bajos de glucosa en sangre.",
+  "oportunidadResultados": "3 Días a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

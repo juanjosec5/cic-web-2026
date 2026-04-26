@@ -1,0 +1,17 @@
+{
+  "id": "906712",
+  "mongoId": "635afd054d2fd1d313dd4ca8",
+  "nombre": "LINFOCITOS T CD3 SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906712",
+  "slug": "linfocitos-t-cd3-semiautomatizado-o-automatizado-2",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "6 días a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

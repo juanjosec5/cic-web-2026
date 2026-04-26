@@ -1,0 +1,17 @@
+{
+  "id": "906248",
+  "mongoId": "635afd054d2fd1d313dd4d4a",
+  "nombre": "Varicela zoster ANTICUERPOS Ig M SEMIAUTOMATIZADO",
+  "codigoCups": "906248",
+  "slug": "varicela-zoster-anticuerpos-ig-m-semiautomatizado",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

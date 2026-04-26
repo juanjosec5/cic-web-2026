@@ -1,0 +1,17 @@
+{
+  "id": "904301",
+  "mongoId": "635afd054d2fd1d313dd4bd1",
+  "nombre": "CORTISOL PRE Y POST ESTIMULACION 2 MUESTRAS",
+  "codigoCups": "904301",
+  "slug": "cortisol-pre-y-post-estimulacion-2-muestras",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": true,
+  "preparacion": "Paciente debe estar en ayuno,el médico aplicará el estímulo en la dosis adecuada para el paciente. Posteriormente se tomaran las muestras post de acuerdo a lo indicado por la orden. Datos Clínicos. Laboratorio No incluye medicamento.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

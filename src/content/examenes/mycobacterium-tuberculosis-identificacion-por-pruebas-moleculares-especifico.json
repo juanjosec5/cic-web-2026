@@ -1,0 +1,17 @@
+{
+  "id": "908873",
+  "mongoId": "635afd054d2fd1d313dd4cbc",
+  "nombre": "Mycobacterium tuberculosis IDENTIFICACION POR PRUEBAS MOLECULARES (ESPECIFICO)",
+  "codigoCups": "908873",
+  "slug": "mycobacterium-tuberculosis-identificacion-por-pruebas-moleculares-especifico",
+  "categoria": "orina",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar el medicamento específico utilizado para tratar al paciente.",
+  "oportunidadResultados": "4 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

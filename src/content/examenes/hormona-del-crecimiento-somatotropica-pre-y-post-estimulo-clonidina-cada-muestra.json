@@ -1,0 +1,17 @@
+{
+  "id": "904205",
+  "mongoId": "635afd054d2fd1d313dd4be5",
+  "nombre": "HORMONA DEL CRECIMIENTO [SOMATOTROPICA] PRE Y POST ESTIMULO CLONIDINA CADA MUESTRA",
+  "codigoCups": "904205",
+  "slug": "hormona-del-crecimiento-somatotropica-pre-y-post-estimulo-clonidina-cada-muestra",
+  "categoria": "microbiologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": true,
+  "preparacion": "El paciente debe estar completamente en ayuno, si es un niño menor de 2 años, el ayuno debe ser mínimo de 4 horas.",
+  "oportunidadResultados": "4 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

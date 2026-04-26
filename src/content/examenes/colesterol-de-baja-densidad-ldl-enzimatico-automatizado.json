@@ -1,0 +1,17 @@
+{
+  "id": "903817",
+  "mongoId": "635afd054d2fd1d313dd4bbb",
+  "nombre": "COLESTEROL DE BAJA DENSIDAD [LDL]  ENZIMATICO AUTOMATIZADO",
+  "codigoCups": "903817",
+  "slug": "colesterol-de-baja-densidad-ldl-enzimatico-automatizado",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "En ayunas. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "24horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

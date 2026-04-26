@@ -1,0 +1,17 @@
+{
+  "id": "906498",
+  "mongoId": "635afd054d2fd1d313dd4d7e",
+  "nombre": "IDENTIFICACION  ANTICUERPOS  AUTOMATIZADO ( TIROXINA)",
+  "codigoCups": "906498",
+  "slug": "identificacion-anticuerpos-automatizado-tiroxina",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa.",
+  "oportunidadResultados": "12 días a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

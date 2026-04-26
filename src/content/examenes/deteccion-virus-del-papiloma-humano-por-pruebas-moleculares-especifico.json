@@ -1,0 +1,17 @@
+{
+  "id": "908890",
+  "mongoId": "635afd054d2fd1d313dd4bee",
+  "nombre": "DETECCION Virus del Papiloma Humano POR PRUEBAS MOLECULARES (ESPECIFICO)",
+  "codigoCups": "908890",
+  "slug": "deteccion-virus-del-papiloma-humano-por-pruebas-moleculares-especifico",
+  "categoria": "orina",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No debe estar menstruando, no aplicarse cremas o supositorios, no realizarse enemas 24 horas antes.\nNo haber tenido relaciones sexuales anales un día antes.\nLa higiene personal no debe cambiar. SOLICITAR MÁS INFORMACIÓN AL AREA DE LOGÍSTICA.",
+  "oportunidadResultados": "3 días hábiles apartir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

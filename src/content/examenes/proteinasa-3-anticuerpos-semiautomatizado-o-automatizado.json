@@ -1,0 +1,17 @@
+{
+  "id": "906486",
+  "mongoId": "635afd054d2fd1d313dd4cf5",
+  "nombre": "PROTEINASA 3 ANTICUERPOS SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906486",
+  "slug": "proteinasa-3-anticuerpos-semiautomatizado-o-automatizado",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "9 días a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

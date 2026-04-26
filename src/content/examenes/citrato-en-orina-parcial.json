@@ -1,0 +1,17 @@
+{
+  "id": "903053",
+  "mongoId": "635afd054d2fd1d313dd4bb0",
+  "nombre": "CITRATO EN ORINA PARCIAL",
+  "codigoCups": "903053",
+  "slug": "citrato-en-orina-parcial",
+  "categoria": "orina",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud. Refrigerar después de la recolección.",
+  "oportunidadResultados": "5 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

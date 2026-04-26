@@ -1,0 +1,17 @@
+{
+  "id": "906319",
+  "mongoId": "635afd054d2fd1d313dd4c67",
+  "nombre": "Hepatitis delta ANTIGENO [Ag HVD] SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906319",
+  "slug": "hepatitis-delta-antigeno-ag-hvd-semiautomatizado-o-automatizado",
+  "categoria": "inmunologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "10 días hábiles a partir de la fecha de envío a la red de apoyo.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

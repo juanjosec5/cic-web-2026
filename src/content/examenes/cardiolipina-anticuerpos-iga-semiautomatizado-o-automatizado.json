@@ -1,0 +1,17 @@
+{
+  "id": "906407",
+  "mongoId": "635afd054d2fd1d313dd4b97",
+  "nombre": "CARDIOLIPINA ANTICUERPOS IgA SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906407",
+  "slug": "cardiolipina-anticuerpos-iga-semiautomatizado-o-automatizado",
+  "categoria": "inmunologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "3 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

@@ -1,0 +1,17 @@
+{
+  "id": "903709",
+  "mongoId": "635afd054d2fd1d313dd4d50",
+  "nombre": "VITAMINA C [ACIDO ASCORBICO]",
+  "codigoCups": "903709",
+  "slug": "vitamina-c-acido-ascorbico",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": true,
+  "preparacion": "Ayuno de 12-14 horas. Niños tomar la muestra antes de la siguiente comida\nEl paciente debe abstenerse de consumir frutas y tomar suplementos de vitamina C durante 24 horas antes de la recolección de la muestra.\nSitio de proceso.",
+  "oportunidadResultados": "9 días a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

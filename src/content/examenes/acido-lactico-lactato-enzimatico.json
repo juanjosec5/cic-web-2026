@@ -1,0 +1,17 @@
+{
+  "id": "903111",
+  "mongoId": "635afd054d2fd1d313dd4b3f",
+  "nombre": "ACIDO LACTICO [LACTATO] [ENZIMATICO]",
+  "codigoCups": "903111",
+  "slug": "acido-lactico-lactato-enzimatico",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": " El paciente debe permanecer en reposo 30 minutos antes de la toma de la muestra.  En ayunas.  No hacer ejercicio intenso un día antes de la prueba.",
+  "oportunidadResultados": "72 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

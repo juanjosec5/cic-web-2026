@@ -1,0 +1,17 @@
+{
+  "id": "903820",
+  "mongoId": "635afd054d2fd1d313dd4bd2",
+  "nombre": "CREATIN QUINASA (FRACCION MB) AUTOMATIZADA",
+  "codigoCups": "903820",
+  "slug": "creatin-quinasa-fraccion-mb-automatizada",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "48 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

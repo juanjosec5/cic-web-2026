@@ -1,0 +1,17 @@
+{
+  "id": "906915",
+  "mongoId": "635afd054d2fd1d313dd4d18",
+  "nombre": "PRUEBA NO TREPONEMICA MANUAL (VDRL)",
+  "codigoCups": "906915",
+  "slug": "prueba-no-treponemica-manual-vdrl",
+  "categoria": "inmunologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": true,
+  "preparacion": "Se sugiere tomar muestra en ayuno, maás no es excluyente, Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

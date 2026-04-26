@@ -1,0 +1,17 @@
+{
+  "id": "903113",
+  "mongoId": "635afd054d2fd1d313dd4b46",
+  "nombre": "ACIDO  VANILMANDELICO EN ORINA DE 24H. AVM",
+  "codigoCups": "903113",
+  "slug": "acido-vanilmandelico-en-orina-de-24h-avm",
+  "categoria": "orina",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": " Restringir la ingesta de café, té, bananos, vainilla y el consumo de aspirina, piridoxina, levodopa y amoxicilina dos semanas antes de la toma de la muestra. Prueba para pacientes mayores de 15 años. Refrigerar durante y después de la recolección.",
+  "oportunidadResultados": "4 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

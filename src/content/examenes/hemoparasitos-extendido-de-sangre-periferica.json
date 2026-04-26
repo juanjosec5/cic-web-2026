@@ -1,0 +1,17 @@
+{
+  "id": "902215",
+  "mongoId": "635afd054d2fd1d313dd4d84",
+  "nombre": "HEMOPARÁSITOS EXTENDIDO DE SANGRE PERIFÉRICA",
+  "codigoCups": "902215",
+  "slug": "hemoparasitos-extendido-de-sangre-periferica",
+  "categoria": "hematologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}
