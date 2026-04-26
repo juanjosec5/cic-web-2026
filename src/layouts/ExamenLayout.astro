@@ -7,21 +7,12 @@
  * TODO (design-needed): Add breadcrumb navigation (Exámenes > Categoría > Nombre).
  * TODO (design-needed): Add related exams sidebar/section.
  */
+import type { CollectionEntry } from 'astro:content';
 import BaseLayout from './BaseLayout.astro';
 import { buildExamenJsonLd } from '@/lib/seo';
 
-interface ExamenData {
-  slug: string;
-  nombre: string;
-  codigoCups: string;
-  descripcionQueEs?: string;
-  descripcionParaQueSirve?: string;
-  categoria: string;
-  [key: string]: unknown;
-}
-
 interface Props {
-  examen: ExamenData;
+  examen: CollectionEntry<'examenes'>['data'];
 }
 
 const { examen } = Astro.props;

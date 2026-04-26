@@ -8,6 +8,7 @@
  */
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 
 const aliados = await getCollection('aliados');
 ---
@@ -25,7 +26,7 @@ const aliados = await getCollection('aliados');
   <section aria-labelledby="aliados-heading">
     <h2 id="aliados-heading">Aliados estratégicos</h2>
     <ul>
-      {aliados.map((aliado) => (
+      {aliados.map((aliado: CollectionEntry<'aliados'>) => (
         <li>
           <strong>{aliado.data.nombre}</strong>
           <p>{aliado.data.descripcion}</p>

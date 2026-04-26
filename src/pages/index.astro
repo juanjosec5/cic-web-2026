@@ -21,6 +21,7 @@
  */
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import LocationMap from '@/components/islands/LocationMap.vue';
 
 const sedes = await getCollection('sedes');
@@ -112,7 +113,7 @@ const CATEGORIAS = [
       client:visible
     />
     <ul>
-      {sedes.map((sede) => (
+      {sedes.map((sede: CollectionEntry<'sedes'>) => (
         <li>
           <a href={`/sedes/${sede.data.slug}`}>{sede.data.nombre}</a>
           <span> — {sede.data.ciudad}</span>
@@ -139,7 +140,7 @@ const CATEGORIAS = [
   <section aria-labelledby="servicios-heading">
     <h2 id="servicios-heading">Nuestros servicios</h2>
     <ul>
-      {servicios.map((servicio) => (
+      {servicios.map((servicio: CollectionEntry<'servicios'>) => (
         <li>
           <a href={`/servicios/${servicio.data.slug}`}>
             <strong>{servicio.data.nombre}</strong>
@@ -194,7 +195,7 @@ const CATEGORIAS = [
     <h2 id="aliados-heading">Convenios y aliados estratégicos</h2>
     <!-- TODO (content-needed): Add logos and full list of convenios (EPS, ARL, etc.) -->
     <ul>
-      {aliados.map((aliado) => (
+      {aliados.map((aliado: CollectionEntry<'aliados'>) => (
         <li>
           <strong>{aliado.data.nombre}</strong>
           <p>{aliado.data.descripcion}</p>

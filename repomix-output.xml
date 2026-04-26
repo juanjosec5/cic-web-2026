@@ -1,0 +1,2658 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.claude/
+  settings.local.json
+public/
+  favicon.svg
+src/
+  components/
+    islands/
+      ExamSearch.vue
+      LocationMap.vue
+      WhatsAppFloating.vue
+    Footer.astro
+    Header.astro
+    SEO.astro
+  content/
+    aliados/
+      cic-diagnostica.json
+      clinica-sane.json
+    examenes/
+      glucosa.json
+      hemograma.json
+      tsh.json
+    perfiles/
+      prenatal.json
+    sedes/
+      buga-centro.json
+      tulua-principal.json
+    servicios/
+      domicilio.json
+      ginecologia-vph.json
+      jornadas-empresariales.json
+      salud-ocupacional.json
+    config.ts
+  layouts/
+    BaseLayout.astro
+    ExamenLayout.astro
+    SedeLayout.astro
+  lib/
+    seo.ts
+  pages/
+    examenes/
+      categoria/
+        [slug].astro
+      perfiles/
+        [slug].astro
+        index.astro
+      [slug].astro
+      index.astro
+    nosotros/
+      aliados.astro
+      calidad.astro
+      equipo.astro
+      historia.astro
+      index.astro
+      tecnologia.astro
+    pacientes/
+      derechos-deberes.astro
+      preguntas-frecuentes.astro
+      preparacion.astro
+    sedes/
+      [slug].astro
+      index.astro
+    servicios/
+      [slug].astro
+      index.astro
+    404.astro
+    contacto.astro
+    empresas.astro
+    index.astro
+    laboratorios.astro
+  styles/
+    global.css
+.gitignore
+astro.config.mjs
+package.json
+README.md
+tsconfig.json
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path=".claude/settings.local.json">
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create *)",
+      "Bash(npm install *)",
+      "Bash(npm view *)",
+      "Bash(npm run *)",
+      "Bash(code /Users/cuadros/Projects/cic-web-2026)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git reset *)",
+      "Bash(git commit *)",
+      "Bash(git remote *)",
+      "Bash(git push *)"
+    ]
+  }
+}
+</file>
+
+<file path="public/favicon.svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- TODO (design-needed): Replace with real CIC Laboratorios favicon/logo -->
+  <rect width="100" height="100" rx="12" fill="#e53e3e"/>
+  <text x="50" y="68" font-size="48" font-family="sans-serif" font-weight="bold"
+        text-anchor="middle" fill="white">C</text>
+</svg>
+</file>
+
+<file path="src/components/islands/ExamSearch.vue">
+<script setup lang="ts">
+/**
+ * ExamSearch.vue — STUB
+ *
+ * TODO (blocking-for-v1.1): Implement Pagefind-based search.
+ * Steps:
+ *   1. Run pagefind after astro build to index content.
+ *   2. Import Pagefind UI or use the JS API: window.pagefind.search(query).
+ *   3. Wire up this component to display results.
+ * See: https://pagefind.app/docs/
+ */
+</script>
+
+<template>
+  <div
+    style="
+      border: 2px dashed #ccc;
+      padding: 2rem;
+      text-align: center;
+      background: #f9f9f9;
+    "
+  >
+    <p>[ Search placeholder — Pagefind integration pending ]</p>
+    <input
+      type="search"
+      placeholder="Buscar examen (próximamente)..."
+      disabled
+      style="margin-top: 1rem; padding: 0.5rem; width: 100%; max-width: 400px;"
+    />
+  </div>
+</template>
+</file>
+
+<file path="src/components/islands/LocationMap.vue">
+<script setup lang="ts">
+/**
+ * LocationMap.vue — STUB
+ *
+ * TODO (blocking-for-v1.1): Implement real map integration.
+ * Candidates: Leaflet.js + OpenStreetMap (free), Google Maps Embed API,
+ * or Mapbox GL JS.
+ * Props to implement: lat, lng, nombre, zoom.
+ */
+defineProps<{
+  lat?: number;
+  lng?: number;
+  nombre?: string;
+}>();
+</script>
+
+<template>
+  <div
+    style="
+      border: 2px dashed #ccc;
+      padding: 2rem;
+      text-align: center;
+      background: #f9f9f9;
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    "
+  >
+    <p>[ Map placeholder — {{ nombre ?? 'Ubicación' }} ({{ lat }}, {{ lng }}) ]</p>
+  </div>
+</template>
+</file>
+
+<file path="src/components/islands/WhatsAppFloating.vue">
+<script setup lang="ts">
+/**
+ * WhatsAppFloating.vue
+ * Sticky floating WhatsApp button, bottom-right corner.
+ * Renders a plain anchor tag pointing to wa.me — no external SDK needed.
+ *
+ * TODO (design-needed): Replace emoji/text with SVG WhatsApp icon.
+ * TODO (design-needed): Add entrance animation, tooltip on hover.
+ */
+const props = withDefaults(
+  defineProps<{
+    /** Phone number in international format without +, e.g. "573001234567" */
+    phone: string;
+    /** Pre-filled message text (optional) */
+    message?: string;
+  }>(),
+  {
+    message: '¡Hola! Quisiera información sobre los servicios de CIC Laboratorios.',
+  }
+);
+
+const waUrl = computed(() => {
+  const encodedMsg = encodeURIComponent(props.message ?? '');
+  return `https://wa.me/${props.phone}?text=${encodedMsg}`;
+});
+</script>
+
+<script lang="ts">
+import { computed } from 'vue';
+</script>
+
+<template>
+  <a
+    :href="waUrl"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contáctanos por WhatsApp"
+    style="
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 9999px;
+      background-color: #25d366;
+      color: white;
+      font-size: 1.5rem;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    "
+  >
+    <!-- TODO (design-needed): Use WhatsApp SVG icon instead of emoji -->
+    💬
+  </a>
+</template>
+</file>
+
+<file path="src/components/Footer.astro">
+---
+/**
+ * Footer.astro
+ * Site-wide footer with sede principal contact info, site map links,
+ * social icons (placeholder), and copyright.
+ *
+ * TODO (content-needed): Replace placeholder contact info with real data from
+ *   buga-centro sede entry (or query via getCollection).
+ * TODO (content-needed): Add real social media profile URLs.
+ * TODO (design-needed): Style footer columns, social icons, legal links.
+ */
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer>
+  <div>
+    <div>
+      <h3>CIC Laboratorios — Sede Principal</h3>
+      <address>
+        <!-- TODO (content-needed): Pull from sedes collection entry -->
+        Calle 5 # 14-23, Centro, Guadalajara de Buga<br />
+        Tel: 602 228 0000<br />
+        <a href="mailto:buga@ciclaboratorios.com">buga@ciclaboratorios.com</a>
+      </address>
+    </div>
+
+    <nav aria-label="Mapa del sitio">
+      <h3>Mapa del sitio</h3>
+      <ul>
+        <li><a href="/sedes">Sedes</a></li>
+        <li><a href="/examenes">Exámenes</a></li>
+        <li><a href="/servicios">Servicios</a></li>
+        <li><a href="/empresas">Empresas</a></li>
+        <li><a href="/nosotros">Nosotros</a></li>
+        <li><a href="/pacientes/preparacion">Preparación de exámenes</a></li>
+        <li><a href="/pacientes/preguntas-frecuentes">Preguntas frecuentes</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <div>
+      <h3>Redes sociales</h3>
+      <!-- TODO (content-needed): Replace with real social URLs -->
+      <ul>
+        <li><a href="#" aria-label="Facebook (próximamente)">Facebook</a></li>
+        <li><a href="#" aria-label="Instagram (próximamente)">Instagram</a></li>
+        <li><a href="#" aria-label="LinkedIn (próximamente)">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <p>
+    &copy; {currentYear} CIC Laboratorios. Todos los derechos reservados.
+    <!-- TODO (content-needed): Add links to Política de privacidad, Términos de uso -->
+  </p>
+</footer>
+</file>
+
+<file path="src/components/Header.astro">
+---
+/**
+ * Header.astro
+ * Site-wide navigation header.
+ *
+ * TODO (design-needed): Mobile hamburger menu / responsive nav.
+ * TODO (content-needed): Add "Resultados" external subdomain URL once confirmed.
+ * TODO (design-needed): Active link highlighting, sticky header behavior.
+ */
+
+const navLinks = [
+  { label: 'Sedes', href: '/sedes' },
+  { label: 'Exámenes', href: '/examenes' },
+  { label: 'Servicios', href: '/servicios' },
+  { label: 'Empresas', href: '/empresas' },
+  { label: 'Nosotros', href: '/nosotros' },
+  {
+    label: 'Resultados',
+    href: 'https://resultados.ciclaboratorios.com',
+    external: true,
+  },
+];
+---
+
+<header>
+  <a href="/">
+    <!-- TODO (design-needed): Replace text logo with SVG/image asset -->
+    <strong>CIC Laboratorios</strong>
+  </a>
+  <nav aria-label="Navegación principal">
+    <ul>
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            {...(link.external
+              ? { target: '_blank', rel: 'noopener noreferrer' }
+              : {})}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>
+</file>
+
+<file path="src/components/SEO.astro">
+---
+/**
+ * SEO.astro
+ * Renders <title>, meta description, canonical, Open Graph tags, and
+ * an optional JSON-LD script block.
+ *
+ * TODO (content-needed): Add real OG image once brand assets are available.
+ * TODO (content-needed): Add Twitter/X card meta tags.
+ */
+interface Props {
+  title: string;
+  description: string;
+  /** Defaults to the current page URL via Astro.url */
+  canonical?: string;
+  ogImage?: string;
+  /** Pass a JSON-LD object — it will be stringified into a <script> tag */
+  jsonLd?: Record<string, unknown>;
+}
+
+const {
+  title,
+  description,
+  canonical = Astro.url.href,
+  ogImage = '/images/og-default.png',
+  jsonLd,
+} = Astro.props;
+
+const siteName = 'CIC Laboratorios';
+---
+
+<title>{title} | {siteName}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:title" content={`${title} | ${siteName}`} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImage} />
+
+<!-- JSON-LD structured data -->
+{jsonLd && (
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+)}
+</file>
+
+<file path="src/content/aliados/cic-diagnostica.json">
+{
+  "slug": "cic-diagnostica",
+  "nombre": "CIC Diagnóstica",
+  "descripcion": "Unidad de diagnóstico por imágenes asociada al grupo CIC. Complementa los servicios de laboratorio clínico con radiología, ecografía y otros estudios.",
+  "logo": "/images/aliados/cic-diagnostica-logo.png",
+  "url": null,
+  "esEstrategico": true
+}
+</file>
+
+<file path="src/content/aliados/clinica-sane.json">
+{
+  "slug": "clinica-sane",
+  "nombre": "Clínica SANE",
+  "descripcion": "Aliado estratégico regional. CIC Laboratorios es el laboratorio de referencia oficial para Clínica SANE en el Valle del Cauca.",
+  "logo": "/images/aliados/clinica-sane-logo.png",
+  "url": null,
+  "esEstrategico": true
+}
+</file>
+
+<file path="src/content/examenes/glucosa.json">
+{
+  "id": "glucosa-001",
+  "mongoId": "64a1b2c3d4e5f6a7b8c9d0e2",
+  "nombre": "Glucosa en Ayunas",
+  "codigoCups": "906613",
+  "slug": "glucosa",
+  "categoria": "quimica",
+  "nombresAlternativos": ["Glicemia", "Azúcar en sangre", "Fasting glucose"],
+  "muestra": "Suero o plasma",
+  "requiereAyuno": true,
+  "preparacion": "Ayuno mínimo de 8 horas. Se permite consumir agua.",
+  "oportunidadResultados": "Mismo día",
+  "descripcionQueEs": "Medición de la concentración de glucosa en sangre tras un período de ayuno.",
+  "descripcionParaQueSirve": "Screening y diagnóstico de diabetes mellitus y prediabetes.",
+  "sedesDisponibles": ["buga-centro", "tulua-principal"],
+  "examenesRelacionados": ["hemoglobina-glicosilada", "insulina"],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}
+</file>
+
+<file path="src/content/examenes/hemograma.json">
+{
+  "id": "hemograma-001",
+  "mongoId": "64a1b2c3d4e5f6a7b8c9d0e3",
+  "nombre": "Hemograma Completo",
+  "codigoCups": "903381",
+  "slug": "hemograma",
+  "categoria": "hematologia",
+  "nombresAlternativos": ["CBC", "BHC", "Cuadro hemático", "Complete blood count"],
+  "muestra": "Sangre total con EDTA",
+  "requiereAyuno": false,
+  "preparacion": "No requiere preparación especial.",
+  "oportunidadResultados": "Mismo día",
+  "descripcionQueEs": "Análisis cuantitativo y cualitativo de los componentes de la sangre.",
+  "descripcionParaQueSirve": "Evaluación general del estado de salud, diagnóstico de anemia, infecciones, trastornos hematológicos.",
+  "sedesDisponibles": ["buga-centro", "tulua-principal"],
+  "examenesRelacionados": ["reticulocitos", "coagulacion"],
+  "perfiles": ["prenatal"],
+  "imagen": null,
+  "activo": true
+}
+</file>
+
+<file path="src/content/examenes/tsh.json">
+{
+  "id": "tsh-001",
+  "mongoId": "64a1b2c3d4e5f6a7b8c9d0e1",
+  "nombre": "Hormona Estimulante de la Tiroides (TSH)",
+  "codigoCups": "903836",
+  "slug": "tsh",
+  "categoria": "hormonas",
+  "nombresAlternativos": ["TSH", "Tirotropina", "Thyrotropin"],
+  "muestra": "Suero",
+  "requiereAyuno": false,
+  "preparacion": "No requiere preparación especial.",
+  "oportunidadResultados": "Mismo día (antes de las 5 pm si la muestra llega antes del mediodía)",
+  "descripcionQueEs": "La TSH es una hormona producida por la hipófisis que regula la función tiroidea.",
+  "descripcionParaQueSirve": "Se utiliza para diagnosticar y monitorear enfermedades de la tiroides como hipotiroidismo e hipertiroidismo.",
+  "sedesDisponibles": ["buga-centro", "tulua-principal"],
+  "examenesRelacionados": ["t3-libre", "t4-libre"],
+  "perfiles": ["prenatal"],
+  "imagen": null,
+  "activo": true
+}
+</file>
+
+<file path="src/content/perfiles/prenatal.json">
+{
+  "slug": "prenatal",
+  "nombre": "Perfil Prenatal Básico",
+  "descripcion": "Batería de exámenes recomendada durante el control prenatal para evaluar el estado de salud de la gestante y detectar condiciones que requieran seguimiento.",
+  "examenesIncluidos": ["hemograma", "tsh", "glucosa"],
+  "precio": 85000
+}
+</file>
+
+<file path="src/content/sedes/buga-centro.json">
+{
+  "slug": "buga-centro",
+  "nombre": "CIC Laboratorios — Buga Centro",
+  "ciudad": "Guadalajara de Buga",
+  "direccion": "Calle 5 # 14-23, Centro, Guadalajara de Buga",
+  "lat": 3.9015,
+  "lng": -76.3030,
+  "telefono": "602 228 0000",
+  "whatsapp": "573001234567",
+  "email": "buga@ciclaboratorios.com",
+  "horario": {
+    "lunes": "07:00 – 17:00",
+    "martes": "07:00 – 17:00",
+    "miercoles": "07:00 – 17:00",
+    "jueves": "07:00 – 17:00",
+    "viernes": "07:00 – 17:00",
+    "sabado": "07:00 – 13:00",
+    "domingo": "Cerrado"
+  },
+  "servicios": [
+    "toma-muestras",
+    "domicilio",
+    "ginecologia-vph",
+    "jornadas-empresariales",
+    "salud-ocupacional",
+    "validacion-qr"
+  ],
+  "fotos": [],
+  "convenios": [],
+  "domicilioGratisDesde": 50000,
+  "esSedePrincipal": true
+}
+</file>
+
+<file path="src/content/sedes/tulua-principal.json">
+{
+  "slug": "tulua-principal",
+  "nombre": "CIC Laboratorios — Tuluá",
+  "ciudad": "Tuluá",
+  "direccion": "Carrera 25 # 26-10, Centro, Tuluá",
+  "lat": 4.0847,
+  "lng": -76.1956,
+  "telefono": "602 224 0000",
+  "whatsapp": "573007654321",
+  "email": "tulua@ciclaboratorios.com",
+  "horario": {
+    "lunes": "07:00 – 17:00",
+    "martes": "07:00 – 17:00",
+    "miercoles": "07:00 – 17:00",
+    "jueves": "07:00 – 17:00",
+    "viernes": "07:00 – 17:00",
+    "sabado": "07:00 – 13:00",
+    "domingo": "Cerrado"
+  },
+  "servicios": [
+    "toma-muestras",
+    "domicilio",
+    "salud-ocupacional",
+    "validacion-qr"
+  ],
+  "fotos": [],
+  "convenios": [],
+  "esSedePrincipal": false
+}
+</file>
+
+<file path="src/content/servicios/domicilio.json">
+{
+  "slug": "domicilio",
+  "nombre": "Toma de Muestras a Domicilio",
+  "descripcion": "Nuestro personal de enfermería se desplaza hasta tu hogar o lugar de trabajo para la toma de muestras, sin necesidad de desplazarte a la sede.",
+  "sedesDisponibles": ["buga-centro", "tulua-principal"],
+  "ctaTipo": "whatsapp"
+}
+</file>
+
+<file path="src/content/servicios/ginecologia-vph.json">
+{
+  "slug": "ginecologia-vph",
+  "nombre": "Ginecología y Prueba VPH",
+  "descripcion": "Servicio especializado de citología cervicouterina y prueba molecular de VPH (Virus del Papiloma Humano) para la detección temprana de cáncer cervical.",
+  "sedesDisponibles": ["buga-centro"],
+  "ctaTipo": "whatsapp"
+}
+</file>
+
+<file path="src/content/servicios/jornadas-empresariales.json">
+{
+  "slug": "jornadas-empresariales",
+  "nombre": "Jornadas Empresariales",
+  "descripcion": "Brigadas de salud y jornadas de exámenes de laboratorio en las instalaciones de tu empresa. Ideal para planes de bienestar corporativo y exámenes periódicos de ley.",
+  "sedesDisponibles": ["todas"],
+  "ctaTipo": "contacto"
+}
+</file>
+
+<file path="src/content/servicios/salud-ocupacional.json">
+{
+  "slug": "salud-ocupacional",
+  "nombre": "Salud Ocupacional",
+  "descripcion": "Exámenes de ingreso, periódicos y de egreso para empresas. Incluye visiometría, audiometría y perfil de laboratorio ocupacional según normativa colombiana.",
+  "sedesDisponibles": ["buga-centro", "tulua-principal"],
+  "ctaTipo": "contacto"
+}
+</file>
+
+<file path="src/content/config.ts">
+import { defineCollection, z } from 'astro:content';
+
+// ---------------------------------------------------------------------------
+// examenes
+// ---------------------------------------------------------------------------
+const examenesCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    id: z.string(),
+    mongoId: z.string().optional(),
+    nombre: z.string(),
+    codigoCups: z.string(),
+    slug: z.string(),
+    categoria: z.enum([
+      'quimica',
+      'microbiologia',
+      'hematologia',
+      'inmunologia',
+      'genetica',
+      'hormonas',
+      'orina',
+      'parasitologia',
+      'otros',
+    ]),
+    nombresAlternativos: z.array(z.string()).default([]),
+    muestra: z.string().optional(),
+    requiereAyuno: z.boolean().optional(),
+    preparacion: z.string().optional(),
+    oportunidadResultados: z.string().optional(),
+    descripcionQueEs: z.string().optional(),
+    descripcionParaQueSirve: z.string().optional(),
+    sedesDisponibles: z.array(z.string()).default([]),
+    examenesRelacionados: z.array(z.string()).default([]),
+    perfiles: z.array(z.string()).default([]),
+    imagen: z.string().nullable().optional(),
+    activo: z.boolean().default(true),
+  }),
+});
+
+// ---------------------------------------------------------------------------
+// sedes
+// ---------------------------------------------------------------------------
+const horarioSchema = z.object({
+  lunes: z.string().optional(),
+  martes: z.string().optional(),
+  miercoles: z.string().optional(),
+  jueves: z.string().optional(),
+  viernes: z.string().optional(),
+  sabado: z.string().optional(),
+  domingo: z.string().optional(),
+});
+
+const sedesCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    slug: z.string(),
+    nombre: z.string(),
+    ciudad: z.string(),
+    direccion: z.string(),
+    lat: z.number(),
+    lng: z.number(),
+    telefono: z.string(),
+    whatsapp: z.string(),
+    email: z.string().optional(),
+    horario: horarioSchema,
+    servicios: z.array(
+      z.enum([
+        'toma-muestras',
+        'domicilio',
+        'ginecologia-vph',
+        'jornadas-empresariales',
+        'salud-ocupacional',
+        'validacion-qr',
+      ])
+    ),
+    fotos: z.array(z.string()).default([]),
+    video: z.string().nullable().optional(),
+    convenios: z.array(z.string()).default([]),
+    domicilioGratisDesde: z.number().optional(),
+    esSedePrincipal: z.boolean().default(false),
+  }),
+});
+
+// ---------------------------------------------------------------------------
+// servicios
+// ---------------------------------------------------------------------------
+const serviciosCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    slug: z.string(),
+    nombre: z.string(),
+    descripcion: z.string(),
+    sedesDisponibles: z.array(z.string()),
+    ctaTipo: z.enum(['whatsapp', 'contacto', 'mailto']),
+  }),
+});
+
+// ---------------------------------------------------------------------------
+// perfiles
+// ---------------------------------------------------------------------------
+const perfilesCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    slug: z.string(),
+    nombre: z.string(),
+    descripcion: z.string(),
+    examenesIncluidos: z.array(z.string()),
+    precio: z.number().optional(),
+  }),
+});
+
+// ---------------------------------------------------------------------------
+// aliados
+// ---------------------------------------------------------------------------
+const aliadosCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    slug: z.string(),
+    nombre: z.string(),
+    descripcion: z.string(),
+    logo: z.string(),
+    url: z.string().nullable().optional(),
+    esEstrategico: z.boolean().default(false),
+  }),
+});
+
+// ---------------------------------------------------------------------------
+// Export
+// ---------------------------------------------------------------------------
+export const collections = {
+  examenes: examenesCollection,
+  sedes: sedesCollection,
+  servicios: serviciosCollection,
+  perfiles: perfilesCollection,
+  aliados: aliadosCollection,
+};
+</file>
+
+<file path="src/layouts/BaseLayout.astro">
+---
+/**
+ * BaseLayout.astro
+ * Root layout used by all pages. Renders <html>, SEO head, Header,
+ * default slot, Footer, and the WhatsApp floating island.
+ *
+ * TODO (design-needed): Add skip-to-main-content accessibility link.
+ * TODO (design-needed): Add cookie consent banner.
+ * TODO (content-needed): Replace hardcoded WhatsApp phone with env var or
+ *   sede principal data from collection.
+ */
+import SEO from '@/components/SEO.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import WhatsAppFloating from '@/components/islands/WhatsAppFloating.vue';
+import '@/styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  jsonLd?: Record<string, unknown>;
+}
+
+const { title, description, canonical, ogImage, jsonLd } = Astro.props;
+
+// TODO (content-needed): Move to env var or fetch from sedes collection
+const WHATSAPP_PHONE = '573001234567';
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- TODO (design-needed): Add real favicon assets -->
+    <SEO
+      title={title}
+      description={description}
+      canonical={canonical}
+      ogImage={ogImage}
+      jsonLd={jsonLd}
+    />
+  </head>
+  <body>
+    <Header />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer />
+    <WhatsAppFloating phone={WHATSAPP_PHONE} client:load />
+  </body>
+</html>
+</file>
+
+<file path="src/layouts/ExamenLayout.astro">
+---
+/**
+ * ExamenLayout.astro
+ * Layout for individual examen pages. Extends BaseLayout and injects
+ * MedicalTest JSON-LD automatically from the examen data.
+ *
+ * TODO (design-needed): Add breadcrumb navigation (Exámenes > Categoría > Nombre).
+ * TODO (design-needed): Add related exams sidebar/section.
+ */
+import BaseLayout from './BaseLayout.astro';
+import { buildExamenJsonLd } from '@/lib/seo';
+
+interface ExamenData {
+  slug: string;
+  nombre: string;
+  codigoCups: string;
+  descripcionQueEs?: string;
+  descripcionParaQueSirve?: string;
+  categoria: string;
+  [key: string]: unknown;
+}
+
+interface Props {
+  examen: ExamenData;
+}
+
+const { examen } = Astro.props;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
+
+const jsonLd = buildExamenJsonLd({
+  nombre: examen.nombre,
+  descripcionQueEs: examen.descripcionQueEs,
+  descripcionParaQueSirve: examen.descripcionParaQueSirve,
+  codigoCups: examen.codigoCups,
+  slug: examen.slug,
+  siteUrl,
+});
+
+const description =
+  examen.descripcionQueEs ??
+  `Información sobre el examen ${examen.nombre}: preparación, muestra requerida y resultados en CIC Laboratorios.`;
+---
+
+<BaseLayout
+  title={examen.nombre}
+  description={description}
+  jsonLd={jsonLd}
+>
+  <slot />
+</BaseLayout>
+</file>
+
+<file path="src/layouts/SedeLayout.astro">
+---
+/**
+ * SedeLayout.astro
+ * Layout for individual sede pages. Extends BaseLayout and injects
+ * MedicalBusiness JSON-LD automatically from the sede data.
+ *
+ * TODO (design-needed): Add sede hero image / photo gallery section.
+ * TODO (content-needed): Build openingHours array from horario object for
+ *   schema.org compliance.
+ */
+import BaseLayout from './BaseLayout.astro';
+import { buildSedeJsonLd } from '@/lib/seo';
+
+interface SedeData {
+  slug: string;
+  nombre: string;
+  ciudad: string;
+  direccion: string;
+  lat: number;
+  lng: number;
+  telefono: string;
+  whatsapp: string;
+  email?: string;
+  horario: Record<string, string | undefined>;
+  [key: string]: unknown;
+}
+
+interface Props {
+  sede: SedeData;
+  description?: string;
+}
+
+const { sede, description } = Astro.props;
+
+const jsonLd = buildSedeJsonLd({
+  nombre: sede.nombre,
+  descripcion: description,
+  direccion: sede.direccion,
+  ciudad: sede.ciudad,
+  telefono: sede.telefono,
+  lat: sede.lat,
+  lng: sede.lng,
+  url: `${Astro.site}sedes/${sede.slug}`,
+});
+---
+
+<BaseLayout
+  title={sede.nombre}
+  description={description ?? `Sede de CIC Laboratorios en ${sede.ciudad}. Exámenes clínicos, resultados el mismo día.`}
+  jsonLd={jsonLd}
+>
+  <slot />
+</BaseLayout>
+</file>
+
+<file path="src/lib/seo.ts">
+/**
+ * JSON-LD helpers for CIC Laboratorios.
+ * Used in SEO.astro via the jsonLd prop.
+ *
+ * TODO (content-needed): Fill in real organizationId, sameAs social URLs,
+ * and areaServed once confirmed.
+ */
+
+export interface MedicalBusinessJsonLd {
+  '@context': 'https://schema.org';
+  '@type': 'MedicalBusiness';
+  name: string;
+  description?: string;
+  url?: string;
+  telephone?: string;
+  address?: {
+    '@type': 'PostalAddress';
+    streetAddress: string;
+    addressLocality: string;
+    addressRegion: string;
+    addressCountry: string;
+  };
+  geo?: {
+    '@type': 'GeoCoordinates';
+    latitude: number;
+    longitude: number;
+  };
+  openingHours?: string[];
+  image?: string;
+}
+
+export interface MedicalTestJsonLd {
+  '@context': 'https://schema.org';
+  '@type': 'MedicalTest';
+  name: string;
+  description?: string;
+  usedToDiagnose?: string;
+  usesDevice?: string;
+  url?: string;
+  code?: {
+    '@type': 'MedicalCode';
+    code: string;
+    codingSystem: string;
+  };
+}
+
+/**
+ * Build a MedicalBusiness JSON-LD object from a sede data entry.
+ */
+export function buildSedeJsonLd(params: {
+  nombre: string;
+  descripcion?: string;
+  direccion: string;
+  ciudad: string;
+  telefono: string;
+  lat: number;
+  lng: number;
+  url?: string;
+}): MedicalBusinessJsonLd {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalBusiness',
+    name: params.nombre,
+    description: params.descripcion,
+    url: params.url,
+    telephone: params.telefono,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: params.direccion,
+      addressLocality: params.ciudad,
+      addressRegion: 'Valle del Cauca',
+      addressCountry: 'CO',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: params.lat,
+      longitude: params.lng,
+    },
+  };
+}
+
+/**
+ * Build a MedicalTest JSON-LD object from an examen data entry.
+ */
+export function buildExamenJsonLd(params: {
+  nombre: string;
+  descripcionQueEs?: string;
+  descripcionParaQueSirve?: string;
+  codigoCups: string;
+  slug: string;
+  siteUrl: string;
+}): MedicalTestJsonLd {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalTest',
+    name: params.nombre,
+    description: params.descripcionQueEs,
+    usedToDiagnose: params.descripcionParaQueSirve,
+    url: `${params.siteUrl}/examenes/${params.slug}`,
+    code: {
+      '@type': 'MedicalCode',
+      code: params.codigoCups,
+      codingSystem: 'CUPS',
+    },
+  };
+}
+</file>
+
+<file path="src/pages/examenes/categoria/[slug].astro">
+---
+/**
+ * /examenes/categoria/[slug] — Exámenes filtered by category.
+ *
+ * TODO (design-needed): Add category hero/description section.
+ * TODO (content-needed): Add human-readable category descriptions.
+ * TODO (blocking-for-v1): Add pagination for categories with many exams.
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const CATEGORIA_LABELS: Record<string, string> = {
+  quimica: 'Química Sanguínea',
+  microbiologia: 'Microbiología',
+  hematologia: 'Hematología',
+  inmunologia: 'Inmunología',
+  genetica: 'Genética',
+  hormonas: 'Hormonas',
+  orina: 'Orina y Líquidos',
+  parasitologia: 'Parasitología',
+  otros: 'Otros',
+};
+
+export async function getStaticPaths() {
+  const examenes = await getCollection('examenes', ({ data }) => data.activo);
+
+  // Collect unique categorias
+  const categorias = [...new Set(examenes.map((e) => e.data.categoria))];
+
+  return categorias.map((categoria) => ({
+    params: { slug: categoria },
+    props: {
+      categoria,
+      examenes: examenes
+        .filter((e) => e.data.categoria === categoria)
+        .map((e) => e.data),
+    },
+  }));
+}
+
+const { categoria, examenes } = Astro.props;
+const label = CATEGORIA_LABELS[categoria] ?? categoria;
+---
+
+<BaseLayout
+  title={`Exámenes de ${label}`}
+  description={`Exámenes de ${label} disponibles en CIC Laboratorios. Resultados el mismo día.`}
+>
+  <nav aria-label="Migas de pan">
+    <a href="/examenes">Exámenes</a> › {label}
+  </nav>
+
+  <h1>Exámenes de {label}</h1>
+  <p>{examenes.length} examen(es) en esta categoría.</p>
+
+  <ul>
+    {examenes.map((ex) => (
+      <li>
+        <a href={`/examenes/${ex.slug}`}>{ex.nombre}</a>
+        {ex.requiereAyuno && <em> (requiere ayuno)</em>}
+      </li>
+    ))}
+  </ul>
+</BaseLayout>
+</file>
+
+<file path="src/pages/examenes/perfiles/[slug].astro">
+---
+/**
+ * /examenes/perfiles/[slug] — Individual perfil page.
+ *
+ * TODO (design-needed): Show included exams as a checklist/table.
+ * TODO (content-needed): Add "Request this profile" CTA with wa.me link.
+ * TODO (content-needed): Add pricing disclaimer text.
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const perfiles = await getCollection('perfiles');
+  return perfiles.map((perfil) => ({
+    params: { slug: perfil.data.slug },
+    props: { perfil: perfil.data },
+  }));
+}
+
+const { perfil } = Astro.props;
+---
+
+<BaseLayout
+  title={perfil.nombre}
+  description={perfil.descripcion}
+>
+  <nav aria-label="Migas de pan">
+    <a href="/examenes">Exámenes</a> ›
+    <a href="/examenes/perfiles">Perfiles</a> ›
+    {perfil.nombre}
+  </nav>
+
+  <h1>{perfil.nombre}</h1>
+  <p>{perfil.descripcion}</p>
+
+  {perfil.precio && (
+    <p>
+      Precio referencial: ${perfil.precio.toLocaleString('es-CO')}
+      {/* TODO (content-needed): Add pricing disclaimer */}
+    </p>
+  )}
+
+  <section aria-labelledby="examenes-incluidos-heading">
+    <h2 id="examenes-incluidos-heading">Exámenes incluidos</h2>
+    <ul>
+      {perfil.examenesIncluidos.map((slug: string) => (
+        <li>
+          <a href={`/examenes/${slug}`}>{slug}</a>
+          {/* TODO (content-needed): Show exam nombre instead of slug */}
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <a
+    href={`https://wa.me/573001234567?text=${encodeURIComponent(`Quiero solicitar el perfil ${perfil.nombre}`)}`}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Solicitar por WhatsApp
+    {/* TODO (content-needed): Replace hardcoded WhatsApp with env var */}
+  </a>
+</BaseLayout>
+</file>
+
+<file path="src/pages/examenes/perfiles/index.astro">
+---
+/**
+ * /examenes/perfiles — Listing page for exam profiles/panels.
+ *
+ * TODO (design-needed): Card layout with included exams list preview.
+ * TODO (content-needed): Add pricing for all perfiles once confirmed.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const perfiles = await getCollection('perfiles');
+---
+
+<BaseLayout
+  title="Perfiles de Exámenes"
+  description="Baterías de exámenes recomendadas para etapas de vida, control médico y seguimiento. CIC Laboratorios."
+>
+  <h1>Perfiles de exámenes</h1>
+  <p>Baterías diseñadas para etapas de vida y seguimiento médico.</p>
+
+  <ul>
+    {perfiles.map((perfil) => (
+      <li>
+        <a href={`/examenes/perfiles/${perfil.data.slug}`}>
+          <h2>{perfil.data.nombre}</h2>
+        </a>
+        <p>{perfil.data.descripcion}</p>
+        {perfil.data.precio && (
+          <p>Precio referencial: ${perfil.data.precio.toLocaleString('es-CO')}</p>
+        )}
+        <p>{perfil.data.examenesIncluidos.length} exámen(es) incluido(s)</p>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>
+</file>
+
+<file path="src/pages/examenes/[slug].astro">
+---
+/**
+ * /examenes/[slug] — Individual examen page.
+ *
+ * TODO (design-needed): Full page layout with sidebar for related exams/perfiles.
+ * TODO (design-needed): Add structured preparation checklist component.
+ * TODO (content-needed): Link sedesDisponibles to real sede pages.
+ * TODO (content-needed): Add precio once pricing data is available.
+ * TODO (blocking-for-v1): Cross-link to perfiles that include this examen.
+ */
+import { getCollection } from 'astro:content';
+import ExamenLayout from '@/layouts/ExamenLayout.astro';
+
+export async function getStaticPaths() {
+  const examenes = await getCollection('examenes', ({ data }) => data.activo);
+  return examenes.map((examen) => ({
+    params: { slug: examen.data.slug },
+    props: { examen: examen.data },
+  }));
+}
+
+const { examen } = Astro.props;
+---
+
+<ExamenLayout examen={examen}>
+  <article>
+    <header>
+      <h1>{examen.nombre}</h1>
+      <p>Código CUPS: {examen.codigoCups}</p>
+      <p>Categoría: {examen.categoria}</p>
+    </header>
+
+    {examen.descripcionQueEs && (
+      <section aria-labelledby="que-es-heading">
+        <h2 id="que-es-heading">¿Qué es?</h2>
+        <p>{examen.descripcionQueEs}</p>
+      </section>
+    )}
+
+    {examen.descripcionParaQueSirve && (
+      <section aria-labelledby="para-que-heading">
+        <h2 id="para-que-heading">¿Para qué sirve?</h2>
+        <p>{examen.descripcionParaQueSirve}</p>
+      </section>
+    )}
+
+    <section aria-labelledby="preparacion-heading">
+      <h2 id="preparacion-heading">Preparación</h2>
+      {examen.requiereAyuno && (
+        <p><strong>Requiere ayuno.</strong></p>
+      )}
+      {examen.muestra && (
+        <p>Muestra: {examen.muestra}</p>
+      )}
+      {examen.preparacion
+        ? <p>{examen.preparacion}</p>
+        : <p>Consulta con el personal de la sede para instrucciones específicas.</p>
+      }
+    </section>
+
+    {examen.oportunidadResultados && (
+      <section aria-labelledby="resultados-heading">
+        <h2 id="resultados-heading">Oportunidad de resultados</h2>
+        <p>{examen.oportunidadResultados}</p>
+      </section>
+    )}
+
+    {examen.sedesDisponibles.length > 0 && (
+      <section aria-labelledby="sedes-heading">
+        <h2 id="sedes-heading">Disponible en</h2>
+        <ul>
+          {examen.sedesDisponibles.map((slug: string) => (
+            <li>
+              <a href={`/sedes/${slug}`}>{slug}</a>
+              {/* TODO (content-needed): Show sede nombre instead of slug */}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    {examen.nombresAlternativos.length > 0 && (
+      <section aria-labelledby="nombres-heading">
+        <h2 id="nombres-heading">También conocido como</h2>
+        <p>{examen.nombresAlternativos.join(', ')}</p>
+      </section>
+    )}
+  </article>
+</ExamenLayout>
+</file>
+
+<file path="src/pages/examenes/index.astro">
+---
+/**
+ * /examenes — Listing page for all exámenes.
+ *
+ * TODO (design-needed): Card grid with category filter tabs/pills.
+ * TODO (blocking-for-v1.1): Wire ExamSearch island once Pagefind configured.
+ * TODO (content-needed): Add pagination once 700+ exams are loaded.
+ * TODO (content-needed): Add count per category.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const examenes = await getCollection('examenes', ({ data }) => data.activo);
+
+const CATEGORIAS = [
+  { slug: 'quimica', label: 'Química Sanguínea' },
+  { slug: 'hematologia', label: 'Hematología' },
+  { slug: 'hormonas', label: 'Hormonas' },
+  { slug: 'microbiologia', label: 'Microbiología' },
+  { slug: 'inmunologia', label: 'Inmunología' },
+  { slug: 'genetica', label: 'Genética' },
+  { slug: 'orina', label: 'Orina y Líquidos' },
+  { slug: 'parasitologia', label: 'Parasitología' },
+  { slug: 'otros', label: 'Otros' },
+];
+---
+
+<BaseLayout
+  title="Catálogo de Exámenes"
+  description={`Más de ${examenes.length} exámenes clínicos disponibles en CIC Laboratorios. Resultados el mismo día.`}
+>
+  <h1>Catálogo de exámenes</h1>
+  <p>{examenes.length} exámenes disponibles</p>
+
+  <!-- TODO (blocking-for-v1.1): Replace with ExamSearch island -->
+  <p><em>[ Búsqueda por nombre — pendiente integración Pagefind ]</em></p>
+
+  <h2>Por categoría</h2>
+  <ul>
+    {CATEGORIAS.map((cat) => (
+      <li>
+        <a href={`/examenes/categoria/${cat.slug}`}>{cat.label}</a>
+      </li>
+    ))}
+  </ul>
+
+  <h2>Todos los exámenes</h2>
+  <ul>
+    {examenes.map((ex) => (
+      <li>
+        <a href={`/examenes/${ex.data.slug}`}>{ex.data.nombre}</a>
+        {ex.data.requiereAyuno && <em> (requiere ayuno)</em>}
+      </li>
+    ))}
+  </ul>
+</BaseLayout>
+</file>
+
+<file path="src/pages/nosotros/aliados.astro">
+---
+/**
+ * /nosotros/aliados — Strategic partners and convenios page.
+ *
+ * TODO (content-needed): Add full list of EPS/ARL/insurance convenios.
+ * TODO (content-needed): Add aliado logos once available.
+ * TODO (design-needed): Logo grid layout for aliados.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const aliados = await getCollection('aliados');
+---
+
+<BaseLayout
+  title="Aliados y Convenios"
+  description="Conoce los aliados estratégicos y convenios de CIC Laboratorios con EPS, ARL, clínicas y laboratorios de la región."
+>
+  <nav aria-label="Migas de pan">
+    <a href="/nosotros">Nosotros</a> › Aliados
+  </nav>
+
+  <h1>Aliados y convenios</h1>
+
+  <section aria-labelledby="aliados-heading">
+    <h2 id="aliados-heading">Aliados estratégicos</h2>
+    <ul>
+      {aliados.map((aliado) => (
+        <li>
+          <strong>{aliado.data.nombre}</strong>
+          <p>{aliado.data.descripcion}</p>
+          {aliado.data.url && (
+            <a href={aliado.data.url} target="_blank" rel="noopener noreferrer">
+              Visitar sitio web
+            </a>
+          )}
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section aria-labelledby="convenios-heading">
+    <h2 id="convenios-heading">Convenios activos</h2>
+    <!-- TODO (content-needed): Add full list of EPS, ARL, pre-pagas with which CIC has agreements -->
+    <p>[ Lista de convenios pendiente ]</p>
+  </section>
+</BaseLayout>
+</file>
+
+<file path="src/pages/nosotros/calidad.astro">
+---
+/**
+ * /nosotros/calidad — Quality and certifications page.
+ *
+ * TODO (content-needed): Add real accreditation numbers, dates, auditing bodies.
+ * TODO (content-needed): Add downloadable quality policy PDF.
+ * TODO (design-needed): Certification badge display.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Calidad y Certificaciones"
+  description="CIC Laboratorios cumple con los más altos estándares de calidad en el diagnóstico clínico. Conozca nuestras certificaciones."
+>
+  <nav aria-label="Migas de pan">
+    <a href="/nosotros">Nosotros</a> › Calidad
+  </nav>
+
+  <h1>Calidad y certificaciones</h1>
+
+  <section aria-labelledby="acreditacion-heading">
+    <h2 id="acreditacion-heading">Acreditación</h2>
+    <!-- TODO (content-needed): Add ICONTEC accreditation number and scope -->
+    <p>[ Detalles de acreditación ICONTEC — pendiente ]</p>
+  </section>
+
+  <section aria-labelledby="control-calidad-heading">
+    <h2 id="control-calidad-heading">Control de calidad interno y externo</h2>
+    <!-- TODO (content-needed): Describe EQAS programs, internal QC processes -->
+    <p>[ Descripción de programas de control de calidad — pendiente ]</p>
+  </section>
+
+  <section aria-labelledby="politica-heading">
+    <h2 id="politica-heading">Política de calidad</h2>
+    <!-- TODO (content-needed): Paste official quality policy text -->
+    <p>[ Texto de política de calidad — pendiente ]</p>
+  </section>
+</BaseLayout>
+</file>
+
+<file path="src/pages/nosotros/equipo.astro">
+---
+/**
+ * /nosotros/equipo — Team page.
+ *
+ * TODO (content-needed): Add real team members with photos, roles, and bios.
+ * TODO (design-needed): Photo grid layout for team cards.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Nuestro Equipo"
+  description="Conoce al equipo de profesionales de CIC Laboratorios: bacteriólogos, enfermeros y personal administrativo al servicio de tu salud."
+>
+  <nav aria-label="Migas de pan">
+    <a href="/nosotros">Nosotros</a> › Equipo
+  </nav>
+
+  <h1>Nuestro equipo</h1>
+  <p>
+    <!-- TODO (content-needed): Add intro paragraph about the team -->
+    Contamos con un equipo de profesionales comprometidos con la calidad y la
+    atención humanizada.
+  </p>
+
+  <!-- TODO (content-needed): Replace with real team member data -->
+  <ul aria-label="Miembros del equipo">
+    <li>
+      <h2>[ Nombre del Bacteriólogo/a Jefe ]</h2>
+      <p>Bacteriólogo/a — Director/a Técnico/a</p>
+      <p>[ Breve bio y especialidad — pendiente ]</p>
+    </li>
+    <li>
+      <h2>[ Nombre del profesional ]</h2>
+      <p>[ Cargo ] — [ Ciudad ]</p>
+      <p>[ Bio pendiente ]</p>
+    </li>
+  </ul>
+</BaseLayout>
+</file>
+
+<file path="src/pages/nosotros/historia.astro">
+---
+/**
+ * /nosotros/historia — Company history page.
+ *
+ * TODO (content-needed): Add real timeline with founding year, milestones, expansions.
+ * TODO (design-needed): Visual timeline component.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Nuestra Historia"
+  description="La historia de CIC Laboratorios: fundación, crecimiento y compromiso con la salud en el Valle del Cauca."
+>
+  <nav aria-label="Migas de pan">
+    <a href="/nosotros">Nosotros</a> › Historia
+  </nav>
+
+  <h1>Nuestra historia</h1>
+  <!-- TODO (content-needed): Add real founding year, key milestones, expansion to Tuluá -->
+  <p>[ Contenido de historia pendiente ]</p>
+
+  <section aria-labelledby="timeline-heading">
+    <h2 id="timeline-heading">Línea de tiempo</h2>
+    <ol>
+      <li>
+        <strong>[Año fundación]</strong> —
+        Fundación de CIC Laboratorios en Guadalajara de Buga.
+        {/* TODO (content-needed): Add real year */}
+      </li>
+      <li>
+        <strong>[Año expansión]</strong> —
+        Apertura de sede Tuluá.
+        {/* TODO (content-needed): Add real year */}
+      </li>
+      <li>
+        <strong>Actualidad</strong> —
+        Más de 700 exámenes, 2 sedes y servicio a domicilio.
+      </li>
+    </ol>
+  </section>
+</BaseLayout>
+</file>
+
+<file path="src/pages/nosotros/index.astro">
+---
+/**
+ * /nosotros — About us overview page.
+ *
+ * TODO (design-needed): Add photo of team/facility.
+ * TODO (content-needed): Add mission, vision, values text.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Nosotros"
+  description="Conoce la historia, el equipo y los valores de CIC Laboratorios, referente en diagnóstico clínico en el Valle del Cauca."
+>
+  <h1>Nosotros</h1>
+  <p>
+    <!-- TODO (content-needed): Add mission/vision/values copy -->
+    CIC Laboratorios es un laboratorio clínico con más de [X] años de
+    experiencia al servicio de la salud en el Valle del Cauca.
+  </p>
+
+  <nav aria-label="Secciones de Nosotros">
+    <ul>
+      <li><a href="/nosotros/historia">Historia</a></li>
+      <li><a href="/nosotros/equipo">Equipo</a></li>
+      <li><a href="/nosotros/tecnologia">Tecnología</a></li>
+      <li><a href="/nosotros/calidad">Calidad</a></li>
+      <li><a href="/nosotros/aliados">Aliados</a></li>
+    </ul>
+  </nav>
+</BaseLayout>
+</file>
+
+<file path="src/pages/nosotros/tecnologia.astro">
+---
+/**
+ * /nosotros/tecnologia — Technology page.
+ *
+ * TODO (content-needed): Add real equipment list (brands, models, capabilities).
+ * TODO (content-needed): Add equipment photos.
+ * TODO (design-needed): Equipment showcase grid/carousel.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Nuestra Tecnología"
+  description="CIC Laboratorios cuenta con equipos de última generación para garantizar resultados precisos y confiables."
+>
+  <nav aria-label="Migas de pan">
+    <a href="/nosotros">Nosotros</a> › Tecnología
+  </nav>
+
+  <h1>Nuestra tecnología</h1>
+  <p>
+    Inversión permanente en equipos y metodologías de vanguardia para ofrecer
+    diagnósticos precisos y oportunos.
+  </p>
+
+  <!-- TODO (content-needed): Replace with real equipment inventory -->
+  <section aria-labelledby="equipos-heading">
+    <h2 id="equipos-heading">Equipos principales</h2>
+    <ul>
+      <li>[ Analizador hematológico — modelo pendiente ]</li>
+      <li>[ Analizador de química clínica — modelo pendiente ]</li>
+      <li>[ Equipo de inmunoanálisis — modelo pendiente ]</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="qr-heading">
+    <h2 id="qr-heading">Validación QR de resultados</h2>
+    <p>
+      Cada resultado entregado incluye un código QR único que permite verificar
+      su autenticidad en línea.
+      <!-- TODO (content-needed): Add link to the QR validation portal -->
+    </p>
+  </section>
+</BaseLayout>
+</file>
+
+<file path="src/pages/pacientes/derechos-deberes.astro">
+---
+/**
+ * /pacientes/derechos-deberes — Patient rights and duties page.
+ *
+ * TODO (content-needed): Add official patient rights/duties text per
+ *   Colombian health regulations (Resolución 13437 de 1991 and updates).
+ * TODO (design-needed): Structured two-column layout: rights / duties.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Derechos y Deberes del Paciente"
+  description="Conozca sus derechos y deberes como paciente de CIC Laboratorios, en cumplimiento de la normativa colombiana de salud."
+>
+  <h1>Derechos y deberes del paciente</h1>
+
+  <section aria-labelledby="derechos-heading">
+    <h2 id="derechos-heading">Sus derechos</h2>
+    <!-- TODO (content-needed): Add full list of patient rights per Colombian health law -->
+    <ol>
+      <li>Recibir atención con calidad, calidez y respeto a su dignidad.</li>
+      <li>Obtener información clara y comprensible sobre su diagnóstico.</li>
+      <li>Mantener la confidencialidad de su información de salud.</li>
+      <li>[ Derecho 4 — pendiente ]</li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="deberes-heading">
+    <h2 id="deberes-heading">Sus deberes</h2>
+    <!-- TODO (content-needed): Add full list of patient duties -->
+    <ol>
+      <li>Proporcionar información veraz sobre su estado de salud.</li>
+      <li>Seguir las instrucciones de preparación indicadas.</li>
+      <li>Tratar con respeto al personal de salud.</li>
+      <li>[ Deber 4 — pendiente ]</li>
+    </ol>
+  </section>
+</BaseLayout>
+</file>
+
+<file path="src/pages/pacientes/preguntas-frecuentes.astro">
+---
+/**
+ * /pacientes/preguntas-frecuentes — FAQ page.
+ *
+ * TODO (content-needed): Populate with real FAQs from customer service.
+ * TODO (design-needed): Accordion component for question/answer pairs.
+ * TODO (blocking-for-v1): Add FAQ JSON-LD schema (FAQPage type).
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const faqs = [
+  {
+    question: '¿Necesito cita previa para tomar mis muestras?',
+    answer: 'No. En todas nuestras sedes atendemos sin cita previa.',
+  },
+  {
+    question: '¿Cuándo están listos mis resultados?',
+    answer:
+      'La mayoría de exámenes están listos el mismo día. Te notificaremos cuando estén disponibles.',
+    // TODO (content-needed): Add specific times and exceptions
+  },
+  {
+    question: '¿Cómo puedo verificar la autenticidad de mis resultados?',
+    answer:
+      'Cada resultado incluye un código QR que puedes escanear para verificarlo en nuestro portal.',
+    // TODO (content-needed): Add link to QR portal
+  },
+  {
+    question: '¿Ofrecen servicio a domicilio?',
+    answer:
+      'Sí, disponible en Buga (gratis desde $50.000) y Tuluá. Contáctanos por WhatsApp para coordinar.',
+    // TODO (content-needed): Confirm pricing and availability details
+  },
+];
+---
+
+<BaseLayout
+  title="Preguntas Frecuentes"
+  description="Respuestas a las preguntas más frecuentes sobre los servicios, resultados y preparación en CIC Laboratorios."
+>
+  <h1>Preguntas frecuentes</h1>
+
+  <dl>
+    {faqs.map((faq) => (
+      <>
+        <dt><strong>{faq.question}</strong></dt>
+        <dd>{faq.answer}</dd>
+      </>
+    ))}
+  </dl>
+
+  <p>
+    ¿No encontraste tu respuesta?
+    <a href="/contacto">Contáctanos</a> o escríbenos por
+    <a
+      href="https://wa.me/573001234567"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      WhatsApp
+    </a>.
+  </p>
+</BaseLayout>
+</file>
+
+<file path="src/pages/pacientes/preparacion.astro">
+---
+/**
+ * /pacientes/preparacion — Exam preparation instructions page.
+ *
+ * TODO (content-needed): Add preparation instructions for most common exams.
+ * TODO (design-needed): Accordion or searchable FAQ component.
+ * TODO (blocking-for-v1): This page should eventually be dynamic, pulling
+ *   preparacion field from each examen in the collection.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const examenesConPreparacion = await getCollection(
+  'examenes',
+  ({ data }) => data.activo && !!data.preparacion
+);
+---
+
+<BaseLayout
+  title="Preparación para Exámenes"
+  description="Instrucciones de preparación para los exámenes de laboratorio de CIC Laboratorios: ayunos, medicamentos, muestras especiales."
+>
+  <h1>Preparación para exámenes</h1>
+  <p>
+    Seguir correctamente las instrucciones de preparación garantiza la
+    confiabilidad de sus resultados. Ante cualquier duda, consulte con el
+    personal de nuestra sede.
+  </p>
+
+  <section aria-labelledby="general-heading">
+    <h2 id="general-heading">Recomendaciones generales</h2>
+    <ul>
+      <li>Si el examen requiere ayuno, ayune mínimo 8 horas (puede tomar agua).</li>
+      <li>Informe al momento de la toma sobre medicamentos que esté tomando.</li>
+      <!-- TODO (content-needed): Add more general instructions -->
+    </ul>
+  </section>
+
+  <section aria-labelledby="examenes-prep-heading">
+    <h2 id="examenes-prep-heading">Instrucciones por examen</h2>
+    {examenesConPreparacion.length > 0 ? (
+      <dl>
+        {examenesConPreparacion.map((ex) => (
+          <>
+            <dt>
+              <a href={`/examenes/${ex.data.slug}`}>{ex.data.nombre}</a>
+            </dt>
+            <dd>{ex.data.preparacion}</dd>
+          </>
+        ))}
+      </dl>
+    ) : (
+      <p>[ Instrucciones detalladas por examen — pendiente carga de contenido ]</p>
+    )}
+  </section>
+</BaseLayout>
+</file>
+
+<file path="src/pages/sedes/[slug].astro">
+---
+/**
+ * /sedes/[slug] — Individual sede page.
+ *
+ * TODO (design-needed): Full page layout: hero photo, info card, map, hours table.
+ * TODO (blocking-for-v1.1): Replace LocationMap stub with real map.
+ * TODO (content-needed): Add exams available at this sede (query examenes collection
+ *   where sedesDisponibles includes this sede's slug).
+ * TODO (content-needed): Add gallery from sede.fotos array.
+ */
+import { getCollection } from 'astro:content';
+import SedeLayout from '@/layouts/SedeLayout.astro';
+import LocationMap from '@/components/islands/LocationMap.vue';
+
+export async function getStaticPaths() {
+  const sedes = await getCollection('sedes');
+  return sedes.map((sede) => ({
+    params: { slug: sede.data.slug },
+    props: { sede: sede.data },
+  }));
+}
+
+const { sede } = Astro.props;
+---
+
+<SedeLayout sede={sede}>
+  <h1>{sede.nombre}</h1>
+  <p>{sede.ciudad}</p>
+
+  <section aria-labelledby="info-heading">
+    <h2 id="info-heading">Información de contacto</h2>
+    <address>
+      <p>{sede.direccion}</p>
+      <p>Teléfono: <a href={`tel:${sede.telefono}`}>{sede.telefono}</a></p>
+      <p>
+        WhatsApp:
+        <a
+          href={`https://wa.me/${sede.whatsapp}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {sede.whatsapp}
+        </a>
+      </p>
+      {sede.email && (
+        <p>
+          Email: <a href={`mailto:${sede.email}`}>{sede.email}</a>
+        </p>
+      )}
+    </address>
+  </section>
+
+  <section aria-labelledby="horario-heading">
+    <h2 id="horario-heading">Horario de atención</h2>
+    <table>
+      <tbody>
+        {Object.entries(sede.horario).map(([dia, horas]) => (
+          <tr>
+            <th scope="row" style="text-transform: capitalize">{dia}</th>
+            <td>{horas ?? '—'}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </section>
+
+  {sede.domicilioGratisDesde !== undefined && (
+    <p>
+      Servicio a domicilio gratuito en pedidos desde $
+      {sede.domicilioGratisDesde.toLocaleString('es-CO')}.
+    </p>
+  )}
+
+  <section aria-labelledby="mapa-heading">
+    <h2 id="mapa-heading">Cómo llegar</h2>
+    <LocationMap
+      lat={sede.lat}
+      lng={sede.lng}
+      nombre={sede.nombre}
+      client:visible
+    />
+  </section>
+
+  <section aria-labelledby="servicios-sede-heading">
+    <h2 id="servicios-sede-heading">Servicios disponibles en esta sede</h2>
+    <ul>
+      {sede.servicios.map((s: string) => (
+        <li>{s}</li>
+      ))}
+    </ul>
+    <!-- TODO (content-needed): Replace raw slugs with human-readable labels -->
+  </section>
+</SedeLayout>
+</file>
+
+<file path="src/pages/sedes/index.astro">
+---
+/**
+ * /sedes — Listing page for all sedes.
+ *
+ * TODO (design-needed): Grid/map layout for sede cards.
+ * TODO (content-needed): Add sede thumbnail photos once available.
+ * TODO (blocking-for-v1): Add filter by servicios disponibles.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const sedes = await getCollection('sedes');
+const sedesOrdenadas = [...sedes].sort((a, b) =>
+  a.data.esSedePrincipal ? -1 : b.data.esSedePrincipal ? 1 : 0
+);
+---
+
+<BaseLayout
+  title="Nuestras Sedes"
+  description="Encuentra la sede de CIC Laboratorios más cercana a ti. Atención en Guadalajara de Buga y Tuluá."
+>
+  <h1>Nuestras sedes</h1>
+  <p>Atendemos en {sedes.length} sedes en el Valle del Cauca.</p>
+
+  <ul>
+    {sedesOrdenadas.map((sede) => (
+      <li>
+        <a href={`/sedes/${sede.data.slug}`}>
+          <h2>{sede.data.nombre}</h2>
+        </a>
+        <p>{sede.data.ciudad} — {sede.data.direccion}</p>
+        <p>Tel: {sede.data.telefono}</p>
+        {sede.data.esSedePrincipal && <span>Sede principal</span>}
+        <a href={`/sedes/${sede.data.slug}`}>Ver detalles →</a>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>
+</file>
+
+<file path="src/pages/servicios/[slug].astro">
+---
+/**
+ * /servicios/[slug] — Individual service page.
+ *
+ * TODO (design-needed): Full service page layout with hero, benefits list, CTA.
+ * TODO (content-needed): Add detailed content for each service.
+ * TODO (content-needed): Cross-link to sedes where service is available.
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const servicios = await getCollection('servicios');
+  return servicios.map((servicio) => ({
+    params: { slug: servicio.data.slug },
+    props: { servicio: servicio.data },
+  }));
+}
+
+const { servicio } = Astro.props;
+
+const ctaUrl =
+  servicio.ctaTipo === 'whatsapp'
+    ? `https://wa.me/573001234567?text=${encodeURIComponent(`Quiero información sobre ${servicio.nombre}`)}`
+    : servicio.ctaTipo === 'mailto'
+    ? `mailto:info@ciclaboratorios.com?subject=${encodeURIComponent(servicio.nombre)}`
+    : '/contacto';
+---
+
+<BaseLayout
+  title={servicio.nombre}
+  description={servicio.descripcion}
+>
+  <h1>{servicio.nombre}</h1>
+  <p>{servicio.descripcion}</p>
+
+  <section aria-labelledby="disponibilidad-heading">
+    <h2 id="disponibilidad-heading">Disponibilidad</h2>
+    {servicio.sedesDisponibles[0] === 'todas' ? (
+      <p>Disponible en todas nuestras sedes.</p>
+    ) : (
+      <ul>
+        {servicio.sedesDisponibles.map((slug: string) => (
+          <li><a href={`/sedes/${slug}`}>{slug}</a></li>
+        ))}
+      </ul>
+    )}
+    {/* TODO (content-needed): Show sede nombre instead of slug */}
+  </section>
+
+  <a
+    href={ctaUrl}
+    {...(servicio.ctaTipo === 'whatsapp' ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+  >
+    {servicio.ctaTipo === 'whatsapp' ? 'Solicitar por WhatsApp' : 'Solicitar información'}
+  </a>
+</BaseLayout>
+</file>
+
+<file path="src/pages/servicios/index.astro">
+---
+/**
+ * /servicios — Services listing page.
+ *
+ * TODO (design-needed): Icon cards for each service.
+ * TODO (content-needed): Add service images/icons.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const servicios = await getCollection('servicios');
+---
+
+<BaseLayout
+  title="Nuestros Servicios"
+  description="Servicios de CIC Laboratorios: toma a domicilio, ginecología y VPH, jornadas empresariales y salud ocupacional."
+>
+  <h1>Nuestros servicios</h1>
+
+  <ul>
+    {servicios.map((servicio) => (
+      <li>
+        <a href={`/servicios/${servicio.data.slug}`}>
+          <h2>{servicio.data.nombre}</h2>
+        </a>
+        <p>{servicio.data.descripcion}</p>
+        <a href={`/servicios/${servicio.data.slug}`}>Saber más →</a>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>
+</file>
+
+<file path="src/pages/404.astro">
+---
+/**
+ * 404.astro — Custom 404 not-found page.
+ *
+ * TODO (design-needed): Add branded illustration/graphic.
+ * TODO (content-needed): Add helpful links relevant to common user journeys.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Página no encontrada"
+  description="La página que buscas no existe. Vuelve al inicio o busca un examen."
+>
+  <h1>404 — Página no encontrada</h1>
+  <p>Lo sentimos, no pudimos encontrar la página que buscas.</p>
+
+  <nav aria-label="Sugerencias de navegación">
+    <ul>
+      <li><a href="/">Ir al inicio</a></li>
+      <li><a href="/examenes">Ver catálogo de exámenes</a></li>
+      <li><a href="/sedes">Encontrar una sede</a></li>
+      <li><a href="/contacto">Contactarnos</a></li>
+    </ul>
+  </nav>
+</BaseLayout>
+</file>
+
+<file path="src/pages/contacto.astro">
+---
+/**
+ * /contacto — Contact page.
+ *
+ * TODO (design-needed): Style the contact section with sede cards.
+ * TODO (content-needed): Add real contact form if server-side form handling
+ *   is ever added (e.g. via Resend or Formspree). For now, mailto fallback.
+ * TODO (content-needed): Add Google Maps embed or LocationMap island
+ *   for each sede once LocationMap stub is replaced.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const sedes = await getCollection('sedes');
+---
+
+<BaseLayout
+  title="Contacto"
+  description="Ponerse en contacto con CIC Laboratorios. Encuentre teléfonos, correos y direcciones de nuestras sedes en Buga y Tuluá."
+>
+  <h1>Contáctenos</h1>
+
+  <section aria-labelledby="sedes-contacto-heading">
+    <h2 id="sedes-contacto-heading">Nuestras sedes</h2>
+    <ul>
+      {sedes.map((sede) => (
+        <li>
+          <h3>{sede.data.nombre}</h3>
+          <address>
+            <p>{sede.data.direccion}, {sede.data.ciudad}</p>
+            <p>
+              Tel: <a href={`tel:${sede.data.telefono}`}>{sede.data.telefono}</a>
+            </p>
+            <p>
+              WhatsApp:{' '}
+              <a
+                href={`https://wa.me/${sede.data.whatsapp}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {sede.data.whatsapp}
+              </a>
+            </p>
+            {sede.data.email && (
+              <p>
+                Email: <a href={`mailto:${sede.data.email}`}>{sede.data.email}</a>
+              </p>
+            )}
+          </address>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section aria-labelledby="formulario-heading">
+    <h2 id="formulario-heading">Envíanos un mensaje</h2>
+    <!-- TODO (design-needed): Replace mailto link with proper contact form
+         once form backend is available (Resend, Formspree, or Netlify Forms). -->
+    <p>
+      <a href="mailto:info@ciclaboratorios.com?subject=Consulta%20desde%20el%20sitio%20web">
+        Enviar correo electrónico
+      </a>
+    </p>
+  </section>
+</BaseLayout>
+</file>
+
+<file path="src/pages/empresas.astro">
+---
+/**
+ * /empresas — Landing page for B2B / corporate clients.
+ *
+ * TODO (design-needed): Full landing page layout.
+ * TODO (content-needed): Add client logos, case studies, pricing tiers.
+ * TODO (content-needed): Add proper contact form (mailto fallback for now).
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+// Filter services relevant for empresas
+const serviciosEmpresa = await getCollection('servicios', ({ data }) =>
+  ['jornadas-empresariales', 'salud-ocupacional', 'domicilio'].includes(data.slug)
+);
+---
+
+<BaseLayout
+  title="Servicios para Empresas"
+  description="Salud ocupacional, jornadas empresariales y toma de muestras para empresas. CIC Laboratorios — su aliado en bienestar corporativo."
+>
+  <h1>Soluciones para empresas</h1>
+  <p>
+    Acompañamos a su empresa en el cumplimiento de la normativa de salud
+    ocupacional y en el bienestar de sus colaboradores.
+  </p>
+
+  <section aria-labelledby="servicios-empresa-heading">
+    <h2 id="servicios-empresa-heading">Nuestros servicios empresariales</h2>
+    <ul>
+      {serviciosEmpresa.map((s) => (
+        <li>
+          <a href={`/servicios/${s.data.slug}`}>
+            <strong>{s.data.nombre}</strong>
+          </a>
+          <p>{s.data.descripcion}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section aria-labelledby="beneficios-heading">
+    <h2 id="beneficios-heading">¿Por qué elegirnos?</h2>
+    <ul>
+      <li>Resultados el mismo día</li>
+      <li>Personal capacitado para toma en sitio</li>
+      <li>Informes consolidados para RR.HH.</li>
+      <li><!-- TODO (content-needed): Add more benefit points --></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="contacto-empresa-heading">
+    <h2 id="contacto-empresa-heading">Solicitar cotización</h2>
+    <p>
+      <!-- TODO (design-needed): Replace with proper contact form -->
+      Contáctenos para recibir una propuesta personalizada:
+    </p>
+    <a
+      href="mailto:empresas@ciclaboratorios.com?subject=Solicitud%20de%20cotizaci%C3%B3n"
+    >
+      Enviar correo electrónico
+    </a>
+    <a
+      href="https://wa.me/573001234567?text=Quiero%20informaci%C3%B3n%20sobre%20servicios%20empresariales"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Contactar por WhatsApp
+    </a>
+  </section>
+</BaseLayout>
+</file>
+
+<file path="src/pages/index.astro">
+---
+/**
+ * index.astro — Homepage
+ *
+ * Wireframe sections (in order):
+ *  1. Hero
+ *  2. 4 pillars strip
+ *  3. Audience segmentation (3 cards)
+ *  4. Sede map preview
+ *  5. Examen categories
+ *  6. Services
+ *  7. Humanización (team + testimonials)
+ *  8. Quality / technology / QR
+ *  9. Convenios / aliados
+ * 10. Footer (rendered by BaseLayout)
+ *
+ * TODO (design-needed): Implement full visual design for every section.
+ * TODO (content-needed): Replace all placeholder text with real copy.
+ * TODO (blocking-for-v1): Wire ExamSearch island once Pagefind is configured.
+ * TODO (content-needed): Populate aliados logos and convenios list.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import LocationMap from '@/components/islands/LocationMap.vue';
+
+const sedes = await getCollection('sedes');
+const servicios = await getCollection('servicios');
+const aliados = await getCollection('aliados');
+
+const CATEGORIAS = [
+  { slug: 'quimica', label: 'Química Sanguínea' },
+  { slug: 'hematologia', label: 'Hematología' },
+  { slug: 'hormonas', label: 'Hormonas' },
+  { slug: 'microbiologia', label: 'Microbiología' },
+  { slug: 'inmunologia', label: 'Inmunología' },
+  { slug: 'genetica', label: 'Genética' },
+  { slug: 'orina', label: 'Orina y Líquidos' },
+  { slug: 'parasitologia', label: 'Parasitología' },
+  { slug: 'otros', label: 'Otros' },
+];
+---
+
+<BaseLayout
+  title="Inicio"
+  description="CIC Laboratorios — Más de 700 exámenes clínicos con resultados el mismo día. Sedes en Buga y Tuluá. Servicio a domicilio disponible."
+>
+
+  <!-- ===== 1. HERO ===================================================== -->
+  <section aria-labelledby="hero-heading">
+    <h1 id="hero-heading">Resultados que transforman vidas</h1>
+    <p>Más de 700 exámenes clínicos — resultados el mismo día, sin cita previa.</p>
+    <a href="/examenes">Ver exámenes</a>
+    <a href="/sedes">Encontrar sede</a>
+    <!-- TODO (design-needed): Full hero with background image, CTA buttons styled. -->
+    <!-- TODO (design-needed): Add ExamSearch island here once Pagefind ready. -->
+  </section>
+
+  <!-- ===== 2. 4 PILLARS STRIP ========================================== -->
+  <section aria-labelledby="pillars-heading">
+    <h2 id="pillars-heading" class="sr-only">Por qué CIC Laboratorios</h2>
+    <ul>
+      <li>
+        <strong>Mismo día</strong>
+        <p>Resultados disponibles el mismo día de la toma.</p>
+      </li>
+      <li>
+        <strong>Sin cita previa</strong>
+        <p>Atención inmediata en todas nuestras sedes.</p>
+      </li>
+      <li>
+        <strong>+700 pruebas</strong>
+        <p>El portafolio más completo de la región.</p>
+      </li>
+      <li>
+        <strong>Servicio a domicilio</strong>
+        <p>Toma de muestras en tu hogar o empresa.</p>
+        <!-- TODO (content-needed): Note "gratis desde $50.000" for Buga sede -->
+      </li>
+    </ul>
+  </section>
+
+  <!-- ===== 3. AUDIENCE SEGMENTATION ==================================== -->
+  <section aria-labelledby="audience-heading">
+    <h2 id="audience-heading">¿Cómo podemos ayudarte?</h2>
+    <div>
+      <article>
+        <h3>Soy paciente</h3>
+        <p>Resultados rápidos, sin cita, con atención humanizada.</p>
+        <a href="/pacientes/preparacion">Ver preparación de exámenes</a>
+      </article>
+      <article>
+        <h3>Soy empresa</h3>
+        <p>Salud ocupacional, jornadas empresariales y convenios.</p>
+        <a href="/empresas">Servicios para empresas</a>
+      </article>
+      <article>
+        <h3>Soy laboratorio / IPS</h3>
+        <p>Referencia de muestras, alianzas estratégicas.</p>
+        <a href="/laboratorios">Alianzas con laboratorios</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== 4. SEDE MAP PREVIEW ========================================= -->
+  <section aria-labelledby="sedes-map-heading">
+    <h2 id="sedes-map-heading">Nuestras sedes</h2>
+    <!-- TODO (blocking-for-v1.1): Replace with interactive multi-sede map -->
+    <LocationMap
+      lat={sedes[0]?.data.lat}
+      lng={sedes[0]?.data.lng}
+      nombre="Vista general de sedes"
+      client:visible
+    />
+    <ul>
+      {sedes.map((sede) => (
+        <li>
+          <a href={`/sedes/${sede.data.slug}`}>{sede.data.nombre}</a>
+          <span> — {sede.data.ciudad}</span>
+        </li>
+      ))}
+    </ul>
+    <a href="/sedes">Ver todas las sedes</a>
+  </section>
+
+  <!-- ===== 5. EXAMEN CATEGORIES ======================================== -->
+  <section aria-labelledby="categorias-heading">
+    <h2 id="categorias-heading">Exámenes por categoría</h2>
+    <ul>
+      {CATEGORIAS.map((cat) => (
+        <li>
+          <a href={`/examenes/categoria/${cat.slug}`}>{cat.label}</a>
+        </li>
+      ))}
+    </ul>
+    <a href="/examenes">Ver todos los exámenes</a>
+  </section>
+
+  <!-- ===== 6. SERVICES ================================================= -->
+  <section aria-labelledby="servicios-heading">
+    <h2 id="servicios-heading">Nuestros servicios</h2>
+    <ul>
+      {servicios.map((servicio) => (
+        <li>
+          <a href={`/servicios/${servicio.data.slug}`}>
+            <strong>{servicio.data.nombre}</strong>
+          </a>
+          <p>{servicio.data.descripcion}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- ===== 7. HUMANIZACIÓN ============================================= -->
+  <section aria-labelledby="equipo-heading">
+    <h2 id="equipo-heading">Un equipo comprometido con tu salud</h2>
+    <p>
+      <!-- TODO (content-needed): Add real copy about the team and values -->
+      En CIC Laboratorios creemos que los exámenes de laboratorio son mucho
+      más que datos: son parte de la historia de vida de cada paciente.
+    </p>
+    <!-- TODO (content-needed): Add team photos and real testimonials -->
+    <div aria-label="Testimonios">
+      <blockquote>
+        <p>[ Testimonio de paciente — placeholder ]</p>
+        <cite>— Nombre, Ciudad</cite>
+      </blockquote>
+    </div>
+    <a href="/nosotros/equipo">Conocer al equipo</a>
+  </section>
+
+  <!-- ===== 8. QUALITY / TECHNOLOGY / QR ================================ -->
+  <section aria-labelledby="calidad-heading">
+    <h2 id="calidad-heading">Calidad y tecnología al servicio de tu salud</h2>
+    <ul>
+      <li>
+        <strong>Acreditación ICONTEC</strong>
+        <p><!-- TODO (content-needed): Fill in real accreditation details --></p>
+      </li>
+      <li>
+        <strong>Validación QR</strong>
+        <p>Verifica la autenticidad de tus resultados con un código QR único.</p>
+      </li>
+      <li>
+        <strong>Equipos de última generación</strong>
+        <p><!-- TODO (content-needed): Describe key equipment --></p>
+      </li>
+    </ul>
+    <a href="/nosotros/tecnologia">Ver nuestra tecnología</a>
+    <a href="/nosotros/calidad">Ver certificaciones</a>
+  </section>
+
+  <!-- ===== 9. CONVENIOS / ALIADOS ====================================== -->
+  <section aria-labelledby="aliados-heading">
+    <h2 id="aliados-heading">Convenios y aliados estratégicos</h2>
+    <!-- TODO (content-needed): Add logos and full list of convenios (EPS, ARL, etc.) -->
+    <ul>
+      {aliados.map((aliado) => (
+        <li>
+          <strong>{aliado.data.nombre}</strong>
+          <p>{aliado.data.descripcion}</p>
+        </li>
+      ))}
+    </ul>
+    <a href="/nosotros/aliados">Ver todos los aliados</a>
+  </section>
+
+</BaseLayout>
+</file>
+
+<file path="src/pages/laboratorios.astro">
+---
+/**
+ * /laboratorios — Landing page for IPS / lab partners.
+ *
+ * TODO (design-needed): Full landing page layout.
+ * TODO (content-needed): Add partner requirements, process description.
+ * TODO (content-needed): Add testimonials from current lab partners.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const aliados = await getCollection('aliados', ({ data }) => data.esEstrategico);
+---
+
+<BaseLayout
+  title="Alianzas con Laboratorios e IPS"
+  description="CIC Laboratorios como laboratorio de referencia para IPS y laboratorios clínicos de la región. Referencia de muestras especializadas."
+>
+  <h1>Alianzas con laboratorios e IPS</h1>
+  <p>
+    CIC Laboratorios actúa como laboratorio de referencia regional para IPS y
+    laboratorios clínicos que necesiten envío de muestras especializadas.
+  </p>
+
+  <section aria-labelledby="aliados-estrategicos-heading">
+    <h2 id="aliados-estrategicos-heading">Aliados estratégicos actuales</h2>
+    <ul>
+      {aliados.map((aliado) => (
+        <li>
+          <strong>{aliado.data.nombre}</strong>
+          <p>{aliado.data.descripcion}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section aria-labelledby="propuesta-heading">
+    <h2 id="propuesta-heading">¿Por qué referir sus muestras a CIC?</h2>
+    <ul>
+      <li>Amplio portafolio de más de 700 exámenes</li>
+      <li>Respuesta rápida y trazabilidad de muestras</li>
+      <li><!-- TODO (content-needed): Add more value propositions --></li>
+    </ul>
+  </section>
+
+  <a
+    href="mailto:alianzas@ciclaboratorios.com?subject=Propuesta%20de%20alianza"
+  >
+    Proponer alianza
+    <!-- TODO (content-needed): Replace with correct email address -->
+  </a>
+</BaseLayout>
+</file>
+
+<file path="src/styles/global.css">
+@import "tailwindcss";
+
+/* TODO (design-needed): Define CIC brand tokens here once design system is agreed:
+   - Primary color (CIC red/brand color)
+   - Secondary accent
+   - Font families (e.g. Inter for body, custom for headings)
+   - Spacing scale overrides if needed
+*/
+
+/* Minimal base: ensure images don't overflow their containers */
+img {
+  max-width: 100%;
+  height: auto;
+}
+</file>
+
+<file path=".gitignore">
+# Build output
+dist/
+.vercel/
+
+# Astro generated files
+.astro/
+
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/settings.json
+
+# Logs
+npm-debug.log*
+</file>
+
+<file path="astro.config.mjs">
+// @ts-check
+import { defineConfig } from 'astro/config';
+import vue from '@astrojs/vue';
+import sitemap from '@astrojs/sitemap';
+import vercel from '@astrojs/vercel';
+import tailwindcss from '@tailwindcss/vite';
+
+// https://astro.build/config
+export default defineConfig({
+  site: 'https://www.ciclaboratorios.com',
+  output: 'static',
+  adapter: vercel(),
+  integrations: [
+    vue(),
+    sitemap({
+      // TODO (content-needed): add custom sitemap entries for priority/changefreq
+      // when real content is in place
+    }),
+  ],
+  vite: {
+    plugins: [tailwindcss()],
+  },
+});
+</file>
+
+<file path="package.json">
+{
+  "name": "cic-web-2026",
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "type-check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.2",
+    "@astrojs/vercel": "^9.0.5",
+    "@astrojs/vue": "^5.1.4",
+    "@tailwindcss/vite": "^4.1.4",
+    "astro": "^5.7.0",
+    "tailwindcss": "^4.1.4",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@types/node": "^22.14.1",
+    "pagefind": "^1.3.0",
+    "typescript": "^5.8.3"
+  }
+}
+</file>
+
+<file path="README.md">
+# CIC Laboratorios — Web 2026
+
+Clinical laboratory website for CIC Laboratorios, built with Astro 5, Tailwind CSS v4, and Vue 3.
+
+## Stack
+
+- **Framework**: Astro 5 (static output)
+- **UI components**: Vue 3 (islands for interactive elements)
+- **CSS**: Tailwind CSS v4 via `@tailwindcss/vite`
+- **Sitemap**: `@astrojs/sitemap`
+- **Deploy**: Vercel (static adapter)
+- **Search**: Pagefind (installed, integration pending — v1.1)
+
+## Dev commands
+
+| Command           | Action                                   |
+| ----------------- | ---------------------------------------- |
+| `npm run dev`     | Start local dev server at localhost:4321 |
+| `npm run build`   | Build static site to `./dist`            |
+| `npm run preview` | Preview the production build locally     |
+| `npm run type-check` | Run TypeScript type checking          |
+
+## Folder structure
+
+```
+src/
+├── content/          # Content collections (JSON data files)
+│   ├── config.ts     # Zod schemas for all collections
+│   ├── examenes/     # Lab exam entries (~700 eventually)
+│   ├── sedes/        # Location entries
+│   ├── servicios/    # Service entries
+│   ├── perfiles/     # Exam profile/panel entries
+│   └── aliados/      # Strategic partner entries
+├── layouts/          # Page layouts (Base, Sede, Examen)
+├── components/       # Astro components + Vue islands
+│   └── islands/      # Vue 3 interactive components
+├── pages/            # File-based routing
+├── styles/           # global.css (Tailwind entry)
+└── lib/              # Utilities (SEO JSON-LD helpers)
+```
+
+## Content collections
+
+| Collection  | Type | Description                        |
+| ----------- | ---- | ---------------------------------- |
+| `examenes`  | data | Lab exam catalog (~700 entries)    |
+| `sedes`     | data | Clinic locations                   |
+| `servicios` | data | Services offered                   |
+| `perfiles`  | data | Exam profiles/panels               |
+| `aliados`   | data | Strategic partners                 |
+
+## Environment variables
+
+None required for static build. Future integrations may need:
+
+- `PUBLIC_WHATSAPP_PHONE` — Main WhatsApp number (currently hardcoded)
+- `PUBLIC_SITE_URL` — Override for canonical URLs
+
+## Roadmap
+
+- **v1**: Base scaffold + routes + schemas (this branch)
+- **v1.1**: Pagefind search integration, real map, full exam catalog migration
+- **v2**: Forms, booking, results portal integration
+</file>
+
+<file path="tsconfig.json">
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.astro", "src/**/*.vue"]
+}
+</file>
+
+</files>

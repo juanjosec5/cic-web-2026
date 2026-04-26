@@ -7,26 +7,23 @@
  * TODO (design-needed): Replace emoji/text with SVG WhatsApp icon.
  * TODO (design-needed): Add entrance animation, tooltip on hover.
  */
-const props = withDefaults(
-  defineProps<{
-    /** Phone number in international format without +, e.g. "573001234567" */
-    phone: string;
-    /** Pre-filled message text (optional) */
-    message?: string;
-  }>(),
-  {
-    message: '¡Hola! Quisiera información sobre los servicios de CIC Laboratorios.',
-  }
-);
+import { computed } from 'vue';
+
+interface Props {
+  /** Phone number in international format without +, e.g. "573001234567" */
+  phone: string;
+  /** Pre-filled message text (optional) */
+  message?: string;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  message: '¡Hola! Quisiera información sobre los servicios de CIC Laboratorios.',
+});
 
 const waUrl = computed(() => {
   const encodedMsg = encodeURIComponent(props.message ?? '');
   return `https://wa.me/${props.phone}?text=${encodedMsg}`;
 });
-</script>
-
-<script lang="ts">
-import { computed } from 'vue';
 </script>
 
 <template>

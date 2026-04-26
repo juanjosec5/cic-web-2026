@@ -9,10 +9,11 @@
  */
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 
 const examenesConPreparacion = await getCollection(
   'examenes',
-  ({ data }) => data.activo && !!data.preparacion
+  ({ data }: CollectionEntry<'examenes'>) => data.activo && !!data.preparacion
 );
 ---
 
@@ -40,7 +41,7 @@ const examenesConPreparacion = await getCollection(
     <h2 id="examenes-prep-heading">Instrucciones por examen</h2>
     {examenesConPreparacion.length > 0 ? (
       <dl>
-        {examenesConPreparacion.map((ex) => (
+        {examenesConPreparacion.map((ex: CollectionEntry<'examenes'>) => (
           <>
             <dt>
               <a href={`/examenes/${ex.data.slug}`}>{ex.data.nombre}</a>

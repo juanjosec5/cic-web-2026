@@ -8,10 +8,13 @@
  */
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 
 // Filter services relevant for empresas
-const serviciosEmpresa = await getCollection('servicios', ({ data }) =>
-  ['jornadas-empresariales', 'salud-ocupacional', 'domicilio'].includes(data.slug)
+const serviciosEmpresa = await getCollection(
+  'servicios',
+  ({ data }: CollectionEntry<'servicios'>) =>
+    ['jornadas-empresariales', 'salud-ocupacional', 'domicilio'].includes(data.slug)
 );
 ---
 
@@ -28,7 +31,7 @@ const serviciosEmpresa = await getCollection('servicios', ({ data }) =>
   <section aria-labelledby="servicios-empresa-heading">
     <h2 id="servicios-empresa-heading">Nuestros servicios empresariales</h2>
     <ul>
-      {serviciosEmpresa.map((s) => (
+      {serviciosEmpresa.map((s: CollectionEntry<'servicios'>) => (
         <li>
           <a href={`/servicios/${s.data.slug}`}>
             <strong>{s.data.nombre}</strong>

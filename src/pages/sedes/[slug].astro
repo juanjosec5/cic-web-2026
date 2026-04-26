@@ -9,12 +9,17 @@
  * TODO (content-needed): Add gallery from sede.fotos array.
  */
 import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import SedeLayout from '@/layouts/SedeLayout.astro';
 import LocationMap from '@/components/islands/LocationMap.vue';
 
+interface Props {
+  sede: CollectionEntry<'sedes'>['data'];
+}
+
 export async function getStaticPaths() {
   const sedes = await getCollection('sedes');
-  return sedes.map((sede) => ({
+  return sedes.map((sede: CollectionEntry<'sedes'>) => ({
     params: { slug: sede.data.slug },
     props: { sede: sede.data },
   }));

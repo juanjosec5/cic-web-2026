@@ -9,8 +9,12 @@
  */
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 
-const examenes = await getCollection('examenes', ({ data }) => data.activo);
+const examenes = await getCollection(
+  'examenes',
+  ({ data }: CollectionEntry<'examenes'>) => data.activo
+);
 
 const CATEGORIAS = [
   { slug: 'quimica', label: 'Química Sanguínea' },
@@ -46,7 +50,7 @@ const CATEGORIAS = [
 
   <h2>Todos los exámenes</h2>
   <ul>
-    {examenes.map((ex) => (
+    {examenes.map((ex: CollectionEntry<'examenes'>) => (
       <li>
         <a href={`/examenes/${ex.data.slug}`}>{ex.data.nombre}</a>
         {ex.data.requiereAyuno && <em> (requiere ayuno)</em>}

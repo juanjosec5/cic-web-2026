@@ -10,6 +10,7 @@
  */
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 
 const sedes = await getCollection('sedes');
 ---
@@ -23,7 +24,7 @@ const sedes = await getCollection('sedes');
   <section aria-labelledby="sedes-contacto-heading">
     <h2 id="sedes-contacto-heading">Nuestras sedes</h2>
     <ul>
-      {sedes.map((sede) => (
+      {sedes.map((sede: CollectionEntry<'sedes'>) => (
         <li>
           <h3>{sede.data.nombre}</h3>
           <address>

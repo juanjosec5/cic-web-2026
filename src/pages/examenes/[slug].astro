@@ -9,11 +9,19 @@
  * TODO (blocking-for-v1): Cross-link to perfiles that include this examen.
  */
 import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import ExamenLayout from '@/layouts/ExamenLayout.astro';
 
+interface Props {
+  examen: CollectionEntry<'examenes'>['data'];
+}
+
 export async function getStaticPaths() {
-  const examenes = await getCollection('examenes', ({ data }) => data.activo);
-  return examenes.map((examen) => ({
+  const examenes = await getCollection(
+    'examenes',
+    ({ data }: CollectionEntry<'examenes'>) => data.activo
+  );
+  return examenes.map((examen: CollectionEntry<'examenes'>) => ({
     params: { slug: examen.data.slug },
     props: { examen: examen.data },
   }));

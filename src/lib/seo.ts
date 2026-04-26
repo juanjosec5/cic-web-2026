@@ -27,6 +27,9 @@ export interface MedicalBusinessJsonLd {
   };
   openingHours?: string[];
   image?: string;
+  // Index signature makes this assignable to Record<string, unknown>
+  // while keeping named fields strongly typed.
+  [key: string]: unknown;
 }
 
 export interface MedicalTestJsonLd {
@@ -42,6 +45,9 @@ export interface MedicalTestJsonLd {
     code: string;
     codingSystem: string;
   };
+  // Index signature makes this assignable to Record<string, unknown>
+  // while keeping named fields strongly typed.
+  [key: string]: unknown;
 }
 
 /**

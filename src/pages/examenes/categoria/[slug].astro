@@ -7,7 +7,13 @@
  * TODO (blocking-for-v1): Add pagination for categories with many exams.
  */
 import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+
+interface Props {
+  categoria: CollectionEntry<'examenes'>['data']['categoria'];
+  examenes: CollectionEntry<'examenes'>['data'][];
+}
 
 const CATEGORIA_LABELS: Record<string, string> = {
   quimica: 'Química Sanguínea',
@@ -22,18 +28,23 @@ const CATEGORIA_LABELS: Record<string, string> = {
 };
 
 export async function getStaticPaths() {
-  const examenes = await getCollection('examenes', ({ data }) => data.activo);
+  const examenes = await getCollection(
+    'examenes',
+    ({ data }: CollectionEntry<'examenes'>) => data.activo
+  );
 
   // Collect unique categorias
-  const categorias = [...new Set(examenes.map((e) => e.data.categoria))];
+  const categorias = [
+    ...new Set(examenes.map((e: CollectionEntry<'examenes'>) => e.data.categoria)),
+  ];
 
   return categorias.map((categoria) => ({
     params: { slug: categoria },
     props: {
       categoria,
       examenes: examenes
-        .filter((e) => e.data.categoria === categoria)
-        .map((e) => e.data),
+        .filter((e: CollectionEntry<'examenes'>) => e.data.categoria === categoria)
+        .map((e: CollectionEntry<'examenes'>) => e.data),
     },
   }));
 }

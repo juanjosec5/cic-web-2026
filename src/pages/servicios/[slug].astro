@@ -7,11 +7,16 @@
  * TODO (content-needed): Cross-link to sedes where service is available.
  */
 import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+
+interface Props {
+  servicio: CollectionEntry<'servicios'>['data'];
+}
 
 export async function getStaticPaths() {
   const servicios = await getCollection('servicios');
-  return servicios.map((servicio) => ({
+  return servicios.map((servicio: CollectionEntry<'servicios'>) => ({
     params: { slug: servicio.data.slug },
     props: { servicio: servicio.data },
   }));

@@ -7,11 +7,16 @@
  * TODO (content-needed): Add pricing disclaimer text.
  */
 import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+
+interface Props {
+  perfil: CollectionEntry<'perfiles'>['data'];
+}
 
 export async function getStaticPaths() {
   const perfiles = await getCollection('perfiles');
-  return perfiles.map((perfil) => ({
+  return perfiles.map((perfil: CollectionEntry<'perfiles'>) => ({
     params: { slug: perfil.data.slug },
     props: { perfil: perfil.data },
   }));
