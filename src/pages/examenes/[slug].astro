@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import ExamenLayout from '@/layouts/ExamenLayout.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
 import { CATEGORIAS, SITE_CONFIG } from '@/lib/config';
 
 interface Props {
@@ -45,20 +46,12 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
 <ExamenLayout examen={examen}>
   <div class="mx-auto max-w-4xl px-4 py-8 sm:px-6">
 
-    <!-- Breadcrumb -->
-    <nav aria-label="Ruta de navegación">
-      <ol class="flex flex-wrap items-center gap-1">
-        <li><a href="/">Inicio</a></li>
-        <li aria-hidden="true">›</li>
-        <li><a href="/examenes">Exámenes</a></li>
-        <li aria-hidden="true">›</li>
-        <li>
-          <a href={`/examenes/categoria/${examen.categoria}`}>{categoriaLabel}</a>
-        </li>
-        <li aria-hidden="true">›</li>
-        <li aria-current="page">{examen.nombre}</li>
-      </ol>
-    </nav>
+    <Breadcrumb items={[
+      { label: 'Inicio', href: '/' },
+      { label: 'Exámenes', href: '/examenes' },
+      { label: categoriaLabel, href: `/examenes/categoria/${examen.categoria}` },
+      { label: examen.nombre },
+    ]} />
 
     <article>
       <header class="mt-6">

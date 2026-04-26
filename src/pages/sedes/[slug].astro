@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import SedeLayout from '@/layouts/SedeLayout.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
 import { SITE_CONFIG } from '@/lib/config';
 
 interface Props {
@@ -43,16 +44,11 @@ const SERVICIO_LABELS: Record<string, string> = {
 <SedeLayout sede={sede}>
   <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6">
 
-    <!-- Breadcrumb -->
-    <nav aria-label="Ruta de navegación">
-      <ol class="flex flex-wrap items-center gap-1">
-        <li><a href="/">Inicio</a></li>
-        <li aria-hidden="true">›</li>
-        <li><a href="/sedes">Sedes</a></li>
-        <li aria-hidden="true">›</li>
-        <li aria-current="page">{sede.nombre}</li>
-      </ol>
-    </nav>
+    <Breadcrumb items={[
+      { label: 'Inicio', href: '/' },
+      { label: 'Sedes', href: '/sedes' },
+      { label: sede.nombre },
+    ]} />
 
     <!-- H1 + subheading -->
     <header class="mt-6">
