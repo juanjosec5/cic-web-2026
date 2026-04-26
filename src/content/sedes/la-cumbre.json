@@ -1,0 +1,13 @@
+{
+  "slug": "la-cumbre",
+  "nombre": "CIC Laboratorios — La Cumbre",
+  "ciudad": "La Cumbre",
+  "direccion": "Calle 4 # 5 - 20",
+  "telefono": "316 017 6047",
+  "whatsapp": "316 017 6047",
+  "horario": {},
+  "servicios": ["toma-muestras", "validacion-qr"],
+  "fotos": [],
+  "convenios": [],
+  "esSedePrincipal": false
+}

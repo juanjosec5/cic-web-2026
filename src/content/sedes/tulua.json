@@ -1,0 +1,18 @@
+{
+  "slug": "tulua",
+  "nombre": "CIC Laboratorios — Tuluá",
+  "ciudad": "Tuluá",
+  "direccion": "Calle 26 # 34-19",
+  "telefono": "316 017 6056",
+  "whatsapp": "316 017 6056",
+  "horario": {},
+  "servicios": [
+    "toma-muestras",
+    "domicilio",
+    "salud-ocupacional",
+    "validacion-qr"
+  ],
+  "fotos": [],
+  "convenios": [],
+  "esSedePrincipal": false
+}

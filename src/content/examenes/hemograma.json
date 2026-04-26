@@ -12,7 +12,7 @@
   "oportunidadResultados": "Mismo día",
   "descripcionQueEs": "Análisis cuantitativo y cualitativo de los componentes de la sangre.",
   "descripcionParaQueSirve": "Evaluación general del estado de salud, diagnóstico de anemia, infecciones, trastornos hematológicos.",
-  "sedesDisponibles": ["buga-centro", "tulua-principal"],
+  "sedesDisponibles": ["buga", "tulua"],
   "examenesRelacionados": ["reticulocitos", "coagulacion"],
   "perfiles": ["prenatal"],
   "imagen": null,

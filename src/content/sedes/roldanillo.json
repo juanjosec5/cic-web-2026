@@ -1,0 +1,13 @@
+{
+  "slug": "roldanillo",
+  "nombre": "CIC Laboratorios — Roldanillo",
+  "ciudad": "Roldanillo",
+  "direccion": "Calle 10 # 5 - 49",
+  "telefono": "317 254 2489",
+  "whatsapp": "317 254 2489",
+  "horario": {},
+  "servicios": ["toma-muestras", "validacion-qr"],
+  "fotos": [],
+  "convenios": [],
+  "esSedePrincipal": false
+}

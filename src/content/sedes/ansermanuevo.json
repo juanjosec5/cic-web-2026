@@ -1,0 +1,13 @@
+{
+  "slug": "ansermanuevo",
+  "nombre": "CIC Laboratorios — Ansermanuevo",
+  "ciudad": "Ansermanuevo",
+  "direccion": "Calle 6 # 5 - 53",
+  "telefono": "318 349 2656",
+  "whatsapp": "318 349 2656",
+  "horario": {},
+  "servicios": ["toma-muestras", "validacion-qr"],
+  "fotos": [],
+  "convenios": [],
+  "esSedePrincipal": false
+}

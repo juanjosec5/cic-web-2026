@@ -59,8 +59,8 @@ export function buildSedeJsonLd(params: {
   direccion: string;
   ciudad: string;
   telefono: string;
-  lat: number;
-  lng: number;
+  lat?: number;
+  lng?: number;
   url?: string;
 }): MedicalBusinessJsonLd {
   return {
@@ -77,11 +77,15 @@ export function buildSedeJsonLd(params: {
       addressRegion: 'Valle del Cauca',
       addressCountry: 'CO',
     },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: params.lat,
-      longitude: params.lng,
-    },
+    ...(params.lat !== undefined && params.lng !== undefined
+      ? {
+          geo: {
+            '@type': 'GeoCoordinates',
+            latitude: params.lat,
+            longitude: params.lng,
+          },
+        }
+      : {}),
   };
 }
 

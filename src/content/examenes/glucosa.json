@@ -12,7 +12,7 @@
   "oportunidadResultados": "Mismo día",
   "descripcionQueEs": "Medición de la concentración de glucosa en sangre tras un período de ayuno.",
   "descripcionParaQueSirve": "Screening y diagnóstico de diabetes mellitus y prediabetes.",
-  "sedesDisponibles": ["buga-centro", "tulua-principal"],
+  "sedesDisponibles": ["buga", "tulua"],
   "examenesRelacionados": ["hemoglobina-glicosilada", "insulina"],
   "perfiles": [],
   "imagen": null,

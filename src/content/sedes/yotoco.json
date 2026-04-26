@@ -1,0 +1,13 @@
+{
+  "slug": "yotoco",
+  "nombre": "CIC Laboratorios — Yotoco",
+  "ciudad": "Yotoco",
+  "direccion": "Calle 6 # 3 - 75",
+  "telefono": "316 017 6049",
+  "whatsapp": "316 017 6049",
+  "horario": {},
+  "servicios": ["toma-muestras", "validacion-qr"],
+  "fotos": [],
+  "convenios": [],
+  "esSedePrincipal": false
+}

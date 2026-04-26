@@ -1,0 +1,13 @@
+{
+  "slug": "guacari",
+  "nombre": "CIC Laboratorios — Guacarí",
+  "ciudad": "Guacarí",
+  "direccion": "Calle 4 # 6 - 73",
+  "telefono": "318 349 2881",
+  "whatsapp": "318 349 2881",
+  "horario": {},
+  "servicios": ["toma-muestras", "validacion-qr"],
+  "fotos": [],
+  "convenios": [],
+  "esSedePrincipal": false
+}

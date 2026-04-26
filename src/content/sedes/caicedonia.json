@@ -1,0 +1,13 @@
+{
+  "slug": "caicedonia",
+  "nombre": "CIC Laboratorios — Caicedonia",
+  "ciudad": "Caicedonia",
+  "direccion": "Cra 14 # 8 - 58",
+  "telefono": "316 017 6058",
+  "whatsapp": "316 017 6058",
+  "horario": {},
+  "servicios": ["toma-muestras", "validacion-qr"],
+  "fotos": [],
+  "convenios": [],
+  "esSedePrincipal": false
+}

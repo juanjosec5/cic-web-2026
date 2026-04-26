@@ -12,7 +12,7 @@
   "oportunidadResultados": "Mismo día (antes de las 5 pm si la muestra llega antes del mediodía)",
   "descripcionQueEs": "La TSH es una hormona producida por la hipófisis que regula la función tiroidea.",
   "descripcionParaQueSirve": "Se utiliza para diagnosticar y monitorear enfermedades de la tiroides como hipotiroidismo e hipertiroidismo.",
-  "sedesDisponibles": ["buga-centro", "tulua-principal"],
+  "sedesDisponibles": ["buga", "tulua"],
   "examenesRelacionados": ["t3-libre", "t4-libre"],
   "perfiles": ["prenatal"],
   "imagen": null,

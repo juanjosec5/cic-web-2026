@@ -1,0 +1,13 @@
+{
+  "slug": "obando",
+  "nombre": "CIC Laboratorios — Obando",
+  "ciudad": "Obando",
+  "direccion": "Cra 4 # 2 - 41",
+  "telefono": "316 017 6048",
+  "whatsapp": "316 017 6048",
+  "horario": {},
+  "servicios": ["toma-muestras", "validacion-qr"],
+  "fotos": [],
+  "convenios": [],
+  "esSedePrincipal": false
+}

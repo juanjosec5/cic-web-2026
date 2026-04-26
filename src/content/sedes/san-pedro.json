@@ -1,0 +1,13 @@
+{
+  "slug": "san-pedro",
+  "nombre": "CIC Laboratorios — San Pedro",
+  "ciudad": "San Pedro",
+  "direccion": "Cra 2 # 3 - 94",
+  "telefono": "316 017 6043",
+  "whatsapp": "316 017 6043",
+  "horario": {},
+  "servicios": ["toma-muestras", "validacion-qr"],
+  "fotos": [],
+  "convenios": [],
+  "esSedePrincipal": false
+}

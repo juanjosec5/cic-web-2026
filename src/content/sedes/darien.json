@@ -1,0 +1,13 @@
+{
+  "slug": "darien",
+  "nombre": "CIC Laboratorios — Darién",
+  "ciudad": "Darién",
+  "direccion": "Carrera 5 # 8-72",
+  "telefono": "316 017 6052",
+  "whatsapp": "316 017 6052",
+  "horario": {},
+  "servicios": ["toma-muestras", "validacion-qr"],
+  "fotos": [],
+  "convenios": [],
+  "esSedePrincipal": false
+}

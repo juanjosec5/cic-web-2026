@@ -2,6 +2,6 @@
   "slug": "salud-ocupacional",
   "nombre": "Salud Ocupacional",
   "descripcion": "Exámenes de ingreso, periódicos y de egreso para empresas. Incluye visiometría, audiometría y perfil de laboratorio ocupacional según normativa colombiana.",
-  "sedesDisponibles": ["buga-centro", "tulua-principal"],
+  "sedesDisponibles": ["buga", "tulua"],
   "ctaTipo": "contacto"
 }

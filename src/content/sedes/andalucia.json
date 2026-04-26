@@ -1,0 +1,20 @@
+{
+  "slug": "andalucia",
+  "nombre": "CIC Laboratorios — Andalucía",
+  "ciudad": "Andalucía",
+  "direccion": "Cra 4 # 14 - 48",
+  "telefono": "318 349 2569",
+  "whatsapp": "318 349 2569",
+  "horario": {
+    "lunes": "7:00 am – 10:50 am",
+    "martes": "7:00 am – 10:50 am",
+    "miercoles": "7:00 am – 10:50 am",
+    "jueves": "7:00 am – 10:50 am",
+    "viernes": "7:00 am – 10:50 am",
+    "sabado": "7:00 am – 10:00 am"
+  },
+  "servicios": ["toma-muestras", "validacion-qr"],
+  "fotos": [],
+  "convenios": [],
+  "esSedePrincipal": false
+}
