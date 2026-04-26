@@ -13,6 +13,7 @@ import SEO from '@/components/SEO.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import WhatsAppFloating from '@/components/islands/WhatsAppFloating.vue';
+import { SITE_CONFIG } from '@/lib/config';
 import '@/styles/global.css';
 
 interface Props {
@@ -24,9 +25,6 @@ interface Props {
 }
 
 const { title, description, canonical, ogImage, jsonLd } = Astro.props;
-
-// TODO (content-needed): Move to env var or fetch from sedes collection
-const WHATSAPP_PHONE = '573001234567';
 ---
 
 <!doctype html>
@@ -56,6 +54,6 @@ const WHATSAPP_PHONE = '573001234567';
       <slot />
     </main>
     <Footer />
-    <WhatsAppFloating phone={WHATSAPP_PHONE} client:load />
+    <WhatsAppFloating phone={SITE_CONFIG.whatsapp} client:load />
   </body>
 </html>

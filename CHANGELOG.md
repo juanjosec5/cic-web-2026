@@ -10,6 +10,25 @@ Versions track milestones, not npm semver — this is a content/site project.
 ## [Unreleased]
 
 ### Added
+- `src/lib/config.ts`: `SITE_CONFIG` (name, url, whatsapp, sedePrincipal from `buga.json`) and `CATEGORIAS` array — single source of truth for site-wide config; replaces all hardcoded phone/address strings across pages
+- **Structural layout pass** — all pages now have `max-w-7xl mx-auto px-4` wrappers, semantic section/article/nav/address elements, mobile-first grid/flex breakpoints. Tailwind structural utilities only (no color, shadow, or border-radius classes added in this pass):
+  - `index.astro`: 9 sections with layout (hero, pillars 2×2→4-col, audience 3-col, sede map, category grid, services grid, humanización, quality strip, aliados grid)
+  - `sedes/index.astro`: sorted card grid (1→2→3 col), sede principal first
+  - `sedes/[slug].astro`: breadcrumb, CTA group (WhatsApp/call/directions), 2-col info strip (hours + contact), map placeholder, services grid, conditional gallery/convenios sections, 3 nearby sedes; drops LocationMap stub
+  - `examenes/index.astro`: header with count, category grid, Pagefind TODO
+  - `examenes/[slug].astro`: breadcrumb, synonyms line, 4-stat `<dl>` strip, CTA group, ¿Qué es?, 2-col (para qué sirve / preparación), sedes list or fallback, related exams grid, WhatsApp CTA banner, medical disclaimer; sedesData and relacionadosData resolved to names at build time
+  - `servicios/[slug].astro`: breadcrumb, sedes resolved to names, CTA from `SITE_CONFIG.whatsapp`
+  - `empresas.astro`: 3 value-prop cards, services grid, strategic allies grid, WhatsApp CTA from `SITE_CONFIG`
+  - `laboratorios.astro`: 3 differentiator cards with dynamic sede/exam counts, WhatsApp CTA
+  - `nosotros/index.astro`: single-page with sticky sidebar anchor nav on desktop; 5 sections (#historia with 30+ stat, #equipo placeholder grid, #tecnologia video placeholder, #calidad, #aliados from collection)
+  - `pacientes/preparacion.astro`: anchor nav for preparation categories, general + 4 typed sections
+  - `pacientes/derechos-deberes.astro`: 2-col desktop layout (derechos / deberes)
+  - `pacientes/preguntas-frecuentes.astro`: `<details>`/`<summary>` accordion grouped by 4 topics; WhatsApp CTA from `SITE_CONFIG`
+  - `contacto.astro`: 2-col (sede principal info + CTA / map placeholder); pulls from `SITE_CONFIG`
+  - `404.astro`: centered full-height layout with 3 nav links
+- `BaseLayout.astro`: WhatsApp phone now pulled from `SITE_CONFIG.whatsapp` (removes hardcoded placeholder)
+
+### Added
 - `Header`: sticky top bar with wordmark, desktop nav, and mobile hamburger toggle
   - Separate `#mobile-nav-panel` element (below header bar) avoids display-property conflicts with the always-visible desktop nav
   - Hamburger button uses `aria-expanded` / `aria-controls` and swaps menu ↔ close SVG icons

@@ -1,13 +1,7 @@
 ---
-/**
- * /sedes — Listing page for all sedes.
- *
- * TODO (design-needed): Grid/map layout for sede cards.
- * TODO (content-needed): Add sede thumbnail photos once available.
- * TODO (blocking-for-v1): Add filter by servicios disponibles.
- */
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 
 const sedes = await getCollection('sedes');
 const sedesOrdenadas = [...sedes].sort((a, b) =>
@@ -17,22 +11,53 @@ const sedesOrdenadas = [...sedes].sort((a, b) =>
 
 <BaseLayout
   title="Nuestras Sedes"
-  description="Encuentra la sede de CIC Laboratorios más cercana a ti. Atención en Guadalajara de Buga y Tuluá."
+  description={`Encuentra la sede de CIC Laboratorios más cercana a ti. ${sedes.length} sedes en el Valle del Cauca.`}
 >
-  <h1>Nuestras sedes</h1>
-  <p>Atendemos en {sedes.length} sedes en el Valle del Cauca.</p>
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6">
 
-  <ul>
-    {sedesOrdenadas.map((sede) => (
-      <li>
-        <a href={`/sedes/${sede.data.slug}`}>
-          <h2>{sede.data.nombre}</h2>
-        </a>
-        <p>{sede.data.ciudad} — {sede.data.direccion}</p>
-        <p>Tel: {sede.data.telefono}</p>
-        {sede.data.esSedePrincipal && <span>Sede principal</span>}
-        <a href={`/sedes/${sede.data.slug}`}>Ver detalles →</a>
-      </li>
-    ))}
-  </ul>
+    <header>
+      <h1>Nuestras sedes</h1>
+      <p>Atendemos en {sedes.length} sedes en el Valle del Cauca — sin cita previa.</p>
+    </header>
+
+    <!-- TODO (blocking-for-v1.1): Replace with interactive multi-sede map -->
+    <div
+      class="mt-8 aspect-video w-full"
+      role="img"
+      aria-label="Mapa interactivo de sedes — próximamente"
+    >
+      <p>[ Mapa interactivo de sedes — próximamente ]</p>
+    </div>
+
+    <section aria-labelledby="lista-sedes-heading" class="mt-12">
+      <h2 id="lista-sedes-heading" class="sr-only">Lista de sedes</h2>
+      <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {sedesOrdenadas.map((sede: CollectionEntry<'sedes'>) => (
+          <li>
+            <article>
+              <header>
+                <h2>
+                  <a href={`/sedes/${sede.data.slug}`}>{sede.data.nombre}</a>
+                </h2>
+                {sede.data.esSedePrincipal && (
+                  <p>Sede principal</p>
+                )}
+              </header>
+              <address class="mt-2 not-italic">
+                <p>{sede.data.direccion}</p>
+                <p>{sede.data.ciudad}</p>
+                <p>
+                  <a href={`tel:${sede.data.telefono}`}>{sede.data.telefono}</a>
+                </p>
+              </address>
+              <a href={`/sedes/${sede.data.slug}`} class="mt-4 inline-block">
+                Ver detalles →
+              </a>
+            </article>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+  </div>
 </BaseLayout>

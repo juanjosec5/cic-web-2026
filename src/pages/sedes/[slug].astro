@@ -1,98 +1,192 @@
 ---
-/**
- * /sedes/[slug] — Individual sede page.
- *
- * TODO (design-needed): Full page layout: hero photo, info card, map, hours table.
- * TODO (blocking-for-v1.1): Replace LocationMap stub with real map.
- * TODO (content-needed): Add exams available at this sede (query examenes collection
- *   where sedesDisponibles includes this sede's slug).
- * TODO (content-needed): Add gallery from sede.fotos array.
- */
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import SedeLayout from '@/layouts/SedeLayout.astro';
-import LocationMap from '@/components/islands/LocationMap.vue';
+import { SITE_CONFIG } from '@/lib/config';
 
 interface Props {
   sede: CollectionEntry<'sedes'>['data'];
+  otrosSedes: Array<CollectionEntry<'sedes'>['data']>;
 }
 
 export async function getStaticPaths() {
   const sedes = await getCollection('sedes');
   return sedes.map((sede: CollectionEntry<'sedes'>) => ({
     params: { slug: sede.data.slug },
-    props: { sede: sede.data },
+    props: {
+      sede: sede.data,
+      otrosSedes: sedes
+        .filter((s: CollectionEntry<'sedes'>) => s.data.slug !== sede.data.slug)
+        .slice(0, 3)
+        .map((s: CollectionEntry<'sedes'>) => s.data),
+    },
   }));
 }
 
-const { sede } = Astro.props;
+const { sede, otrosSedes } = Astro.props;
+
+const waUrl = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(`Hola, quisiera información sobre la sede ${sede.nombre}.`)}`;
+const mapsUrl = sede.lat && sede.lng
+  ? `https://www.google.com/maps/dir/?api=1&destination=${sede.lat},${sede.lng}`
+  : `https://www.google.com/maps/search/${encodeURIComponent(`${sede.nombre} ${sede.direccion} ${sede.ciudad}`)}`;
+
+const SERVICIO_LABELS: Record<string, string> = {
+  'toma-muestras': 'Toma de muestras',
+  'domicilio': 'Servicio a domicilio',
+  'ginecologia-vph': 'Ginecología y VPH',
+  'jornadas-empresariales': 'Jornadas empresariales',
+  'salud-ocupacional': 'Salud ocupacional',
+  'validacion-qr': 'Validación QR',
+};
 ---
 
 <SedeLayout sede={sede}>
-  <h1>{sede.nombre}</h1>
-  <p>{sede.ciudad}</p>
+  <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6">
 
-  <section aria-labelledby="info-heading">
-    <h2 id="info-heading">Información de contacto</h2>
-    <address>
-      <p>{sede.direccion}</p>
-      <p>Teléfono: <a href={`tel:${sede.telefono}`}>{sede.telefono}</a></p>
-      <p>
-        WhatsApp:
-        <a
-          href={`https://wa.me/${sede.whatsapp}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {sede.whatsapp}
-        </a>
-      </p>
-      {sede.email && (
-        <p>
-          Email: <a href={`mailto:${sede.email}`}>{sede.email}</a>
+    <!-- Breadcrumb -->
+    <nav aria-label="Ruta de navegación">
+      <ol class="flex flex-wrap items-center gap-1">
+        <li><a href="/">Inicio</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href="/sedes">Sedes</a></li>
+        <li aria-hidden="true">›</li>
+        <li aria-current="page">{sede.nombre}</li>
+      </ol>
+    </nav>
+
+    <!-- H1 + subheading -->
+    <header class="mt-6">
+      <h1>{sede.nombre}</h1>
+      <p>{sede.direccion}, {sede.ciudad} · Sin cita previa</p>
+    </header>
+
+    <!-- CTA group -->
+    <div class="mt-6 flex flex-wrap gap-4">
+      <a href={waUrl} target="_blank" rel="noopener noreferrer">
+        WhatsApp
+      </a>
+      <a href={`tel:${sede.telefono}`}>
+        Llamar ({sede.telefono})
+      </a>
+      <a href={mapsUrl} target="_blank" rel="noopener noreferrer">
+        Cómo llegar
+      </a>
+    </div>
+
+    <!-- 2-col info strip -->
+    <div class="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2">
+
+      <!-- Hours block -->
+      <section aria-labelledby="horario-heading">
+        <h2 id="horario-heading">Horario de atención</h2>
+        <table class="mt-4 w-full">
+          <tbody>
+            {Object.entries(sede.horario).map(([dia, horas]) => (
+              horas ? (
+                <tr>
+                  <th scope="row" class="capitalize text-left pr-4">{dia}</th>
+                  <td>{horas}</td>
+                </tr>
+              ) : null
+            ))}
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Contact block -->
+      <section aria-labelledby="contacto-heading">
+        <h2 id="contacto-heading">Contacto</h2>
+        <address class="mt-4 not-italic space-y-2">
+          <p>{sede.direccion}, {sede.ciudad}</p>
+          <p>
+            Tel: <a href={`tel:${sede.telefono}`}>{sede.telefono}</a>
+          </p>
+          <p>
+            WhatsApp: <a href={waUrl} target="_blank" rel="noopener noreferrer">{sede.whatsapp}</a>
+          </p>
+          {sede.email && (
+            <p>
+              Email: <a href={`mailto:${sede.email}`}>{sede.email}</a>
+            </p>
+          )}
+        </address>
+      </section>
+    </div>
+
+    <!-- Map placeholder -->
+    <section aria-labelledby="mapa-heading" class="mt-10">
+      <h2 id="mapa-heading">Cómo llegar</h2>
+      <!-- TODO (blocking-for-v1.1): Replace with real map embed (lat/lng available when populated) -->
+      <div class="mt-4 aspect-video w-full" role="img" aria-label={`Mapa de ${sede.nombre} — próximamente`}>
+        <p>[ Mapa — próximamente ]</p>
+      </div>
+      <a href={mapsUrl} target="_blank" rel="noopener noreferrer" class="mt-2 inline-block">
+        Abrir en Google Maps →
+      </a>
+    </section>
+
+    <!-- Services grid -->
+    <section aria-labelledby="servicios-sede-heading" class="mt-10">
+      <h2 id="servicios-sede-heading">Servicios disponibles</h2>
+      <ul role="list" class="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3">
+        {sede.servicios.map((s: string) => (
+          <li>
+            <a href={`/servicios/${s}`}>
+              {SERVICIO_LABELS[s] ?? s}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      {sede.domicilioGratisDesde !== undefined && (
+        <p class="mt-4">
+          Domicilio gratuito en pedidos desde $
+          {sede.domicilioGratisDesde.toLocaleString('es-CO')}
         </p>
       )}
-    </address>
-  </section>
+    </section>
 
-  <section aria-labelledby="horario-heading">
-    <h2 id="horario-heading">Horario de atención</h2>
-    <table>
-      <tbody>
-        {Object.entries(sede.horario).map(([dia, horas]) => (
-          <tr>
-            <th scope="row" style="text-transform: capitalize">{dia}</th>
-            <td>{horas ?? '—'}</td>
-          </tr>
+    <!-- Gallery — only if fotos exist -->
+    {sede.fotos.length > 0 && (
+      <section aria-labelledby="galeria-heading" class="mt-10">
+        <h2 id="galeria-heading">Galería</h2>
+        <ul role="list" class="mt-4 grid grid-cols-2 gap-4 md:grid-cols-4">
+          {sede.fotos.map((foto: string) => (
+            <li>
+              <img src={foto} alt={`Foto de ${sede.nombre}`} class="w-full" />
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <!-- Convenios — only if exist -->
+    {sede.convenios.length > 0 && (
+      <section aria-labelledby="convenios-heading" class="mt-10">
+        <h2 id="convenios-heading">Convenios</h2>
+        <ul role="list" class="mt-4 flex flex-wrap gap-2">
+          {sede.convenios.map((convenio: string) => (
+            <li>{convenio}</li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <!-- Nearby sedes -->
+    <section aria-labelledby="otras-sedes-heading" class="mt-10">
+      <h2 id="otras-sedes-heading">Otras sedes</h2>
+      <ul role="list" class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
+        {otrosSedes.map((otra) => (
+          <li>
+            <a href={`/sedes/${otra.slug}`}>
+              <strong>{otra.nombre}</strong>
+            </a>
+            <p>{otra.ciudad}</p>
+          </li>
         ))}
-      </tbody>
-    </table>
-  </section>
+      </ul>
+      <a href="/sedes" class="mt-4 inline-block">Ver todas las sedes →</a>
+    </section>
 
-  {sede.domicilioGratisDesde !== undefined && (
-    <p>
-      Servicio a domicilio gratuito en pedidos desde $
-      {sede.domicilioGratisDesde.toLocaleString('es-CO')}.
-    </p>
-  )}
-
-  <section aria-labelledby="mapa-heading">
-    <h2 id="mapa-heading">Cómo llegar</h2>
-    <LocationMap
-      lat={sede.lat}
-      lng={sede.lng}
-      nombre={sede.nombre}
-      client:visible
-    />
-  </section>
-
-  <section aria-labelledby="servicios-sede-heading">
-    <h2 id="servicios-sede-heading">Servicios disponibles en esta sede</h2>
-    <ul>
-      {sede.servicios.map((s: string) => (
-        <li>{s}</li>
-      ))}
-    </ul>
-    <!-- TODO (content-needed): Replace raw slugs with human-readable labels -->
-  </section>
+  </div>
 </SedeLayout>

@@ -1,31 +1,134 @@
 ---
-/**
- * /nosotros — About us overview page.
- *
- * TODO (design-needed): Add photo of team/facility.
- * TODO (content-needed): Add mission, vision, values text.
- */
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+const aliados = await getCollection('aliados');
+
+const anchorLinks = [
+  { id: 'historia', label: 'Historia' },
+  { id: 'equipo', label: 'Equipo' },
+  { id: 'tecnologia', label: 'Tecnología' },
+  { id: 'calidad', label: 'Calidad' },
+  { id: 'aliados', label: 'Aliados' },
+];
 ---
 
 <BaseLayout
   title="Nosotros"
   description="Conoce la historia, el equipo y los valores de CIC Laboratorios, referente en diagnóstico clínico en el Valle del Cauca."
 >
-  <h1>Nosotros</h1>
-  <p>
-    <!-- TODO (content-needed): Add mission/vision/values copy -->
-    CIC Laboratorios es un laboratorio clínico con más de [X] años de
-    experiencia al servicio de la salud en el Valle del Cauca.
-  </p>
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6">
+    <div class="flex flex-col gap-10 md:flex-row md:gap-12">
 
-  <nav aria-label="Secciones de Nosotros">
-    <ul>
-      <li><a href="/nosotros/historia">Historia</a></li>
-      <li><a href="/nosotros/equipo">Equipo</a></li>
-      <li><a href="/nosotros/tecnologia">Tecnología</a></li>
-      <li><a href="/nosotros/calidad">Calidad</a></li>
-      <li><a href="/nosotros/aliados">Aliados</a></li>
-    </ul>
-  </nav>
+      <!-- Sticky anchor nav (desktop only) -->
+      <aside class="shrink-0 md:w-44">
+        <nav
+          aria-label="Secciones de Nosotros"
+          class="md:sticky md:top-20 md:self-start"
+        >
+          <ol>
+            {anchorLinks.map((link) => (
+              <li>
+                <a href={`#${link.id}`}>{link.label}</a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      </aside>
+
+      <!-- Main content -->
+      <div class="flex-1 space-y-16">
+
+        <section id="historia" aria-labelledby="historia-heading">
+          <h2 id="historia-heading">Historia</h2>
+          <p>
+            {/* TODO (content-needed): Replace with real history copy */}
+            Con más de 30 años de trayectoria, CIC Laboratorios nació en
+            Guadalajara de Buga con la misión de democratizar el acceso a
+            diagnósticos de calidad en el Valle del Cauca.
+          </p>
+          <p class="mt-4">
+            <strong>+30 años</strong> al servicio de la salud regional.
+          </p>
+          {/* TODO (content-needed): Add timeline or milestone list */}
+        </section>
+
+        <section id="equipo" aria-labelledby="equipo-heading">
+          <h2 id="equipo-heading">Equipo</h2>
+          <p>
+            {/* TODO (content-needed): Replace with real team intro copy */}
+            Nuestro equipo de bacteriólogos, enfermeros y personal administrativo
+            trabaja con vocación de servicio y compromiso con la excelencia.
+          </p>
+          {/* TODO (content-needed): Replace placeholder grid with real team member cards (photos, names, roles) */}
+          <ul role="list" class="mt-6 grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <li>
+                <div class="aspect-square w-full" aria-label={`Foto integrante ${i + 1} — pendiente`}>
+                  [ Foto ]
+                </div>
+                <p>[ Nombre — pendiente ]</p>
+                <p>[ Cargo — pendiente ]</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section id="tecnologia" aria-labelledby="tecnologia-heading">
+          <h2 id="tecnologia-heading">Tecnología</h2>
+          <p>
+            {/* TODO (content-needed): Replace with real equipment / technology copy */}
+            Operamos con equipos de última generación que garantizan precisión
+            en cada resultado.
+          </p>
+          {/* TODO (content-needed): Add equipment video embed */}
+          <div
+            class="mt-6 aspect-video w-full"
+            role="img"
+            aria-label="Video de equipos — pendiente"
+          >
+            [ Video de equipos — pendiente ]
+          </div>
+        </section>
+
+        <section id="calidad" aria-labelledby="calidad-heading">
+          <h2 id="calidad-heading">Calidad</h2>
+          <p>
+            {/* TODO (content-needed): Add official patient safety policy text */}
+            La política de seguridad del paciente de CIC Laboratorios establece
+            los estándares mínimos de calidad que deben cumplirse en cada etapa
+            del proceso analítico.
+          </p>
+          {/* TODO (content-needed): Add certifications list (ICONTEC, etc.) */}
+        </section>
+
+        <section id="aliados" aria-labelledby="aliados-heading">
+          <h2 id="aliados-heading">Aliados</h2>
+          {aliados.length > 0 ? (
+            <ul role="list" class="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+              {aliados.map((aliado: CollectionEntry<'aliados'>) => (
+                <li>
+                  {aliado.data.url ? (
+                    <a href={aliado.data.url} target="_blank" rel="noopener noreferrer">
+                      {aliado.data.nombre}
+                    </a>
+                  ) : (
+                    <span>{aliado.data.nombre}</span>
+                  )}
+                  <p>{aliado.data.descripcion}</p>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p class="mt-4">
+              {/* TODO (content-needed): Add aliados entries to collection */}
+              [ Lista de aliados — pendiente ]
+            </p>
+          )}
+        </section>
+
+      </div>
+    </div>
+  </div>
 </BaseLayout>

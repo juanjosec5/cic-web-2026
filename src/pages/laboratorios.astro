@@ -1,56 +1,83 @@
 ---
-/**
- * /laboratorios — Landing page for IPS / lab partners.
- *
- * TODO (design-needed): Full landing page layout.
- * TODO (content-needed): Add partner requirements, process description.
- * TODO (content-needed): Add testimonials from current lab partners.
- */
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
+import { SITE_CONFIG } from '@/lib/config';
 
-const aliados = await getCollection(
-  'aliados',
-  ({ data }: CollectionEntry<'aliados'>) => data.esEstrategico
-);
+const [sedes, examenes] = await Promise.all([
+  getCollection('sedes'),
+  getCollection('examenes', ({ data }: CollectionEntry<'examenes'>) => data.activo),
+]);
+
+const waAlianza = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent('Quisiera información sobre alianzas con CIC Laboratorios.')}`;
 ---
 
 <BaseLayout
   title="Alianzas con Laboratorios e IPS"
   description="CIC Laboratorios como laboratorio de referencia para IPS y laboratorios clínicos de la región. Referencia de muestras especializadas."
 >
-  <h1>Alianzas con laboratorios e IPS</h1>
-  <p>
-    CIC Laboratorios actúa como laboratorio de referencia regional para IPS y
-    laboratorios clínicos que necesiten envío de muestras especializadas.
-  </p>
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6">
 
-  <section aria-labelledby="aliados-estrategicos-heading">
-    <h2 id="aliados-estrategicos-heading">Aliados estratégicos actuales</h2>
-    <ul>
-      {aliados.map((aliado: CollectionEntry<'aliados'>) => (
+    <header>
+      <h1>Alianzas con laboratorios e IPS</h1>
+      <p>
+        {/* TODO (content-needed): Replace with real intro copy */}
+        CIC Laboratorios actúa como laboratorio de referencia regional para IPS y
+        laboratorios clínicos que necesiten envío de muestras especializadas.
+      </p>
+    </header>
+
+    <!-- Differentiator cards -->
+    <section aria-labelledby="diferenciadores-heading" class="mt-12">
+      <h2 id="diferenciadores-heading" class="sr-only">Por qué elegirnos</h2>
+      <ul role="list" class="grid grid-cols-1 gap-6 md:grid-cols-3">
         <li>
-          <strong>{aliado.data.nombre}</strong>
-          <p>{aliado.data.descripcion}</p>
+          <article>
+            <h3>Cobertura regional</h3>
+            <p>
+              {sedes.length} sedes activas en el Valle del Cauca para
+              recepción y despacho de muestras.
+            </p>
+          </article>
         </li>
-      ))}
-    </ul>
-  </section>
+        <li>
+          <article>
+            <h3>Portafolio amplio</h3>
+            <p>
+              {examenes.length} exámenes disponibles — desde rutinas básicas
+              hasta pruebas de alta complejidad.
+            </p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h3>Recolección diaria</h3>
+            <p>
+              {/* TODO (content-needed): Describe recolección / transporte process */}
+              Rutas de recolección de muestras con trazabilidad completa.
+            </p>
+          </article>
+        </li>
+      </ul>
+    </section>
 
-  <section aria-labelledby="propuesta-heading">
-    <h2 id="propuesta-heading">¿Por qué referir sus muestras a CIC?</h2>
-    <ul>
-      <li>Amplio portafolio de más de 700 exámenes</li>
-      <li>Respuesta rápida y trazabilidad de muestras</li>
-      <li><!-- TODO (content-needed): Add more value propositions --></li>
-    </ul>
-  </section>
+    <!-- CTA -->
+    <section aria-labelledby="alianza-cta-heading" class="mt-12">
+      <h2 id="alianza-cta-heading">Proponer una alianza</h2>
+      <p class="mt-4">
+        {/* TODO (content-needed): Add partnership process description */}
+        Contáctenos para explorar una alianza estratégica.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-4">
+        <a href={waAlianza} target="_blank" rel="noopener noreferrer">
+          Contactar por WhatsApp
+        </a>
+        <a href="mailto:alianzas@ciclaboratorios.com?subject=Propuesta%20de%20alianza">
+          {/* TODO (content-needed): Confirm correct email address */}
+          Enviar propuesta por correo
+        </a>
+      </div>
+    </section>
 
-  <a
-    href="mailto:alianzas@ciclaboratorios.com?subject=Propuesta%20de%20alianza"
-  >
-    Proponer alianza
-    <!-- TODO (content-needed): Replace with correct email address -->
-  </a>
+  </div>
 </BaseLayout>

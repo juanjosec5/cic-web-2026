@@ -24,5 +24,6 @@ npm-debug.log*
 # Repomix output
 repomix-output.xml
 
-# Migration input data (raw dumps — never commit PII)
+# Migration data (raw dumps and reports — never commit PII)
 data/raw/
+data/reports/
