@@ -1,0 +1,17 @@
+{
+  "id": "908324",
+  "mongoId": "635afd054d2fd1d313dd4d5c",
+  "nombre": "ARILSULFATASA B, ACTIVIDAD",
+  "codigoCups": "908324",
+  "slug": "arilsulfatasa-b-actividad",
+  "categoria": "orina",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente.",
+  "oportunidadResultados": "27 días a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

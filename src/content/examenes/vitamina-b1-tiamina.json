@@ -1,0 +1,17 @@
+{
+  "id": "903702",
+  "mongoId": "635afd054d2fd1d313dd4d4d",
+  "nombre": "VITAMINA B1 [TIAMINA]",
+  "codigoCups": "903702",
+  "slug": "vitamina-b1-tiamina",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": true,
+  "preparacion": "Ayuno de 12-14 horas. Niños tomar la muestra antes de la siguiente comida.",
+  "oportunidadResultados": "11 días a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

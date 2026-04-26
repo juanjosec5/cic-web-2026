@@ -1,0 +1,17 @@
+{
+  "id": "905206",
+  "mongoId": "635afd054d2fd1d313dd4b95",
+  "nombre": "CARBAMAZEPINA CUANTITATIVA AUTOMATIZADA",
+  "codigoCups": "905206",
+  "slug": "carbamazepina-cuantitativa-automatizada",
+  "categoria": "inmunologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la Solicitud: dosis, fecha y hora de la última dosis. La muestra debe ser tomada 8 a 12 horas después de la última dosis.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

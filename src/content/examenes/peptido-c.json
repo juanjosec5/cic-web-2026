@@ -1,0 +1,17 @@
+{
+  "id": "904706",
+  "mongoId": "635afd054d2fd1d313dd4cd1",
+  "nombre": "PEPTIDO C",
+  "codigoCups": "904706",
+  "slug": "peptido-c",
+  "categoria": "microbiologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "En ayunas. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "7 días a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

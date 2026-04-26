@@ -1,0 +1,17 @@
+{
+  "id": "908404",
+  "mongoId": "635afd054d2fd1d313dd4b9a",
+  "nombre": "CARIOTIPO CON BANDEO G",
+  "codigoCups": "908404",
+  "slug": "cariotipo-con-bandeo-g",
+  "categoria": "genetica",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "Adjuntar resumen de la historia clínica - solicitar tubo y Consentimiento Informado al area de LOGÍSTICA.",
+  "oportunidadResultados": "22 días a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

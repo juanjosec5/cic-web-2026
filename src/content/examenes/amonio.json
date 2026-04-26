@@ -1,0 +1,17 @@
+{
+  "id": "903602",
+  "mongoId": "635afd054d2fd1d313dd4b5a",
+  "nombre": "AMONIO",
+  "codigoCups": "903602",
+  "slug": "amonio",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "Evitar ejercicio físico. No fumar por lo menos 12 horas antes de la toma de muestra.",
+  "oportunidadResultados": "48 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

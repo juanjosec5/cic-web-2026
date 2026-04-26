@@ -1,0 +1,17 @@
+{
+  "id": "908856",
+  "mongoId": "635afd054d2fd1d313dd4d56",
+  "nombre": "COVID PCR",
+  "codigoCups": "908856",
+  "slug": "covid-pcr",
+  "categoria": "genetica",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "24 Horas después de tomada la muestra.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

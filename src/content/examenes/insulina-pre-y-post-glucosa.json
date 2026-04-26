@@ -1,0 +1,17 @@
+{
+  "id": "904702",
+  "mongoId": "635afd054d2fd1d313dd4c9c",
+  "nombre": "INSULINA PRE Y POST GLUCOSA",
+  "codigoCups": "904702",
+  "slug": "insulina-pre-y-post-glucosa",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": true,
+  "preparacion": "Paciente en ayuno. Relacionar datos clínicos del paciente en la solicitud. Se realiza toma de muestra de acuerdo a lo indicado por la orden médica.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

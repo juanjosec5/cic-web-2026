@@ -1,0 +1,17 @@
+{
+  "id": "906140",
+  "mongoId": "635afd054d2fd1d313dd4d0a",
+  "nombre": "Rickettsia rickettsii ANTICUERPOS Ig G SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906140",
+  "slug": "rickettsia-rickettsii-anticuerpos-ig-g-semiautomatizado-o-automatizado",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "27 días a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

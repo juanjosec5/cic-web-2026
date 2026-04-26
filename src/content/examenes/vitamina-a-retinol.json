@@ -1,0 +1,17 @@
+{
+  "id": "903701",
+  "mongoId": "635afd054d2fd1d313dd4d4c",
+  "nombre": "VITAMINA A [RETINOL]",
+  "codigoCups": "903701",
+  "slug": "vitamina-a-retinol",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": true,
+  "preparacion": "Ayuno de 12-14 horas. Niños tomar la muestra antes de la siguiente comida La ingesta aguda de etanol puede aumentar los niveles de vitamina A en suero.",
+  "oportunidadResultados": "10 días a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

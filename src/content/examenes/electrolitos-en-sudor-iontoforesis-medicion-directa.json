@@ -1,0 +1,17 @@
+{
+  "id": "903612",
+  "mongoId": "635afd054d2fd1d313dd4c9e",
+  "nombre": "ELECTROLITOS EN SUDOR [IONTOFORESIS] MEDICION DIRECTA",
+  "codigoCups": "903612",
+  "slug": "electrolitos-en-sudor-iontoforesis-medicion-directa",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": true,
+  "preparacion": "El paciente debe estar adecuadamente hidratado, no se requiere ayuno.\nEvitar actividades o abrigo excesivo que puedan provocar que el paciente sude antes del estudio.\nLlevar una bebida caliente y ropas de abrigo para ser utilizadas durante la realización de la prueba.\nNo aplicar lociones o cremas en la piel el día del examen.\nSi el paciente presenta vómito, diarrea o algún proceso infeccioso agudo, se recomienda realizar el examen cuando su estado clínico se haya normalizado.",
+  "oportunidadResultados": "10 días a partir del día de la toma de la muestra.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

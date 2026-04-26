@@ -1,0 +1,17 @@
+{
+  "id": "906843",
+  "mongoId": "635afd054d2fd1d313dd4c99",
+  "nombre": "INMUNOGLOBULINAS CADENAS LIVIANAS LIBRES LAMBDA SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906843",
+  "slug": "inmunoglobulinas-cadenas-livianas-libres-lambda-semiautomatizado-o-automatizado",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "En ayunas. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "5 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

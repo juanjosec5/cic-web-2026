@@ -1,0 +1,17 @@
+{
+  "id": "906318",
+  "mongoId": "635afd054d2fd1d313dd4c60",
+  "nombre": "Hepatitis B ANTIGENO e [Ag HBe] SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906318",
+  "slug": "hepatitis-b-antigeno-e-ag-hbe-semiautomatizado-o-automatizado",
+  "categoria": "inmunologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "3 Días a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

@@ -1,0 +1,17 @@
+{
+  "id": "902029",
+  "mongoId": "635afd054d2fd1d313dd4cd7",
+  "nombre": "PLASMINOGENO (ACTIVIDAD)",
+  "codigoCups": "902029",
+  "slug": "plasminogeno-actividad",
+  "categoria": "hematologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "En ayunas. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "10 días a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

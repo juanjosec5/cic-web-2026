@@ -1,0 +1,17 @@
+{
+  "id": "906602",
+  "mongoId": "635afd054d2fd1d313dd4b51",
+  "nombre": "ALFA FETOPROTEÍNA  (AFP) AUTOMATIZADO",
+  "codigoCups": "906602",
+  "slug": "alfa-fetoproteina-afp-automatizado",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

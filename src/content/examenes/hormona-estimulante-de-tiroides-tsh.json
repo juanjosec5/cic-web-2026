@@ -1,0 +1,17 @@
+{
+  "id": "904902",
+  "mongoId": "635afd054d2fd1d313dd4c82",
+  "nombre": "HORMONA ESTIMULANTE DE TIROIDES TSH",
+  "codigoCups": "904902",
+  "slug": "hormona-estimulante-de-tiroides-tsh",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": true,
+  "preparacion": "Paciente en ayuno. fármacos como el glucagón o la dopamina, suprimen la\nTSH. Tomar muestra en horario diurno, idealmente 7 am, después de guardar un reposo por 20 min. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

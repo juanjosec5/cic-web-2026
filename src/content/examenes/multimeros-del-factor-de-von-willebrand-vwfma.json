@@ -1,0 +1,17 @@
+{
+  "id": "902069",
+  "mongoId": "635afd054d2fd1d313dd4c18",
+  "nombre": "MULTIMEROS DEL FACTOR DE VON WILLEBRAND: (VWF:MA)",
+  "codigoCups": "902069",
+  "slug": "multimeros-del-factor-de-von-willebrand-vwfma",
+  "categoria": "hematologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "En ayunas. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "10 días hábiles a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

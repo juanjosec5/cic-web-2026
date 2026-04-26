@@ -1,0 +1,17 @@
+{
+  "id": "N/A",
+  "mongoId": "635afd054d2fd1d313dd4b8b",
+  "nombre": "CA 72-4 MARCADOR TUMORAL GASTROINTESTINAL",
+  "codigoCups": "N/A",
+  "slug": "ca-72-4-marcador-tumoral-gastrointestinal",
+  "categoria": "otros",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "8 días hábiles a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

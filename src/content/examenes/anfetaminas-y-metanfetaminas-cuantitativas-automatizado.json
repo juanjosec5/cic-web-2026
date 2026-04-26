@@ -1,0 +1,17 @@
+{
+  "id": "905301",
+  "mongoId": "635afd054d2fd1d313dd4b5d",
+  "nombre": "ANFETAMINAS Y METANFETAMINAS CUANTITATIVAS AUTOMATIZADO",
+  "codigoCups": "905301",
+  "slug": "anfetaminas-y-metanfetaminas-cuantitativas-automatizado",
+  "categoria": "inmunologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "48 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

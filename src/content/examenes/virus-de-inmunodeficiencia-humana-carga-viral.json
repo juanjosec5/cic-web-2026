@@ -1,0 +1,17 @@
+{
+  "id": "908832",
+  "mongoId": "635afd054d2fd1d313dd4c70",
+  "nombre": "Virus de Inmunodeficiencia Humana CARGA VIRAL",
+  "codigoCups": "908832",
+  "slug": "virus-de-inmunodeficiencia-humana-carga-viral",
+  "categoria": "orina",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "3 días a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

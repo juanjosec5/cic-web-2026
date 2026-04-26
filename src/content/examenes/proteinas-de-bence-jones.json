@@ -1,0 +1,17 @@
+{
+  "id": "907103",
+  "mongoId": "635afd054d2fd1d313dd4cf0",
+  "nombre": "PROTEINAS DE BENCE JONES",
+  "codigoCups": "907103",
+  "slug": "proteinas-de-bence-jones",
+  "categoria": "parasitologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "6 días a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

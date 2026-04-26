@@ -1,0 +1,17 @@
+{
+  "id": "902031",
+  "mongoId": "635afd054d2fd1d313dd4ce3",
+  "nombre": "PRODUCTOS DE DEGRADACION DE FIBRINOGENO",
+  "codigoCups": "902031",
+  "slug": "productos-de-degradacion-de-fibrinogeno",
+  "categoria": "hematologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": true,
+  "preparacion": "El ayuno es recomendado pero no indispensable. Medicamentos que pueden elevar los niveles de PDF incluyen los barbitúricos, la heparina (HNF y HBPM en niveles mayores a 2UI/mL) estreptocinasas y urocinasas. Los niveles altos de Factor Reumatoideo pueden causar una falsa aglutinación.\nTambién la presencia de anticuerpos anti ratón pueden producir niveles de PDF alterados.",
+  "oportunidadResultados": "4 días a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

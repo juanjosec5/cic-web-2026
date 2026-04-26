@@ -1,0 +1,17 @@
+{
+  "id": "903021",
+  "mongoId": "635afd054d2fd1d313dd4c44",
+  "nombre": "HAPTOGLOBINA AUTOMATIZADA",
+  "codigoCups": "903021",
+  "slug": "haptoglobina-automatizada",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "En ayunas. Relacionar datos clínicos del paciente.",
+  "oportunidadResultados": "4 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

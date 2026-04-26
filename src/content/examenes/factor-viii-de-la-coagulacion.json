@@ -1,0 +1,17 @@
+{
+  "id": "902018",
+  "mongoId": "635afd054d2fd1d313dd4c16",
+  "nombre": "FACTOR  VIII DE LA COAGULACION",
+  "codigoCups": "902018",
+  "slug": "factor-viii-de-la-coagulacion",
+  "categoria": "hematologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "En ayunas. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "5 días habiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

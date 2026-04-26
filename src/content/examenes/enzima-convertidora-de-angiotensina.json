@@ -1,0 +1,17 @@
+{
+  "id": "904002",
+  "mongoId": "635afd054d2fd1d313dd4b5e",
+  "nombre": " ENZIMA CONVERTIDORA DE ANGIOTENSINA",
+  "codigoCups": "904002",
+  "slug": "enzima-convertidora-de-angiotensina",
+  "categoria": "microbiologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "10 días hábiles a partir de la fecha de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

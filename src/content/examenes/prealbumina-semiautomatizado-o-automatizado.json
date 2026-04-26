@@ -1,0 +1,17 @@
+{
+  "id": "906912",
+  "mongoId": "635afd054d2fd1d313dd4ce1",
+  "nombre": "PREALBUMINA SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906912",
+  "slug": "prealbumina-semiautomatizado-o-automatizado",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "3 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

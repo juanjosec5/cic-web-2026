@@ -1,0 +1,17 @@
+{
+  "id": "907008",
+  "mongoId": "635afd054d2fd1d313dd4d12",
+  "nombre": "SANGRE  OCULTA  EN MATERIA FECAL",
+  "codigoCups": "907008",
+  "slug": "sangre-oculta-en-materia-fecal",
+  "categoria": "parasitologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "El paciente por 2 o 3 dÍas, no debe ingerir carnes rojas, coliflor, brocoli, uvas, manzana, bananos, alcohol o alimentos ricos en Vitamina C, informar si presenta hemorroides.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

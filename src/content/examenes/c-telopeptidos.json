@@ -1,0 +1,17 @@
+{
+  "id": "903054",
+  "mongoId": "635afd054d2fd1d313dd4bda",
+  "nombre": "C-TELOPEPTIDOS ",
+  "codigoCups": "903054",
+  "slug": "c-telopeptidos",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "En ayunas. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "10 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

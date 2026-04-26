@@ -1,0 +1,17 @@
+{
+  "id": "903708",
+  "mongoId": "635afd054d2fd1d313dd4d53",
+  "nombre": "VITAMINA E [TOCOFEROL]",
+  "codigoCups": "903708",
+  "slug": "vitamina-e-tocoferol",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": true,
+  "preparacion": "Paciente en ayuno. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "10 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

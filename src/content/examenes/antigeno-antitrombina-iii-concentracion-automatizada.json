@@ -1,0 +1,17 @@
+{
+  "id": "902006",
+  "mongoId": "635afd054d2fd1d313dd4b7a",
+  "nombre": "ANTIGENO ANTITROMBINA III (CONCENTRACION) AUTOMATIZADA",
+  "codigoCups": "902006",
+  "slug": "antigeno-antitrombina-iii-concentracion-automatizada",
+  "categoria": "inmunologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "En ayunas, Adjuntar resumen de la Historia Clínica.",
+  "oportunidadResultados": "7 días hábiles a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

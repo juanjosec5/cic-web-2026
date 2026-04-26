@@ -1,0 +1,17 @@
+{
+  "id": "908402",
+  "mongoId": "635afd054d2fd1d313dd4b80",
+  "nombre": "BCL-2 TRANSLOCACIÓN (14;18) ",
+  "codigoCups": "908402",
+  "slug": "bcl-2-translocacion-1418",
+  "categoria": "orina",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "Adjuntar resumen de la historia clínica - Consentimiento Informado.",
+  "oportunidadResultados": "27 días hábiles a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

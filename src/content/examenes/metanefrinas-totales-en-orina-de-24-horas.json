@@ -1,0 +1,17 @@
+{
+  "id": "903025",
+  "mongoId": "635afd054d2fd1d313dd4cb5",
+  "nombre": "METANEFRINAS TOTALES EN ORINA DE 24 HORAS",
+  "codigoCups": "903025",
+  "slug": "metanefrinas-totales-en-orina-de-24-horas",
+  "categoria": "orina",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "El paciente debe suspender todo medicamento por lo menos una semana antes de la recolección de la muestra. Entre los medicamentos que pueden interferir con esta prueba están: L-DOPA, Alfa-Metildopa, Acetaminofén (altas dosis), Labetalol o medicamentos que contengan catecolaminas, inhibidores de la MAO, diuréticos o vasodilatadores Refrigerar durante y después de la recolección.",
+  "oportunidadResultados": "11 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

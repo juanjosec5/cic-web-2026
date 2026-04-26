@@ -1,0 +1,17 @@
+{
+  "id": "908427",
+  "mongoId": "635afd054d2fd1d313dd4cf6",
+  "nombre": "F2 (FACTOR II O PROTROMBINA) MUTACION G20210A",
+  "codigoCups": "908427",
+  "slug": "f2-factor-ii-o-protrombina-mutacion-g20210a",
+  "categoria": "hematologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "7 días a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

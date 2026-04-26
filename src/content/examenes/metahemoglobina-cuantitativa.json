@@ -1,0 +1,17 @@
+{
+  "id": "902118",
+  "mongoId": "635afd054d2fd1d313dd4cb3",
+  "nombre": "METAHEMOGLOBINA, CUANTITATIVA",
+  "codigoCups": "902118",
+  "slug": "metahemoglobina-cuantitativa",
+  "categoria": "hematologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "9 días a partir del día de envio a la red internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

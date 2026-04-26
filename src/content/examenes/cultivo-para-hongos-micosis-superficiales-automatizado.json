@@ -1,0 +1,17 @@
+{
+  "id": "901213",
+  "mongoId": "635afd054d2fd1d313dd4be2",
+  "nombre": "CULTIVO PARA HONGOS MICOSIS SUPERFICIALES AUTOMATIZADO",
+  "codigoCups": "901213",
+  "slug": "cultivo-para-hongos-micosis-superficiales-automatizado",
+  "categoria": "microbiologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No aplicar medicamentos o cremas en la zona afectada.",
+  "oportunidadResultados": "33 días hábiles a partir de su procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

@@ -1,0 +1,17 @@
+{
+  "id": "903837",
+  "mongoId": "635afd054d2fd1d313dd4c2c",
+  "nombre": "FRACCION EXCRETADA DE SODIO",
+  "codigoCups": "903837",
+  "slug": "fraccion-excretada-de-sodio",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "4 Días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

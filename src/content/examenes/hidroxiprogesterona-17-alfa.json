@@ -1,0 +1,17 @@
+{
+  "id": "904509",
+  "mongoId": "635afd054d2fd1d313dd4c6d",
+  "nombre": "HIDROXIPROGESTERONA 17 ALFA",
+  "codigoCups": "904509",
+  "slug": "hidroxiprogesterona-17-alfa",
+  "categoria": "microbiologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "7 días a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

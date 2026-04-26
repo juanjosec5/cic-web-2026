@@ -1,0 +1,17 @@
+{
+  "id": "906917",
+  "mongoId": "635afd054d2fd1d313dd4bd8",
+  "nombre": "CRIOGLOBULINAS",
+  "codigoCups": "906917",
+  "slug": "crioglobulinas",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

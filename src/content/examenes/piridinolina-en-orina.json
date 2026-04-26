@@ -1,0 +1,17 @@
+{
+  "id": "903037",
+  "mongoId": "635afd054d2fd1d313dd4d76",
+  "nombre": "PIRIDINOLINA EN ORINA",
+  "codigoCups": "903037",
+  "slug": "piridinolina-en-orina",
+  "categoria": "orina",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente.",
+  "oportunidadResultados": "14 días a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

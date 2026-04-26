@@ -1,0 +1,17 @@
+{
+  "id": "906126",
+  "mongoId": "635afd054d2fd1d313dd4d37",
+  "nombre": "Toxoplasma gondii ANTICUERPOS Ig A SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906126",
+  "slug": "toxoplasma-gondii-anticuerpos-ig-a-semiautomatizado-o-automatizado",
+  "categoria": "parasitologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "11 días a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

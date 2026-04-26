@@ -1,0 +1,17 @@
+{
+  "id": "906812",
+  "mongoId": "635afd054d2fd1d313dd4bf8",
+  "nombre": "ELECTROFORESIS DE PROTEINAS SEMIAUTOMATIZADO Y AUTOMATIZADO EN ORINA",
+  "codigoCups": "906812",
+  "slug": "electroforesis-de-proteinas-semiautomatizado-y-automatizado-en-orina",
+  "categoria": "orina",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa nota: Se recomienda enviar muestra de orina recolectada durante 24 horas. Como segunda opción la muestra de la primera orina de la mañana.",
+  "oportunidadResultados": "3 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

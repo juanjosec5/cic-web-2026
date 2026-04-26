@@ -1,0 +1,17 @@
+{
+  "id": "903058",
+  "mongoId": "635afd054d2fd1d313dd4cb4",
+  "nombre": "METANEFRINAS EN ORINA PARCIAL",
+  "codigoCups": "903058",
+  "slug": "metanefrinas-en-orina-parcial",
+  "categoria": "orina",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "El paciente debe suspender todo medicamento por lo menos una semana antes de la recolección de la muestra. Entre los medicamentos que pueden interferir con esta prueba están: L-DOPA, Alfa-Metildopa, Acetaminofén (altas dosis), Labetalol o medicamentos que contengan catecolaminas, inhibidores de la MAO, diuréticos o vasodilatadores.",
+  "oportunidadResultados": "11 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

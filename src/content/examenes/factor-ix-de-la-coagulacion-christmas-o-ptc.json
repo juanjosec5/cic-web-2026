@@ -1,0 +1,17 @@
+{
+  "id": "902014",
+  "mongoId": "635afd054d2fd1d313dd4c11",
+  "nombre": "FACTOR IX DE LA COAGULACION [CHRISTMAS O PTC]",
+  "codigoCups": "902014",
+  "slug": "factor-ix-de-la-coagulacion-christmas-o-ptc",
+  "categoria": "hematologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "En ayunas. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "4 días a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

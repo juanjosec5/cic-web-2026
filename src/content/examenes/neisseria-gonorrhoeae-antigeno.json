@@ -1,0 +1,17 @@
+{
+  "id": "906323",
+  "mongoId": "635afd054d2fd1d313dd4d72",
+  "nombre": "Neisseria gonorrhoeae ANTIGENO",
+  "codigoCups": "906323",
+  "slug": "neisseria-gonorrhoeae-antigeno",
+  "categoria": "inmunologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente.",
+  "oportunidadResultados": "10 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

@@ -1,0 +1,17 @@
+{
+  "id": "906818",
+  "mongoId": "635afd054d2fd1d313dd4c63",
+  "nombre": "Hepatitis C PRUEBA CONFIRMATORIA SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906818",
+  "slug": "hepatitis-c-prueba-confirmatoria-semiautomatizado-o-automatizado",
+  "categoria": "inmunologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "3 días a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

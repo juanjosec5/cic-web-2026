@@ -1,0 +1,17 @@
+{
+  "id": "906810",
+  "mongoId": "635afd054d2fd1d313dd4bf7",
+  "nombre": "ELECTROFORESIS DE LIPOPROTEINAS SEMIAUTOMATIZADO Y AUTOMATIZADO",
+  "codigoCups": "906810",
+  "slug": "electroforesis-de-lipoproteinas-semiautomatizado-y-automatizado",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": true,
+  "preparacion": "El paciente no debe cambiar sus hábitos alimenticios en las tres semanas previas a la prueba, no ingerir bebidas alcohólicas en las 72 horas previas al examen y realizar ayuno completo 12 horas antes de la toma de la muestra (consumir sólo agua o café negro sin azúcar).",
+  "oportunidadResultados": "5 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

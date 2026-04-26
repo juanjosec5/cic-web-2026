@@ -1,0 +1,17 @@
+{
+  "id": "904805",
+  "mongoId": "635afd054d2fd1d313dd4bcd",
+  "nombre": "CORTISOL",
+  "codigoCups": "904805",
+  "slug": "cortisol",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "Los cambios permanentes en los hábitos de sueño\r\nproducen un cambio gradual en los patrones diurnos de secreción, de ahí la importancia de tomar la muestra a las\r\n8:00 a.m.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

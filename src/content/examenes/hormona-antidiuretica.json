@@ -1,0 +1,17 @@
+{
+  "id": "904102",
+  "mongoId": "635afd054d2fd1d313dd4c7b",
+  "nombre": "HORMONA ANTIDIURETICA",
+  "codigoCups": "904102",
+  "slug": "hormona-antidiuretica",
+  "categoria": "microbiologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "Tomar la muestra en un ambiente libre de estres.",
+  "oportunidadResultados": "17 Días a partir de la fecha de envio a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

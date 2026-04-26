@@ -1,0 +1,17 @@
+{
+  "id": "906302",
+  "mongoId": "635afd054d2fd1d313dd4b75",
+  "nombre": "ANTIGENO P24 VIRUS DE INMUNODEFICIENCIA HUMANA 1",
+  "codigoCups": "906302",
+  "slug": "antigeno-p24-virus-de-inmunodeficiencia-humana-1",
+  "categoria": "inmunologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "10 días hábiles a partir del dia de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

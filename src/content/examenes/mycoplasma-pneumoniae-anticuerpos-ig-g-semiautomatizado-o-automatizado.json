@@ -1,0 +1,17 @@
+{
+  "id": "906034",
+  "mongoId": "635afd054d2fd1d313dd4d71",
+  "nombre": "Mycoplasma pneumoniae ANTICUERPOS Ig G SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906034",
+  "slug": "mycoplasma-pneumoniae-anticuerpos-ig-g-semiautomatizado-o-automatizado",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente.",
+  "oportunidadResultados": "06 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

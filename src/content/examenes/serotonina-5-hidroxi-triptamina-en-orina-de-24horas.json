@@ -1,0 +1,17 @@
+{
+  "id": "903435",
+  "mongoId": "635afd054d2fd1d313dd4d7b",
+  "nombre": "SEROTONINA-5 HIDROXI-TRIPTAMINA EN ORINA DE 24HORAS",
+  "codigoCups": "903435",
+  "slug": "serotonina-5-hidroxi-triptamina-en-orina-de-24horas",
+  "categoria": "orina",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "El paciente debe evitar consumir 3 - 4 días antes de la toma de muestra alimentos vegetales que contengan serotonina, como: ciruelas, piña, plátanos, tomates, nueces, kiwis, uvas y berenjenas. Relacionar datos clínicos del paciente.",
+  "oportunidadResultados": "10 días a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

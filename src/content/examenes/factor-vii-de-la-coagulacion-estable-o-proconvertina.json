@@ -1,0 +1,17 @@
+{
+  "id": "902017",
+  "mongoId": "635afd054d2fd1d313dd4c15",
+  "nombre": "FACTOR  VII DE LA COAGULACION [ESTABLE O PROCONVERTINA]",
+  "codigoCups": "902017",
+  "slug": "factor-vii-de-la-coagulacion-estable-o-proconvertina",
+  "categoria": "hematologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "En ayunas Relacionar datos clínicos del paciente en la Solicitud",
+  "oportunidadResultados": "4 días habiles a partir del día de procesamiento",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

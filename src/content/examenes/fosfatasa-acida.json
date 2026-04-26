@@ -1,0 +1,17 @@
+{
+  "id": "903830",
+  "mongoId": "635afd054d2fd1d313dd4c22",
+  "nombre": "FOSFATASA ACIDA",
+  "codigoCups": "903830",
+  "slug": "fosfatasa-acida",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "La muestra debe tomarse antes de cualquier manipulación de la próstata, tacto rectal o masaje prostático.",
+  "oportunidadResultados": "5 Días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

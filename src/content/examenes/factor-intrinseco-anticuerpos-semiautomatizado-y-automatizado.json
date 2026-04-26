@@ -1,0 +1,17 @@
+{
+  "id": "906813",
+  "mongoId": "635afd054d2fd1d313dd4c10",
+  "nombre": "FACTOR INTRINSECO ANTICUERPOS SEMIAUTOMATIZADO Y AUTOMATIZADO",
+  "codigoCups": "906813",
+  "slug": "factor-intrinseco-anticuerpos-semiautomatizado-y-automatizado",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "El paciente no debe estar en tratamiento con vitamina B12 una semana antes de la toma de la muestra.",
+  "oportunidadResultados": "11 días hábiles a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

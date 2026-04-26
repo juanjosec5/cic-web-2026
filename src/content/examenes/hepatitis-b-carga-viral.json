@@ -1,0 +1,17 @@
+{
+  "id": "908806",
+  "mongoId": "635afd054d2fd1d313dd4c5e",
+  "nombre": "HEPATITIS B CARGA  VIRAL",
+  "codigoCups": "908806",
+  "slug": "hepatitis-b-carga-viral",
+  "categoria": "inmunologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "3 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

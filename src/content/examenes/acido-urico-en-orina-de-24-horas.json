@@ -1,0 +1,17 @@
+{
+  "id": "903802",
+  "mongoId": "635afd054d2fd1d313dd4b41",
+  "nombre": "ÁCIDO ÚRICO EN ORINA DE 24 HORAS",
+  "codigoCups": "903802",
+  "slug": "acido-urico-en-orina-de-24-horas",
+  "categoria": "orina",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": " Evitar la ingesta de alimentos ricos en ácido úrico, los diuréticos y alcohol, 3 días antes de realizarse la prueba. Refrigerar durante y después de la recolección.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

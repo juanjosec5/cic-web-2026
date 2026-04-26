@@ -1,0 +1,17 @@
+{
+  "id": "905717",
+  "mongoId": "635afd054d2fd1d313dd4b93",
+  "nombre": "CANNABINOIDES [MARIHUANA]",
+  "codigoCups": "905717",
+  "slug": "cannabinoides-marihuana",
+  "categoria": "inmunologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud. Recolectar muestra a partir de la segunda parte de la micción.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

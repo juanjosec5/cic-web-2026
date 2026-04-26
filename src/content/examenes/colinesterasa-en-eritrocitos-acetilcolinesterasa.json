@@ -1,0 +1,17 @@
+{
+  "id": "903419",
+  "mongoId": "635afd054d2fd1d313dd4bbd",
+  "nombre": "COLINESTERASA EN ERITROCITOS [ACETILCOLINESTERASA]",
+  "codigoCups": "903419",
+  "slug": "colinesterasa-en-eritrocitos-acetilcolinesterasa",
+  "categoria": "hematologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "2 Días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

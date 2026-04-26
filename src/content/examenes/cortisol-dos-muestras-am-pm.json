@@ -1,0 +1,17 @@
+{
+  "id": "904806",
+  "mongoId": "635afd054d2fd1d313dd4bce",
+  "nombre": "CORTISOL (DOS MUESTRAS AM-PM)",
+  "codigoCups": "904806",
+  "slug": "cortisol-dos-muestras-am-pm",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "Los cambios permanentes en los hábitos de sueño\r\nproducen un cambio gradual en los patrones diurnos de secreción, Tomar la muestra AM sobre las 8 horas y PM sobre las 16 horas.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

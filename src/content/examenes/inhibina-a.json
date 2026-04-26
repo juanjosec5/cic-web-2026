@@ -1,0 +1,17 @@
+{
+  "id": "904403",
+  "mongoId": "635afd054d2fd1d313dd4d6c",
+  "nombre": "INHIBINA A",
+  "codigoCups": "904403",
+  "slug": "inhibina-a",
+  "categoria": "microbiologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "En ayunas. Relacionar datos clínicos del paciente.",
+  "oportunidadResultados": "09 días a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

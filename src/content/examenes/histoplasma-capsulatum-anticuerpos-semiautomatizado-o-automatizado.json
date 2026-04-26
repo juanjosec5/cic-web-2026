@@ -1,0 +1,17 @@
+{
+  "id": "906118",
+  "mongoId": "635afd054d2fd1d313dd4c6f",
+  "nombre": "Histoplasma capsulatum ANTICUERPOS SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906118",
+  "slug": "histoplasma-capsulatum-anticuerpos-semiautomatizado-o-automatizado",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "10 días hábiles a partir del día de proceso.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

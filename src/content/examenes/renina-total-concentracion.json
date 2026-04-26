@@ -1,0 +1,17 @@
+{
+  "id": "904004",
+  "mongoId": "635afd054d2fd1d313dd4d08",
+  "nombre": "RENINA  TOTAL (CONCENTRACION)",
+  "codigoCups": "904004",
+  "slug": "renina-total-concentracion",
+  "categoria": "microbiologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": true,
+  "preparacion": "La muestra debe ser tomada en la posición específica indicada por el médico, de pie o acostado\nDe pie: El paciente debe estar sentado en reposo por 15 minutos antes de tomar la muestra.\nAcostado boca arriba: El paciente debe permanecer en esta posición por lo menos 30 minutos en reposo. Realizar la extracción de la muestra de sangre entre las 8 y 10 horas a.m., tras un ayuno nocturno.\nNo realizar ejercicio físico el día de la toma de muestra.\nEl paciente debe estar levantado por lo menos dos horas antes de la toma de la muestra.",
+  "oportunidadResultados": "8 días a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

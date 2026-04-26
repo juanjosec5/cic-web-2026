@@ -1,0 +1,17 @@
+{
+  "id": "906414",
+  "mongoId": "635afd054d2fd1d313dd4bac",
+  "nombre": "CITOPLASMA DE NEUTRÓFILOS ANTICUERPOS TOTALES [C-ANCA O P-ANCA] ",
+  "codigoCups": "906414",
+  "slug": "citoplasma-de-neutrofilos-anticuerpos-totales-c-anca-o-p-anca",
+  "categoria": "inmunologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

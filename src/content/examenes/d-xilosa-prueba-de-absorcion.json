@@ -1,0 +1,17 @@
+{
+  "id": "903423",
+  "mongoId": "635afd054d2fd1d313dd4be8",
+  "nombre": "D- XILOSA PRUEBA DE ABSORCION",
+  "codigoCups": "903423",
+  "slug": "d-xilosa-prueba-de-absorcion",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "En ayunas. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "4 días hábiles a partir del día del envio a la red de apoyo.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

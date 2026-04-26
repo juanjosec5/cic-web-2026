@@ -1,0 +1,17 @@
+{
+  "id": "902223",
+  "mongoId": "635afd054d2fd1d313dd4d02",
+  "nombre": "RECUENTO DE RETICULOCITOS METODO MANUAL",
+  "codigoCups": "902223",
+  "slug": "recuento-de-reticulocitos-metodo-manual",
+  "categoria": "hematologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

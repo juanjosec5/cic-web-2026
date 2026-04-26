@@ -1,0 +1,17 @@
+{
+  "id": "904927",
+  "mongoId": "635afd054d2fd1d313dd4d81",
+  "nombre": "TRIYODOTIRONINA REVERSA",
+  "codigoCups": "904927",
+  "slug": "triyodotironina-reversa",
+  "categoria": "microbiologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente.",
+  "oportunidadResultados": "12 días a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

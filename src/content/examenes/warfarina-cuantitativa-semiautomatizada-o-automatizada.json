@@ -1,0 +1,17 @@
+{
+  "id": "905103",
+  "mongoId": "635afd054d2fd1d313dd4d83",
+  "nombre": "WARFARINA CUANTITATIVA SEMIAUTOMATIZADA O AUTOMATIZADA",
+  "codigoCups": "905103",
+  "slug": "warfarina-cuantitativa-semiautomatizada-o-automatizada",
+  "categoria": "inmunologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente.",
+  "oportunidadResultados": "10 días a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

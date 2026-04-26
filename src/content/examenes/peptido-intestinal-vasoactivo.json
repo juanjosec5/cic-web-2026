@@ -1,0 +1,17 @@
+{
+  "id": "904721",
+  "mongoId": "635afd054d2fd1d313dd4cd3",
+  "nombre": "PEPTIDO INTESTINAL VASOACTIVO",
+  "codigoCups": "904721",
+  "slug": "peptido-intestinal-vasoactivo",
+  "categoria": "microbiologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "El paciente no debe estar expuesto a radioactividad en los cuatro días previos a la prueba.\nEn ayunas.",
+  "oportunidadResultados": "18 días a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

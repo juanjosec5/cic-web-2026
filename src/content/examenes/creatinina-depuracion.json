@@ -1,0 +1,17 @@
+{
+  "id": "903823",
+  "mongoId": "635afd054d2fd1d313dd4bec",
+  "nombre": "CREATININA DEPURACIÓN",
+  "codigoCups": "903823",
+  "slug": "creatinina-depuracion",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud. Refrigerar durante la recolección y envío.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

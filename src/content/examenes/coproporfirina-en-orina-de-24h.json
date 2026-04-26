@@ -1,0 +1,17 @@
+{
+  "id": "903421",
+  "mongoId": "635afd054d2fd1d313dd4bcb",
+  "nombre": "COPROPORFIRINA EN ORINA DE\r\n24H.",
+  "codigoCups": "903421",
+  "slug": "coproporfirina-en-orina-de-24h",
+  "categoria": "orina",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "Conservar la dieta normal, antes de iniciar la recolección de la muestra, no tomar agua en exceso ni ingerir bebidas alcohólicas.",
+  "oportunidadResultados": "3 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

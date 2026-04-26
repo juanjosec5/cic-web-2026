@@ -1,0 +1,17 @@
+{
+  "id": "904207",
+  "mongoId": "635afd054d2fd1d313dd4c7d",
+  "nombre": "HORMONA DEL CRECIMIENTO [SOMATOTROPICA] PRE Y POST ESTIMULO GLUCOSA CADA MUESTRA",
+  "codigoCups": "904207",
+  "slug": "hormona-del-crecimiento-somatotropica-pre-y-post-estimulo-glucosa-cada-muestra",
+  "categoria": "microbiologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "Disponer mínimo de 3 horas para la toma de muestras.\nEn ayunas.",
+  "oportunidadResultados": "3 días a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

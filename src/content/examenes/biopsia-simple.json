@@ -1,0 +1,17 @@
+{
+  "id": "898101",
+  "mongoId": "635afd054d2fd1d313dd4b87",
+  "nombre": "BIOPSIA SIMPLE",
+  "codigoCups": "898101",
+  "slug": "biopsia-simple",
+  "categoria": "otros",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "10 días hábiles a partir de la fecha de envío a la red de apoyo.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

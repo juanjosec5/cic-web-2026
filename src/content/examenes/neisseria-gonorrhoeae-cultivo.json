@@ -1,0 +1,17 @@
+{
+  "id": "901232",
+  "mongoId": "635afd054d2fd1d313dd4cbf",
+  "nombre": "Neisseria gonorrhoeae CULTIVO",
+  "codigoCups": "901232",
+  "slug": "neisseria-gonorrhoeae-cultivo",
+  "categoria": "microbiologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "4 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

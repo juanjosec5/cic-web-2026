@@ -1,0 +1,17 @@
+{
+  "id": "904512",
+  "mongoId": "635afd054d2fd1d313dd4b5c",
+  "nombre": "ANDROSTERONA ",
+  "codigoCups": "904512",
+  "slug": "androsterona",
+  "categoria": "microbiologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": true,
+  "preparacion": "El ayuno es recomendado pero no indispensable.\nEvitar el consumo de medicamentos hormonales 2 días antes a la toma de muestra. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "14 días a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

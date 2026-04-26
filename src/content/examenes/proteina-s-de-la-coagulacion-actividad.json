@@ -1,0 +1,17 @@
+{
+  "id": "902035",
+  "mongoId": "635afd054d2fd1d313dd4cec",
+  "nombre": "PROTEINA S DE LA COAGULACION ACTIVIDAD",
+  "codigoCups": "902035",
+  "slug": "proteina-s-de-la-coagulacion-actividad",
+  "categoria": "hematologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "En ayunas. Resumen de la Historia Clínica.",
+  "oportunidadResultados": "8 días a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

@@ -1,0 +1,17 @@
+{
+  "id": "903042",
+  "mongoId": "635afd054d2fd1d313dd4cef",
+  "nombre": "PROTEINA TRANSPORTADORA DE HORMONAS SEXUALES [PTHS]",
+  "codigoCups": "903042",
+  "slug": "proteina-transportadora-de-hormonas-sexuales-pths",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "7 días a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

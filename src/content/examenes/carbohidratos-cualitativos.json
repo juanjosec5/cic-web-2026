@@ -1,0 +1,17 @@
+{
+  "id": "908318",
+  "mongoId": "635afd054d2fd1d313dd4b96",
+  "nombre": "CARBOHIDRATOS CUALITATIVOS ",
+  "codigoCups": "908318",
+  "slug": "carbohidratos-cualitativos",
+  "categoria": "orina",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "En ayunas. Registrar modificaciones nutricionales del paciente, como restricción proteica o retiro de lactosa / fructosa.\nRegistrar nombres y apellidos completos; en caso que el paciente solo tenga un apellido favor enviar constancia por escrito y/o fotocopia del documento de identidad.\nRelacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "7 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

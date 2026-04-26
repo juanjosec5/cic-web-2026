@@ -1,0 +1,17 @@
+{
+  "id": "906406",
+  "mongoId": "635afd054d2fd1d313dd4b6d",
+  "nombre": "ANTICUERPOS NUCLEARES EXTRACTABLES TOTALES [ENA] SS-A [Ro] SS-B [La] RNP y Sm ",
+  "codigoCups": "906406",
+  "slug": "anticuerpos-nucleares-extractables-totales-ena-ss-a-ro-ss-b-la-rnp-y-sm",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

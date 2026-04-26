@@ -1,0 +1,17 @@
+{
+  "id": "906509",
+  "mongoId": "635afd054d2fd1d313dd4d68",
+  "nombre": "ANTICUERPOS CITOTOXICOS ANTI HLA",
+  "codigoCups": "906509",
+  "slug": "anticuerpos-citotoxicos-anti-hla",
+  "categoria": "inmunologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente.",
+  "oportunidadResultados": "07 días híbiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

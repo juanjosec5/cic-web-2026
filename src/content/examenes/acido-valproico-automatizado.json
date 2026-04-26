@@ -1,0 +1,17 @@
+{
+  "id": "905201",
+  "mongoId": "635afd054d2fd1d313dd4b44",
+  "nombre": "ÁCIDO VALPROICO AUTOMATIZADO",
+  "codigoCups": "905201",
+  "slug": "acido-valproico-automatizado",
+  "categoria": "inmunologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud: dosis, fecha y hora de la última dosis.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

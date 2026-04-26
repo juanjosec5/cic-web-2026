@@ -1,0 +1,17 @@
+{
+  "id": "908807",
+  "mongoId": "635afd054d2fd1d313dd4c62",
+  "nombre": "HEPATITIS C CARGA VIRAL",
+  "codigoCups": "908807",
+  "slug": "hepatitis-c-carga-viral",
+  "categoria": "inmunologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "3 Días a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

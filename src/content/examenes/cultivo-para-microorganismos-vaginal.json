@@ -1,0 +1,17 @@
+{
+  "id": "901217",
+  "mongoId": "635afd054d2fd1d313dd4be3",
+  "nombre": "CULTIVO PARA MICROORGANISMOS (VAGINAL)",
+  "codigoCups": "901217",
+  "slug": "cultivo-para-microorganismos-vaginal",
+  "categoria": "microbiologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "La muestra debe ser tomada por lo menos 3 días antes o 3 días después de terminada la menstruación.\nNo aplicarse duchas intravaginales, cremas, óvulos, tampones, ni anticonceptivos vaginales 72 horas antes de la toma de la muestra.\nNo tener relaciones sexuales la noche anterior.",
+  "oportunidadResultados": "De 3 a 5 días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

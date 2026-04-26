@@ -1,0 +1,17 @@
+{
+  "id": "906833",
+  "mongoId": "635afd054d2fd1d313dd4c90",
+  "nombre": "INMUNOGLOBULINA D [Ig D] SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906833",
+  "slug": "inmunoglobulina-d-ig-d-semiautomatizado-o-automatizado",
+  "categoria": "hormonas",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "11 días hábiles a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

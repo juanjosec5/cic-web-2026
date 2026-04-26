@@ -1,0 +1,17 @@
+{
+  "id": "906314",
+  "mongoId": "635afd054d2fd1d313dd4bd9",
+  "nombre": "CRYPTOCOCCUS NEOFORMANS ANTIGENO",
+  "codigoCups": "906314",
+  "slug": "cryptococcus-neoformans-antigeno",
+  "categoria": "inmunologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparacion previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "72 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

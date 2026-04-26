@@ -1,0 +1,17 @@
+{
+  "id": "903301",
+  "mongoId": "635afd054d2fd1d313dd4c32",
+  "nombre": "GALACTOSA CUANTITATIVA ",
+  "codigoCups": "903301",
+  "slug": "galactosa-cuantitativa",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "Se debe hacer ingesta de leche de tres a cuatro horas antes de la extracción.",
+  "oportunidadResultados": "19 días hábiles a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

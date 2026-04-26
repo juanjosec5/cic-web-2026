@@ -1,0 +1,17 @@
+{
+  "id": "903065",
+  "mongoId": "635afd054d2fd1d313dd4b88",
+  "nombre": "PRO PEPTIDO ATRIAL NATRIURETICO [PRO-BNP] (PEPTIDO CEREBRAL NATRIURETICO)",
+  "codigoCups": "903065",
+  "slug": "pro-peptido-atrial-natriuretico-pro-bnp-peptido-cerebral-natriuretico",
+  "categoria": "quimica",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "4 Días hábiles a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

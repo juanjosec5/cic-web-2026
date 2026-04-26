@@ -1,0 +1,17 @@
+{
+  "id": "902045",
+  "mongoId": "635afd054d2fd1d313dd4d2c",
+  "nombre": "TIEMPO DE PROTROMBINA [TP]",
+  "codigoCups": "902045",
+  "slug": "tiempo-de-protrombina-tp",
+  "categoria": "hematologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": true,
+  "preparacion": "Se sugiere tomar muestra en ayuno, más no es excluyente, Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

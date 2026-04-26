@@ -1,0 +1,17 @@
+{
+  "id": "906223",
+  "mongoId": "635afd054d2fd1d313dd4c58",
+  "nombre": "HEPATITIS B ANTICUERPOS (ANTI HBS) CUALITATIVA",
+  "codigoCups": "906223",
+  "slug": "hepatitis-b-anticuerpos-anti-hbs-cualitativa",
+  "categoria": "inmunologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

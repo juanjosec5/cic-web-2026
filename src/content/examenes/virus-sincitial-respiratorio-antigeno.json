@@ -1,0 +1,17 @@
+{
+  "id": "906329",
+  "mongoId": "635afd054d2fd1d313dd4d4b",
+  "nombre": "Virus Sincitial Respiratorio ANTIGENO",
+  "codigoCups": "906329",
+  "slug": "virus-sincitial-respiratorio-antigeno",
+  "categoria": "inmunologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "Indicar el origen de la muestra enviada. No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "7 días a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

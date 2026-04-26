@@ -1,0 +1,17 @@
+{
+  "id": "903877",
+  "mongoId": "635afd054d2fd1d313dd4b42",
+  "nombre": "ÁCIDO ÚRICO EN ORINA PARCIAL",
+  "codigoCups": "903877",
+  "slug": "acido-urico-en-orina-parcial",
+  "categoria": "orina",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": " Evitar la ingesta de alimentos ricos en ácido úrico, los diuréticos y alcohol, 3 días antes de realizarse la prueba. Recolectar muestra a partir de la segunda parte de la micción.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

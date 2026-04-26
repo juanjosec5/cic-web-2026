@@ -1,0 +1,17 @@
+{
+  "id": "905742",
+  "mongoId": "635afd054d2fd1d313dd4cc8",
+  "nombre": "ORGANOFOSFORADOS SEMIAUTOMATIZADO",
+  "codigoCups": "905742",
+  "slug": "organofosforados-semiautomatizado",
+  "categoria": "inmunologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "3 días a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

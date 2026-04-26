@@ -1,0 +1,17 @@
+{
+  "id": "901309",
+  "mongoId": "635afd054d2fd1d313dd4ca0",
+  "nombre": "Leishmania ANTICUERPOS AUTOMATIZADO",
+  "codigoCups": "901309",
+  "slug": "leishmania-anticuerpos-automatizado",
+  "categoria": "otros",
+  "nombresAlternativos": [],
+  "requiereAyuno": false,
+  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "11 días hábiles a partir de la fecha de envío a la red de apoyo internacional.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}

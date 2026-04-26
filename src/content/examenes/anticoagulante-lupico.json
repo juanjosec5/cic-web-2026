@@ -1,0 +1,17 @@
+{
+  "id": "902004",
+  "mongoId": "635afd054d2fd1d313dd4b60",
+  "nombre": "ANTICOAGULANTE LUPICO",
+  "codigoCups": "902004",
+  "slug": "anticoagulante-lupico",
+  "categoria": "hematologia",
+  "nombresAlternativos": [],
+  "requiereAyuno": true,
+  "preparacion": "Se sugiere tomar muestra en ayuno, más no es excluyente, relacionar datos clínicos del paciente en la solicitud.",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "imagen": null,
+  "activo": true
+}
