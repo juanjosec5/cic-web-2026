@@ -6,8 +6,13 @@
   "telefono": "316 017 6052",
   "whatsapp": "316 017 6052",
   "horario": {},
-  "servicios": ["toma-muestras", "validacion-qr"],
+  "servicios": [
+    "toma-muestras",
+    "validacion-qr"
+  ],
   "fotos": [],
   "convenios": [],
-  "esSedePrincipal": false
+  "esSedePrincipal": false,
+  "lat": 3.929,
+  "lng": -76.518
 }

@@ -6,8 +6,13 @@
   "telefono": "(602) 226 5939",
   "whatsapp": "316 017 6053",
   "horario": {},
-  "servicios": ["toma-muestras", "validacion-qr"],
+  "servicios": [
+    "toma-muestras",
+    "validacion-qr"
+  ],
   "fotos": [],
   "convenios": [],
-  "esSedePrincipal": false
+  "esSedePrincipal": false,
+  "lat": 4.212,
+  "lng": -76.162
 }

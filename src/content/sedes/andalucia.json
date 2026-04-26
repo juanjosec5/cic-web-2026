@@ -13,8 +13,13 @@
     "viernes": "7:00 am – 10:50 am",
     "sabado": "7:00 am – 10:00 am"
   },
-  "servicios": ["toma-muestras", "validacion-qr"],
+  "servicios": [
+    "toma-muestras",
+    "validacion-qr"
+  ],
   "fotos": [],
   "convenios": [],
-  "esSedePrincipal": false
+  "esSedePrincipal": false,
+  "lat": 4.154,
+  "lng": -76.167
 }

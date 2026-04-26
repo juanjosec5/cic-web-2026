@@ -6,8 +6,13 @@
   "telefono": "318 349 2656",
   "whatsapp": "318 349 2656",
   "horario": {},
-  "servicios": ["toma-muestras", "validacion-qr"],
+  "servicios": [
+    "toma-muestras",
+    "validacion-qr"
+  ],
   "fotos": [],
   "convenios": [],
-  "esSedePrincipal": false
+  "esSedePrincipal": false,
+  "lat": 4.808,
+  "lng": -76.029
 }

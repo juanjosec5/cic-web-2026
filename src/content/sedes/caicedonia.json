@@ -6,8 +6,13 @@
   "telefono": "316 017 6058",
   "whatsapp": "316 017 6058",
   "horario": {},
-  "servicios": ["toma-muestras", "validacion-qr"],
+  "servicios": [
+    "toma-muestras",
+    "validacion-qr"
+  ],
   "fotos": [],
   "convenios": [],
-  "esSedePrincipal": false
+  "esSedePrincipal": false,
+  "lat": 4.334,
+  "lng": -75.833
 }
