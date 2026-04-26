@@ -3,12 +3,13 @@
  * /examenes/perfiles/[slug] — Individual perfil page.
  *
  * TODO (design-needed): Show included exams as a checklist/table.
- * TODO (content-needed): Add "Request this profile" CTA with wa.me link.
  * TODO (content-needed): Add pricing disclaimer text.
  */
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
+import { SITE_CONFIG } from '@/lib/config';
 
 interface Props {
   perfil: CollectionEntry<'perfiles'>['data'];
@@ -23,46 +24,49 @@ export async function getStaticPaths() {
 }
 
 const { perfil } = Astro.props;
+
+const waUrl = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(`Quiero solicitar el perfil ${perfil.nombre}`)}`;
 ---
 
-<BaseLayout
-  title={perfil.nombre}
-  description={perfil.descripcion}
->
-  <nav aria-label="Migas de pan">
-    <a href="/examenes">Exámenes</a> ›
-    <a href="/examenes/perfiles">Perfiles</a> ›
-    {perfil.nombre}
-  </nav>
+<BaseLayout title={perfil.nombre} description={perfil.descripcion}>
+  <div class="mx-auto max-w-4xl px-4 py-8 sm:px-6">
 
-  <h1>{perfil.nombre}</h1>
-  <p>{perfil.descripcion}</p>
+    <Breadcrumb items={[
+      { label: 'Inicio', href: '/' },
+      { label: 'Exámenes', href: '/examenes' },
+      { label: 'Perfiles', href: '/examenes/perfiles' },
+      { label: perfil.nombre },
+    ]} />
 
-  {perfil.precio && (
-    <p>
-      Precio referencial: ${perfil.precio.toLocaleString('es-CO')}
-      {/* TODO (content-needed): Add pricing disclaimer */}
-    </p>
-  )}
+    <article>
+      <header>
+        <h1>{perfil.nombre}</h1>
+        <p class="mt-2">{perfil.descripcion}</p>
+      </header>
 
-  <section aria-labelledby="examenes-incluidos-heading">
-    <h2 id="examenes-incluidos-heading">Exámenes incluidos</h2>
-    <ul>
-      {perfil.examenesIncluidos.map((slug: string) => (
-        <li>
-          <a href={`/examenes/${slug}`}>{slug}</a>
-          {/* TODO (content-needed): Show exam nombre instead of slug */}
-        </li>
-      ))}
-    </ul>
-  </section>
+      {perfil.precio && (
+        <p class="mt-6">
+          Precio referencial: ${perfil.precio.toLocaleString('es-CO')}
+        </p>
+      )}
 
-  <a
-    href={`https://wa.me/573001234567?text=${encodeURIComponent(`Quiero solicitar el perfil ${perfil.nombre}`)}`}
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Solicitar por WhatsApp
-    {/* TODO (content-needed): Replace hardcoded WhatsApp with env var */}
-  </a>
+      <section aria-labelledby="examenes-incluidos-heading" class="mt-10">
+        <h2 id="examenes-incluidos-heading">Exámenes incluidos</h2>
+        <ul role="list" class="mt-4 space-y-2">
+          {perfil.examenesIncluidos.map((slug: string) => (
+            <li>
+              <a href={`/examenes/${slug}`}>{slug}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <div class="mt-8">
+        <a href={waUrl} target="_blank" rel="noopener noreferrer">
+          Solicitar por WhatsApp
+        </a>
+      </div>
+    </article>
+
+  </div>
 </BaseLayout>
