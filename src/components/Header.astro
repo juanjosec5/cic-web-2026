@@ -1,13 +1,4 @@
 ---
-/**
- * Header.astro
- * Site-wide navigation header.
- *
- * TODO (design-needed): Mobile hamburger menu / responsive nav.
- * TODO (content-needed): Add "Resultados" external subdomain URL once confirmed.
- * TODO (design-needed): Active link highlighting, sticky header behavior.
- */
-
 const navLinks = [
   { label: 'Sedes', href: '/sedes' },
   { label: 'Exámenes', href: '/examenes' },
@@ -22,25 +13,124 @@ const navLinks = [
 ];
 ---
 
-<header>
-  <a href="/">
-    <!-- TODO (design-needed): Replace text logo with SVG/image asset -->
-    <strong>CIC Laboratorios</strong>
-  </a>
-  <nav aria-label="Navegación principal">
-    <ul>
-      {navLinks.map((link) => (
-        <li>
-          <a
-            href={link.href}
-            {...(link.external
-              ? { target: '_blank', rel: 'noopener noreferrer' }
-              : {})}
-          >
-            {link.label}
-          </a>
-        </li>
-      ))}
-    </ul>
-  </nav>
+<header class="sticky top-0 z-50 bg-white border-b border-gray-200">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6">
+    <div class="flex h-16 items-center justify-between">
+
+      <!-- Wordmark / logo -->
+      <a href="/" class="shrink-0 text-lg font-bold text-blue-700">
+        CIC Laboratorios
+      </a>
+
+      <!-- Desktop nav (hidden on mobile) -->
+      <nav aria-label="Navegación principal" class="hidden md:block">
+        <ul role="list" class="flex items-center gap-1">
+          {navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="block rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-blue-50 hover:text-blue-700"
+                {...(link.external
+                  ? { target: '_blank', rel: 'noopener noreferrer' }
+                  : {})}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <!-- Hamburger button (hidden on desktop) -->
+      <button
+        id="nav-toggle"
+        type="button"
+        aria-controls="mobile-nav-panel"
+        aria-expanded="false"
+        aria-label="Abrir menú"
+        class="-mr-2 rounded-md p-2 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 md:hidden"
+      >
+        <!-- Menu icon -->
+        <svg
+          id="icon-menu"
+          class="size-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+        <!-- Close icon -->
+        <svg
+          id="icon-close"
+          class="size-6 hidden"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile nav panel — separate element so desktop nav is never JS-toggled -->
+  <div
+    id="mobile-nav-panel"
+    class="hidden border-t border-gray-200 bg-white md:hidden"
+  >
+    <nav aria-label="Menú móvil">
+      <ul role="list" class="space-y-1 px-4 py-3">
+        {navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 transition-colors hover:bg-blue-50 hover:text-blue-700"
+              {...(link.external
+                ? { target: '_blank', rel: 'noopener noreferrer' }
+                : {})}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
 </header>
+
+<script>
+  const toggle = document.getElementById('nav-toggle') as HTMLButtonElement | null;
+  const panel = document.getElementById('mobile-nav-panel');
+  const iconMenu = document.getElementById('icon-menu');
+  const iconClose = document.getElementById('icon-close');
+
+  function openNav() {
+    panel?.classList.remove('hidden');
+    iconMenu?.classList.add('hidden');
+    iconClose?.classList.remove('hidden');
+    toggle?.setAttribute('aria-expanded', 'true');
+    toggle?.setAttribute('aria-label', 'Cerrar menú');
+  }
+
+  function closeNav() {
+    panel?.classList.add('hidden');
+    iconMenu?.classList.remove('hidden');
+    iconClose?.classList.add('hidden');
+    toggle?.setAttribute('aria-expanded', 'false');
+    toggle?.setAttribute('aria-label', 'Abrir menú');
+  }
+
+  toggle?.addEventListener('click', () => {
+    toggle.getAttribute('aria-expanded') === 'true' ? closeNav() : openNav();
+  });
+
+  // Reset mobile state when viewport reaches desktop width
+  window.matchMedia('(min-width: 768px)').addEventListener('change', (e) => {
+    if (e.matches) closeNav();
+  });
+</script>
