@@ -44,9 +44,15 @@ const WHATSAPP_PHONE = '573001234567';
       jsonLd={jsonLd}
     />
   </head>
-  <body>
+  <body class="flex min-h-svh flex-col bg-white text-gray-900">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded focus:bg-blue-600 focus:px-4 focus:py-2 focus:text-white"
+    >
+      Ir al contenido principal
+    </a>
     <Header />
-    <main id="main-content">
+    <main id="main-content" class="flex-1">
       <slot />
     </main>
     <Footer />

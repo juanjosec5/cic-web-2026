@@ -9,6 +9,16 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 ## [Unreleased]
 
+### Added
+- `Header`: sticky top bar with wordmark, desktop nav, and mobile hamburger toggle
+  - Separate `#mobile-nav-panel` element (below header bar) avoids display-property conflicts with the always-visible desktop nav
+  - Hamburger button uses `aria-expanded` / `aria-controls` and swaps menu ↔ close SVG icons
+  - Vanilla JS toggle with `matchMedia` listener to auto-close panel on resize to desktop
+- `Footer`: dark-background footer with 3-column grid (1 col mobile → 2 col sm → 3 col lg)
+  - Columns: contact `<address>`, sitemap `<nav>`, social links
+  - Copyright bar separated by a top border
+- `BaseLayout`: skip-to-content link as first focusable element; `<body>` uses `flex min-h-svh flex-col` so footer is always flush to the bottom; `<main>` gets `flex-1`
+
 ---
 
 ## [0.1.0] — 2026-04-25

@@ -1,57 +1,85 @@
 ---
-/**
- * Footer.astro
- * Site-wide footer with sede principal contact info, site map links,
- * social icons (placeholder), and copyright.
- *
- * TODO (content-needed): Replace placeholder contact info with real data from
- *   buga-centro sede entry (or query via getCollection).
- * TODO (content-needed): Add real social media profile URLs.
- * TODO (design-needed): Style footer columns, social icons, legal links.
- */
-
 const currentYear = new Date().getFullYear();
+
+const siteLinks = [
+  { label: 'Sedes', href: '/sedes' },
+  { label: 'Exámenes', href: '/examenes' },
+  { label: 'Servicios', href: '/servicios' },
+  { label: 'Empresas', href: '/empresas' },
+  { label: 'Nosotros', href: '/nosotros' },
+  { label: 'Preparación de exámenes', href: '/pacientes/preparacion' },
+  { label: 'Preguntas frecuentes', href: '/pacientes/preguntas-frecuentes' },
+  { label: 'Contacto', href: '/contacto' },
+];
 ---
 
-<footer>
-  <div>
-    <div>
-      <h3>CIC Laboratorios — Sede Principal</h3>
-      <address>
-        <!-- TODO (content-needed): Pull from sedes collection entry -->
-        Calle 5 # 14-23, Centro, Guadalajara de Buga<br />
-        Tel: 602 228 0000<br />
-        <a href="mailto:buga@ciclaboratorios.com">buga@ciclaboratorios.com</a>
-      </address>
-    </div>
+<footer class="mt-auto bg-gray-900 text-gray-300">
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6">
+    <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
 
-    <nav aria-label="Mapa del sitio">
-      <h3>Mapa del sitio</h3>
-      <ul>
-        <li><a href="/sedes">Sedes</a></li>
-        <li><a href="/examenes">Exámenes</a></li>
-        <li><a href="/servicios">Servicios</a></li>
-        <li><a href="/empresas">Empresas</a></li>
-        <li><a href="/nosotros">Nosotros</a></li>
-        <li><a href="/pacientes/preparacion">Preparación de exámenes</a></li>
-        <li><a href="/pacientes/preguntas-frecuentes">Preguntas frecuentes</a></li>
-        <li><a href="/contacto">Contacto</a></li>
-      </ul>
-    </nav>
+      <!-- Contact block -->
+      <div>
+        <h2 class="mb-4 font-semibold text-white">CIC Laboratorios</h2>
+        <address class="space-y-1 text-sm not-italic leading-relaxed">
+          <p>Calle 5 # 14-23, Centro</p>
+          <p>Guadalajara de Buga, Valle del Cauca</p>
+          <p>
+            <a href="tel:+576022280000" class="transition-colors hover:text-white">
+              Tel: 602 228 0000
+            </a>
+          </p>
+          <p>
+            <a href="mailto:buga@ciclaboratorios.com" class="transition-colors hover:text-white">
+              buga@ciclaboratorios.com
+            </a>
+          </p>
+        </address>
+      </div>
 
-    <div>
-      <h3>Redes sociales</h3>
-      <!-- TODO (content-needed): Replace with real social URLs -->
-      <ul>
-        <li><a href="#" aria-label="Facebook (próximamente)">Facebook</a></li>
-        <li><a href="#" aria-label="Instagram (próximamente)">Instagram</a></li>
-        <li><a href="#" aria-label="LinkedIn (próximamente)">LinkedIn</a></li>
-      </ul>
+      <!-- Sitemap -->
+      <nav aria-label="Mapa del sitio">
+        <h2 class="mb-4 font-semibold text-white">Mapa del sitio</h2>
+        <ul role="list" class="space-y-2 text-sm">
+          {siteLinks.map((link) => (
+            <li>
+              <a href={link.href} class="transition-colors hover:text-white">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <!-- Social -->
+      <div>
+        <h2 class="mb-4 font-semibold text-white">Síguenos</h2>
+        <ul role="list" class="space-y-2 text-sm">
+          <li>
+            <a href="#" class="transition-colors hover:text-white">
+              Facebook
+            </a>
+          </li>
+          <li>
+            <a href="#" class="transition-colors hover:text-white">
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a href="#" class="transition-colors hover:text-white">
+              LinkedIn
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 
-  <p>
-    &copy; {currentYear} CIC Laboratorios. Todos los derechos reservados.
-    <!-- TODO (content-needed): Add links to Política de privacidad, Términos de uso -->
-  </p>
+  <!-- Copyright bar -->
+  <div class="border-t border-gray-800">
+    <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6">
+      <p class="text-center text-sm text-gray-500">
+        &copy; {currentYear} CIC Laboratorios. Todos los derechos reservados.
+      </p>
+    </div>
+  </div>
 </footer>
