@@ -15,21 +15,27 @@ interface SedePin {
   esSedePrincipal?: boolean
 }
 
-interface Props {
-  sedes: SedePin[]
-}
+const props = defineProps<{ sedes: SedePin[] }>()
 
-const props = defineProps<Props>()
+// ─── Dimensions ──────────────────────────────────────────────────────────────
+// Use the SVG element directly as the measurement target.
+// Only measure width; derive height from a fixed ratio so we never read a
+// stale clientHeight from an aspect-ratio-only container.
+const svgEl = ref<SVGSVGElement | null>(null)
+const svgW = ref(400)
+// Valle del Cauca (trimmed polygon) is ~1.4° wide × 1.54° tall → ~0.91:1.
+// Use 5:5.5 ≈ 0.91 inverse so the shape fills the SVG.
+const svgH = computed(() => Math.round(svgW.value / 0.91))
 
-const containerRef = ref<HTMLDivElement | null>(null)
-const width = ref(600)
-const height = ref(500)
+// ─── GeoJSON + D3 ────────────────────────────────────────────────────────────
 const geojson = ref<GeoPermissibleObjects | null>(null)
-const activeSlug = ref<string | null>(null)
 
 const projection = computed(() => {
-  if (!geojson.value || width.value === 0) return null
-  return geoMercator().fitSize([width.value, height.value], geojson.value)
+  if (!geojson.value || svgW.value === 0) return null
+  return geoMercator().fitExtent(
+    [[12, 12], [svgW.value - 12, svgH.value - 12]],
+    geojson.value
+  )
 })
 
 const departmentPath = computed(() => {
@@ -37,189 +43,214 @@ const departmentPath = computed(() => {
   return geoPath(projection.value)(geojson.value) ?? ''
 })
 
-const sedePoints = computed(() => {
+interface SedePoint extends SedePin {
+  cx: number
+  cy: number
+}
+
+const sedePoints = computed<SedePoint[]>(() => {
   if (!projection.value) return []
   return props.sedes.map((sede) => {
-    const [x, y] = projection.value!([sede.lng, sede.lat]) ?? [0, 0]
-    return {
-      ...sede,
-      xPct: (x / width.value) * 100,
-      yPct: (y / height.value) * 100,
-    }
+    const [cx, cy] = projection.value!([sede.lng, sede.lat]) ?? [0, 0]
+    return { ...sede, cx, cy }
   })
 })
 
-function tooltipClasses(xPct: number, yPct: number) {
-  const horiz = xPct > 60 ? 'right-5' : 'left-5'
-  const vert = yPct > 65 ? 'bottom-4' : 'top-4'
-  return `${horiz} ${vert}`
+// ─── Tooltip ─────────────────────────────────────────────────────────────────
+interface TooltipState {
+  sede: SedePin
+  screenX: number
+  screenY: number
 }
 
-function onDotEnter(slug: string) {
-  activeSlug.value = slug
+const tooltip = ref<TooltipState | null>(null)
+let hideTimer: ReturnType<typeof setTimeout> | null = null
+
+const tooltipStyle = computed(() => {
+  if (!tooltip.value) return {}
+  const TW = 224
+  const { screenX, screenY } = tooltip.value
+  let left = screenX + 16
+  const top = Math.max(8, screenY - 80)
+  if (typeof window !== 'undefined' && left + TW > window.innerWidth - 8) {
+    left = screenX - TW - 16
+  }
+  return { position: 'fixed' as const, left: `${left}px`, top: `${top}px` }
+})
+
+function openTooltip(sede: SedePin, e: MouseEvent | TouchEvent) {
+  if (hideTimer) { clearTimeout(hideTimer); hideTimer = null }
+  const src = 'touches' in e ? (e.touches[0] ?? e.changedTouches[0]) : e
+  tooltip.value = { sede, screenX: src.clientX, screenY: src.clientY }
 }
 
-function onDotLeave() {
-  // Only hide on mouseleave if it wasn't a tap-activated tooltip
-  if (!isTouchDevice.value) activeSlug.value = null
+function scheduleClose() {
+  hideTimer = setTimeout(() => { tooltip.value = null }, 160)
 }
 
-function onDotClick(slug: string) {
-  activeSlug.value = activeSlug.value === slug ? null : slug
+function cancelClose() {
+  if (hideTimer) { clearTimeout(hideTimer); hideTimer = null }
 }
 
-function closeTooltip() {
-  activeSlug.value = null
-}
-
-const isTouchDevice = ref(false)
-
-function handleResize() {
-  if (containerRef.value) {
-    width.value = containerRef.value.clientWidth
-    height.value = containerRef.value.clientHeight
+function toggleTooltip(sede: SedePin, e: MouseEvent | TouchEvent) {
+  e.stopPropagation()
+  if (tooltip.value?.sede.slug === sede.slug) {
+    tooltip.value = null
+  } else {
+    openTooltip(sede, e)
   }
 }
 
-let resizeObserver: ResizeObserver | null = null
+// ─── Resize ──────────────────────────────────────────────────────────────────
+let ro: ResizeObserver | null = null
+
+function measure() {
+  if (svgEl.value) svgW.value = svgEl.value.clientWidth || svgEl.value.getBoundingClientRect().width
+}
+
+function onDocClick() { tooltip.value = null }
 
 onMounted(async () => {
-  isTouchDevice.value = window.matchMedia('(hover: none)').matches
-
-  handleResize()
-  resizeObserver = new ResizeObserver(handleResize)
-  if (containerRef.value) resizeObserver.observe(containerRef.value)
+  measure()
+  ro = new ResizeObserver(measure)
+  if (svgEl.value) ro.observe(svgEl.value)
 
   const res = await fetch('/geojson/valle-del-cauca.json')
   geojson.value = await res.json()
 
-  // Re-measure after geojson loaded (container may have re-laid out)
-  handleResize()
+  // Re-measure after paint in case the container shifted
+  requestAnimationFrame(measure)
 
-  document.addEventListener('click', closeTooltip)
+  document.addEventListener('click', onDocClick)
 })
 
 onUnmounted(() => {
-  resizeObserver?.disconnect()
-  document.removeEventListener('click', closeTooltip)
+  ro?.disconnect()
+  if (hideTimer) clearTimeout(hideTimer)
+  document.removeEventListener('click', onDocClick)
 })
 </script>
 
 <template>
-  <div
-    ref="containerRef"
-    class="relative w-full overflow-visible"
-    style="aspect-ratio: 5/6"
-    aria-label="Mapa interactivo de sedes CIC Laboratorios en Valle del Cauca"
-    role="img"
-    @click.stop
+  <!--
+    Root is the SVG itself — CSS sets its width, JS reads clientWidth and
+    derives height. No wrapper div means no aspect-ratio clientHeight issue.
+  -->
+  <svg
+    ref="svgEl"
+    :viewBox="`0 0 ${svgW} ${svgH}`"
+    :style="{ width: '100%', height: 'auto', display: 'block' }"
+    :aria-label="`Mapa de ${props.sedes.length} sedes CIC Laboratorios en Valle del Cauca`"
+    @click="tooltip = null"
   >
-    <!-- Loading state -->
-    <div
+    <!-- Loading text -->
+    <text
       v-if="!geojson"
-      class="flex h-full items-center justify-center"
-    >
-      <p class="text-sm text-gray-400">Cargando mapa…</p>
-    </div>
+      :x="svgW / 2"
+      :y="svgH / 2"
+      text-anchor="middle"
+      dominant-baseline="middle"
+      fill="#9ca3af"
+      font-size="14"
+    >Cargando mapa…</text>
 
-    <!-- SVG department outline -->
-    <svg
-      v-if="geojson"
-      class="absolute inset-0 h-full w-full"
-      :viewBox="`0 0 ${width} ${height}`"
-      aria-hidden="true"
+    <!-- Department fill + outline -->
+    <path
+      v-if="departmentPath"
+      :d="departmentPath"
+      fill="#f0fdf4"
+      stroke="#4ade80"
+      stroke-width="1.5"
+      stroke-linejoin="round"
+    />
+
+    <!-- Sede markers (all SVG — zero overflow risk) -->
+    <g
+      v-for="sede in sedePoints"
+      :key="sede.slug"
+      @mouseenter="openTooltip(sede, $event)"
+      @mouseleave="scheduleClose"
+      @click.stop="toggleTooltip(sede, $event)"
+      style="cursor: pointer"
     >
-      <path
-        :d="departmentPath"
-        fill="#f0fdf4"
-        stroke="#86efac"
-        stroke-width="1.5"
-        stroke-linejoin="round"
+      <!-- Pulse ring -->
+      <circle
+        :cx="sede.cx"
+        :cy="sede.cy"
+        :r="sede.esSedePrincipal ? 10 : 7"
+        :fill="sede.esSedePrincipal ? '#34d399' : '#60a5fa'"
+        class="sede-pulse"
+        pointer-events="none"
       />
-    </svg>
+      <!-- Solid dot -->
+      <circle
+        :cx="sede.cx"
+        :cy="sede.cy"
+        :r="sede.esSedePrincipal ? 5 : 3.5"
+        :fill="sede.esSedePrincipal ? '#059669' : '#2563eb'"
+        stroke="white"
+        stroke-width="1.5"
+        class="sede-dot"
+      />
+    </g>
+  </svg>
 
-    <!-- Sede markers (HTML overlay for full Tailwind control) -->
-    <template v-if="geojson">
-      <div
-        v-for="sede in sedePoints"
-        :key="sede.slug"
-        class="absolute -translate-x-1/2 -translate-y-1/2"
-        :style="{ left: `${sede.xPct}%`, top: `${sede.yPct}%` }"
+  <!-- Tooltip: teleported to body so it never causes page overflow -->
+  <Teleport to="body">
+    <div
+      v-if="tooltip"
+      :style="tooltipStyle"
+      class="z-[9999] w-56 rounded-xl bg-white shadow-xl ring-1 ring-black/5 p-3 text-sm text-left"
+      @mouseenter="cancelClose"
+      @mouseleave="scheduleClose"
+      @click.stop
+    >
+      <p class="text-[10px] font-semibold uppercase tracking-widest text-gray-400">
+        {{ tooltip.sede.ciudad }}
+      </p>
+      <p class="mt-0.5 font-bold text-gray-900 leading-snug">
+        {{ tooltip.sede.nombre }}
+      </p>
+      <p class="mt-1 text-xs text-gray-500">{{ tooltip.sede.direccion }}</p>
+      <a
+        :href="`tel:${tooltip.sede.telefono}`"
+        class="mt-2 block text-xs text-gray-600 hover:text-blue-600"
       >
-        <!-- Pulse ring -->
-        <span
-          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full animate-ping"
-          :class="sede.esSedePrincipal
-            ? 'h-6 w-6 bg-emerald-400 opacity-40'
-            : 'h-5 w-5 bg-blue-400 opacity-40'"
-          aria-hidden="true"
-        />
-
-        <!-- Dot button -->
-        <button
-          type="button"
-          class="relative z-10 rounded-full ring-2 ring-white shadow-md transition-transform hover:scale-125 focus:outline-none focus-visible:ring-blue-500"
-          :class="sede.esSedePrincipal
-            ? 'h-4 w-4 bg-emerald-600'
-            : 'h-3 w-3 bg-blue-600'"
-          :aria-label="`Ver sede ${sede.nombre}`"
-          :aria-expanded="activeSlug === sede.slug"
-          @mouseenter="onDotEnter(sede.slug)"
-          @mouseleave="onDotLeave"
-          @click.stop="onDotClick(sede.slug)"
-        />
-
-        <!-- Tooltip -->
-        <div
-          v-if="activeSlug === sede.slug"
-          class="absolute z-20 w-52 rounded-xl bg-white shadow-xl ring-1 ring-black/5 p-3 text-left"
-          :class="tooltipClasses(sede.xPct, sede.yPct)"
-          role="tooltip"
-        >
-          <p class="text-xs font-semibold uppercase tracking-wide text-gray-400">
-            {{ sede.ciudad }}
-          </p>
-          <p class="mt-0.5 text-sm font-bold text-gray-900 leading-tight">
-            {{ sede.nombre }}
-          </p>
-          <p class="mt-1 text-xs text-gray-500">{{ sede.direccion }}</p>
-
-          <div class="mt-2 space-y-1 text-xs">
-            <a
-              :href="`tel:${sede.telefono}`"
-              class="flex items-center gap-1 text-gray-600 hover:text-blue-600"
-            >
-              <svg class="h-3 w-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-              </svg>
-              {{ sede.telefono }}
-            </a>
-            <a
-              :href="`https://wa.me/57${sede.whatsapp.replace(/\D/g, '')}`"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="flex items-center gap-1 text-gray-600 hover:text-emerald-600"
-            >
-              <svg class="h-3 w-3 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.531 5.85L.057 23.273a.75.75 0 00.92.92l5.424-1.474A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.712 9.712 0 01-4.964-1.363l-.354-.21-3.668.997.975-3.577-.23-.368A9.712 9.712 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
-              </svg>
-              WhatsApp
-            </a>
-          </div>
-
-          <a
-            :href="`/sedes/${sede.slug}`"
-            class="mt-3 flex items-center justify-between rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-blue-700 transition-colors"
-            @click.stop
-          >
-            Ver sede
-            <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-            </svg>
-          </a>
-        </div>
-      </div>
-    </template>
-  </div>
+        📞 {{ tooltip.sede.telefono }}
+      </a>
+      <a
+        :href="`/sedes/${tooltip.sede.slug}`"
+        class="mt-3 flex items-center justify-between rounded-lg bg-blue-600 px-3 py-2 text-xs font-semibold text-white hover:bg-blue-700 transition-colors"
+      >
+        Ver sede completa
+        <svg class="h-3 w-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+        </svg>
+      </a>
+    </div>
+  </Teleport>
 </template>
+
+<style scoped>
+/* SVG transform-origin: center requires transform-box: fill-box */
+.sede-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: sede-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes sede-ping {
+  0%       { transform: scale(1);   opacity: 0.5; }
+  75%, 100% { transform: scale(2.4); opacity: 0;   }
+}
+
+.sede-dot {
+  transition: transform 0.15s ease;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.sede-dot:hover {
+  transform: scale(1.5);
+}
+</style>
