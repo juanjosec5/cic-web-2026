@@ -10,6 +10,7 @@ Versions track milestones, not npm semver — this is a content/site project.
 ## [Unreleased]
 
 ### Added
+- `Breadcrumb.astro`: reusable breadcrumb component — accepts `items: Array<{ label: string; href?: string }>`, renders styled `<nav>` with muted ancestor links (`text-gray-500`), light separator (`text-gray-300`), and bold current-page span (`font-medium text-gray-800`); replaces inline nav blocks in `sedes/[slug].astro`, `examenes/[slug].astro`, and `servicios/[slug].astro`
 - `src/lib/config.ts`: `SITE_CONFIG` (name, url, whatsapp, sedePrincipal from `buga.json`) and `CATEGORIAS` array — single source of truth for site-wide config; replaces all hardcoded phone/address strings across pages
 - **Structural layout pass** — all pages now have `max-w-7xl mx-auto px-4` wrappers, semantic section/article/nav/address elements, mobile-first grid/flex breakpoints. Tailwind structural utilities only (no color, shadow, or border-radius classes added in this pass):
   - `index.astro`: 9 sections with layout (hero, pillars 2×2→4-col, audience 3-col, sede map, category grid, services grid, humanización, quality strip, aliados grid)
