@@ -1,63 +1,128 @@
 ---
-/**
- * /pacientes/preguntas-frecuentes — FAQ page.
- *
- * TODO (content-needed): Populate with real FAQs from customer service.
- * TODO (design-needed): Accordion component for question/answer pairs.
- * TODO (blocking-for-v1): Add FAQ JSON-LD schema (FAQPage type).
- */
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import { SITE_CONFIG } from '@/lib/config';
 
-const faqs = [
+const waFaq = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent('Tengo una pregunta sobre los servicios de CIC Laboratorios.')}`;
+
+const grupos = [
   {
-    question: '¿Necesito cita previa para tomar mis muestras?',
-    answer: 'No. En todas nuestras sedes atendemos sin cita previa.',
+    id: 'general',
+    titulo: 'General',
+    faqs: [
+      {
+        pregunta: '¿Necesito cita previa para tomar mis muestras?',
+        respuesta: 'No. En todas nuestras sedes atendemos sin cita previa.',
+      },
+      {
+        pregunta: '¿Cuándo están listos mis resultados?',
+        // TODO (content-needed): Confirm exact delivery times per exam category
+        respuesta: 'La mayoría de exámenes están listos el mismo día. Casos de alta complejidad pueden tomar más tiempo — te lo indicaremos al momento de la toma.',
+      },
+      {
+        pregunta: '¿Qué debo llevar para tomarme una muestra?',
+        // TODO (content-needed): Confirm required documents
+        respuesta: 'Documento de identidad y la orden médica si la tiene. Para algunos exámenes puede ser necesaria la orden.',
+      },
+    ],
   },
   {
-    question: '¿Cuándo están listos mis resultados?',
-    answer:
-      'La mayoría de exámenes están listos el mismo día. Te notificaremos cuando estén disponibles.',
-    // TODO (content-needed): Add specific times and exceptions
+    id: 'examenes',
+    titulo: 'Exámenes',
+    faqs: [
+      {
+        pregunta: '¿Cómo puedo verificar la autenticidad de mis resultados?',
+        // TODO (content-needed): Add QR verification portal URL
+        respuesta: 'Cada resultado incluye un código QR único que puede escanear para verificar su autenticidad en nuestro portal.',
+      },
+      {
+        pregunta: '¿Qué exámenes requieren ayuno?',
+        respuesta: 'Los más comunes son glucosa, perfil lipídico y algunas pruebas hormonales. En la página de cada examen encontrará las instrucciones específicas.',
+      },
+      {
+        pregunta: '¿Puedo hacerme exámenes sin orden médica?',
+        // TODO (content-needed): Confirm policy on exams without doctor's order
+        respuesta: 'Sí, la mayoría de exámenes de rutina pueden solicitarse sin orden médica. Consulte con nuestro personal.',
+      },
+    ],
   },
   {
-    question: '¿Cómo puedo verificar la autenticidad de mis resultados?',
-    answer:
-      'Cada resultado incluye un código QR que puedes escanear para verificarlo en nuestro portal.',
-    // TODO (content-needed): Add link to QR portal
+    id: 'domicilio',
+    titulo: 'Servicio a domicilio',
+    faqs: [
+      {
+        pregunta: '¿Ofrecen servicio a domicilio?',
+        respuesta: 'Sí, disponible en Buga y Tuluá. Contáctanos por WhatsApp para coordinar.',
+      },
+      {
+        pregunta: '¿Tiene costo adicional el servicio a domicilio?',
+        // TODO (content-needed): Confirm current pricing for each sede
+        respuesta: 'En Buga el servicio es gratuito para pedidos desde $50.000. Consulte con su sede más cercana.',
+      },
+      {
+        pregunta: '¿Con cuánta anticipación debo solicitar el domicilio?',
+        // TODO (content-needed): Confirm scheduling lead time
+        respuesta: 'Recomendamos solicitarlo con al menos un día de anticipación para garantizar disponibilidad.',
+      },
+    ],
   },
   {
-    question: '¿Ofrecen servicio a domicilio?',
-    answer:
-      'Sí, disponible en Buga (gratis desde $50.000) y Tuluá. Contáctanos por WhatsApp para coordinar.',
-    // TODO (content-needed): Confirm pricing and availability details
+    id: 'resultados',
+    titulo: 'Resultados',
+    faqs: [
+      {
+        pregunta: '¿Cómo recibo mis resultados?',
+        // TODO (content-needed): Confirm delivery channels (digital, WhatsApp, in-person)
+        respuesta: 'Los resultados pueden recogerse en sede o enviarse digitalmente. Pregúntele al personal al momento de la toma.',
+      },
+      {
+        pregunta: '¿Por cuánto tiempo guarda el laboratorio mis resultados?',
+        // TODO (content-needed): Confirm data retention policy
+        respuesta: '[ Pendiente — consulte con nuestro personal ]',
+      },
+    ],
   },
-];
+] as const;
 ---
 
 <BaseLayout
   title="Preguntas Frecuentes"
   description="Respuestas a las preguntas más frecuentes sobre los servicios, resultados y preparación en CIC Laboratorios."
 >
-  <h1>Preguntas frecuentes</h1>
+  <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
 
-  <dl>
-    {faqs.map((faq) => (
-      <>
-        <dt><strong>{faq.question}</strong></dt>
-        <dd>{faq.answer}</dd>
-      </>
-    ))}
-  </dl>
+    <header>
+      <h1>Preguntas frecuentes</h1>
+      <p>Todo lo que necesita saber antes de su visita a CIC Laboratorios.</p>
+    </header>
 
-  <p>
-    ¿No encontraste tu respuesta?
-    <a href="/contacto">Contáctanos</a> o escríbenos por
-    <a
-      href="https://wa.me/573001234567"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      WhatsApp
-    </a>.
-  </p>
+    <div class="mt-10 space-y-12">
+      {grupos.map((grupo) => (
+        <section id={grupo.id} aria-labelledby={`${grupo.id}-heading`}>
+          <h2 id={`${grupo.id}-heading`}>{grupo.titulo}</h2>
+          <dl class="mt-6 space-y-4">
+            {grupo.faqs.map((faq) => (
+              <details>
+                <summary>
+                  <strong>{faq.pregunta}</strong>
+                </summary>
+                <p class="mt-2 pl-4">{faq.respuesta}</p>
+              </details>
+            ))}
+          </dl>
+        </section>
+      ))}
+    </div>
+
+    <section aria-labelledby="mas-preguntas-heading" class="mt-12">
+      <h2 id="mas-preguntas-heading">¿No encontraste tu respuesta?</h2>
+      <p class="mt-4">Escríbenos directamente:</p>
+      <div class="mt-4 flex flex-wrap gap-4">
+        <a href={waFaq} target="_blank" rel="noopener noreferrer">
+          Preguntar por WhatsApp
+        </a>
+        <a href="/contacto">Ir a Contacto</a>
+      </div>
+    </section>
+
+  </div>
 </BaseLayout>

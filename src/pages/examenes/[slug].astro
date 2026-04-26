@@ -1,97 +1,196 @@
 ---
-/**
- * /examenes/[slug] — Individual examen page.
- *
- * TODO (design-needed): Full page layout with sidebar for related exams/perfiles.
- * TODO (design-needed): Add structured preparation checklist component.
- * TODO (content-needed): Link sedesDisponibles to real sede pages.
- * TODO (content-needed): Add precio once pricing data is available.
- * TODO (blocking-for-v1): Cross-link to perfiles that include this examen.
- */
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import ExamenLayout from '@/layouts/ExamenLayout.astro';
+import { CATEGORIAS, SITE_CONFIG } from '@/lib/config';
 
 interface Props {
   examen: CollectionEntry<'examenes'>['data'];
+  sedesData: Array<{ slug: string; nombre: string }>;
+  relacionadosData: Array<{ slug: string; nombre: string }>;
 }
 
 export async function getStaticPaths() {
-  const examenes = await getCollection(
-    'examenes',
-    ({ data }: CollectionEntry<'examenes'>) => data.activo
-  );
-  return examenes.map((examen: CollectionEntry<'examenes'>) => ({
-    params: { slug: examen.data.slug },
-    props: { examen: examen.data },
-  }));
+  const [examenes, sedes] = await Promise.all([
+    getCollection('examenes', ({ data }: CollectionEntry<'examenes'>) => data.activo),
+    getCollection('sedes'),
+  ]);
+
+  const sedeMap = new Map(sedes.map((s: CollectionEntry<'sedes'>) => [s.data.slug, s.data.nombre]));
+  const examenMap = new Map(examenes.map((e: CollectionEntry<'examenes'>) => [e.data.slug, e.data.nombre]));
+
+  return examenes.map((examen: CollectionEntry<'examenes'>) => {
+    return {
+      params: { slug: examen.data.slug },
+      props: {
+        examen: examen.data,
+        sedesData: examen.data.sedesDisponibles
+          .map((slug: string) => ({ slug, nombre: sedeMap.get(slug) ?? slug })),
+        relacionadosData: examen.data.examenesRelacionados
+          .map((slug: string) => ({ slug, nombre: examenMap.get(slug) ?? slug })),
+      },
+    };
+  });
 }
 
-const { examen } = Astro.props;
+const { examen, sedesData, relacionadosData } = Astro.props;
+
+const categoriaLabel =
+  CATEGORIAS.find((c) => c.slug === examen.categoria)?.label ?? examen.categoria;
+
+const waCotizar = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(`Quisiera cotizar el examen: ${examen.nombre}`)}`;
+const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(`Quisiera solicitar toma a domicilio para: ${examen.nombre}`)}`;
 ---
 
 <ExamenLayout examen={examen}>
-  <article>
-    <header>
-      <h1>{examen.nombre}</h1>
-      <p>Código CUPS: {examen.codigoCups}</p>
-      <p>Categoría: {examen.categoria}</p>
-    </header>
+  <div class="mx-auto max-w-4xl px-4 py-8 sm:px-6">
 
-    {examen.descripcionQueEs && (
-      <section aria-labelledby="que-es-heading">
-        <h2 id="que-es-heading">¿Qué es?</h2>
-        <p>{examen.descripcionQueEs}</p>
-      </section>
-    )}
+    <!-- Breadcrumb -->
+    <nav aria-label="Ruta de navegación">
+      <ol class="flex flex-wrap items-center gap-1">
+        <li><a href="/">Inicio</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href="/examenes">Exámenes</a></li>
+        <li aria-hidden="true">›</li>
+        <li>
+          <a href={`/examenes/categoria/${examen.categoria}`}>{categoriaLabel}</a>
+        </li>
+        <li aria-hidden="true">›</li>
+        <li aria-current="page">{examen.nombre}</li>
+      </ol>
+    </nav>
 
-    {examen.descripcionParaQueSirve && (
-      <section aria-labelledby="para-que-heading">
-        <h2 id="para-que-heading">¿Para qué sirve?</h2>
-        <p>{examen.descripcionParaQueSirve}</p>
-      </section>
-    )}
+    <article>
+      <header class="mt-6">
+        <h1>{examen.nombre}</h1>
+        {examen.nombresAlternativos.length > 0 && (
+          <p>
+            También conocido como: {examen.nombresAlternativos.join(', ')}
+          </p>
+        )}
+      </header>
 
-    <section aria-labelledby="preparacion-heading">
-      <h2 id="preparacion-heading">Preparación</h2>
-      {examen.requiereAyuno && (
-        <p><strong>Requiere ayuno.</strong></p>
+      <!-- 4-stat strip -->
+      <dl class="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+        {examen.muestra && (
+          <>
+            <dt>Muestra</dt>
+            <dd>{examen.muestra}</dd>
+          </>
+        )}
+        {examen.requiereAyuno !== undefined && (
+          <>
+            <dt>Ayuno</dt>
+            <dd>{examen.requiereAyuno ? 'Requerido' : 'No requerido'}</dd>
+          </>
+        )}
+        {examen.oportunidadResultados && (
+          <>
+            <dt>Resultados</dt>
+            <dd>{examen.oportunidadResultados}</dd>
+          </>
+        )}
+        <dt>Cotizar</dt>
+        <dd>
+          <a href={waCotizar} target="_blank" rel="noopener noreferrer">
+            Por WhatsApp
+          </a>
+        </dd>
+      </dl>
+
+      <!-- CTA group -->
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href={waCotizar} target="_blank" rel="noopener noreferrer">
+          Cotizar por WhatsApp
+        </a>
+        <a href={waDomicilio} target="_blank" rel="noopener noreferrer">
+          Solicitar domicilio
+        </a>
+        <a href="/sedes">Ver sedes</a>
+      </div>
+
+      <!-- ¿Qué es? -->
+      {examen.descripcionQueEs && (
+        <section aria-labelledby="que-es-heading" class="mt-10">
+          <h2 id="que-es-heading">¿Qué es?</h2>
+          <p>{examen.descripcionQueEs}</p>
+        </section>
       )}
-      {examen.muestra && (
-        <p>Muestra: {examen.muestra}</p>
+
+      <!-- 2-col: Para qué sirve + Preparación -->
+      {(examen.descripcionParaQueSirve || examen.preparacion) && (
+        <div class="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2">
+          {examen.descripcionParaQueSirve && (
+            <section aria-labelledby="para-que-heading">
+              <h2 id="para-que-heading">¿Para qué sirve?</h2>
+              <p>{examen.descripcionParaQueSirve}</p>
+            </section>
+          )}
+          {examen.preparacion && (
+            <section aria-labelledby="preparacion-heading">
+              <h2 id="preparacion-heading">Preparación</h2>
+              {examen.requiereAyuno && (
+                <p><strong>Requiere ayuno.</strong></p>
+              )}
+              <p>{examen.preparacion}</p>
+            </section>
+          )}
+        </div>
       )}
-      {examen.preparacion
-        ? <p>{examen.preparacion}</p>
-        : <p>Consulta con el personal de la sede para instrucciones específicas.</p>
-      }
-    </section>
 
-    {examen.oportunidadResultados && (
-      <section aria-labelledby="resultados-heading">
-        <h2 id="resultados-heading">Oportunidad de resultados</h2>
-        <p>{examen.oportunidadResultados}</p>
-      </section>
-    )}
-
-    {examen.sedesDisponibles.length > 0 && (
-      <section aria-labelledby="sedes-heading">
+      <!-- Sedes disponibles -->
+      <section aria-labelledby="sedes-heading" class="mt-10">
         <h2 id="sedes-heading">Disponible en</h2>
-        <ul>
-          {examen.sedesDisponibles.map((slug: string) => (
-            <li>
-              <a href={`/sedes/${slug}`}>{slug}</a>
-              {/* TODO (content-needed): Show sede nombre instead of slug */}
-            </li>
-          ))}
-        </ul>
+        {sedesData.length > 0 ? (
+          <ul role="list" class="mt-4 flex flex-wrap gap-4">
+            {sedesData.map(({ slug, nombre }) => (
+              <li>
+                <a href={`/sedes/${slug}`}>{nombre}</a>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>Disponible en nuestras sedes — consulta por WhatsApp para confirmar.</p>
+        )}
       </section>
-    )}
 
-    {examen.nombresAlternativos.length > 0 && (
-      <section aria-labelledby="nombres-heading">
-        <h2 id="nombres-heading">También conocido como</h2>
-        <p>{examen.nombresAlternativos.join(', ')}</p>
+      <!-- Related exams -->
+      {relacionadosData.length > 0 && (
+        <section aria-labelledby="relacionados-heading" class="mt-10">
+          <h2 id="relacionados-heading">Exámenes relacionados</h2>
+          <ul role="list" class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {relacionadosData.map(({ slug, nombre }) => (
+              <li>
+                <a href={`/examenes/${slug}`}>{nombre}</a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <!-- WhatsApp CTA banner -->
+      <section aria-labelledby="wa-cta-heading" class="mt-10">
+        <h2 id="wa-cta-heading" class="sr-only">Contactar para este examen</h2>
+        <p>¿Tienes preguntas sobre este examen? Escríbenos por WhatsApp.</p>
+        <a
+          href={waCotizar}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-4 inline-block"
+        >
+          Consultar por WhatsApp →
+        </a>
       </section>
-    )}
-  </article>
+
+      <!-- Medical disclaimer -->
+      <p class="mt-10">
+        <small>
+          La información de esta página es de carácter informativo y no
+          reemplaza el criterio médico. Consulta siempre a tu médico antes
+          de realizarte cualquier examen de laboratorio.
+        </small>
+      </p>
+
+    </article>
+  </div>
 </ExamenLayout>

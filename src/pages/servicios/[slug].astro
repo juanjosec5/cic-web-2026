@@ -1,62 +1,91 @@
 ---
-/**
- * /servicios/[slug] — Individual service page.
- *
- * TODO (design-needed): Full service page layout with hero, benefits list, CTA.
- * TODO (content-needed): Add detailed content for each service.
- * TODO (content-needed): Cross-link to sedes where service is available.
- */
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import { SITE_CONFIG } from '@/lib/config';
 
 interface Props {
   servicio: CollectionEntry<'servicios'>['data'];
+  sedesData: Array<{ slug: string; nombre: string }>;
 }
 
 export async function getStaticPaths() {
-  const servicios = await getCollection('servicios');
+  const [servicios, sedes] = await Promise.all([
+    getCollection('servicios'),
+    getCollection('sedes'),
+  ]);
+  const sedeMap = new Map(sedes.map((s: CollectionEntry<'sedes'>) => [s.data.slug, s.data.nombre]));
+
   return servicios.map((servicio: CollectionEntry<'servicios'>) => ({
     params: { slug: servicio.data.slug },
-    props: { servicio: servicio.data },
+    props: {
+      servicio: servicio.data,
+      sedesData: servicio.data.sedesDisponibles.map((slug: string) => ({
+        slug,
+        nombre: sedeMap.get(slug) ?? slug,
+      })),
+    },
   }));
 }
 
-const { servicio } = Astro.props;
+const { servicio, sedesData } = Astro.props;
 
 const ctaUrl =
   servicio.ctaTipo === 'whatsapp'
-    ? `https://wa.me/573001234567?text=${encodeURIComponent(`Quiero información sobre ${servicio.nombre}`)}`
+    ? `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(`Quiero información sobre ${servicio.nombre}`)}`
     : servicio.ctaTipo === 'mailto'
     ? `mailto:info@ciclaboratorios.com?subject=${encodeURIComponent(servicio.nombre)}`
     : '/contacto';
 ---
 
-<BaseLayout
-  title={servicio.nombre}
-  description={servicio.descripcion}
->
-  <h1>{servicio.nombre}</h1>
-  <p>{servicio.descripcion}</p>
+<BaseLayout title={servicio.nombre} description={servicio.descripcion}>
+  <div class="mx-auto max-w-4xl px-4 py-8 sm:px-6">
 
-  <section aria-labelledby="disponibilidad-heading">
-    <h2 id="disponibilidad-heading">Disponibilidad</h2>
-    {servicio.sedesDisponibles[0] === 'todas' ? (
-      <p>Disponible en todas nuestras sedes.</p>
-    ) : (
-      <ul>
-        {servicio.sedesDisponibles.map((slug: string) => (
-          <li><a href={`/sedes/${slug}`}>{slug}</a></li>
-        ))}
-      </ul>
-    )}
-    {/* TODO (content-needed): Show sede nombre instead of slug */}
-  </section>
+    <!-- Breadcrumb -->
+    <nav aria-label="Ruta de navegación">
+      <ol class="flex flex-wrap items-center gap-1">
+        <li><a href="/">Inicio</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href="/servicios">Servicios</a></li>
+        <li aria-hidden="true">›</li>
+        <li aria-current="page">{servicio.nombre}</li>
+      </ol>
+    </nav>
 
-  <a
-    href={ctaUrl}
-    {...(servicio.ctaTipo === 'whatsapp' ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-  >
-    {servicio.ctaTipo === 'whatsapp' ? 'Solicitar por WhatsApp' : 'Solicitar información'}
-  </a>
+    <article class="mt-6">
+      <h1>{servicio.nombre}</h1>
+      <p class="mt-4">{servicio.descripcion}</p>
+
+      <!-- Available sedes -->
+      <section aria-labelledby="disponibilidad-heading" class="mt-10">
+        <h2 id="disponibilidad-heading">Disponibilidad</h2>
+        {sedesData.length === 0 || servicio.sedesDisponibles[0] === 'todas' ? (
+          <p class="mt-4">Disponible en todas nuestras sedes.</p>
+        ) : (
+          <ul role="list" class="mt-4 flex flex-wrap gap-4">
+            {sedesData.map(({ slug, nombre }) => (
+              <li>
+                <a href={`/sedes/${slug}`}>{nombre}</a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+
+      <!-- CTA -->
+      <div class="mt-8">
+        <a
+          href={ctaUrl}
+          {...(servicio.ctaTipo === 'whatsapp'
+            ? { target: '_blank', rel: 'noopener noreferrer' }
+            : {})}
+        >
+          {servicio.ctaTipo === 'whatsapp'
+            ? 'Solicitar por WhatsApp'
+            : 'Solicitar información'}
+        </a>
+      </div>
+    </article>
+
+  </div>
 </BaseLayout>

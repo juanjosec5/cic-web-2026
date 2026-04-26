@@ -1,11 +1,4 @@
 ---
-/**
- * /pacientes/derechos-deberes — Patient rights and duties page.
- *
- * TODO (content-needed): Add official patient rights/duties text per
- *   Colombian health regulations (Resolución 13437 de 1991 and updates).
- * TODO (design-needed): Structured two-column layout: rights / duties.
- */
 import BaseLayout from '@/layouts/BaseLayout.astro';
 ---
 
@@ -13,27 +6,47 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
   title="Derechos y Deberes del Paciente"
   description="Conozca sus derechos y deberes como paciente de CIC Laboratorios, en cumplimiento de la normativa colombiana de salud."
 >
-  <h1>Derechos y deberes del paciente</h1>
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6">
 
-  <section aria-labelledby="derechos-heading">
-    <h2 id="derechos-heading">Sus derechos</h2>
-    <!-- TODO (content-needed): Add full list of patient rights per Colombian health law -->
-    <ol>
-      <li>Recibir atención con calidad, calidez y respeto a su dignidad.</li>
-      <li>Obtener información clara y comprensible sobre su diagnóstico.</li>
-      <li>Mantener la confidencialidad de su información de salud.</li>
-      <li>[ Derecho 4 — pendiente ]</li>
-    </ol>
-  </section>
+    <header>
+      <h1>Derechos y deberes del paciente</h1>
+      <p>
+        En cumplimiento de la normativa colombiana de salud
+        {/* TODO (content-needed): Cite Resolución 13437 de 1991 and applicable updates */}
+      </p>
+    </header>
 
-  <section aria-labelledby="deberes-heading">
-    <h2 id="deberes-heading">Sus deberes</h2>
-    <!-- TODO (content-needed): Add full list of patient duties -->
-    <ol>
-      <li>Proporcionar información veraz sobre su estado de salud.</li>
-      <li>Seguir las instrucciones de preparación indicadas.</li>
-      <li>Tratar con respeto al personal de salud.</li>
-      <li>[ Deber 4 — pendiente ]</li>
-    </ol>
-  </section>
+    <div class="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2">
+
+      <!-- Derechos -->
+      <section aria-labelledby="derechos-heading">
+        <h2 id="derechos-heading">Sus derechos</h2>
+        {/* TODO (content-needed): Add full list per Colombian health law */}
+        <ol class="mt-4 space-y-3">
+          <li>Recibir atención con calidad, calidez y respeto a su dignidad.</li>
+          <li>Obtener información clara y comprensible sobre su diagnóstico.</li>
+          <li>Mantener la confidencialidad de su información de salud.</li>
+          <li>Recibir resultados oportunos y verídicos.</li>
+          <li>[ Derecho 5 — pendiente ]</li>
+          <li>[ Derecho 6 — pendiente ]</li>
+        </ol>
+      </section>
+
+      <!-- Deberes -->
+      <section aria-labelledby="deberes-heading">
+        <h2 id="deberes-heading">Sus deberes</h2>
+        {/* TODO (content-needed): Add full list per Colombian health law */}
+        <ol class="mt-4 space-y-3">
+          <li>Proporcionar información veraz sobre su estado de salud.</li>
+          <li>Seguir las instrucciones de preparación indicadas.</li>
+          <li>Tratar con respeto al personal de salud.</li>
+          <li>Presentar la orden médica cuando sea requerido.</li>
+          <li>[ Deber 5 — pendiente ]</li>
+          <li>[ Deber 6 — pendiente ]</li>
+        </ol>
+      </section>
+
+    </div>
+
+  </div>
 </BaseLayout>

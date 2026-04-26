@@ -1,66 +1,66 @@
 ---
-/**
- * /contacto — Contact page.
- *
- * TODO (design-needed): Style the contact section with sede cards.
- * TODO (content-needed): Add real contact form if server-side form handling
- *   is ever added (e.g. via Resend or Formspree). For now, mailto fallback.
- * TODO (content-needed): Add Google Maps embed or LocationMap island
- *   for each sede once LocationMap stub is replaced.
- */
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
+import { SITE_CONFIG } from '@/lib/config';
 
-const sedes = await getCollection('sedes');
+const { sedePrincipal, whatsapp } = SITE_CONFIG;
+const waUrl = `https://wa.me/${whatsapp}?text=${encodeURIComponent('Hola, quisiera información de CIC Laboratorios.')}`;
 ---
 
 <BaseLayout
   title="Contacto"
-  description="Ponerse en contacto con CIC Laboratorios. Encuentre teléfonos, correos y direcciones de nuestras sedes en Buga y Tuluá."
+  description="Ponte en contacto con CIC Laboratorios. Encuentra teléfonos, dirección y WhatsApp de nuestra sede principal en Guadalajara de Buga."
 >
-  <h1>Contáctenos</h1>
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6">
 
-  <section aria-labelledby="sedes-contacto-heading">
-    <h2 id="sedes-contacto-heading">Nuestras sedes</h2>
-    <ul>
-      {sedes.map((sede: CollectionEntry<'sedes'>) => (
-        <li>
-          <h3>{sede.data.nombre}</h3>
-          <address>
-            <p>{sede.data.direccion}, {sede.data.ciudad}</p>
-            <p>
-              Tel: <a href={`tel:${sede.data.telefono}`}>{sede.data.telefono}</a>
-            </p>
-            <p>
-              WhatsApp:{' '}
-              <a
-                href={`https://wa.me/${sede.data.whatsapp}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {sede.data.whatsapp}
-              </a>
-            </p>
-            {sede.data.email && (
-              <p>
-                Email: <a href={`mailto:${sede.data.email}`}>{sede.data.email}</a>
-              </p>
-            )}
-          </address>
-        </li>
-      ))}
-    </ul>
-  </section>
+    <h1>Contáctenos</h1>
 
-  <section aria-labelledby="formulario-heading">
-    <h2 id="formulario-heading">Envíanos un mensaje</h2>
-    <!-- TODO (design-needed): Replace mailto link with proper contact form
-         once form backend is available (Resend, Formspree, or Netlify Forms). -->
-    <p>
-      <a href="mailto:info@ciclaboratorios.com?subject=Consulta%20desde%20el%20sitio%20web">
-        Enviar correo electrónico
-      </a>
-    </p>
-  </section>
+    <div class="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2">
+
+      <!-- Left: sede principal info + CTAs -->
+      <section aria-labelledby="contacto-info-heading">
+        <h2 id="contacto-info-heading">{sedePrincipal.nombre}</h2>
+        <address class="mt-4 not-italic space-y-2">
+          <p>{sedePrincipal.direccion}</p>
+          <p>{sedePrincipal.ciudad}</p>
+        </address>
+
+        <div class="mt-6 flex flex-col gap-4">
+          <a href={waUrl} target="_blank" rel="noopener noreferrer">
+            WhatsApp: {sedePrincipal.whatsapp}
+          </a>
+          <a href={`tel:${sedePrincipal.telefono}`}>
+            Llamar: {sedePrincipal.telefono}
+          </a>
+        </div>
+
+        <p class="mt-6">
+          {/* TODO (content-needed): Add form in v2 (Resend / Formspree) */}
+          Para otras consultas también puedes escribirnos a{' '}
+          <a href="mailto:info@ciclaboratorios.com">
+            info@ciclaboratorios.com
+          </a>
+        </p>
+
+        <p class="mt-4">
+          <a href="/sedes">Ver todas las sedes →</a>
+        </p>
+      </section>
+
+      <!-- Right: map placeholder -->
+      <section aria-labelledby="mapa-contacto-heading">
+        <h2 id="mapa-contacto-heading" class="sr-only">
+          Ubicación de {sedePrincipal.nombre}
+        </h2>
+        {/* TODO (blocking-for-v1.1): Replace with real map embed */}
+        <div
+          class="aspect-video w-full"
+          role="img"
+          aria-label={`Mapa de ${sedePrincipal.nombre} — próximamente`}
+        >
+          <p>[ Mapa — próximamente ]</p>
+        </div>
+      </section>
+
+    </div>
+  </div>
 </BaseLayout>

@@ -1,208 +1,222 @@
 ---
-/**
- * index.astro — Homepage
- *
- * Wireframe sections (in order):
- *  1. Hero
- *  2. 4 pillars strip
- *  3. Audience segmentation (3 cards)
- *  4. Sede map preview
- *  5. Examen categories
- *  6. Services
- *  7. Humanización (team + testimonials)
- *  8. Quality / technology / QR
- *  9. Convenios / aliados
- * 10. Footer (rendered by BaseLayout)
- *
- * TODO (design-needed): Implement full visual design for every section.
- * TODO (content-needed): Replace all placeholder text with real copy.
- * TODO (blocking-for-v1): Wire ExamSearch island once Pagefind is configured.
- * TODO (content-needed): Populate aliados logos and convenios list.
- */
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
-import LocationMap from '@/components/islands/LocationMap.vue';
+import { SITE_CONFIG, CATEGORIAS } from '@/lib/config';
 
 const sedes = await getCollection('sedes');
+const examenes = await getCollection('examenes', ({ data }: CollectionEntry<'examenes'>) => data.activo);
 const servicios = await getCollection('servicios');
 const aliados = await getCollection('aliados');
 
-const CATEGORIAS = [
-  { slug: 'quimica', label: 'Química Sanguínea' },
-  { slug: 'hematologia', label: 'Hematología' },
-  { slug: 'hormonas', label: 'Hormonas' },
-  { slug: 'microbiologia', label: 'Microbiología' },
-  { slug: 'inmunologia', label: 'Inmunología' },
-  { slug: 'genetica', label: 'Genética' },
-  { slug: 'orina', label: 'Orina y Líquidos' },
-  { slug: 'parasitologia', label: 'Parasitología' },
-  { slug: 'otros', label: 'Otros' },
-];
+const waHero = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent('¡Hola! Quisiera información sobre los servicios de CIC Laboratorios.')}`;
 ---
 
 <BaseLayout
   title="Inicio"
-  description="CIC Laboratorios — Más de 700 exámenes clínicos con resultados el mismo día. Sedes en Buga y Tuluá. Servicio a domicilio disponible."
+  description={`CIC Laboratorios — ${examenes.length} exámenes clínicos con resultados el mismo día. ${sedes.length} sedes en el Valle del Cauca. Servicio a domicilio disponible.`}
 >
 
-  <!-- ===== 1. HERO ===================================================== -->
-  <section aria-labelledby="hero-heading">
-    <h1 id="hero-heading">Resultados que transforman vidas</h1>
-    <p>Más de 700 exámenes clínicos — resultados el mismo día, sin cita previa.</p>
-    <a href="/examenes">Ver exámenes</a>
-    <a href="/sedes">Encontrar sede</a>
-    <!-- TODO (design-needed): Full hero with background image, CTA buttons styled. -->
-    <!-- TODO (design-needed): Add ExamSearch island here once Pagefind ready. -->
-  </section>
-
-  <!-- ===== 2. 4 PILLARS STRIP ========================================== -->
-  <section aria-labelledby="pillars-heading">
-    <h2 id="pillars-heading" class="sr-only">Por qué CIC Laboratorios</h2>
-    <ul>
-      <li>
-        <strong>Mismo día</strong>
-        <p>Resultados disponibles el mismo día de la toma.</p>
-      </li>
-      <li>
-        <strong>Sin cita previa</strong>
-        <p>Atención inmediata en todas nuestras sedes.</p>
-      </li>
-      <li>
-        <strong>+700 pruebas</strong>
-        <p>El portafolio más completo de la región.</p>
-      </li>
-      <li>
-        <strong>Servicio a domicilio</strong>
-        <p>Toma de muestras en tu hogar o empresa.</p>
-        <!-- TODO (content-needed): Note "gratis desde $50.000" for Buga sede -->
-      </li>
-    </ul>
-  </section>
-
-  <!-- ===== 3. AUDIENCE SEGMENTATION ==================================== -->
-  <section aria-labelledby="audience-heading">
-    <h2 id="audience-heading">¿Cómo podemos ayudarte?</h2>
-    <div>
-      <article>
-        <h3>Soy paciente</h3>
-        <p>Resultados rápidos, sin cita, con atención humanizada.</p>
-        <a href="/pacientes/preparacion">Ver preparación de exámenes</a>
-      </article>
-      <article>
-        <h3>Soy empresa</h3>
-        <p>Salud ocupacional, jornadas empresariales y convenios.</p>
-        <a href="/empresas">Servicios para empresas</a>
-      </article>
-      <article>
-        <h3>Soy laboratorio / IPS</h3>
-        <p>Referencia de muestras, alianzas estratégicas.</p>
-        <a href="/laboratorios">Alianzas con laboratorios</a>
-      </article>
+  <!-- 1. HERO -->
+  <section aria-labelledby="hero-heading" class="py-16 md:py-24">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 text-center">
+      <h1 id="hero-heading">Resultados que transforman vidas</h1>
+      <p>
+        Más de {examenes.length} exámenes clínicos — resultados el mismo día,
+        sin cita previa, en {sedes.length} sedes del Valle del Cauca.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href="/sedes">Encontrar sede</a>
+        <a href="/examenes">Ver exámenes</a>
+        <a href={waHero} target="_blank" rel="noopener noreferrer">
+          Contáctanos por WhatsApp
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- ===== 4. SEDE MAP PREVIEW ========================================= -->
-  <section aria-labelledby="sedes-map-heading">
-    <h2 id="sedes-map-heading">Nuestras sedes</h2>
-    <!-- TODO (blocking-for-v1.1): Replace with interactive multi-sede map -->
-    <LocationMap
-      lat={sedes[0]?.data.lat}
-      lng={sedes[0]?.data.lng}
-      nombre="Vista general de sedes"
-      client:visible
-    />
-    <ul>
-      {sedes.map((sede: CollectionEntry<'sedes'>) => (
+  <!-- 2. PILLARS STRIP -->
+  <section aria-labelledby="pillars-heading" class="py-12">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <h2 id="pillars-heading" class="sr-only">Por qué CIC Laboratorios</h2>
+      <ul role="list" class="grid grid-cols-2 gap-6 md:grid-cols-4">
         <li>
-          <a href={`/sedes/${sede.data.slug}`}>{sede.data.nombre}</a>
-          <span> — {sede.data.ciudad}</span>
+          <strong>Mismo día</strong>
+          <p>Resultados disponibles el mismo día de la toma.</p>
         </li>
-      ))}
-    </ul>
-    <a href="/sedes">Ver todas las sedes</a>
-  </section>
-
-  <!-- ===== 5. EXAMEN CATEGORIES ======================================== -->
-  <section aria-labelledby="categorias-heading">
-    <h2 id="categorias-heading">Exámenes por categoría</h2>
-    <ul>
-      {CATEGORIAS.map((cat) => (
         <li>
-          <a href={`/examenes/categoria/${cat.slug}`}>{cat.label}</a>
+          <strong>Sin cita previa</strong>
+          <p>Atención inmediata en las {sedes.length} sedes.</p>
         </li>
-      ))}
-    </ul>
-    <a href="/examenes">Ver todos los exámenes</a>
-  </section>
-
-  <!-- ===== 6. SERVICES ================================================= -->
-  <section aria-labelledby="servicios-heading">
-    <h2 id="servicios-heading">Nuestros servicios</h2>
-    <ul>
-      {servicios.map((servicio: CollectionEntry<'servicios'>) => (
         <li>
-          <a href={`/servicios/${servicio.data.slug}`}>
-            <strong>{servicio.data.nombre}</strong>
-          </a>
-          <p>{servicio.data.descripcion}</p>
+          <strong>+{examenes.length} pruebas</strong>
+          <p>El portafolio más completo de la región.</p>
         </li>
-      ))}
-    </ul>
-  </section>
-
-  <!-- ===== 7. HUMANIZACIÓN ============================================= -->
-  <section aria-labelledby="equipo-heading">
-    <h2 id="equipo-heading">Un equipo comprometido con tu salud</h2>
-    <p>
-      <!-- TODO (content-needed): Add real copy about the team and values -->
-      En CIC Laboratorios creemos que los exámenes de laboratorio son mucho
-      más que datos: son parte de la historia de vida de cada paciente.
-    </p>
-    <!-- TODO (content-needed): Add team photos and real testimonials -->
-    <div aria-label="Testimonios">
-      <blockquote>
-        <p>[ Testimonio de paciente — placeholder ]</p>
-        <cite>— Nombre, Ciudad</cite>
-      </blockquote>
+        <li>
+          <strong>Servicio a domicilio</strong>
+          <p>Toma de muestras en tu hogar o empresa.</p>
+        </li>
+      </ul>
     </div>
-    <a href="/nosotros/equipo">Conocer al equipo</a>
   </section>
 
-  <!-- ===== 8. QUALITY / TECHNOLOGY / QR ================================ -->
-  <section aria-labelledby="calidad-heading">
-    <h2 id="calidad-heading">Calidad y tecnología al servicio de tu salud</h2>
-    <ul>
-      <li>
-        <strong>Acreditación ICONTEC</strong>
-        <p><!-- TODO (content-needed): Fill in real accreditation details --></p>
-      </li>
-      <li>
-        <strong>Validación QR</strong>
-        <p>Verifica la autenticidad de tus resultados con un código QR único.</p>
-      </li>
-      <li>
-        <strong>Equipos de última generación</strong>
-        <p><!-- TODO (content-needed): Describe key equipment --></p>
-      </li>
-    </ul>
-    <a href="/nosotros/tecnologia">Ver nuestra tecnología</a>
-    <a href="/nosotros/calidad">Ver certificaciones</a>
+  <!-- 3. AUDIENCE SEGMENTATION -->
+  <section aria-labelledby="audience-heading" class="py-12">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <h2 id="audience-heading">¿Cómo podemos ayudarte?</h2>
+      <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <article>
+          <h3>Soy paciente</h3>
+          <p>Resultados rápidos, sin cita, con atención humanizada.</p>
+          <a href="/examenes">Ver exámenes</a>
+          <a href="/pacientes/preparacion">Preparación de exámenes</a>
+        </article>
+        <article>
+          <h3>Soy empresa</h3>
+          <p>Salud ocupacional, jornadas empresariales y convenios.</p>
+          <a href="/empresas">Servicios para empresas</a>
+        </article>
+        <article>
+          <h3>Soy laboratorio / IPS</h3>
+          <p>Referencia de muestras y alianzas estratégicas.</p>
+          <a href="/laboratorios">Alianzas con laboratorios</a>
+        </article>
+      </div>
+    </div>
   </section>
 
-  <!-- ===== 9. CONVENIOS / ALIADOS ====================================== -->
-  <section aria-labelledby="aliados-heading">
-    <h2 id="aliados-heading">Convenios y aliados estratégicos</h2>
-    <!-- TODO (content-needed): Add logos and full list of convenios (EPS, ARL, etc.) -->
-    <ul>
-      {aliados.map((aliado: CollectionEntry<'aliados'>) => (
+  <!-- 4. SEDE MAP PREVIEW -->
+  <section aria-labelledby="sedes-map-heading" class="py-12">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <h2 id="sedes-map-heading">{sedes.length} sedes en el Valle del Cauca</h2>
+      <!-- TODO (blocking-for-v1.1): Replace with interactive multi-sede map island -->
+      <div class="mt-6 aspect-video w-full" role="img" aria-label="Mapa de sedes — próximamente">
+        <p>[ Mapa interactivo de sedes — próximamente ]</p>
+      </div>
+      <a href="/sedes" class="mt-4 inline-block">Ver todas las sedes →</a>
+    </div>
+  </section>
+
+  <!-- 5. EXAM CATEGORIES -->
+  <section aria-labelledby="categorias-heading" class="py-12">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <h2 id="categorias-heading">Exámenes por categoría</h2>
+      <ul role="list" class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3">
+        {CATEGORIAS.map((cat) => (
+          <li>
+            <a href={`/examenes/categoria/${cat.slug}`}>{cat.label}</a>
+          </li>
+        ))}
+      </ul>
+      <a href="/examenes" class="mt-6 inline-block">Ver todos los exámenes →</a>
+    </div>
+  </section>
+
+  <!-- 6. SERVICES -->
+  <section aria-labelledby="servicios-heading" class="py-12">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <h2 id="servicios-heading">Nuestros servicios</h2>
+      <ul role="list" class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {servicios.map((servicio: CollectionEntry<'servicios'>) => (
+          <li>
+            <article>
+              <h3>
+                <a href={`/servicios/${servicio.data.slug}`}>
+                  {servicio.data.nombre}
+                </a>
+              </h3>
+              <p>{servicio.data.descripcion}</p>
+            </article>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- 7. HUMANIZACIÓN -->
+  <section aria-labelledby="equipo-heading" class="py-12">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <h2 id="equipo-heading">Un equipo comprometido con tu salud</h2>
+      <p>
+        {/* TODO (content-needed): Replace with real copy about team and values */}
+        En CIC Laboratorios creemos que los exámenes de laboratorio son mucho
+        más que datos: son parte de la historia de vida de cada paciente.
+      </p>
+      {/* TODO (content-needed): Add team intro video embed */}
+      <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
+        <blockquote>
+          <p>[ Testimonio de paciente — pendiente ]</p>
+          <cite>— Nombre, Ciudad</cite>
+        </blockquote>
+        <blockquote>
+          <p>[ Testimonio de paciente — pendiente ]</p>
+          <cite>— Nombre, Ciudad</cite>
+        </blockquote>
+      </div>
+      <a href="/nosotros" class="mt-6 inline-block">Conocer al equipo →</a>
+    </div>
+  </section>
+
+  <!-- 8. QUALITY STRIP -->
+  <section aria-labelledby="calidad-heading" class="py-12">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <h2 id="calidad-heading">Calidad y tecnología al servicio de tu salud</h2>
+      <ul role="list" class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
         <li>
-          <strong>{aliado.data.nombre}</strong>
-          <p>{aliado.data.descripcion}</p>
+          <strong>Equipos de última generación</strong>
+          <p>
+            {/* TODO (content-needed): Describe key equipment */}
+            Tecnología de punta para resultados precisos y confiables.
+          </p>
         </li>
-      ))}
-    </ul>
-    <a href="/nosotros/aliados">Ver todos los aliados</a>
+        <li>
+          <strong>Política de seguridad del paciente</strong>
+          <p>
+            {/* TODO (content-needed): Add official patient safety policy summary */}
+            Protocolos rigurosos que garantizan la seguridad en cada etapa.
+          </p>
+          <a href="/nosotros#calidad">Ver certificaciones →</a>
+        </li>
+        <li>
+          <strong>Validación QR</strong>
+          <p>
+            Verifica la autenticidad de tus resultados con el código QR único
+            incluido en cada informe.
+          </p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 9. CONVENIOS / ALIADOS -->
+  <section aria-labelledby="aliados-heading" class="py-12">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <h2 id="aliados-heading">Convenios y aliados estratégicos</h2>
+      {aliados.length > 0 && (
+        <ul role="list" class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+          {aliados.map((aliado: CollectionEntry<'aliados'>) => (
+            <li>
+              {aliado.data.url ? (
+                <a href={aliado.data.url} target="_blank" rel="noopener noreferrer">
+                  <strong>{aliado.data.nombre}</strong>
+                </a>
+              ) : (
+                <strong>{aliado.data.nombre}</strong>
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
+      {/* TODO (content-needed): Add EPS/ARL logos once available */}
+      <a
+        href={`https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent('Quisiera información sobre convenios con CIC Laboratorios.')}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-6 inline-block"
+      >
+        Consultar convenios por WhatsApp →
+      </a>
+    </div>
   </section>
 
 </BaseLayout>

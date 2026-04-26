@@ -1,60 +1,41 @@
 ---
-/**
- * /examenes — Listing page for all exámenes.
- *
- * TODO (design-needed): Card grid with category filter tabs/pills.
- * TODO (blocking-for-v1.1): Wire ExamSearch island once Pagefind configured.
- * TODO (content-needed): Add pagination once 700+ exams are loaded.
- * TODO (content-needed): Add count per category.
- */
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
+import { CATEGORIAS } from '@/lib/config';
 
 const examenes = await getCollection(
   'examenes',
   ({ data }: CollectionEntry<'examenes'>) => data.activo
 );
-
-const CATEGORIAS = [
-  { slug: 'quimica', label: 'Química Sanguínea' },
-  { slug: 'hematologia', label: 'Hematología' },
-  { slug: 'hormonas', label: 'Hormonas' },
-  { slug: 'microbiologia', label: 'Microbiología' },
-  { slug: 'inmunologia', label: 'Inmunología' },
-  { slug: 'genetica', label: 'Genética' },
-  { slug: 'orina', label: 'Orina y Líquidos' },
-  { slug: 'parasitologia', label: 'Parasitología' },
-  { slug: 'otros', label: 'Otros' },
-];
 ---
 
 <BaseLayout
   title="Catálogo de Exámenes"
-  description={`Más de ${examenes.length} exámenes clínicos disponibles en CIC Laboratorios. Resultados el mismo día.`}
+  description={`${examenes.length} exámenes clínicos disponibles en CIC Laboratorios. Resultados el mismo día.`}
 >
-  <h1>Catálogo de exámenes</h1>
-  <p>{examenes.length} exámenes disponibles</p>
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6">
 
-  <!-- TODO (blocking-for-v1.1): Replace with ExamSearch island -->
-  <p><em>[ Búsqueda por nombre — pendiente integración Pagefind ]</em></p>
+    <header>
+      <h1>Catálogo de exámenes</h1>
+      <p>{examenes.length} exámenes disponibles — resultados el mismo día</p>
+    </header>
 
-  <h2>Por categoría</h2>
-  <ul>
-    {CATEGORIAS.map((cat) => (
-      <li>
-        <a href={`/examenes/categoria/${cat.slug}`}>{cat.label}</a>
-      </li>
-    ))}
-  </ul>
+    <!-- TODO (blocking-for-v1.1): Replace with ExamSearch island once Pagefind is configured -->
+    <p class="mt-6">
+      <em>[ Buscador por nombre — pendiente integración Pagefind ]</em>
+    </p>
 
-  <h2>Todos los exámenes</h2>
-  <ul>
-    {examenes.map((ex: CollectionEntry<'examenes'>) => (
-      <li>
-        <a href={`/examenes/${ex.data.slug}`}>{ex.data.nombre}</a>
-        {ex.data.requiereAyuno && <em> (requiere ayuno)</em>}
-      </li>
-    ))}
-  </ul>
+    <section aria-labelledby="categorias-heading" class="mt-10">
+      <h2 id="categorias-heading">Buscar por categoría</h2>
+      <ul role="list" class="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3">
+        {CATEGORIAS.map((cat) => (
+          <li>
+            <a href={`/examenes/categoria/${cat.slug}`}>{cat.label}</a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+  </div>
 </BaseLayout>

@@ -1,57 +1,91 @@
 ---
-/**
- * /pacientes/preparacion — Exam preparation instructions page.
- *
- * TODO (content-needed): Add preparation instructions for most common exams.
- * TODO (design-needed): Accordion or searchable FAQ component.
- * TODO (blocking-for-v1): This page should eventually be dynamic, pulling
- *   preparacion field from each examen in the collection.
- */
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
-
-const examenesConPreparacion = await getCollection(
-  'examenes',
-  ({ data }: CollectionEntry<'examenes'>) => data.activo && !!data.preparacion
-);
 ---
 
 <BaseLayout
   title="Preparación para Exámenes"
   description="Instrucciones de preparación para los exámenes de laboratorio de CIC Laboratorios: ayunos, medicamentos, muestras especiales."
 >
-  <h1>Preparación para exámenes</h1>
-  <p>
-    Seguir correctamente las instrucciones de preparación garantiza la
-    confiabilidad de sus resultados. Ante cualquier duda, consulte con el
-    personal de nuestra sede.
-  </p>
+  <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
 
-  <section aria-labelledby="general-heading">
-    <h2 id="general-heading">Recomendaciones generales</h2>
-    <ul>
-      <li>Si el examen requiere ayuno, ayune mínimo 8 horas (puede tomar agua).</li>
-      <li>Informe al momento de la toma sobre medicamentos que esté tomando.</li>
-      <!-- TODO (content-needed): Add more general instructions -->
-    </ul>
-  </section>
+    <header>
+      <h1>Preparación para exámenes</h1>
+      <p>
+        Seguir correctamente las instrucciones de preparación garantiza la
+        confiabilidad de sus resultados. Ante cualquier duda, consulte con
+        el personal de nuestra sede.
+      </p>
+    </header>
 
-  <section aria-labelledby="examenes-prep-heading">
-    <h2 id="examenes-prep-heading">Instrucciones por examen</h2>
-    {examenesConPreparacion.length > 0 ? (
-      <dl>
-        {examenesConPreparacion.map((ex: CollectionEntry<'examenes'>) => (
-          <>
-            <dt>
-              <a href={`/examenes/${ex.data.slug}`}>{ex.data.nombre}</a>
-            </dt>
-            <dd>{ex.data.preparacion}</dd>
-          </>
-        ))}
-      </dl>
-    ) : (
-      <p>[ Instrucciones detalladas por examen — pendiente carga de contenido ]</p>
-    )}
-  </section>
+    <!-- Category filter tabs (static links) -->
+    <nav aria-label="Categorías de preparación" class="mt-8">
+      <ul role="list" class="flex flex-wrap gap-3">
+        <li><a href="#ayuno">Ayuno</a></li>
+        <li><a href="#sin-ayuno">Sin ayuno</a></li>
+        <li><a href="#orina">Orina</a></li>
+        <li><a href="#heces">Heces</a></li>
+        <li><a href="#especial">Preparación especial</a></li>
+      </ul>
+    </nav>
+
+    <!-- General recommendations -->
+    <section aria-labelledby="general-heading" class="mt-10">
+      <h2 id="general-heading">Recomendaciones generales</h2>
+      <ul role="list" class="mt-4 space-y-2">
+        <li>Si el examen requiere ayuno, ayune mínimo 8 horas (puede tomar agua).</li>
+        <li>Informe sobre medicamentos que esté tomando al momento de la toma.</li>
+        <li>Lleve la orden médica si la tiene.</li>
+        {/* TODO (content-needed): Add complete list of general preparation instructions */}
+      </ul>
+    </section>
+
+    <!-- Ayuno -->
+    <section id="ayuno" aria-labelledby="ayuno-heading" class="mt-10">
+      <h2 id="ayuno-heading">Exámenes con ayuno</h2>
+      <p class="mt-4">
+        {/* TODO (content-needed): List exams requiring fasting with preparation details */}
+        [ Listado de exámenes con ayuno — pendiente ]
+      </p>
+    </section>
+
+    <!-- Sin ayuno -->
+    <section id="sin-ayuno" aria-labelledby="sin-ayuno-heading" class="mt-10">
+      <h2 id="sin-ayuno-heading">Exámenes sin ayuno</h2>
+      <p class="mt-4">
+        {/* TODO (content-needed): List exams not requiring fasting */}
+        [ Listado de exámenes sin ayuno — pendiente ]
+      </p>
+    </section>
+
+    <!-- Orina -->
+    <section id="orina" aria-labelledby="orina-heading" class="mt-10">
+      <h2 id="orina-heading">Exámenes de orina</h2>
+      <ul role="list" class="mt-4 space-y-2">
+        <li>Recolectar la segunda micción del día (descartar la primera).</li>
+        <li>Usar recipiente limpio y seco.</li>
+        {/* TODO (content-needed): Add specific instructions per exam type */}
+      </ul>
+    </section>
+
+    <!-- Heces -->
+    <section id="heces" aria-labelledby="heces-heading" class="mt-10">
+      <h2 id="heces-heading">Exámenes de heces</h2>
+      <ul role="list" class="mt-4 space-y-2">
+        <li>Usar recipiente estéril provisto por el laboratorio.</li>
+        <li>Llevar la muestra máximo 2 horas después de la recolección.</li>
+        {/* TODO (content-needed): Add complete heces preparation instructions */}
+      </ul>
+    </section>
+
+    <!-- Preparación especial -->
+    <section id="especial" aria-labelledby="especial-heading" class="mt-10">
+      <h2 id="especial-heading">Preparación especial</h2>
+      <p class="mt-4">
+        {/* TODO (content-needed): List exams with special preparation (cultivos, VPH, etc.) */}
+        Algunos exámenes requieren preparación específica. Consulte con su
+        médico o con nuestro personal antes de la toma.
+      </p>
+    </section>
+
+  </div>
 </BaseLayout>

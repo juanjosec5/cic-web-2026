@@ -1,74 +1,120 @@
 ---
-/**
- * /empresas — Landing page for B2B / corporate clients.
- *
- * TODO (design-needed): Full landing page layout.
- * TODO (content-needed): Add client logos, case studies, pricing tiers.
- * TODO (content-needed): Add proper contact form (mailto fallback for now).
- */
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
+import { SITE_CONFIG } from '@/lib/config';
 
-// Filter services relevant for empresas
-const serviciosEmpresa = await getCollection(
-  'servicios',
-  ({ data }: CollectionEntry<'servicios'>) =>
-    ['jornadas-empresariales', 'salud-ocupacional', 'domicilio'].includes(data.slug)
-);
+const [serviciosEmpresa, aliadosEstrategicos] = await Promise.all([
+  getCollection(
+    'servicios',
+    ({ data }: CollectionEntry<'servicios'>) =>
+      ['jornadas-empresariales', 'salud-ocupacional'].includes(data.slug)
+  ),
+  getCollection(
+    'aliados',
+    ({ data }: CollectionEntry<'aliados'>) => data.esEstrategico
+  ),
+]);
+
+const waEmpresa = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent('Quiero información sobre servicios empresariales de CIC Laboratorios.')}`;
 ---
 
 <BaseLayout
   title="Servicios para Empresas"
   description="Salud ocupacional, jornadas empresariales y toma de muestras para empresas. CIC Laboratorios — su aliado en bienestar corporativo."
 >
-  <h1>Soluciones para empresas</h1>
-  <p>
-    Acompañamos a su empresa en el cumplimiento de la normativa de salud
-    ocupacional y en el bienestar de sus colaboradores.
-  </p>
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6">
 
-  <section aria-labelledby="servicios-empresa-heading">
-    <h2 id="servicios-empresa-heading">Nuestros servicios empresariales</h2>
-    <ul>
-      {serviciosEmpresa.map((s: CollectionEntry<'servicios'>) => (
+    <header>
+      <h1>Soluciones para empresas</h1>
+      <p>
+        {/* TODO (content-needed): Replace with real intro copy */}
+        Acompañamos a su empresa en el cumplimiento de la normativa de salud
+        ocupacional y en el bienestar de sus colaboradores.
+      </p>
+    </header>
+
+    <!-- Value proposition cards -->
+    <section aria-labelledby="propuestas-heading" class="mt-12">
+      <h2 id="propuestas-heading" class="sr-only">Por qué elegirnos</h2>
+      <ul role="list" class="grid grid-cols-1 gap-6 md:grid-cols-3">
         <li>
-          <a href={`/servicios/${s.data.slug}`}>
-            <strong>{s.data.nombre}</strong>
-          </a>
-          <p>{s.data.descripcion}</p>
+          <article>
+            <h3>Resultados el mismo día</h3>
+            {/* TODO (content-needed): Add detail copy */}
+            <p>Informes listos para que sus colaboradores continúen su jornada.</p>
+          </article>
         </li>
-      ))}
-    </ul>
-  </section>
+        <li>
+          <article>
+            <h3>Toma en sitio</h3>
+            {/* TODO (content-needed): Add detail copy */}
+            <p>Personal capacitado para jornadas en sus instalaciones.</p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h3>Informes consolidados</h3>
+            {/* TODO (content-needed): Add detail copy */}
+            <p>Reportes para RR.HH. con todos los resultados en un solo lugar.</p>
+          </article>
+        </li>
+      </ul>
+    </section>
 
-  <section aria-labelledby="beneficios-heading">
-    <h2 id="beneficios-heading">¿Por qué elegirnos?</h2>
-    <ul>
-      <li>Resultados el mismo día</li>
-      <li>Personal capacitado para toma en sitio</li>
-      <li>Informes consolidados para RR.HH.</li>
-      <li><!-- TODO (content-needed): Add more benefit points --></li>
-    </ul>
-  </section>
+    <!-- Services -->
+    <section aria-labelledby="servicios-empresa-heading" class="mt-12">
+      <h2 id="servicios-empresa-heading">Servicios disponibles</h2>
+      <ul role="list" class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+        {serviciosEmpresa.map((s: CollectionEntry<'servicios'>) => (
+          <li>
+            <article>
+              <h3>
+                <a href={`/servicios/${s.data.slug}`}>{s.data.nombre}</a>
+              </h3>
+              <p>{s.data.descripcion}</p>
+            </article>
+          </li>
+        ))}
+      </ul>
+    </section>
 
-  <section aria-labelledby="contacto-empresa-heading">
-    <h2 id="contacto-empresa-heading">Solicitar cotización</h2>
-    <p>
-      <!-- TODO (design-needed): Replace with proper contact form -->
-      Contáctenos para recibir una propuesta personalizada:
-    </p>
-    <a
-      href="mailto:empresas@ciclaboratorios.com?subject=Solicitud%20de%20cotizaci%C3%B3n"
-    >
-      Enviar correo electrónico
-    </a>
-    <a
-      href="https://wa.me/573001234567?text=Quiero%20informaci%C3%B3n%20sobre%20servicios%20empresariales"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Contactar por WhatsApp
-    </a>
-  </section>
+    <!-- Strategic allies -->
+    {aliadosEstrategicos.length > 0 && (
+      <section aria-labelledby="aliados-estrategicos-heading" class="mt-12">
+        <h2 id="aliados-estrategicos-heading">Aliados estratégicos</h2>
+        <ul role="list" class="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+          {aliadosEstrategicos.map((aliado: CollectionEntry<'aliados'>) => (
+            <li>
+              {aliado.data.url ? (
+                <a href={aliado.data.url} target="_blank" rel="noopener noreferrer">
+                  {aliado.data.nombre}
+                </a>
+              ) : (
+                <span>{aliado.data.nombre}</span>
+              )}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <!-- CTA -->
+    <section aria-labelledby="cotizacion-heading" class="mt-12">
+      <h2 id="cotizacion-heading">Solicitar cotización</h2>
+      <p class="mt-4">
+        {/* TODO (content-needed): Add contact form in v2 */}
+        Contáctenos para recibir una propuesta personalizada para su empresa.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-4">
+        <a href={waEmpresa} target="_blank" rel="noopener noreferrer">
+          Contactar por WhatsApp
+        </a>
+        <a href="mailto:empresas@ciclaboratorios.com?subject=Solicitud%20de%20cotizaci%C3%B3n">
+          Enviar correo
+        </a>
+      </div>
+    </section>
+
+  </div>
 </BaseLayout>
