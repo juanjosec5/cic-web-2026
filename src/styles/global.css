@@ -59,13 +59,8 @@ img {
 
   /* ── Links ────────────────────────────────────────────────── */
   a {
-    color: rgb(37 99 235);       /* blue-600 */
     text-decoration-line: none;
     transition: color 150ms ease;
-  }
-
-  a:hover {
-    color: rgb(29 78 216);       /* blue-700 */
   }
 
   /* ── Buttons ──────────────────────────────────────────────── */
