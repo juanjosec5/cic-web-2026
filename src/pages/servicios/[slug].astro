@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
 import { SITE_CONFIG } from '@/lib/config';
 
 interface Props {
@@ -41,16 +42,11 @@ const ctaUrl =
 <BaseLayout title={servicio.nombre} description={servicio.descripcion}>
   <div class="mx-auto max-w-4xl px-4 py-8 sm:px-6">
 
-    <!-- Breadcrumb -->
-    <nav aria-label="Ruta de navegación">
-      <ol class="flex flex-wrap items-center gap-1">
-        <li><a href="/">Inicio</a></li>
-        <li aria-hidden="true">›</li>
-        <li><a href="/servicios">Servicios</a></li>
-        <li aria-hidden="true">›</li>
-        <li aria-current="page">{servicio.nombre}</li>
-      </ol>
-    </nav>
+    <Breadcrumb items={[
+      { label: 'Inicio', href: '/' },
+      { label: 'Servicios', href: '/servicios' },
+      { label: servicio.nombre },
+    ]} />
 
     <article class="mt-6">
       <h1>{servicio.nombre}</h1>
@@ -62,10 +58,13 @@ const ctaUrl =
         {sedesData.length === 0 || servicio.sedesDisponibles[0] === 'todas' ? (
           <p class="mt-4">Disponible en todas nuestras sedes.</p>
         ) : (
-          <ul role="list" class="mt-4 flex flex-wrap gap-4">
+          <ul role="list" class="mt-4 flex flex-wrap gap-2">
             {sedesData.map(({ slug, nombre }) => (
               <li>
-                <a href={`/sedes/${slug}`}>{nombre}</a>
+                <a href={`/sedes/${slug}`}
+                   class="inline-flex items-center rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-red-50 hover:text-red-700 transition-colors duration-200">
+                  {nombre}
+                </a>
               </li>
             ))}
           </ul>
@@ -76,6 +75,11 @@ const ctaUrl =
       <div class="mt-8">
         <a
           href={ctaUrl}
+          class:list={[
+            servicio.ctaTipo === 'whatsapp'
+              ? "inline-flex items-center gap-2 rounded-lg bg-green-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-700 active:scale-95 transition-all duration-200"
+              : "inline-flex items-center rounded-lg bg-red-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-700 active:scale-95 transition-all duration-200"
+          ]}
           {...(servicio.ctaTipo === 'whatsapp'
             ? { target: '_blank', rel: 'noopener noreferrer' }
             : {})}

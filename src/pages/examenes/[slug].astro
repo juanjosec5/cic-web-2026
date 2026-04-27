@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import ExamenLayout from '@/layouts/ExamenLayout.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
 import { CATEGORIAS, SITE_CONFIG } from '@/lib/config';
 
 interface Props {
@@ -45,20 +46,12 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
 <ExamenLayout examen={examen}>
   <div class="mx-auto max-w-4xl px-4 py-8 sm:px-6">
 
-    <!-- Breadcrumb -->
-    <nav aria-label="Ruta de navegación">
-      <ol class="flex flex-wrap items-center gap-1">
-        <li><a href="/">Inicio</a></li>
-        <li aria-hidden="true">›</li>
-        <li><a href="/examenes">Exámenes</a></li>
-        <li aria-hidden="true">›</li>
-        <li>
-          <a href={`/examenes/categoria/${examen.categoria}`}>{categoriaLabel}</a>
-        </li>
-        <li aria-hidden="true">›</li>
-        <li aria-current="page">{examen.nombre}</li>
-      </ol>
-    </nav>
+    <Breadcrumb items={[
+      { label: 'Inicio', href: '/' },
+      { label: 'Exámenes', href: '/examenes' },
+      { label: categoriaLabel, href: `/examenes/categoria/${examen.categoria}` },
+      { label: examen.nombre },
+    ]} />
 
     <article>
       <header class="mt-6">
@@ -71,42 +64,50 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
       </header>
 
       <!-- 4-stat strip -->
-      <dl class="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+      <dl class="mt-6 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-gray-200 bg-gray-200 sm:grid-cols-4">
         {examen.muestra && (
-          <>
-            <dt>Muestra</dt>
-            <dd>{examen.muestra}</dd>
-          </>
+          <div class="bg-white p-4">
+            <dt class="text-xs font-medium uppercase tracking-wide text-gray-500">Muestra</dt>
+            <dd class="mt-1 font-semibold text-gray-900">{examen.muestra}</dd>
+          </div>
         )}
         {examen.requiereAyuno !== undefined && (
-          <>
-            <dt>Ayuno</dt>
-            <dd>{examen.requiereAyuno ? 'Requerido' : 'No requerido'}</dd>
-          </>
+          <div class="bg-white p-4">
+            <dt class="text-xs font-medium uppercase tracking-wide text-gray-500">Ayuno</dt>
+            <dd class="mt-1 font-semibold text-gray-900">{examen.requiereAyuno ? 'Requerido' : 'No requerido'}</dd>
+          </div>
         )}
         {examen.oportunidadResultados && (
-          <>
-            <dt>Resultados</dt>
-            <dd>{examen.oportunidadResultados}</dd>
-          </>
+          <div class="bg-white p-4">
+            <dt class="text-xs font-medium uppercase tracking-wide text-gray-500">Resultados</dt>
+            <dd class="mt-1 font-semibold text-gray-900">{examen.oportunidadResultados}</dd>
+          </div>
         )}
-        <dt>Cotizar</dt>
-        <dd>
-          <a href={waCotizar} target="_blank" rel="noopener noreferrer">
-            Por WhatsApp
-          </a>
-        </dd>
+        <div class="bg-white p-4">
+          <dt class="text-xs font-medium uppercase tracking-wide text-gray-500">Cotizar</dt>
+          <dd class="mt-1">
+            <a href={waCotizar} target="_blank" rel="noopener noreferrer"
+               class="text-sm font-medium text-green-600 hover:text-green-700 transition-colors duration-200">
+              Por WhatsApp →
+            </a>
+          </dd>
+        </div>
       </dl>
 
       <!-- CTA group -->
-      <div class="mt-8 flex flex-wrap gap-4">
-        <a href={waCotizar} target="_blank" rel="noopener noreferrer">
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href={waCotizar} target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 rounded-lg bg-green-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-700 active:scale-95 transition-all duration-200">
           Cotizar por WhatsApp
         </a>
-        <a href={waDomicilio} target="_blank" rel="noopener noreferrer">
+        <a href={waDomicilio} target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200">
           Solicitar domicilio
         </a>
-        <a href="/sedes">Ver sedes</a>
+        <a href="/sedes"
+           class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200">
+          Ver sedes
+        </a>
       </div>
 
       <!-- ¿Qué es? -->
@@ -142,10 +143,13 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
       <section aria-labelledby="sedes-heading" class="mt-10">
         <h2 id="sedes-heading">Disponible en</h2>
         {sedesData.length > 0 ? (
-          <ul role="list" class="mt-4 flex flex-wrap gap-4">
+          <ul role="list" class="mt-4 flex flex-wrap gap-2">
             {sedesData.map(({ slug, nombre }) => (
               <li>
-                <a href={`/sedes/${slug}`}>{nombre}</a>
+                <a href={`/sedes/${slug}`}
+                   class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1.5 text-sm font-medium text-gray-700 hover:bg-red-50 hover:text-red-700 transition-colors duration-200">
+                  {nombre}
+                </a>
               </li>
             ))}
           </ul>
@@ -158,10 +162,13 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
       {relacionadosData.length > 0 && (
         <section aria-labelledby="relacionados-heading" class="mt-10">
           <h2 id="relacionados-heading">Exámenes relacionados</h2>
-          <ul role="list" class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <ul role="list" class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
             {relacionadosData.map(({ slug, nombre }) => (
               <li>
-                <a href={`/examenes/${slug}`}>{nombre}</a>
+                <a href={`/examenes/${slug}`}
+                   class="block rounded-lg border border-gray-200 px-4 py-3 text-sm font-medium text-gray-900 hover:border-red-200 hover:text-red-700 transition-colors duration-200">
+                  {nombre} →
+                </a>
               </li>
             ))}
           </ul>
@@ -169,21 +176,21 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
       )}
 
       <!-- WhatsApp CTA banner -->
-      <section aria-labelledby="wa-cta-heading" class="mt-10">
-        <h2 id="wa-cta-heading" class="sr-only">Contactar para este examen</h2>
-        <p>¿Tienes preguntas sobre este examen? Escríbenos por WhatsApp.</p>
+      <section aria-labelledby="wa-cta-heading" class="mt-12 rounded-xl bg-gray-50 p-8 text-center">
+        <h2 id="wa-cta-heading" class="text-lg font-semibold text-gray-900">¿Tienes preguntas sobre este examen?</h2>
+        <p class="mt-2 text-sm text-gray-600">Nuestro equipo puede orientarte antes de tu visita.</p>
         <a
           href={waCotizar}
           target="_blank"
           rel="noopener noreferrer"
-          class="mt-4 inline-block"
+          class="mt-6 inline-flex items-center gap-2 rounded-lg bg-green-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-700 active:scale-95 transition-all duration-200"
         >
           Consultar por WhatsApp →
         </a>
       </section>
 
       <!-- Medical disclaimer -->
-      <p class="mt-10">
+      <p class="mt-10 text-sm text-gray-400 italic border-t border-gray-200 pt-6">
         <small>
           La información de esta página es de carácter informativo y no
           reemplaza el criterio médico. Consulta siempre a tu médico antes

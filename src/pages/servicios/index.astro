@@ -16,17 +16,26 @@ const servicios = await getCollection('servicios');
   title="Nuestros Servicios"
   description="Servicios de CIC Laboratorios: toma a domicilio, ginecología y VPH, jornadas empresariales y salud ocupacional."
 >
-  <h1>Nuestros servicios</h1>
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6">
+    <header>
+      <h1>Nuestros servicios</h1>
+    </header>
 
-  <ul>
-    {servicios.map((servicio: CollectionEntry<'servicios'>) => (
-      <li>
-        <a href={`/servicios/${servicio.data.slug}`}>
-          <h2>{servicio.data.nombre}</h2>
-        </a>
-        <p>{servicio.data.descripcion}</p>
-        <a href={`/servicios/${servicio.data.slug}`}>Saber más →</a>
-      </li>
-    ))}
-  </ul>
+    <ul role="list" class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {servicios.map((servicio: CollectionEntry<'servicios'>) => (
+        <li>
+          <a href={`/servicios/${servicio.data.slug}`}
+             class="group block rounded-xl border border-gray-200 p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
+            <h2 class="font-semibold transition-colors duration-200 group-hover:text-red-600">
+              {servicio.data.nombre}
+            </h2>
+            <p class="mt-2 text-sm text-gray-600">{servicio.data.descripcion}</p>
+            <span class="mt-4 inline-block text-sm font-medium text-red-600 transition-transform duration-200 group-hover:translate-x-1">
+              Saber más →
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
 </BaseLayout>

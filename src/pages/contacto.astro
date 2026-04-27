@@ -17,32 +17,36 @@ const waUrl = `https://wa.me/${whatsapp}?text=${encodeURIComponent('Hola, quisie
     <div class="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2">
 
       <!-- Left: sede principal info + CTAs -->
-      <section aria-labelledby="contacto-info-heading">
+      <section aria-labelledby="contacto-info-heading" class="rounded-xl border border-gray-200 p-6">
         <h2 id="contacto-info-heading">{sedePrincipal.nombre}</h2>
-        <address class="mt-4 not-italic space-y-2">
+        <address class="mt-4 not-italic space-y-1 text-sm text-gray-600">
           <p>{sedePrincipal.direccion}</p>
           <p>{sedePrincipal.ciudad}</p>
         </address>
 
-        <div class="mt-6 flex flex-col gap-4">
-          <a href={waUrl} target="_blank" rel="noopener noreferrer">
+        <div class="mt-6 flex flex-col gap-3">
+          <a href={waUrl} target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center gap-2 rounded-lg bg-green-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-700 active:scale-95 transition-all duration-200">
             WhatsApp: {sedePrincipal.whatsapp}
           </a>
-          <a href={`tel:${sedePrincipal.telefono}`}>
+          <a href={`tel:${sedePrincipal.telefono}`}
+             class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200">
             Llamar: {sedePrincipal.telefono}
           </a>
         </div>
 
-        <p class="mt-6">
+        <p class="mt-6 text-sm text-gray-600">
           {/* TODO (content-needed): Add form in v2 (Resend / Formspree) */}
           Para otras consultas también puedes escribirnos a{' '}
-          <a href="mailto:info@ciclaboratorios.com">
+          <a href="mailto:info@ciclaboratorios.com" class="text-red-600 hover:text-red-700 transition-colors duration-200">
             info@ciclaboratorios.com
           </a>
         </p>
 
         <p class="mt-4">
-          <a href="/sedes">Ver todas las sedes →</a>
+          <a href="/sedes" class="text-sm font-medium text-gray-700 hover:text-red-600 transition-colors duration-200">
+            Ver todas las sedes →
+          </a>
         </p>
       </section>
 
@@ -53,11 +57,11 @@ const waUrl = `https://wa.me/${whatsapp}?text=${encodeURIComponent('Hola, quisie
         </h2>
         {/* TODO (blocking-for-v1.1): Replace with real map embed */}
         <div
-          class="aspect-video w-full"
+          class="aspect-video w-full rounded-xl bg-gray-100 flex items-center justify-center text-gray-400 text-sm"
           role="img"
           aria-label={`Mapa de ${sedePrincipal.nombre} — próximamente`}
         >
-          <p>[ Mapa — próximamente ]</p>
+          Mapa próximamente
         </div>
       </section>
 

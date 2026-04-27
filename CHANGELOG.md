@@ -9,7 +9,48 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 ## [Unreleased]
 
+### Added (Tier 2 design pass + a11y)
+- `src/styles/global.css`: red `*:focus-visible` outline (2px solid #dc2626) across all interactive elements; `@media (prefers-reduced-motion: reduce)` disables `.sede-pulse` animation
+- `src/components/Header.astro`: wordmark changed from `text-blue-700` → `text-red-600`; nav links use `class:list` with `Astro.url.pathname` comparison to highlight the active section (red-50 bg / red-700 text / semibold); hamburger focus ring updated from `ring-blue-500` → `ring-red-500`
+- `src/pages/sedes/index.astro`: lifted-card styling for each sede (border, hover shadow + translate), green pill badge for "Sede principal", gray address text, red "Ver detalles →" link
+- `src/pages/sedes/[slug].astro`: three-button CTA row (green WhatsApp / ghost Llamar / ghost Cómo llegar); horario table with alternating `even:bg-gray-50` rows, `<caption class="sr-only">`, and proper cell padding; services grid → pill tags; map placeholder → styled gray rounded div; nearby-sedes → bordered mini-cards with hover lift; secondary arrow links styled
+- `src/pages/examenes/index.astro`: category grid → flex pill tags; raw `<em>` search placeholder → styled dashed coming-soon box
+- `src/pages/examenes/[slug].astro`: 4-stat strip → grid of bordered stat cells with small uppercase labels; CTA group → green + ghost + ghost buttons; sedes list → small pill tags; related exams → bordered card links with hover red border; WhatsApp CTA → gray-50 banner section with centered heading + green button; medical disclaimer → muted italic text with `border-t`
+- `src/pages/examenes/categoria/[slug].astro`: exam list → bordered card links with amber "Ayuno" badge inline
+- `src/pages/examenes/perfiles/index.astro`: bare list items → full-card links with exam count pill and optional price display
+- `src/pages/examenes/perfiles/[slug].astro`: included exam slugs humanized to readable names (`replace(/-/g,' ')` + capitalize); ✓ checkmark bullet styling; CTA → green WhatsApp button
+- `src/pages/servicios/index.astro`: added missing `max-w-7xl` layout wrapper; service list → group full-card links (same pattern as homepage — hover lift, red title, sliding arrow)
+- `src/pages/servicios/[slug].astro`: CTA → green button for WhatsApp, red button otherwise; sedes list → pill tags
+- `src/pages/pacientes/preparacion.astro`: anchor nav → pill tags; all section `<h2>` headings get `border-l-4 border-red-300 pl-4` accent
+- `src/pages/pacientes/derechos-deberes.astro`: each column section wrapped in `rounded-xl bg-gray-50 p-6` card; headings get red accent border; ordered lists styled with `list-decimal list-inside`
+- `src/pages/pacientes/preguntas-frecuentes.astro`: `<dl>` → `<div>`; `<details>` accordion gets bordered card wrapper, `<summary>` with chevron SVG that rotates 180° on open, answer panel with `border-t`; bottom CTAs → green + ghost buttons
+- `src/pages/contacto.astro`: contact info section wrapped in bordered card; CTA links → green button (WhatsApp) + ghost button (Llamar); map placeholder → styled gray rounded div; email link red
+- `src/pages/empresas.astro`: value-prop articles → bordered cards; service articles → bordered cards with red text links; CTA group → green + ghost buttons
+- `src/pages/laboratorios.astro`: differentiator articles → bordered cards; CTA group → green + ghost buttons
+- `src/components/islands/WhatsAppFloating.vue`: replaced emoji 💬 with official WhatsApp SVG icon; replaced inline `style` attribute with `<style scoped>`; added `wa-enter` CSS animation (fade + translateY 1rem → 0, 300ms ease); hover scales button to 1.1×
+
 ### Added
+- `SedeMapD3.vue`: interactive Valle del Cauca department map as a Vue island — real 121-point boundary from GADM/DANE dataset; linear geographic projection (replaces D3 which broke under Vue reactive proxy); SVG `<polygon>` outline (light red fill `#fff1f2`) + animated `<circle>` markers; pulse-ring animation via CSS `@keyframes`; hover tooltip on desktop / tap-toggle on mobile shows sede name, city, address, phone, and "Ver sede completa" CTA; Buga (sede principal) rendered larger and green; fixed-position tooltip via `<Teleport to="body">` guarded by `isMounted` to avoid SSR hydration mismatch; `client:visible` hydration; hidden on mobile (`hidden sm:block`) to avoid dot overlap; count label above + dot legend + hover hint below
+- `public/geojson/valle-del-cauca.json`: full 726-point real Valle del Cauca boundary from GADM/DANE source (replaces hand-crafted approximation)
+- `src/content/sedes/*.json`: added `lat`/`lng` coordinates to all 17 sede entries
+- `src/pages/sedes/index.astro`: replaced `[ Mapa interactivo — próximamente ]` placeholder with `SedeMapD3` island
+- `src/pages/index.astro`: added `SedeMapD3` island to homepage sede map section (replaces TODO placeholder); same mobile-hidden + legend pattern as sedes page
+
+### Changed
+- `SedeMapD3.vue`: dropped D3-geo entirely after `geoMercator` projection failed under Vue reactive proxy (all 17 sedes clustered within 3 px at default scale 150); replaced with simple linear `project(lng, lat, w, h)` function — indistinguishable from Mercator at 1.5° scale; SVG is the component root element so `getBoundingClientRect().width` is measured directly (avoids `clientHeight: 0` on aspect-ratio containers); GeoJSON polygon now hardcoded in component (no async fetch)
+- `public/geojson/valle-del-cauca.json`: updated from 23-point hand-crafted approximation to real 726-point GADM/DANE dataset
+- `src/styles/global.css`: added `@layer base` typography — h1 3xl→4xl responsive / h2 2xl / h3 xl / h4 lg, all semibold/bold with tight tracking; `p` leading-relaxed; links inherit color (no forced blue); buttons get cursor-pointer and 150ms transition
+
+### Added (homepage design pass)
+- `src/pages/index.astro` — visual design pass on all interactive elements:
+  - **Hero CTAs**: three-button hierarchy — primary (red filled), secondary (ghost/border), WhatsApp (green); all with `active:scale-95` press feel
+  - **Audience cards** ("Soy paciente / empresa / laboratorio"): `rounded-xl border` card with `hover:shadow-lg hover:-translate-y-1` lift; internal links styled as red accent arrows
+  - **Exam category links**: grid → `flex-wrap` pill tags (`rounded-full bg-gray-100`) with `hover:bg-red-50 hover:text-red-700`
+  - **Service cards**: entire card is a block link with `group-hover` — title turns red, arrow slides right via `group-hover:translate-x-1`
+  - **Secondary CTAs** ("Ver todas las sedes →" etc.): consistent `text-sm font-medium hover:text-red-600 transition-colors`
+- `src/content/sedes/*.json`: added approximate `lat`/`lng` coordinates to all 17 sede entries (city-level accuracy, sufficient for the map visualization)
+- `src/pages/sedes/index.astro`: replaced `[ Mapa interactivo — próximamente ]` placeholder with `SedeMapD3` island
+- `Breadcrumb.astro`: reusable breadcrumb component; also applied to `examenes/categoria/[slug].astro`, `examenes/perfiles/[slug].astro`, and `examenes/perfiles/index.astro` which were missed in the structural layout pass (added layout wrappers, replaced bare `<nav>` breadcrumbs, fixed hardcoded WhatsApp in perfiles) — accepts `items: Array<{ label: string; href?: string }>`, renders styled `<nav>` with muted ancestor links (`text-gray-500`), light separator (`text-gray-300`), and bold current-page span (`font-medium text-gray-800`); replaces inline nav blocks in `sedes/[slug].astro`, `examenes/[slug].astro`, and `servicios/[slug].astro`
 - `src/lib/config.ts`: `SITE_CONFIG` (name, url, whatsapp, sedePrincipal from `buga.json`) and `CATEGORIAS` array — single source of truth for site-wide config; replaces all hardcoded phone/address strings across pages
 - **Structural layout pass** — all pages now have `max-w-7xl mx-auto px-4` wrappers, semantic section/article/nav/address elements, mobile-first grid/flex breakpoints. Tailwind structural utilities only (no color, shadow, or border-radius classes added in this pass):
   - `index.astro`: 9 sections with layout (hero, pillars 2×2→4-col, audience 3-col, sede map, category grid, services grid, humanización, quality strip, aliados grid)

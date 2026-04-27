@@ -22,16 +22,19 @@ const examenes = await getCollection(
     </header>
 
     <!-- TODO (blocking-for-v1.1): Replace with ExamSearch island once Pagefind is configured -->
-    <p class="mt-6">
-      <em>[ Buscador por nombre — pendiente integración Pagefind ]</em>
-    </p>
+    <div class="mt-8 rounded-xl border border-dashed border-gray-300 bg-gray-50 p-6 text-center">
+      <p class="text-sm text-gray-500">Buscador por nombre — próximamente</p>
+    </div>
 
     <section aria-labelledby="categorias-heading" class="mt-10">
       <h2 id="categorias-heading">Buscar por categoría</h2>
-      <ul role="list" class="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3">
+      <ul role="list" class="mt-6 flex flex-wrap gap-3">
         {CATEGORIAS.map((cat) => (
           <li>
-            <a href={`/examenes/categoria/${cat.slug}`}>{cat.label}</a>
+            <a href={`/examenes/categoria/${cat.slug}`}
+               class="inline-flex items-center rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-red-50 hover:text-red-700 transition-colors duration-200">
+              {cat.label}
+            </a>
           </li>
         ))}
       </ul>

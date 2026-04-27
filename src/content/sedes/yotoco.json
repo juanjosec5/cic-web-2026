@@ -6,8 +6,13 @@
   "telefono": "316 017 6049",
   "whatsapp": "316 017 6049",
   "horario": {},
-  "servicios": ["toma-muestras", "validacion-qr"],
+  "servicios": [
+    "toma-muestras",
+    "validacion-qr"
+  ],
   "fotos": [],
   "convenios": [],
-  "esSedePrincipal": false
+  "esSedePrincipal": false,
+  "lat": 3.866,
+  "lng": -76.400
 }

@@ -9,23 +9,14 @@
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
+import { CATEGORIAS } from '@/lib/config';
 
 interface Props {
   categoria: CollectionEntry<'examenes'>['data']['categoria'];
   examenes: CollectionEntry<'examenes'>['data'][];
+  label: string;
 }
-
-const CATEGORIA_LABELS: Record<string, string> = {
-  quimica: 'Química Sanguínea',
-  microbiologia: 'Microbiología',
-  hematologia: 'Hematología',
-  inmunologia: 'Inmunología',
-  genetica: 'Genética',
-  hormonas: 'Hormonas',
-  orina: 'Orina y Líquidos',
-  parasitologia: 'Parasitología',
-  otros: 'Otros',
-};
 
 export async function getStaticPaths() {
   const examenes = await getCollection(
@@ -33,43 +24,59 @@ export async function getStaticPaths() {
     ({ data }: CollectionEntry<'examenes'>) => data.activo
   );
 
-  // Collect unique categorias
   const categorias = [
     ...new Set(examenes.map((e: CollectionEntry<'examenes'>) => e.data.categoria)),
   ];
 
-  return categorias.map((categoria) => ({
-    params: { slug: categoria },
-    props: {
-      categoria,
-      examenes: examenes
-        .filter((e: CollectionEntry<'examenes'>) => e.data.categoria === categoria)
-        .map((e: CollectionEntry<'examenes'>) => e.data),
-    },
-  }));
+  return categorias.map((categoria) => {
+    const label =
+      CATEGORIAS.find((c) => c.slug === categoria)?.label ?? categoria;
+    return {
+      params: { slug: categoria },
+      props: {
+        categoria,
+        label,
+        examenes: examenes
+          .filter((e: CollectionEntry<'examenes'>) => e.data.categoria === categoria)
+          .map((e: CollectionEntry<'examenes'>) => e.data),
+      },
+    };
+  });
 }
 
-const { categoria, examenes } = Astro.props;
-const label = CATEGORIA_LABELS[categoria] ?? categoria;
+const { categoria, label, examenes } = Astro.props;
 ---
 
 <BaseLayout
   title={`Exámenes de ${label}`}
   description={`Exámenes de ${label} disponibles en CIC Laboratorios. Resultados el mismo día.`}
 >
-  <nav aria-label="Migas de pan">
-    <a href="/examenes">Exámenes</a> › {label}
-  </nav>
+  <div class="mx-auto max-w-4xl px-4 py-8 sm:px-6">
 
-  <h1>Exámenes de {label}</h1>
-  <p>{examenes.length} examen(es) en esta categoría.</p>
+    <Breadcrumb items={[
+      { label: 'Inicio', href: '/' },
+      { label: 'Exámenes', href: '/examenes' },
+      { label },
+    ]} />
 
-  <ul>
-    {examenes.map((ex) => (
-      <li>
-        <a href={`/examenes/${ex.slug}`}>{ex.nombre}</a>
-        {ex.requiereAyuno && <em> (requiere ayuno)</em>}
-      </li>
-    ))}
-  </ul>
+    <header>
+      <h1>Exámenes de {label}</h1>
+      <p class="mt-2">{examenes.length} exámen(es) en esta categoría.</p>
+    </header>
+
+    <ul role="list" class="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+      {examenes.map((ex) => (
+        <li>
+          <a href={`/examenes/${ex.slug}`}
+             class="flex items-center justify-between rounded-lg border border-gray-200 px-4 py-3 text-sm font-medium text-gray-900 transition-colors duration-200 hover:border-red-200 hover:text-red-700">
+            <span>{ex.nombre}</span>
+            {ex.requiereAyuno && (
+              <span class="ml-2 shrink-0 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-700">Ayuno</span>
+            )}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+  </div>
 </BaseLayout>
