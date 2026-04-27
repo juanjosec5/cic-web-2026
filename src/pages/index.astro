@@ -41,9 +41,16 @@ const sedesParaMapa = sedes
         sin cita previa, en {sedes.length} sedes del Valle del Cauca.
       </p>
       <div class="mt-8 flex flex-wrap justify-center gap-4">
-        <a href="/sedes">Encontrar sede</a>
-        <a href="/examenes">Ver exámenes</a>
-        <a href={waHero} target="_blank" rel="noopener noreferrer">
+        <a href="/sedes"
+           class="inline-flex items-center rounded-lg bg-red-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-red-700 active:scale-95 transition-all duration-200">
+          Encontrar sede
+        </a>
+        <a href="/examenes"
+           class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200">
+          Ver exámenes
+        </a>
+        <a href={waHero} target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center rounded-lg bg-green-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-green-700 active:scale-95 transition-all duration-200">
           Contáctanos por WhatsApp
         </a>
       </div>
@@ -80,21 +87,27 @@ const sedesParaMapa = sedes
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
       <h2 id="audience-heading">¿Cómo podemos ayudarte?</h2>
       <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-        <article>
+        <article class="rounded-xl border border-gray-200 p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
           <h3>Soy paciente</h3>
-          <p>Resultados rápidos, sin cita, con atención humanizada.</p>
-          <a href="/examenes">Ver exámenes</a>
-          <a href="/pacientes/preparacion">Preparación de exámenes</a>
+          <p class="mt-2 text-gray-600">Resultados rápidos, sin cita, con atención humanizada.</p>
+          <div class="mt-4 flex flex-col gap-2">
+            <a href="/examenes" class="text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200">Ver exámenes →</a>
+            <a href="/pacientes/preparacion" class="text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200">Preparación de exámenes →</a>
+          </div>
         </article>
-        <article>
+        <article class="rounded-xl border border-gray-200 p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
           <h3>Soy empresa</h3>
-          <p>Salud ocupacional, jornadas empresariales y convenios.</p>
-          <a href="/empresas">Servicios para empresas</a>
+          <p class="mt-2 text-gray-600">Salud ocupacional, jornadas empresariales y convenios.</p>
+          <div class="mt-4">
+            <a href="/empresas" class="text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200">Servicios para empresas →</a>
+          </div>
         </article>
-        <article>
+        <article class="rounded-xl border border-gray-200 p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
           <h3>Soy laboratorio / IPS</h3>
-          <p>Referencia de muestras y alianzas estratégicas.</p>
-          <a href="/laboratorios">Alianzas con laboratorios</a>
+          <p class="mt-2 text-gray-600">Referencia de muestras y alianzas estratégicas.</p>
+          <div class="mt-4">
+            <a href="/laboratorios" class="text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200">Alianzas con laboratorios →</a>
+          </div>
         </article>
       </div>
     </div>
@@ -121,7 +134,7 @@ const sedesParaMapa = sedes
         </div>
       </div>
 
-      <a href="/sedes" class="mt-6 inline-block">Ver todas las sedes →</a>
+      <a href="/sedes" class="mt-6 inline-block text-sm font-medium text-gray-700 hover:text-red-600 transition-colors duration-200">Ver todas las sedes →</a>
     </div>
   </section>
 
@@ -129,14 +142,17 @@ const sedesParaMapa = sedes
   <section aria-labelledby="categorias-heading" class="py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
       <h2 id="categorias-heading">Exámenes por categoría</h2>
-      <ul role="list" class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3">
+      <ul role="list" class="mt-8 flex flex-wrap gap-3">
         {CATEGORIAS.map((cat) => (
           <li>
-            <a href={`/examenes/categoria/${cat.slug}`}>{cat.label}</a>
+            <a href={`/examenes/categoria/${cat.slug}`}
+               class="inline-flex items-center rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-red-50 hover:text-red-700 transition-colors duration-200">
+              {cat.label}
+            </a>
           </li>
         ))}
       </ul>
-      <a href="/examenes" class="mt-6 inline-block">Ver todos los exámenes →</a>
+      <a href="/examenes" class="mt-6 inline-block text-sm font-medium text-gray-700 hover:text-red-600 transition-colors duration-200">Ver todos los exámenes →</a>
     </div>
   </section>
 
@@ -147,14 +163,16 @@ const sedesParaMapa = sedes
       <ul role="list" class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {servicios.map((servicio: CollectionEntry<'servicios'>) => (
           <li>
-            <article>
-              <h3>
-                <a href={`/servicios/${servicio.data.slug}`}>
-                  {servicio.data.nombre}
-                </a>
+            <a href={`/servicios/${servicio.data.slug}`}
+               class="group block rounded-xl border border-gray-200 p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
+              <h3 class="font-semibold transition-colors duration-200 group-hover:text-red-600">
+                {servicio.data.nombre}
               </h3>
-              <p>{servicio.data.descripcion}</p>
-            </article>
+              <p class="mt-2 text-sm text-gray-600">{servicio.data.descripcion}</p>
+              <span class="mt-4 inline-block text-sm font-medium text-red-600 transition-transform duration-200 group-hover:translate-x-1">
+                Ver servicio →
+              </span>
+            </a>
           </li>
         ))}
       </ul>
@@ -181,7 +199,7 @@ const sedesParaMapa = sedes
           <cite>— Nombre, Ciudad</cite>
         </blockquote>
       </div>
-      <a href="/nosotros" class="mt-6 inline-block">Conocer al equipo →</a>
+      <a href="/nosotros" class="mt-6 inline-block text-sm font-medium text-gray-700 hover:text-red-600 transition-colors duration-200">Conocer al equipo →</a>
     </div>
   </section>
 
@@ -203,7 +221,7 @@ const sedesParaMapa = sedes
             {/* TODO (content-needed): Add official patient safety policy summary */}
             Protocolos rigurosos que garantizan la seguridad en cada etapa.
           </p>
-          <a href="/nosotros#calidad">Ver certificaciones →</a>
+          <a href="/nosotros#calidad" class="text-sm font-medium text-gray-700 hover:text-red-600 transition-colors duration-200">Ver certificaciones →</a>
         </li>
         <li>
           <strong>Validación QR</strong>
@@ -240,7 +258,7 @@ const sedesParaMapa = sedes
         href={`https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent('Quisiera información sobre convenios con CIC Laboratorios.')}`}
         target="_blank"
         rel="noopener noreferrer"
-        class="mt-6 inline-block"
+        class="mt-6 inline-block text-sm font-medium text-gray-700 hover:text-red-600 transition-colors duration-200"
       >
         Consultar convenios por WhatsApp →
       </a>
