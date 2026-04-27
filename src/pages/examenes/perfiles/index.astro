@@ -33,14 +33,23 @@ const perfiles = await getCollection('perfiles');
     <ul role="list" class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
       {perfiles.map((perfil: CollectionEntry<'perfiles'>) => (
         <li>
-          <a href={`/examenes/perfiles/${perfil.data.slug}`}>
-            <strong>{perfil.data.nombre}</strong>
+          <a href={`/examenes/perfiles/${perfil.data.slug}`}
+             class="group block rounded-xl border border-gray-200 p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
+            <h2 class="font-semibold text-gray-900 transition-colors duration-200 group-hover:text-red-600">
+              {perfil.data.nombre}
+            </h2>
+            <p class="mt-2 text-sm text-gray-600">{perfil.data.descripcion}</p>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-600">
+                {perfil.data.examenesIncluidos.length} exámenes incluidos
+              </span>
+              {perfil.data.precio && (
+                <span class="text-sm font-medium text-gray-700">
+                  ${perfil.data.precio.toLocaleString('es-CO')}
+                </span>
+              )}
+            </div>
           </a>
-          <p class="mt-1">{perfil.data.descripcion}</p>
-          {perfil.data.precio && (
-            <p class="mt-1">Precio referencial: ${perfil.data.precio.toLocaleString('es-CO')}</p>
-          )}
-          <p class="mt-1">{perfil.data.examenesIncluidos.length} exámen(es) incluido(s)</p>
         </li>
       ))}
     </ul>

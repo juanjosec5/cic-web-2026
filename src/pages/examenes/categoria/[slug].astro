@@ -67,8 +67,13 @@ const { categoria, label, examenes } = Astro.props;
     <ul role="list" class="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
       {examenes.map((ex) => (
         <li>
-          <a href={`/examenes/${ex.slug}`}>{ex.nombre}</a>
-          {ex.requiereAyuno && <em> (requiere ayuno)</em>}
+          <a href={`/examenes/${ex.slug}`}
+             class="flex items-center justify-between rounded-lg border border-gray-200 px-4 py-3 text-sm font-medium text-gray-900 transition-colors duration-200 hover:border-red-200 hover:text-red-700">
+            <span>{ex.nombre}</span>
+            {ex.requiereAyuno && (
+              <span class="ml-2 shrink-0 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-700">Ayuno</span>
+            )}
+          </a>
         </li>
       ))}
     </ul>

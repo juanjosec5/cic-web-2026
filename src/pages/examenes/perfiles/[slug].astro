@@ -54,15 +54,20 @@ const waUrl = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(`
         <h2 id="examenes-incluidos-heading">Exámenes incluidos</h2>
         <ul role="list" class="mt-4 space-y-2">
           {perfil.examenesIncluidos.map((slug: string) => (
-            <li>
-              <a href={`/examenes/${slug}`}>{slug}</a>
+            <li class="flex items-center gap-2 text-sm text-gray-700">
+              <span class="font-bold text-green-600">✓</span>
+              <a href={`/examenes/${slug}`}
+                 class="hover:text-red-600 transition-colors duration-200">
+                {slug.replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase())}
+              </a>
             </li>
           ))}
         </ul>
       </section>
 
       <div class="mt-8">
-        <a href={waUrl} target="_blank" rel="noopener noreferrer">
+        <a href={waUrl} target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 rounded-lg bg-green-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-700 active:scale-95 transition-all duration-200">
           Solicitar por WhatsApp
         </a>
       </div>

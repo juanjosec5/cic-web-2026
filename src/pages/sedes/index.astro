@@ -62,23 +62,27 @@ const sedesParaMapa = sedesOrdenadas
       <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {sedesOrdenadas.map((sede: CollectionEntry<'sedes'>) => (
           <li>
-            <article>
-              <header>
-                <h2>
-                  <a href={`/sedes/${sede.data.slug}`}>{sede.data.nombre}</a>
+            <article class="rounded-xl border border-gray-200 p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
+              <header class="flex items-start justify-between gap-3">
+                <h2 class="text-base font-semibold text-gray-900">
+                  <a href={`/sedes/${sede.data.slug}`} class="hover:text-red-600 transition-colors duration-200">
+                    {sede.data.nombre}
+                  </a>
                 </h2>
                 {sede.data.esSedePrincipal && (
-                  <p>Sede principal</p>
+                  <span class="shrink-0 inline-flex items-center rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-700">
+                    Sede principal
+                  </span>
                 )}
               </header>
-              <address class="mt-2 not-italic">
+              <address class="mt-2 text-sm text-gray-500 not-italic space-y-0.5">
                 <p>{sede.data.direccion}</p>
                 <p>{sede.data.ciudad}</p>
                 <p>
-                  <a href={`tel:${sede.data.telefono}`}>{sede.data.telefono}</a>
+                  <a href={`tel:${sede.data.telefono}`} class="hover:text-red-600 transition-colors duration-200">{sede.data.telefono}</a>
                 </p>
               </address>
-              <a href={`/sedes/${sede.data.slug}`} class="mt-4 inline-block">
+              <a href={`/sedes/${sede.data.slug}`} class="mt-4 inline-block text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200">
                 Ver detalles →
               </a>
             </article>

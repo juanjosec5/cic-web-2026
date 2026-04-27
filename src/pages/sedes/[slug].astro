@@ -57,14 +57,17 @@ const SERVICIO_LABELS: Record<string, string> = {
     </header>
 
     <!-- CTA group -->
-    <div class="mt-6 flex flex-wrap gap-4">
-      <a href={waUrl} target="_blank" rel="noopener noreferrer">
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a href={waUrl} target="_blank" rel="noopener noreferrer"
+         class="inline-flex items-center gap-2 rounded-lg bg-green-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-700 active:scale-95 transition-all duration-200">
         WhatsApp
       </a>
-      <a href={`tel:${sede.telefono}`}>
+      <a href={`tel:${sede.telefono}`}
+         class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200">
         Llamar ({sede.telefono})
       </a>
-      <a href={mapsUrl} target="_blank" rel="noopener noreferrer">
+      <a href={mapsUrl} target="_blank" rel="noopener noreferrer"
+         class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200">
         Cómo llegar
       </a>
     </div>
@@ -75,13 +78,14 @@ const SERVICIO_LABELS: Record<string, string> = {
       <!-- Hours block -->
       <section aria-labelledby="horario-heading">
         <h2 id="horario-heading">Horario de atención</h2>
-        <table class="mt-4 w-full">
+        <table class="mt-4 w-full text-sm">
+          <caption class="sr-only">Horario de atención de {sede.nombre}</caption>
           <tbody>
             {Object.entries(sede.horario).map(([dia, horas]) => (
               horas ? (
-                <tr>
-                  <th scope="row" class="capitalize text-left pr-4">{dia}</th>
-                  <td>{horas}</td>
+                <tr class="even:bg-gray-50">
+                  <th scope="row" class="py-2 pr-4 capitalize text-left font-medium text-gray-700">{dia}</th>
+                  <td class="py-2 text-gray-600">{horas}</td>
                 </tr>
               ) : null
             ))}
@@ -113,10 +117,12 @@ const SERVICIO_LABELS: Record<string, string> = {
     <section aria-labelledby="mapa-heading" class="mt-10">
       <h2 id="mapa-heading">Cómo llegar</h2>
       <!-- TODO (blocking-for-v1.1): Replace with real map embed (lat/lng available when populated) -->
-      <div class="mt-4 aspect-video w-full" role="img" aria-label={`Mapa de ${sede.nombre} — próximamente`}>
-        <p>[ Mapa — próximamente ]</p>
+      <div class="mt-4 aspect-video w-full rounded-xl bg-gray-100 flex items-center justify-center text-gray-400 text-sm"
+           role="img" aria-label={`Mapa de ${sede.nombre} — próximamente`}>
+        Mapa próximamente
       </div>
-      <a href={mapsUrl} target="_blank" rel="noopener noreferrer" class="mt-2 inline-block">
+      <a href={mapsUrl} target="_blank" rel="noopener noreferrer"
+         class="mt-2 inline-block text-sm font-medium text-gray-700 hover:text-red-600 transition-colors duration-200">
         Abrir en Google Maps →
       </a>
     </section>
@@ -124,10 +130,11 @@ const SERVICIO_LABELS: Record<string, string> = {
     <!-- Services grid -->
     <section aria-labelledby="servicios-sede-heading" class="mt-10">
       <h2 id="servicios-sede-heading">Servicios disponibles</h2>
-      <ul role="list" class="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3">
+      <ul role="list" class="mt-4 flex flex-wrap gap-2">
         {sede.servicios.map((s: string) => (
           <li>
-            <a href={`/servicios/${s}`}>
+            <a href={`/servicios/${s}`}
+               class="inline-flex items-center rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-red-50 hover:text-red-700 transition-colors duration-200">
               {SERVICIO_LABELS[s] ?? s}
             </a>
           </li>
@@ -173,15 +180,17 @@ const SERVICIO_LABELS: Record<string, string> = {
       <h2 id="otras-sedes-heading">Otras sedes</h2>
       <ul role="list" class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
         {otrosSedes.map((otra) => (
-          <li>
-            <a href={`/sedes/${otra.slug}`}>
-              <strong>{otra.nombre}</strong>
+          <li class="rounded-xl border border-gray-200 p-4 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5">
+            <a href={`/sedes/${otra.slug}`} class="font-semibold text-gray-900 hover:text-red-600 transition-colors duration-200">
+              {otra.nombre}
             </a>
-            <p>{otra.ciudad}</p>
+            <p class="mt-1 text-sm text-gray-500">{otra.ciudad}</p>
           </li>
         ))}
       </ul>
-      <a href="/sedes" class="mt-4 inline-block">Ver todas las sedes →</a>
+      <a href="/sedes" class="mt-4 inline-block text-sm font-medium text-gray-700 hover:text-red-600 transition-colors duration-200">
+        Ver todas las sedes →
+      </a>
     </section>
 
   </div>
