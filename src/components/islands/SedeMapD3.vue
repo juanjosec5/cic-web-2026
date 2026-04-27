@@ -16,25 +16,56 @@ interface SedePin {
 const props = defineProps<{ sedes: SedePin[] }>()
 
 // ─── Polygon + projection ────────────────────────────────────────────────────
-// Simplified Valle del Cauca boundary (Cauca Valley focus, Pacific coast trimmed).
-// [lng, lat] pairs — same data as public/geojson/valle-del-cauca.json.
+// Simplified Valle del Cauca boundary — clockwise from NE corner.
+// Includes Pacific coast extension (lngs ~-77.5) which previous version omitted.
+// [lng, lat] pairs.
 const POLY: [number, number][] = [
-  [-75.50, 4.88], [-75.55, 4.90], [-75.73, 4.93],
-  [-75.95, 4.97], [-76.20, 4.95], [-76.50, 4.90],
-  [-76.80, 4.80], [-76.90, 4.60], [-76.90, 4.30],
-  [-76.85, 4.00], [-76.80, 3.80], [-76.70, 3.60],
-  [-76.58, 3.43], [-76.35, 3.43], [-76.10, 3.45],
-  [-75.88, 3.50], [-75.70, 3.54], [-75.58, 3.60],
-  [-75.52, 3.75], [-75.50, 4.00], [-75.50, 4.25],
-  [-75.50, 4.50], [-75.50, 4.75],
+  // East border — NE corner (Caicedonia area)
+  [-75.50, 4.88],
+  [-75.46, 4.94],
+  // Northern bulge (Cartago / Obando area)
+  [-75.58, 5.01],
+  [-75.82, 5.02],
+  [-76.05, 4.99],
+  // West along north border toward Chocó
+  [-76.28, 4.95],
+  [-76.50, 4.90],
+  [-76.70, 4.83],
+  [-76.88, 4.72],
+  // Northwest to Pacific coast
+  [-77.05, 4.55],
+  [-77.18, 4.38],
+  // Pacific coast heading south
+  [-77.35, 4.15],
+  [-77.48, 3.90],
+  // Buenaventura bay area
+  [-77.42, 3.73],
+  [-77.28, 3.58],
+  // South Pacific coast
+  [-77.10, 3.47],
+  [-76.88, 3.40],
+  // Southern border going east (border with Cauca dept.)
+  [-76.65, 3.39],
+  [-76.45, 3.42],
+  [-76.25, 3.46],
+  [-76.05, 3.50],
+  // Southeast corner
+  [-75.87, 3.56],
+  [-75.70, 3.63],
+  // East border going north (Cordillera Central)
+  [-75.58, 3.78],
+  [-75.47, 3.98],
+  [-75.43, 4.22],
+  [-75.43, 4.50],
+  [-75.46, 4.72],
 ]
 
-// Geographic bounding box (padded beyond polygon + all sede coords).
-const WEST = -76.97, EAST = -75.43
-const SOUTH = 3.38,  NORTH = 5.02
+// Geographic bounding box — padded to include full Pacific coast extension.
+const WEST = -77.58, EAST = -75.37
+const SOUTH = 3.32,  NORTH = 5.08
 
-// SVG aspect ratio derived from the geographic bounding box.
-// height / width = (NORTH - SOUTH) / (EAST - WEST) = 1.64 / 1.54 ≈ 1.065
+// SVG aspect ratio. Including Pacific coast makes the dept. wider than tall.
+// height / width = (NORTH - SOUTH) / (EAST - WEST) = 1.76 / 2.21 ≈ 0.80
 const RATIO = (NORTH - SOUTH) / (EAST - WEST)
 
 /**
