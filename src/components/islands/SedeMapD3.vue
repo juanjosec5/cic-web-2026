@@ -160,8 +160,8 @@ onUnmounted(() => {
     <!-- Department outline -->
     <polygon
       :points="polygonPoints"
-      fill="#f0fdf4"
-      stroke="#4ade80"
+      fill="#fff1f2"
+      stroke="#fca5a5"
       stroke-width="1.5"
       stroke-linejoin="round"
       pointer-events="none"
@@ -180,7 +180,7 @@ onUnmounted(() => {
       <circle
         :cx="sede.cx"
         :cy="sede.cy"
-        :r="sede.esSedePrincipal ? 10 : 7"
+        :r="sede.esSedePrincipal ? 14 : 10"
         :fill="sede.esSedePrincipal ? '#34d399' : '#60a5fa'"
         class="sede-pulse"
         pointer-events="none"
@@ -189,7 +189,7 @@ onUnmounted(() => {
       <circle
         :cx="sede.cx"
         :cy="sede.cy"
-        :r="sede.esSedePrincipal ? 5 : 3.5"
+        :r="sede.esSedePrincipal ? 7 : 5"
         :fill="sede.esSedePrincipal ? '#059669' : '#2563eb'"
         stroke="white"
         stroke-width="1.5"
