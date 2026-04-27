@@ -99,16 +99,19 @@ const grupos = [
       {grupos.map((grupo) => (
         <section id={grupo.id} aria-labelledby={`${grupo.id}-heading`}>
           <h2 id={`${grupo.id}-heading`}>{grupo.titulo}</h2>
-          <dl class="mt-6 space-y-4">
+          <div class="mt-6 space-y-3">
             {grupo.faqs.map((faq) => (
-              <details>
-                <summary>
-                  <strong>{faq.pregunta}</strong>
+              <details class="group rounded-lg border border-gray-200 overflow-hidden">
+                <summary class="flex cursor-pointer list-none items-center justify-between p-4 font-medium text-gray-900 hover:bg-gray-50 transition-colors duration-200">
+                  <span>{faq.pregunta}</span>
+                  <svg class="h-5 w-5 shrink-0 text-gray-500 transition-transform duration-200 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                  </svg>
                 </summary>
-                <p class="mt-2 pl-4">{faq.respuesta}</p>
+                <p class="border-t border-gray-100 px-4 py-4 text-sm text-gray-600">{faq.respuesta}</p>
               </details>
             ))}
-          </dl>
+          </div>
         </section>
       ))}
     </div>
@@ -116,11 +119,15 @@ const grupos = [
     <section aria-labelledby="mas-preguntas-heading" class="mt-12">
       <h2 id="mas-preguntas-heading">¿No encontraste tu respuesta?</h2>
       <p class="mt-4">Escríbenos directamente:</p>
-      <div class="mt-4 flex flex-wrap gap-4">
-        <a href={waFaq} target="_blank" rel="noopener noreferrer">
+      <div class="mt-4 flex flex-wrap gap-3">
+        <a href={waFaq} target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 rounded-lg bg-green-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-700 active:scale-95 transition-all duration-200">
           Preguntar por WhatsApp
         </a>
-        <a href="/contacto">Ir a Contacto</a>
+        <a href="/contacto"
+           class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200">
+          Ir a Contacto
+        </a>
       </div>
     </section>
 

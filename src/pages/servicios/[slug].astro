@@ -58,10 +58,13 @@ const ctaUrl =
         {sedesData.length === 0 || servicio.sedesDisponibles[0] === 'todas' ? (
           <p class="mt-4">Disponible en todas nuestras sedes.</p>
         ) : (
-          <ul role="list" class="mt-4 flex flex-wrap gap-4">
+          <ul role="list" class="mt-4 flex flex-wrap gap-2">
             {sedesData.map(({ slug, nombre }) => (
               <li>
-                <a href={`/sedes/${slug}`}>{nombre}</a>
+                <a href={`/sedes/${slug}`}
+                   class="inline-flex items-center rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-red-50 hover:text-red-700 transition-colors duration-200">
+                  {nombre}
+                </a>
               </li>
             ))}
           </ul>
@@ -72,6 +75,11 @@ const ctaUrl =
       <div class="mt-8">
         <a
           href={ctaUrl}
+          class:list={[
+            servicio.ctaTipo === 'whatsapp'
+              ? "inline-flex items-center gap-2 rounded-lg bg-green-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-700 active:scale-95 transition-all duration-200"
+              : "inline-flex items-center rounded-lg bg-red-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-700 active:scale-95 transition-all duration-200"
+          ]}
           {...(servicio.ctaTipo === 'whatsapp'
             ? { target: '_blank', rel: 'noopener noreferrer' }
             : {})}

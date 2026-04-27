@@ -20,17 +20,17 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     <!-- Category filter tabs (static links) -->
     <nav aria-label="Categorías de preparación" class="mt-8">
       <ul role="list" class="flex flex-wrap gap-3">
-        <li><a href="#ayuno">Ayuno</a></li>
-        <li><a href="#sin-ayuno">Sin ayuno</a></li>
-        <li><a href="#orina">Orina</a></li>
-        <li><a href="#heces">Heces</a></li>
-        <li><a href="#especial">Preparación especial</a></li>
+        <li><a href="#ayuno" class="inline-flex items-center rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-red-50 hover:text-red-700 transition-colors duration-200">Ayuno</a></li>
+        <li><a href="#sin-ayuno" class="inline-flex items-center rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-red-50 hover:text-red-700 transition-colors duration-200">Sin ayuno</a></li>
+        <li><a href="#orina" class="inline-flex items-center rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-red-50 hover:text-red-700 transition-colors duration-200">Orina</a></li>
+        <li><a href="#heces" class="inline-flex items-center rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-red-50 hover:text-red-700 transition-colors duration-200">Heces</a></li>
+        <li><a href="#especial" class="inline-flex items-center rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-red-50 hover:text-red-700 transition-colors duration-200">Preparación especial</a></li>
       </ul>
     </nav>
 
     <!-- General recommendations -->
     <section aria-labelledby="general-heading" class="mt-10">
-      <h2 id="general-heading">Recomendaciones generales</h2>
+      <h2 id="general-heading" class="border-l-4 border-red-300 pl-4">Recomendaciones generales</h2>
       <ul role="list" class="mt-4 space-y-2">
         <li>Si el examen requiere ayuno, ayune mínimo 8 horas (puede tomar agua).</li>
         <li>Informe sobre medicamentos que esté tomando al momento de la toma.</li>
@@ -41,7 +41,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
     <!-- Ayuno -->
     <section id="ayuno" aria-labelledby="ayuno-heading" class="mt-10">
-      <h2 id="ayuno-heading">Exámenes con ayuno</h2>
+      <h2 id="ayuno-heading" class="border-l-4 border-red-300 pl-4">Exámenes con ayuno</h2>
       <p class="mt-4">
         {/* TODO (content-needed): List exams requiring fasting with preparation details */}
         [ Listado de exámenes con ayuno — pendiente ]
@@ -50,7 +50,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
     <!-- Sin ayuno -->
     <section id="sin-ayuno" aria-labelledby="sin-ayuno-heading" class="mt-10">
-      <h2 id="sin-ayuno-heading">Exámenes sin ayuno</h2>
+      <h2 id="sin-ayuno-heading" class="border-l-4 border-red-300 pl-4">Exámenes sin ayuno</h2>
       <p class="mt-4">
         {/* TODO (content-needed): List exams not requiring fasting */}
         [ Listado de exámenes sin ayuno — pendiente ]
@@ -59,7 +59,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
     <!-- Orina -->
     <section id="orina" aria-labelledby="orina-heading" class="mt-10">
-      <h2 id="orina-heading">Exámenes de orina</h2>
+      <h2 id="orina-heading" class="border-l-4 border-red-300 pl-4">Exámenes de orina</h2>
       <ul role="list" class="mt-4 space-y-2">
         <li>Recolectar la segunda micción del día (descartar la primera).</li>
         <li>Usar recipiente limpio y seco.</li>
@@ -69,7 +69,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
     <!-- Heces -->
     <section id="heces" aria-labelledby="heces-heading" class="mt-10">
-      <h2 id="heces-heading">Exámenes de heces</h2>
+      <h2 id="heces-heading" class="border-l-4 border-red-300 pl-4">Exámenes de heces</h2>
       <ul role="list" class="mt-4 space-y-2">
         <li>Usar recipiente estéril provisto por el laboratorio.</li>
         <li>Llevar la muestra máximo 2 horas después de la recolección.</li>
@@ -79,7 +79,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
     <!-- Preparación especial -->
     <section id="especial" aria-labelledby="especial-heading" class="mt-10">
-      <h2 id="especial-heading">Preparación especial</h2>
+      <h2 id="especial-heading" class="border-l-4 border-red-300 pl-4">Preparación especial</h2>
       <p class="mt-4">
         {/* TODO (content-needed): List exams with special preparation (cultivos, VPH, etc.) */}
         Algunos exámenes requieren preparación específica. Consulte con su
