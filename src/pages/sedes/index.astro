@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import SedeMapD3 from '@/components/islands/SedeMapD3.vue';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 
@@ -7,6 +8,20 @@ const sedes = await getCollection('sedes');
 const sedesOrdenadas = [...sedes].sort((a, b) =>
   a.data.esSedePrincipal ? -1 : b.data.esSedePrincipal ? 1 : 0
 );
+
+const sedesParaMapa = sedesOrdenadas
+  .filter((s: CollectionEntry<'sedes'>) => s.data.lat !== undefined && s.data.lng !== undefined)
+  .map((s: CollectionEntry<'sedes'>) => ({
+    slug: s.data.slug,
+    nombre: s.data.nombre,
+    ciudad: s.data.ciudad,
+    direccion: s.data.direccion,
+    telefono: s.data.telefono,
+    whatsapp: s.data.whatsapp,
+    lat: s.data.lat!,
+    lng: s.data.lng!,
+    esSedePrincipal: s.data.esSedePrincipal ?? false,
+  }));
 ---
 
 <BaseLayout
@@ -20,13 +35,26 @@ const sedesOrdenadas = [...sedes].sort((a, b) =>
       <p>Atendemos en {sedes.length} sedes en el Valle del Cauca — sin cita previa.</p>
     </header>
 
-    <!-- TODO (blocking-for-v1.1): Replace with interactive multi-sede map -->
-    <div
-      class="mt-8 aspect-video w-full"
-      role="img"
-      aria-label="Mapa interactivo de sedes — próximamente"
-    >
-      <p>[ Mapa interactivo de sedes — próximamente ]</p>
+    <!-- Map: hidden on mobile (dots overlap at small sizes), visible sm+ -->
+    <div class="hidden sm:block mt-10 mx-auto max-w-lg">
+
+      <p class="mb-2 text-center text-sm font-medium text-gray-500">
+        {sedesParaMapa.length} sedes en Valle del Cauca
+      </p>
+
+      <SedeMapD3 sedes={sedesParaMapa} client:visible />
+
+      <div class="mt-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-xs text-gray-500">
+        <span class="flex items-center gap-1.5">
+          <span class="inline-block h-2.5 w-2.5 rounded-full bg-blue-600"></span>
+          Sede
+        </span>
+        <span class="flex items-center gap-1.5">
+          <span class="inline-block h-2.5 w-2.5 rounded-full bg-emerald-600"></span>
+          Sede principal
+        </span>
+        <span class="text-gray-400">· Pasa el cursor sobre un punto para ver detalles</span>
+      </div>
     </div>
 
     <section aria-labelledby="lista-sedes-heading" class="mt-12">

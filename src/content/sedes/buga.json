@@ -24,5 +24,7 @@
   "fotos": [],
   "convenios": [],
   "domicilioGratisDesde": 50000,
-  "esSedePrincipal": true
+  "esSedePrincipal": true,
+  "lat": 3.901,
+  "lng": -76.299
 }

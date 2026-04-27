@@ -10,6 +10,10 @@ Versions track milestones, not npm semver — this is a content/site project.
 ## [Unreleased]
 
 ### Added
+- `SedeMapD3.vue`: interactive Valle del Cauca department map as a Vue island — D3 geo projection renders the department outline as SVG; 17 animated dot markers (pulse ring via `animate-ping`) positioned from lat/lng; hover tooltip on desktop / tap on mobile shows sede name, address, phone, WhatsApp link, and "Ver sede →" CTA; sede principal (Buga) rendered with a larger green dot; `client:visible` hydration; GeoJSON fetched from `/geojson/valle-del-cauca.json`
+- `public/geojson/valle-del-cauca.json`: simplified Valle del Cauca department boundary polygon (~28 points) served as a static asset
+- `src/content/sedes/*.json`: added approximate `lat`/`lng` coordinates to all 17 sede entries (city-level accuracy, sufficient for the map visualization)
+- `src/pages/sedes/index.astro`: replaced `[ Mapa interactivo — próximamente ]` placeholder with `SedeMapD3` island
 - `Breadcrumb.astro`: reusable breadcrumb component; also applied to `examenes/categoria/[slug].astro`, `examenes/perfiles/[slug].astro`, and `examenes/perfiles/index.astro` which were missed in the structural layout pass (added layout wrappers, replaced bare `<nav>` breadcrumbs, fixed hardcoded WhatsApp in perfiles) — accepts `items: Array<{ label: string; href?: string }>`, renders styled `<nav>` with muted ancestor links (`text-gray-500`), light separator (`text-gray-300`), and bold current-page span (`font-medium text-gray-800`); replaces inline nav blocks in `sedes/[slug].astro`, `examenes/[slug].astro`, and `servicios/[slug].astro`
 - `src/lib/config.ts`: `SITE_CONFIG` (name, url, whatsapp, sedePrincipal from `buga.json`) and `CATEGORIAS` array — single source of truth for site-wide config; replaces all hardcoded phone/address strings across pages
 - **Structural layout pass** — all pages now have `max-w-7xl mx-auto px-4` wrappers, semantic section/article/nav/address elements, mobile-first grid/flex breakpoints. Tailwind structural utilities only (no color, shadow, or border-radius classes added in this pass):

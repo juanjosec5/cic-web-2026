@@ -6,8 +6,13 @@
   "telefono": "316 017 6043",
   "whatsapp": "316 017 6043",
   "horario": {},
-  "servicios": ["toma-muestras", "validacion-qr"],
+  "servicios": [
+    "toma-muestras",
+    "validacion-qr"
+  ],
   "fotos": [],
   "convenios": [],
-  "esSedePrincipal": false
+  "esSedePrincipal": false,
+  "lat": 3.972,
+  "lng": -76.389
 }
