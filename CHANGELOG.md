@@ -10,8 +10,24 @@ Versions track milestones, not npm semver — this is a content/site project.
 ## [Unreleased]
 
 ### Added
-- `SedeMapD3.vue`: interactive Valle del Cauca department map as a Vue island — D3 geo projection renders the department outline as SVG; 17 animated dot markers (pulse ring via `animate-ping`) positioned from lat/lng; hover tooltip on desktop / tap on mobile shows sede name, address, phone, WhatsApp link, and "Ver sede →" CTA; sede principal (Buga) rendered with a larger green dot; `client:visible` hydration; GeoJSON fetched from `/geojson/valle-del-cauca.json`
-- `public/geojson/valle-del-cauca.json`: simplified Valle del Cauca department boundary polygon (~28 points) served as a static asset
+- `SedeMapD3.vue`: interactive Valle del Cauca department map as a Vue island — real 121-point boundary from GADM/DANE dataset; linear geographic projection (replaces D3 which broke under Vue reactive proxy); SVG `<polygon>` outline (light red fill `#fff1f2`) + animated `<circle>` markers; pulse-ring animation via CSS `@keyframes`; hover tooltip on desktop / tap-toggle on mobile shows sede name, city, address, phone, and "Ver sede completa" CTA; Buga (sede principal) rendered larger and green; fixed-position tooltip via `<Teleport to="body">` guarded by `isMounted` to avoid SSR hydration mismatch; `client:visible` hydration; hidden on mobile (`hidden sm:block`) to avoid dot overlap; count label above + dot legend + hover hint below
+- `public/geojson/valle-del-cauca.json`: full 726-point real Valle del Cauca boundary from GADM/DANE source (replaces hand-crafted approximation)
+- `src/content/sedes/*.json`: added `lat`/`lng` coordinates to all 17 sede entries
+- `src/pages/sedes/index.astro`: replaced `[ Mapa interactivo — próximamente ]` placeholder with `SedeMapD3` island
+- `src/pages/index.astro`: added `SedeMapD3` island to homepage sede map section (replaces TODO placeholder); same mobile-hidden + legend pattern as sedes page
+
+### Changed
+- `SedeMapD3.vue`: dropped D3-geo entirely after `geoMercator` projection failed under Vue reactive proxy (all 17 sedes clustered within 3 px at default scale 150); replaced with simple linear `project(lng, lat, w, h)` function — indistinguishable from Mercator at 1.5° scale; SVG is the component root element so `getBoundingClientRect().width` is measured directly (avoids `clientHeight: 0` on aspect-ratio containers); GeoJSON polygon now hardcoded in component (no async fetch)
+- `public/geojson/valle-del-cauca.json`: updated from 23-point hand-crafted approximation to real 726-point GADM/DANE dataset
+- `src/styles/global.css`: added `@layer base` typography — h1 3xl→4xl responsive / h2 2xl / h3 xl / h4 lg, all semibold/bold with tight tracking; `p` leading-relaxed; links inherit color (no forced blue); buttons get cursor-pointer and 150ms transition
+
+### Added (homepage design pass)
+- `src/pages/index.astro` — visual design pass on all interactive elements:
+  - **Hero CTAs**: three-button hierarchy — primary (red filled), secondary (ghost/border), WhatsApp (green); all with `active:scale-95` press feel
+  - **Audience cards** ("Soy paciente / empresa / laboratorio"): `rounded-xl border` card with `hover:shadow-lg hover:-translate-y-1` lift; internal links styled as red accent arrows
+  - **Exam category links**: grid → `flex-wrap` pill tags (`rounded-full bg-gray-100`) with `hover:bg-red-50 hover:text-red-700`
+  - **Service cards**: entire card is a block link with `group-hover` — title turns red, arrow slides right via `group-hover:translate-x-1`
+  - **Secondary CTAs** ("Ver todas las sedes →" etc.): consistent `text-sm font-medium hover:text-red-600 transition-colors`
 - `src/content/sedes/*.json`: added approximate `lat`/`lng` coordinates to all 17 sede entries (city-level accuracy, sufficient for the map visualization)
 - `src/pages/sedes/index.astro`: replaced `[ Mapa interactivo — próximamente ]` placeholder with `SedeMapD3` island
 - `Breadcrumb.astro`: reusable breadcrumb component; also applied to `examenes/categoria/[slug].astro`, `examenes/perfiles/[slug].astro`, and `examenes/perfiles/index.astro` which were missed in the structural layout pass (added layout wrappers, replaced bare `<nav>` breadcrumbs, fixed hardcoded WhatsApp in perfiles) — accepts `items: Array<{ label: string; href?: string }>`, renders styled `<nav>` with muted ancestor links (`text-gray-500`), light separator (`text-gray-300`), and bold current-page span (`font-medium text-gray-800`); replaces inline nav blocks in `sedes/[slug].astro`, `examenes/[slug].astro`, and `servicios/[slug].astro`
