@@ -33,11 +33,9 @@ const examenesParaSearch = examenes.map((e: CollectionEntry<'examenes'>) => ({
 
     <div class="mt-8">
       <ExamSearch exams={examenesParaSearch} client:load />
-    </div>
-
-    <section aria-labelledby="categorias-heading" class="mt-10">
-      <h2 id="categorias-heading" class="text-sm font-medium text-gray-500">O busca por categoría</h2>
-      <ul role="list" class="mt-4 flex flex-wrap gap-3">
+      <section aria-labelledby="categorias-heading" class="mt-4">
+        <h2 id="categorias-heading" class="text-sm font-medium text-gray-500">O busca por categoría</h2>
+        <ul role="list" class="mt-3 flex flex-wrap gap-3">
         {CATEGORIAS.map((cat) => (
           <li>
             <a href={`/examenes/categoria/${cat.slug}`}
@@ -46,8 +44,9 @@ const examenesParaSearch = examenes.map((e: CollectionEntry<'examenes'>) => ({
             </a>
           </li>
         ))}
-      </ul>
-    </section>
+        </ul>
+      </section>
+    </div>
 
   </div>
 </BaseLayout>
