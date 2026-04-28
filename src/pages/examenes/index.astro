@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import ExamSearch from '@/components/islands/ExamSearch.vue';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import { CATEGORIAS } from '@/lib/config';
@@ -8,37 +9,31 @@ const examenes = await getCollection(
   'examenes',
   ({ data }: CollectionEntry<'examenes'>) => data.activo
 );
+
+const examenesParaSearch = examenes.map((e: CollectionEntry<'examenes'>) => ({
+  slug: e.data.slug,
+  nombre: e.data.nombre,
+  categoria: e.data.categoria,
+  categoriaLabel: CATEGORIAS.find((c) => c.slug === e.data.categoria)?.label ?? e.data.categoria,
+  nombresAlternativos: e.data.nombresAlternativos,
+  requiereAyuno: e.data.requiereAyuno ?? false,
+}));
 ---
 
 <BaseLayout
   title="Catálogo de Exámenes"
   description={`${examenes.length} exámenes clínicos disponibles en CIC Laboratorios. Resultados el mismo día.`}
 >
-  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6">
+  <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
 
     <header>
       <h1>Catálogo de exámenes</h1>
-      <p>{examenes.length} exámenes disponibles — resultados el mismo día</p>
+      <p class="mt-1 text-gray-600">{examenes.length} exámenes disponibles — resultados el mismo día</p>
     </header>
 
-    <!-- TODO (blocking-for-v1.1): Replace with ExamSearch island once Pagefind is configured -->
-    <div class="mt-8 rounded-xl border border-dashed border-gray-300 bg-gray-50 p-6 text-center">
-      <p class="text-sm text-gray-500">Buscador por nombre — próximamente</p>
+    <div class="mt-8">
+      <ExamSearch exams={examenesParaSearch} categorias={CATEGORIAS} client:load />
     </div>
-
-    <section aria-labelledby="categorias-heading" class="mt-10">
-      <h2 id="categorias-heading">Buscar por categoría</h2>
-      <ul role="list" class="mt-6 flex flex-wrap gap-3">
-        {CATEGORIAS.map((cat) => (
-          <li>
-            <a href={`/examenes/categoria/${cat.slug}`}
-               class="inline-flex items-center rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-red-50 hover:text-red-700 transition-colors duration-200">
-              {cat.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </section>
 
   </div>
 </BaseLayout>
