@@ -27,22 +27,27 @@ export async function getStaticPaths() {
 const { sede, otrosSedes } = Astro.props;
 
 const waUrl = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(`Hola, quisiera información sobre la sede ${sede.nombre}.`)}`;
-const mapsUrl = sede.lat && sede.lng
-  ? `https://www.google.com/maps/dir/?api=1&destination=${sede.lat},${sede.lng}`
-  : `https://www.google.com/maps/search/${encodeURIComponent(`${sede.nombre} ${sede.direccion} ${sede.ciudad}`)}`;
+const mapsUrl =
+  sede.lat && sede.lng
+    ? `https://www.google.com/maps/dir/?api=1&destination=${sede.lat},${sede.lng}`
+    : `https://www.google.com/maps/search/${encodeURIComponent(`${sede.nombre} ${sede.direccion} ${sede.ciudad}`)}`;
 
-const SERVICIO_LABELS: Record<string, string> = {
-  'toma-muestras': 'Toma de muestras',
-  'domicilio': 'Servicio a domicilio',
-  'ginecologia-vph': 'Ginecología y VPH',
-  'jornadas-empresariales': 'Jornadas empresariales',
-  'salud-ocupacional': 'Salud ocupacional',
-  'validacion-qr': 'Validación QR',
-};
+const ALL_SERVICES = [
+  { slug: 'toma-muestras', label: 'Toma de muestras' },
+  { slug: 'domicilio', label: 'Domicilio' },
+  { slug: 'ginecologia-vph', label: 'Ginecología/VPH' },
+  { slug: 'jornadas-empresariales', label: 'Jornadas empresariales' },
+  { slug: 'salud-ocupacional', label: 'Salud ocupacional' },
+  { slug: 'validacion-qr', label: 'Validación QR' },
+] as const;
+
+const CONVENIOS_PREVIEW = 3;
+const displayedConvenios = sede.convenios.slice(0, CONVENIOS_PREVIEW);
+const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
 ---
 
 <SedeLayout sede={sede}>
-  <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6">
+  <div class="mx-auto max-w-4xl px-4 py-8 sm:px-6">
 
     <Breadcrumb items={[
       { label: 'Inicio', href: '/' },
@@ -50,145 +55,193 @@ const SERVICIO_LABELS: Record<string, string> = {
       { label: sede.nombre },
     ]} />
 
-    <!-- H1 + subheading -->
-    <header class="mt-6">
-      <h1>{sede.nombre}</h1>
-      <p>{sede.direccion}, {sede.ciudad} · Sin cita previa</p>
-    </header>
-
-    <!-- CTA group -->
-    <div class="mt-6 flex flex-wrap gap-3">
-      <a href={waUrl} target="_blank" rel="noopener noreferrer"
-         class="inline-flex items-center gap-2 rounded-lg bg-green-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-700 active:scale-95 transition-all duration-200">
-        WhatsApp
-      </a>
-      <a href={`tel:${sede.telefono}`}
-         class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200">
-        Llamar ({sede.telefono})
-      </a>
-      <a href={mapsUrl} target="_blank" rel="noopener noreferrer"
-         class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200">
-        Cómo llegar
-      </a>
+    <!-- Header card -->
+    <div class="mt-6 rounded-xl border border-gray-200 p-6">
+      <header>
+        <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">{sede.nombre}</h1>
+        <p class="mt-1 text-sm text-gray-500">
+          {sede.direccion}, {sede.ciudad} · Sin cita previa
+        </p>
+      </header>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href={waUrl} target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 rounded-lg bg-green-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-700 active:scale-95 transition-all duration-200">
+          WhatsApp directo
+        </a>
+        <a href={`tel:${sede.telefono}`}
+           class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200">
+          Llamar
+        </a>
+        <a href={mapsUrl} target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200">
+          Cómo llegar
+        </a>
+      </div>
     </div>
 
-    <!-- 2-col info strip -->
-    <div class="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2">
+    <!-- Horarios + Contacto -->
+    <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
 
-      <!-- Hours block -->
-      <section aria-labelledby="horario-heading">
-        <h2 id="horario-heading">Horario de atención</h2>
+      <section aria-labelledby="horario-heading" class="rounded-xl border border-gray-200 p-6">
+        <h2 id="horario-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
+          Horarios
+        </h2>
         <table class="mt-4 w-full text-sm">
           <caption class="sr-only">Horario de atención de {sede.nombre}</caption>
           <tbody>
-            {Object.entries(sede.horario).map(([dia, horas]) => (
-              horas ? (
+            {Object.entries(sede.horario).map(([dia, horas]) =>
+              horas && horas !== 'TODO' ? (
                 <tr class="even:bg-gray-50">
                   <th scope="row" class="py-2 pr-4 capitalize text-left font-medium text-gray-700">{dia}</th>
                   <td class="py-2 text-gray-600">{horas}</td>
                 </tr>
               ) : null
-            ))}
+            )}
           </tbody>
         </table>
+        {Object.values(sede.horario).every((h) => !h || h === 'TODO') && (
+          <p class="mt-4 text-sm italic text-gray-400">Horario — próximamente</p>
+        )}
       </section>
 
-      <!-- Contact block -->
-      <section aria-labelledby="contacto-heading">
-        <h2 id="contacto-heading">Contacto</h2>
-        <address class="mt-4 not-italic space-y-2">
-          <p>{sede.direccion}, {sede.ciudad}</p>
-          <p>
-            Tel: <a href={`tel:${sede.telefono}`}>{sede.telefono}</a>
-          </p>
-          <p>
-            WhatsApp: <a href={waUrl} target="_blank" rel="noopener noreferrer">{sede.whatsapp}</a>
-          </p>
+      <section aria-labelledby="contacto-heading" class="rounded-xl border border-gray-200 p-6">
+        <h2 id="contacto-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
+          Contacto
+        </h2>
+        <address class="mt-4 not-italic space-y-2 text-sm text-gray-700">
+          <p>Tel: <a href={`tel:${sede.telefono}`} class="hover:text-red-600 transition-colors duration-200">{sede.telefono}</a></p>
+          <p>WhatsApp: <a href={waUrl} target="_blank" rel="noopener noreferrer" class="hover:text-red-600 transition-colors duration-200">{sede.whatsapp}</a></p>
           {sede.email && (
-            <p>
-              Email: <a href={`mailto:${sede.email}`}>{sede.email}</a>
-            </p>
+            <p>Email: <a href={`mailto:${sede.email}`} class="text-red-600 hover:text-red-700 transition-colors duration-200">{sede.email}</a></p>
           )}
+          <p class="text-gray-500">{sede.direccion}, {sede.ciudad}</p>
         </address>
       </section>
+
     </div>
 
-    <!-- Map placeholder -->
-    <section aria-labelledby="mapa-heading" class="mt-10">
-      <h2 id="mapa-heading">Cómo llegar</h2>
-      <!-- TODO (blocking-for-v1.1): Replace with real map embed (lat/lng available when populated) -->
-      <div class="mt-4 aspect-video w-full rounded-xl bg-gray-100 flex items-center justify-center text-gray-400 text-sm"
-           role="img" aria-label={`Mapa de ${sede.nombre} — próximamente`}>
+    <!-- Map -->
+    <section aria-labelledby="mapa-heading" class="mt-6 rounded-xl border border-gray-200 p-6">
+      <h2 id="mapa-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
+        Ubicación
+      </h2>
+      <!-- TODO (blocking-for-v1.1): Replace with real map embed once exact lat/lng coordinates are confirmed -->
+      <div
+        class="mt-4 aspect-video w-full rounded-lg bg-gray-100 flex items-center justify-center text-gray-400 text-sm"
+        role="img"
+        aria-label={`Mapa de ${sede.nombre} — próximamente`}
+      >
         Mapa próximamente
       </div>
-      <a href={mapsUrl} target="_blank" rel="noopener noreferrer"
-         class="mt-2 inline-block text-sm font-medium text-gray-700 hover:text-red-600 transition-colors duration-200">
+      <a
+        href={mapsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-4 inline-flex items-center rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200"
+      >
         Abrir en Google Maps →
       </a>
     </section>
 
-    <!-- Services grid -->
-    <section aria-labelledby="servicios-sede-heading" class="mt-10">
-      <h2 id="servicios-sede-heading">Servicios disponibles</h2>
-      <ul role="list" class="mt-4 flex flex-wrap gap-2">
-        {sede.servicios.map((s: string) => (
-          <li>
-            <a href={`/servicios/${s}`}
-               class="inline-flex items-center rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-red-50 hover:text-red-700 transition-colors duration-200">
-              {SERVICIO_LABELS[s] ?? s}
-            </a>
-          </li>
-        ))}
+    <!-- Services ✓/— grid -->
+    <section aria-labelledby="servicios-sede-heading" class="mt-6 rounded-xl border border-gray-200 p-6">
+      <h2 id="servicios-sede-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
+        Servicios disponibles en esta sede
+      </h2>
+      <ul role="list" class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {ALL_SERVICES.map(({ slug, label }) => {
+          const available = sede.servicios.includes(slug);
+          return (
+            <li class:list={[
+              'flex items-center gap-2 rounded-lg px-4 py-3 text-sm font-medium',
+              available ? 'bg-green-50 text-green-800' : 'bg-gray-50 text-gray-400',
+            ]}>
+              <span class="font-bold leading-none">{available ? '✓' : '—'}</span>
+              {available ? (
+                <a href={`/servicios/${slug}`} class="hover:underline">{label}</a>
+              ) : (
+                <span>{label}</span>
+              )}
+            </li>
+          );
+        })}
       </ul>
-
-      {sede.domicilioGratisDesde !== undefined && (
-        <p class="mt-4">
-          Domicilio gratuito en pedidos desde $
-          {sede.domicilioGratisDesde.toLocaleString('es-CO')}
-        </p>
-      )}
     </section>
 
-    <!-- Gallery — only if fotos exist -->
-    {sede.fotos.length > 0 && (
-      <section aria-labelledby="galeria-heading" class="mt-10">
-        <h2 id="galeria-heading">Galería</h2>
-        <ul role="list" class="mt-4 grid grid-cols-2 gap-4 md:grid-cols-4">
-          {sede.fotos.map((foto: string) => (
-            <li>
-              <img src={foto} alt={`Foto de ${sede.nombre}`} class="w-full" />
-            </li>
-          ))}
-        </ul>
-      </section>
+    <!-- Promo banner -->
+    {sede.domicilioGratisDesde !== undefined && (
+      <div class="mt-6 rounded-xl border border-blue-200 bg-blue-50 px-6 py-4 text-sm font-medium text-blue-700">
+        Domicilio gratis en {sede.ciudad} para exámenes ≥ ${sede.domicilioGratisDesde.toLocaleString('es-CO')}
+      </div>
     )}
 
-    <!-- Convenios — only if exist -->
+    <!-- Gallery — always shown, placeholder squares when no photos -->
+    <section aria-labelledby="galeria-heading" class="mt-6 rounded-xl border border-gray-200 p-6">
+      <h2 id="galeria-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
+        Galería
+      </h2>
+      <ul role="list" class="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4">
+        {sede.fotos.length > 0 ? (
+          sede.fotos.map((foto: string) => (
+            <li>
+              <img
+                src={foto}
+                alt={`Foto de ${sede.nombre}`}
+                class="aspect-video w-full rounded-lg object-cover"
+              />
+            </li>
+          ))
+        ) : (
+          [0, 1, 2, 3].map((_) => (
+            <li class="aspect-video rounded-lg bg-gray-100" aria-hidden="true" />
+          ))
+        )}
+      </ul>
+    </section>
+
+    <!-- Convenios — only when data exists -->
     {sede.convenios.length > 0 && (
-      <section aria-labelledby="convenios-heading" class="mt-10">
-        <h2 id="convenios-heading">Convenios</h2>
+      <section aria-labelledby="convenios-heading" class="mt-6 rounded-xl border border-gray-200 p-6">
+        <h2 id="convenios-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
+          Convenios activos en esta sede
+        </h2>
         <ul role="list" class="mt-4 flex flex-wrap gap-2">
-          {sede.convenios.map((convenio: string) => (
-            <li>{convenio}</li>
+          {displayedConvenios.map((convenio: string) => (
+            <li>
+              <span class="inline-flex items-center rounded-full border border-gray-200 bg-white px-3 py-1 text-sm font-medium text-gray-700">
+                {convenio}
+              </span>
+            </li>
           ))}
+          {remainingConvenios > 0 && (
+            <li>
+              <span class="inline-flex items-center rounded-full border border-gray-200 bg-white px-3 py-1 text-sm font-medium text-gray-500">
+                +{remainingConvenios} otros
+              </span>
+            </li>
+          )}
         </ul>
       </section>
     )}
 
     <!-- Nearby sedes -->
-    <section aria-labelledby="otras-sedes-heading" class="mt-10">
-      <h2 id="otras-sedes-heading">Otras sedes</h2>
-      <ul role="list" class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
+    <section aria-labelledby="otras-sedes-heading" class="mt-6 rounded-xl border border-gray-200 p-6">
+      <h2 id="otras-sedes-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
+        Otras sedes cercanas
+      </h2>
+      <ul role="list" class="mt-4 flex flex-wrap gap-6">
         {otrosSedes.map((otra) => (
-          <li class="rounded-xl border border-gray-200 p-4 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5">
-            <a href={`/sedes/${otra.slug}`} class="font-semibold text-gray-900 hover:text-red-600 transition-colors duration-200">
-              {otra.nombre}
+          <li>
+            <a
+              href={`/sedes/${otra.slug}`}
+              class="text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200"
+            >
+              {otra.nombre} →
             </a>
-            <p class="mt-1 text-sm text-gray-500">{otra.ciudad}</p>
           </li>
         ))}
       </ul>
-      <a href="/sedes" class="mt-4 inline-block text-sm font-medium text-gray-700 hover:text-red-600 transition-colors duration-200">
+      <a href="/sedes" class="mt-4 inline-block text-sm text-gray-500 hover:text-red-600 transition-colors duration-200">
         Ver todas las sedes →
       </a>
     </section>

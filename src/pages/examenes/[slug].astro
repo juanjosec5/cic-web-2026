@@ -20,18 +20,31 @@ export async function getStaticPaths() {
   const sedeMap = new Map(sedes.map((s: CollectionEntry<'sedes'>) => [s.data.slug, s.data.nombre]));
   const examenMap = new Map(examenes.map((e: CollectionEntry<'examenes'>) => [e.data.slug, e.data.nombre]));
 
-  return examenes.map((examen: CollectionEntry<'examenes'>) => {
-    return {
-      params: { slug: examen.data.slug },
-      props: {
-        examen: examen.data,
-        sedesData: examen.data.sedesDisponibles
-          .map((slug: string) => ({ slug, nombre: sedeMap.get(slug) ?? slug })),
-        relacionadosData: examen.data.examenesRelacionados
-          .map((slug: string) => ({ slug, nombre: examenMap.get(slug) ?? slug })),
-      },
-    };
-  });
+  // All sedes sorted sede principal first — used as fallback when sedesDisponibles is empty
+  const allSedesData = [...sedes]
+    .sort(
+      (a: CollectionEntry<'sedes'>, b: CollectionEntry<'sedes'>) =>
+        (b.data.esSedePrincipal ? 1 : 0) - (a.data.esSedePrincipal ? 1 : 0)
+    )
+    .map((s: CollectionEntry<'sedes'>) => ({ slug: s.data.slug, nombre: s.data.nombre }));
+
+  return examenes.map((examen: CollectionEntry<'examenes'>) => ({
+    params: { slug: examen.data.slug },
+    props: {
+      examen: examen.data,
+      sedesData:
+        examen.data.sedesDisponibles.length > 0
+          ? examen.data.sedesDisponibles.map((slug: string) => ({
+              slug,
+              nombre: sedeMap.get(slug) ?? slug,
+            }))
+          : allSedesData,
+      relacionadosData: examen.data.examenesRelacionados.map((slug: string) => ({
+        slug,
+        nombre: examenMap.get(slug) ?? slug,
+      })),
+    },
+  }));
 }
 
 const { examen, sedesData, relacionadosData } = Astro.props;
@@ -41,6 +54,10 @@ const categoriaLabel =
 
 const waCotizar = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(`Quisiera cotizar el examen: ${examen.nombre}`)}`;
 const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(`Quisiera solicitar toma a domicilio para: ${examen.nombre}`)}`;
+
+const SEDES_PREVIEW = 3;
+const displayedSedes = sedesData.slice(0, SEDES_PREVIEW);
+const remainingCount = sedesData.length - SEDES_PREVIEW;
 ---
 
 <ExamenLayout examen={examen}>
@@ -54,13 +71,32 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
     ]} />
 
     <article>
-      <header class="mt-6">
-        <h1>{examen.nombre}</h1>
+
+      <!-- Header card -->
+      <header class="mt-6 rounded-xl border border-gray-200 p-6">
+        <p class="text-xs font-medium uppercase tracking-wide text-gray-500">
+          Categoría · {categoriaLabel}
+        </p>
+        <h1 class="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl">{examen.nombre}</h1>
         {examen.nombresAlternativos.length > 0 && (
-          <p>
+          <p class="mt-1 text-sm text-gray-500">
             También conocido como: {examen.nombresAlternativos.join(', ')}
           </p>
         )}
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href={waCotizar} target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center gap-2 rounded-lg bg-green-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-700 active:scale-95 transition-all duration-200">
+            Cotizar por WhatsApp
+          </a>
+          <a href={waDomicilio} target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200">
+            Solicitar domicilio
+          </a>
+          <a href="/sedes"
+             class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200">
+            Ver sedes disponibles
+          </a>
+        </div>
       </header>
 
       <!-- 4-stat strip -->
@@ -71,12 +107,12 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
             <dd class="mt-1 font-semibold text-gray-900">{examen.muestra}</dd>
           </div>
         )}
-        {examen.requiereAyuno !== undefined && (
-          <div class="bg-white p-4">
-            <dt class="text-xs font-medium uppercase tracking-wide text-gray-500">Ayuno</dt>
-            <dd class="mt-1 font-semibold text-gray-900">{examen.requiereAyuno ? 'Requerido' : 'No requerido'}</dd>
-          </div>
-        )}
+        <div class="bg-white p-4">
+          <dt class="text-xs font-medium uppercase tracking-wide text-gray-500">Ayuno</dt>
+          <dd class="mt-1 font-semibold text-gray-900">
+            {examen.requiereAyuno === true ? 'Requerido' : examen.requiereAyuno === false ? 'No requiere' : '—'}
+          </dd>
+        </div>
         {examen.oportunidadResultados && (
           <div class="bg-white p-4">
             <dt class="text-xs font-medium uppercase tracking-wide text-gray-500">Resultados</dt>
@@ -84,85 +120,87 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
           </div>
         )}
         <div class="bg-white p-4">
-          <dt class="text-xs font-medium uppercase tracking-wide text-gray-500">Cotizar</dt>
-          <dd class="mt-1">
-            <a href={waCotizar} target="_blank" rel="noopener noreferrer"
-               class="text-sm font-medium text-green-600 hover:text-green-700 transition-colors duration-200">
-              Por WhatsApp →
-            </a>
-          </dd>
+          <dt class="text-xs font-medium uppercase tracking-wide text-gray-500">Precio</dt>
+          <dd class="mt-1 font-semibold text-gray-900">Cotizar</dd>
         </div>
       </dl>
 
-      <!-- CTA group -->
-      <div class="mt-8 flex flex-wrap gap-3">
-        <a href={waCotizar} target="_blank" rel="noopener noreferrer"
-           class="inline-flex items-center gap-2 rounded-lg bg-green-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-700 active:scale-95 transition-all duration-200">
-          Cotizar por WhatsApp
-        </a>
-        <a href={waDomicilio} target="_blank" rel="noopener noreferrer"
-           class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200">
-          Solicitar domicilio
-        </a>
-        <a href="/sedes"
-           class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200">
-          Ver sedes
-        </a>
-      </div>
-
-      <!-- ¿Qué es? -->
-      {examen.descripcionQueEs && (
-        <section aria-labelledby="que-es-heading" class="mt-10">
-          <h2 id="que-es-heading">¿Qué es?</h2>
-          <p>{examen.descripcionQueEs}</p>
-        </section>
-      )}
-
-      <!-- 2-col: Para qué sirve + Preparación -->
-      {(examen.descripcionParaQueSirve || examen.preparacion) && (
-        <div class="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2">
-          {examen.descripcionParaQueSirve && (
-            <section aria-labelledby="para-que-heading">
-              <h2 id="para-que-heading">¿Para qué sirve?</h2>
-              <p>{examen.descripcionParaQueSirve}</p>
-            </section>
-          )}
-          {examen.preparacion && (
-            <section aria-labelledby="preparacion-heading">
-              <h2 id="preparacion-heading">Preparación</h2>
-              {examen.requiereAyuno && (
-                <p><strong>Requiere ayuno.</strong></p>
-              )}
-              <p>{examen.preparacion}</p>
-            </section>
-          )}
-        </div>
-      )}
-
-      <!-- Sedes disponibles -->
-      <section aria-labelledby="sedes-heading" class="mt-10">
-        <h2 id="sedes-heading">Disponible en</h2>
-        {sedesData.length > 0 ? (
-          <ul role="list" class="mt-4 flex flex-wrap gap-2">
-            {sedesData.map(({ slug, nombre }) => (
-              <li>
-                <a href={`/sedes/${slug}`}
-                   class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1.5 text-sm font-medium text-gray-700 hover:bg-red-50 hover:text-red-700 transition-colors duration-200">
-                  {nombre}
-                </a>
-              </li>
-            ))}
-          </ul>
+      <!-- ¿Qué es? — always rendered -->
+      <section aria-labelledby="que-es-heading" class="mt-6 rounded-xl border border-gray-200 p-6">
+        <h2 id="que-es-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
+          ¿Qué es?
+        </h2>
+        {examen.descripcionQueEs ? (
+          <p class="mt-3 text-gray-700">{examen.descripcionQueEs}</p>
         ) : (
-          <p>Disponible en nuestras sedes — consulta por WhatsApp para confirmar.</p>
+          <p class="mt-3 text-sm italic text-gray-400">
+            [ Descripción clínica del examen — próximamente ]
+          </p>
         )}
       </section>
 
-      <!-- Related exams -->
+      <!-- ¿Para qué sirve? + Preparación — always rendered -->
+      <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+        <section aria-labelledby="para-que-heading" class="rounded-xl border border-gray-200 p-6">
+          <h3 id="para-que-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
+            ¿Para qué sirve?
+          </h3>
+          {examen.descripcionParaQueSirve ? (
+            <p class="mt-3 text-gray-700">{examen.descripcionParaQueSirve}</p>
+          ) : (
+            <p class="mt-3 text-sm italic text-gray-400">[ Próximamente ]</p>
+          )}
+        </section>
+
+        <section aria-labelledby="preparacion-heading" class="rounded-xl border border-gray-200 p-6">
+          <h3 id="preparacion-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
+            Preparación
+          </h3>
+          {examen.preparacion ? (
+            <div class="mt-3">
+              {examen.requiereAyuno && (
+                <p class="text-sm font-semibold text-amber-700">Requiere ayuno.</p>
+              )}
+              <p class="text-gray-700">{examen.preparacion}</p>
+            </div>
+          ) : (
+            <p class="mt-3 text-sm italic text-gray-400">[ Próximamente ]</p>
+          )}
+        </section>
+      </div>
+
+      <!-- Sedes donde se realiza -->
+      <section aria-labelledby="sedes-heading" class="mt-6 rounded-xl border border-gray-200 p-6">
+        <h2 id="sedes-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
+          Sedes donde se realiza
+        </h2>
+        <ul role="list" class="mt-4 flex flex-wrap gap-2">
+          {displayedSedes.map(({ slug, nombre }) => (
+            <li>
+              <a href={`/sedes/${slug}`}
+                 class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1.5 text-sm font-medium text-gray-700 hover:bg-red-50 hover:text-red-700 transition-colors duration-200">
+                {nombre} →
+              </a>
+            </li>
+          ))}
+          {remainingCount > 0 && (
+            <li>
+              <a href="/sedes"
+                 class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1.5 text-sm font-medium text-gray-500 hover:bg-red-50 hover:text-red-700 transition-colors duration-200">
+                +{remainingCount} más
+              </a>
+            </li>
+          )}
+        </ul>
+      </section>
+
+      <!-- Exámenes relacionados -->
       {relacionadosData.length > 0 && (
-        <section aria-labelledby="relacionados-heading" class="mt-10">
-          <h2 id="relacionados-heading">Exámenes relacionados</h2>
-          <ul role="list" class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <section aria-labelledby="relacionados-heading" class="mt-6 rounded-xl border border-gray-200 p-6">
+          <h2 id="relacionados-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
+            Exámenes relacionados
+          </h2>
+          <ul role="list" class="mt-4 space-y-2">
             {relacionadosData.map(({ slug, nombre }) => (
               <li>
                 <a href={`/examenes/${slug}`}
@@ -176,25 +214,27 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
       )}
 
       <!-- WhatsApp CTA banner -->
-      <section aria-labelledby="wa-cta-heading" class="mt-12 rounded-xl bg-gray-50 p-8 text-center">
-        <h2 id="wa-cta-heading" class="text-lg font-semibold text-gray-900">¿Tienes preguntas sobre este examen?</h2>
-        <p class="mt-2 text-sm text-gray-600">Nuestro equipo puede orientarte antes de tu visita.</p>
+      <section aria-labelledby="wa-cta-heading" class="mt-6 rounded-xl bg-gray-50 p-8 text-center">
+        <h2 id="wa-cta-heading" class="text-lg font-semibold text-gray-900">
+          ¿Tienes preguntas sobre este examen?
+        </h2>
+        <p class="mt-2 text-sm text-gray-600">
+          Escríbenos por WhatsApp y te ayudamos con cotización, preparación y agendamiento.
+        </p>
         <a
           href={waCotizar}
           target="_blank"
           rel="noopener noreferrer"
           class="mt-6 inline-flex items-center gap-2 rounded-lg bg-green-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-700 active:scale-95 transition-all duration-200"
         >
-          Consultar por WhatsApp →
+          Abrir WhatsApp
         </a>
       </section>
 
       <!-- Medical disclaimer -->
-      <p class="mt-10 text-sm text-gray-400 italic border-t border-gray-200 pt-6">
+      <p class="mt-8 border-t border-gray-200 pt-6 text-sm italic text-gray-400">
         <small>
-          La información de esta página es de carácter informativo y no
-          reemplaza el criterio médico. Consulta siempre a tu médico antes
-          de realizarte cualquier examen de laboratorio.
+          La información tiene fines orientativos. Consulta a tu médico para interpretación de resultados.
         </small>
       </p>
 
