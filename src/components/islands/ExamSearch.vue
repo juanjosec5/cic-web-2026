@@ -10,7 +10,12 @@ interface Exam {
   requiereAyuno: boolean;
 }
 
-const props = defineProps<{ exams: Exam[] }>();
+interface Categoria {
+  slug: string;
+  label: string;
+}
+
+const props = defineProps<{ exams: Exam[]; categorias: readonly Categoria[] }>();
 
 const query = ref('');
 const INITIAL_SHOW = 20;
@@ -45,6 +50,15 @@ const filtered = computed(() => {
         aria-label="Buscar examen por nombre"
       />
     </div>
+
+    <!-- Category pills -->
+    <nav aria-label="Categorías de exámenes" class="pills-nav">
+      <ul role="list" class="pills-list">
+        <li v-for="cat in categorias" :key="cat.slug">
+          <a :href="`/examenes/categoria/${cat.slug}`" class="pill">{{ cat.label }}</a>
+        </li>
+      </ul>
+    </nav>
 
     <!-- Result count -->
     <p v-if="hasQuery" class="result-count" aria-live="polite">
@@ -111,6 +125,37 @@ const filtered = computed(() => {
 .search-input:focus {
   border-color: #dc2626;
   box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.pills-nav {
+  margin-top: 0.75rem;
+}
+
+.pills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.375rem 1rem;
+  border-radius: 9999px;
+  background-color: #f3f4f6;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  text-decoration: none;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.pill:hover {
+  background-color: #fff1f2;
+  color: #b91c1c;
 }
 
 .result-count {
