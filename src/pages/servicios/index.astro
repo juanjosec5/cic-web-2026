@@ -6,6 +6,7 @@
  * TODO (content-needed): Add service images/icons.
  */
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 
@@ -17,6 +18,8 @@ const servicios = await getCollection('servicios');
   description="Servicios de CIC Laboratorios: toma a domicilio, ginecología y VPH, jornadas empresariales y salud ocupacional."
 >
   <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+    <Breadcrumb items={[{ label: 'Inicio', href: '/' }, { label: 'Servicios' }]} />
+
     <header>
       <h1>Nuestros servicios</h1>
     </header>

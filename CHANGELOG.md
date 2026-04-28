@@ -9,6 +9,23 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 ## [Unreleased]
 
+### Added (breadcrumbs on main index pages)
+- `src/pages/sedes/index.astro`, `src/pages/examenes/index.astro`, `src/pages/servicios/index.astro`, `src/pages/empresas.astro`, `src/pages/nosotros/index.astro`: added `Inicio → <Page>` breadcrumb at the top of each page using the existing `Breadcrumb` component
+
+### Fixed (exam search category order)
+- `src/components/islands/ExamSearch.vue`: category pills now render between the search input and the results list (previously appeared below results); categories accepted as `readonly Categoria[]` prop from the Astro page
+- `src/pages/examenes/index.astro`: `CATEGORIAS` passed as `categorias` prop to `ExamSearch`; standalone category pills section removed (now owned by the island)
+
+### Added (exam search + detail redesign)
+- `src/components/islands/ExamSearch.vue`: client-side filter island replacing the disabled stub — `query` ref, `INITIAL_SHOW = 20` cap, `filtered` computed filtering `nombre` and `nombresAlternativos`; scoped CSS search input with red focus ring, amber "Ayuno" pill, result count (`aria-live`), empty state, and hint text; SVG magnifying glass icon
+- `src/pages/examenes/index.astro`: wired `ExamSearch` island with `examenesParaSearch` array built at build time (slug, nombre, categoria, categoriaLabel, nombresAlternativos, requiereAyuno)
+- `src/pages/examenes/[slug].astro`: header card with category label + CTAs inside; always-rendered ¿Qué es?, ¿Para qué sirve?, and Preparación sections with `[ próximamente ]` placeholders; sedes overflow pattern (first 3 pills + `+N más` link); related exams as full-width 1-col bordered links; `getStaticPaths` builds `allSedesData` sorted sede principal first as fallback when `sedesDisponibles` is empty
+- `src/pages/sedes/[slug].astro`: header card with 3 CTAs (green WhatsApp / ghost Llamar / ghost Cómo llegar); 2-col horario + contacto cards; map card with "Abrir en Google Maps →" button; 6-service ✓/— grid (`class:list` green/gray); blue promo banner when `domicilioGratisDesde` is set; gallery always renders (placeholder squares when no photos); convenios pills with `+N otros` overflow; nearby sedes as plain text links
+
+### Changed (layout standardization)
+- All inner pages standardized to `mx-auto max-w-4xl px-4 py-12 sm:px-6` wrapper (14 pages updated)
+- `src/pages/index.astro`: section wrappers changed from `max-w-7xl` → `max-w-5xl` (8 occurrences); hero centered-text wrapper remains `max-w-4xl`
+
 ### Added (SEO pass)
 - `src/components/SEO.astro`: `og:locale` (`es_CO`); `twitter:card`, `twitter:title`, `twitter:description`, `twitter:image` (summary_large_image); `ogImage` is now resolved to an absolute URL via `Astro.site?.origin` before being set on og:image and twitter:image (required by Open Graph crawlers)
 - `src/lib/seo.ts`: `OrganizationJsonLd` interface and `buildOrganizationJsonLd()` helper — returns `@type: Organization` with name, url, logo, telephone, address, and areaServed pulled from `SITE_CONFIG`; `SITE_CONFIG` imported into `seo.ts`
