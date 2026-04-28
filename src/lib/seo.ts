@@ -2,9 +2,9 @@
  * JSON-LD helpers for CIC Laboratorios.
  * Used in SEO.astro via the jsonLd prop.
  *
- * TODO (content-needed): Fill in real organizationId, sameAs social URLs,
- * and areaServed once confirmed.
+ * TODO (content-needed): Fill in sameAs social URLs once confirmed.
  */
+import { SITE_CONFIG } from '@/lib/config';
 
 export interface MedicalBusinessJsonLd {
   '@context': 'https://schema.org';
@@ -86,6 +86,44 @@ export function buildSedeJsonLd(params: {
           },
         }
       : {}),
+  };
+}
+
+export interface OrganizationJsonLd {
+  '@context': 'https://schema.org';
+  '@type': 'Organization';
+  name: string;
+  url: string;
+  logo: string;
+  telephone: string;
+  address: {
+    '@type': 'PostalAddress';
+    streetAddress: string;
+    addressLocality: string;
+    addressRegion: string;
+    addressCountry: string;
+  };
+  areaServed: string;
+  [key: string]: unknown;
+}
+
+export function buildOrganizationJsonLd(): OrganizationJsonLd {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: SITE_CONFIG.name,
+    url: SITE_CONFIG.url,
+    // TODO (content-needed): Replace with real logo URL once brand assets are available.
+    logo: `${SITE_CONFIG.url}/images/og-default.png`,
+    telephone: SITE_CONFIG.sedePrincipal.telefono,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: SITE_CONFIG.sedePrincipal.direccion,
+      addressLocality: SITE_CONFIG.sedePrincipal.ciudad,
+      addressRegion: 'Valle del Cauca',
+      addressCountry: 'CO',
+    },
+    areaServed: 'Valle del Cauca',
   };
 }
 
