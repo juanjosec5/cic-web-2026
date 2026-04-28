@@ -4,6 +4,7 @@ import SedeMapD3 from '@/components/islands/SedeMapD3.vue';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import { SITE_CONFIG, CATEGORIAS } from '@/lib/config';
+import { buildOrganizationJsonLd } from '@/lib/seo';
 
 const sedes = await getCollection('sedes');
 const examenes = await getCollection('examenes', ({ data }: CollectionEntry<'examenes'>) => data.activo);
@@ -28,8 +29,9 @@ const sedesParaMapa = sedes
 ---
 
 <BaseLayout
-  title="Inicio"
+  title="Laboratorio Clínico en el Valle del Cauca"
   description={`CIC Laboratorios — ${examenes.length} exámenes clínicos con resultados el mismo día. ${sedes.length} sedes en el Valle del Cauca. Servicio a domicilio disponible.`}
+  jsonLd={buildOrganizationJsonLd()}
 >
 
   <!-- 1. HERO -->

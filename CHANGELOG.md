@@ -9,6 +9,17 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 ## [Unreleased]
 
+### Added (SEO pass)
+- `src/components/SEO.astro`: `og:locale` (`es_CO`); `twitter:card`, `twitter:title`, `twitter:description`, `twitter:image` (summary_large_image); `ogImage` is now resolved to an absolute URL via `Astro.site?.origin` before being set on og:image and twitter:image (required by Open Graph crawlers)
+- `src/lib/seo.ts`: `OrganizationJsonLd` interface and `buildOrganizationJsonLd()` helper — returns `@type: Organization` with name, url, logo, telephone, address, and areaServed pulled from `SITE_CONFIG`; `SITE_CONFIG` imported into `seo.ts`
+- `src/pages/index.astro`: homepage now passes `jsonLd={buildOrganizationJsonLd()}` so Google sees Organization structured data on the root page
+- `public/robots.txt`: allows all crawlers; points to `sitemap-index.xml`
+
+### Changed (SEO pass)
+- `src/pages/index.astro`: `title="Inicio"` → `title="Laboratorio Clínico en el Valle del Cauca"` — rendered title is now `"Laboratorio Clínico en el Valle del Cauca | CIC Laboratorios"`
+- `src/layouts/SedeLayout.astro`: `title={sede.nombre}` → `title={\`Laboratorio Clínico en ${sede.ciudad}\`}` — eliminates duplicate brand in title (previous: "CIC Laboratorios — Tuluá | CIC Laboratorios")
+- `src/layouts/BaseLayout.astro`: skip-to-content link color `focus:bg-blue-600` → `focus:bg-red-600` (brand consistency)
+
 ### Added (Tier 2 design pass + a11y)
 - `src/styles/global.css`: red `*:focus-visible` outline (2px solid #dc2626) across all interactive elements; `@media (prefers-reduced-motion: reduce)` disables `.sede-pulse` animation
 - `src/components/Header.astro`: wordmark changed from `text-blue-700` → `text-red-600`; nav links use `class:list` with `Astro.url.pathname` comparison to highlight the active section (red-50 bg / red-700 text / semibold); hamburger focus ring updated from `ring-blue-500` → `ring-red-500`
