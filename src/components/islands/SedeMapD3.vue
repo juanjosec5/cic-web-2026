@@ -75,6 +75,12 @@ const svgEl = ref<SVGSVGElement | null>(null)
 const svgW  = ref(400)
 const svgH  = computed(() => Math.round(svgW.value * RATIO))
 
+// Larger dots on narrow screens so they're easier to tap
+const dotR           = computed(() => svgW.value < 420 ? 7  : 5)
+const principalR     = computed(() => svgW.value < 420 ? 10 : 7)
+const pulseR         = computed(() => svgW.value < 420 ? 16 : 10)
+const pulsePrincipalR = computed(() => svgW.value < 420 ? 20 : 14)
+
 // ─── Derived geometry (purely computed — no async, no D3, no watch) ──────────
 const polygonPoints = computed(() =>
   POLY.map(([lng, lat]) => project(lng, lat, svgW.value, svgH.value).join(',')).join(' ')
@@ -180,7 +186,7 @@ onUnmounted(() => {
       <circle
         :cx="sede.cx"
         :cy="sede.cy"
-        :r="sede.esSedePrincipal ? 14 : 10"
+        :r="sede.esSedePrincipal ? pulsePrincipalR : pulseR"
         :fill="sede.esSedePrincipal ? '#34d399' : '#60a5fa'"
         class="sede-pulse"
         pointer-events="none"
@@ -189,7 +195,7 @@ onUnmounted(() => {
       <circle
         :cx="sede.cx"
         :cy="sede.cy"
-        :r="sede.esSedePrincipal ? 7 : 5"
+        :r="sede.esSedePrincipal ? principalR : dotR"
         :fill="sede.esSedePrincipal ? '#059669' : '#2563eb'"
         stroke="white"
         stroke-width="1.5"

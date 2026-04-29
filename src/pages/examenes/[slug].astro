@@ -172,8 +172,11 @@ const remainingCount = sedesData.length - SEDES_PREVIEW;
       <!-- Sedes donde se realiza -->
       <section aria-labelledby="sedes-heading" class="mt-6 rounded-xl border border-gray-200 p-6">
         <h2 id="sedes-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
-          Sedes donde se realiza
+          Toma de muestra disponible en
         </h2>
+        <p class="mt-1 text-xs text-gray-400">
+          El procesamiento se realiza en nuestra <a href="/sedes/buga" class="underline hover:text-gray-600 transition-colors duration-200">sede principal en Buga</a>.
+        </p>
         <ul role="list" class="mt-4 flex flex-wrap gap-2">
           {displayedSedes.map(({ slug, nombre }) => (
             <li>
