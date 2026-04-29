@@ -94,13 +94,25 @@ const sedePoints = computed(() =>
 )
 
 // ─── Tooltip ─────────────────────────────────────────────────────────────────
-interface TooltipState { sede: SedePin; sx: number; sy: number }
+interface TooltipState { sede: SedePin; sx: number; sy: number; mobile: boolean }
 const tooltip   = ref<TooltipState | null>(null)
 const isMounted = ref(false) // guards <Teleport> — must not render during SSR
 let hideTimer: ReturnType<typeof setTimeout> | null = null
 
 const tooltipStyle = computed(() => {
   if (!tooltip.value) return {}
+  // Mobile (touch): always anchor below the SVG, centered — same spot for every sede.
+  if (tooltip.value.mobile && svgEl.value) {
+    const rect = svgEl.value.getBoundingClientRect()
+    return {
+      position: 'fixed' as const,
+      top: `${rect.bottom + 8}px`,
+      left: '50%',
+      transform: 'translateX(-50%)',
+      width: '224px',
+    }
+  }
+  // Desktop (mouse): follow cursor.
   const TW = 224
   let left  = tooltip.value.sx + 16
   const top = Math.max(8, tooltip.value.sy - 80)
@@ -112,8 +124,9 @@ const tooltipStyle = computed(() => {
 
 function openTooltip(sede: SedePin, e: MouseEvent | TouchEvent) {
   if (hideTimer) { clearTimeout(hideTimer); hideTimer = null }
-  const src = 'touches' in e ? (e.touches[0] ?? e.changedTouches[0]) : e
-  tooltip.value = { sede, sx: src.clientX, sy: src.clientY }
+  const isTouchEvent = 'touches' in e
+  const src = isTouchEvent ? (e.touches[0] ?? e.changedTouches[0]) : e
+  tooltip.value = { sede, sx: src.clientX, sy: src.clientY, mobile: isTouchEvent }
 }
 function scheduleClose() {
   hideTimer = setTimeout(() => { tooltip.value = null }, 160)
