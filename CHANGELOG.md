@@ -9,6 +9,12 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 ## [Unreleased]
 
+### Changed (header polish)
+- `src/components/Header.astro`: layout changed to `justify-between` (logo left, nav right) — dropped `flex-1 justify-center` centering wrapper; `py-4` replaces fixed `h-16` on the row; "Inicio" added as first nav link; logo `max-w-[180px]` moved from `<img>` to the `<a>` wrapper with `img` set to `w-full` so the constraint is enforced by the container
+- `src/components/Header.astro`: mobile nav panel now slides in/out via `max-height` CSS transition (300 ms ease-in-out) instead of toggling `hidden`; `aria-hidden` attribute tracks open state
+- `src/styles/global.css`: `html { scroll-behavior: smooth }` added under `@media (prefers-reduced-motion: no-preference)` — applies smooth scrolling to all anchor/jump links site-wide while respecting reduced-motion preferences
+- `public/images/favicon/favicon.ico`, `public/images/logo/logo.svg`: committed to git (were untracked — caused missing logo and favicon on Vercel deployments)
+
 ### Added (breadcrumbs on main index pages)
 - `src/pages/sedes/index.astro`, `src/pages/examenes/index.astro`, `src/pages/servicios/index.astro`, `src/pages/empresas.astro`, `src/pages/nosotros/index.astro`: added `Inicio → <Page>` breadcrumb at the top of each page using the existing `Breadcrumb` component
 
