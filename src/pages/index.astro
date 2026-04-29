@@ -59,7 +59,33 @@ const sedesParaMapa = sedes
     </div>
   </section>
 
-  <!-- 2. PILLARS STRIP -->
+  <!-- 2. MONTHLY PROMOTION BANNER -->
+  {/* TODO (content-needed): Update promo title, description, and CTA each month */}
+  <section aria-labelledby="promo-heading" class="py-6">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="flex flex-col gap-4 rounded-2xl bg-red-600 px-8 py-7 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-red-200">Promoción del mes</p>
+          <h2 id="promo-heading" class="mt-1 text-xl font-bold text-white">
+            [ Título de la promoción — pendiente ]
+          </h2>
+          <p class="mt-1 text-sm text-red-100">
+            [ Descripción breve de la promoción — pendiente ]
+          </p>
+        </div>
+        <a
+          href={waHero}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex w-full shrink-0 items-center justify-center rounded-lg bg-white px-6 py-3 text-sm font-semibold text-red-600 shadow-sm hover:bg-red-50 active:scale-95 transition-all duration-200 sm:w-auto"
+        >
+          Consultar promoción
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. PILLARS STRIP -->
   <section aria-labelledby="pillars-heading" class="py-12">
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
       <h2 id="pillars-heading" class="sr-only">Por qué CIC Laboratorios</h2>
@@ -100,7 +126,7 @@ const sedesParaMapa = sedes
     </div>
   </section>
 
-  <!-- 3. AUDIENCE SEGMENTATION -->
+  <!-- 4. AUDIENCE SEGMENTATION -->
   <section aria-labelledby="audience-heading" class="py-12">
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
       <h2 id="audience-heading">¿Cómo podemos ayudarte?</h2>
@@ -143,7 +169,7 @@ const sedesParaMapa = sedes
     </div>
   </section>
 
-  <!-- 4. SEDE MAP PREVIEW -->
+  <!-- 5. SEDE MAP PREVIEW -->
   <section aria-labelledby="sedes-map-heading" class="py-12">
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
       <h2 id="sedes-map-heading">{sedes.length} sedes en el Valle del Cauca</h2>
@@ -167,7 +193,7 @@ const sedesParaMapa = sedes
     </div>
   </section>
 
-  <!-- 5. EXAM CATEGORIES -->
+  <!-- 6. EXAM CATEGORIES -->
   <section aria-labelledby="categorias-heading" class="py-12">
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
       <h2 id="categorias-heading">Exámenes por categoría</h2>
@@ -185,7 +211,7 @@ const sedesParaMapa = sedes
     </div>
   </section>
 
-  <!-- 6. SERVICES -->
+  <!-- 7. SERVICES -->
   <section aria-labelledby="servicios-heading" class="py-12">
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
       <h2 id="servicios-heading">Nuestros servicios</h2>
