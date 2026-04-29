@@ -7,57 +7,46 @@ import { CATEGORIAS, SITE_CONFIG } from '@/lib/config';
 
 interface Props {
   examen: CollectionEntry<'examenes'>['data'];
-  sedesData: Array<{ slug: string; nombre: string }>;
   relacionadosData: Array<{ slug: string; nombre: string }>;
+  perfilesData: Array<{ slug: string; nombre: string; descripcion: string }>;
 }
 
 export async function getStaticPaths() {
-  const [examenes, sedes] = await Promise.all([
+  const [examenes, perfiles] = await Promise.all([
     getCollection('examenes', ({ data }: CollectionEntry<'examenes'>) => data.activo),
-    getCollection('sedes'),
+    getCollection('perfiles'),
   ]);
 
-  const sedeMap = new Map(sedes.map((s: CollectionEntry<'sedes'>) => [s.data.slug, s.data.nombre]));
   const examenMap = new Map(examenes.map((e: CollectionEntry<'examenes'>) => [e.data.slug, e.data.nombre]));
-
-  // All sedes sorted sede principal first — used as fallback when sedesDisponibles is empty
-  const allSedesData = [...sedes]
-    .sort(
-      (a: CollectionEntry<'sedes'>, b: CollectionEntry<'sedes'>) =>
-        (b.data.esSedePrincipal ? 1 : 0) - (a.data.esSedePrincipal ? 1 : 0)
-    )
-    .map((s: CollectionEntry<'sedes'>) => ({ slug: s.data.slug, nombre: s.data.nombre }));
 
   return examenes.map((examen: CollectionEntry<'examenes'>) => ({
     params: { slug: examen.data.slug },
     props: {
       examen: examen.data,
-      sedesData:
-        examen.data.sedesDisponibles.length > 0
-          ? examen.data.sedesDisponibles.map((slug: string) => ({
-              slug,
-              nombre: sedeMap.get(slug) ?? slug,
-            }))
-          : allSedesData,
       relacionadosData: examen.data.examenesRelacionados.map((slug: string) => ({
         slug,
         nombre: examenMap.get(slug) ?? slug,
       })),
+      perfilesData: perfiles
+        .filter((p: CollectionEntry<'perfiles'>) =>
+          p.data.examenesIncluidos.includes(examen.data.slug)
+        )
+        .map((p: CollectionEntry<'perfiles'>) => ({
+          slug: p.data.slug,
+          nombre: p.data.nombre,
+          descripcion: p.data.descripcion,
+        })),
     },
   }));
 }
 
-const { examen, sedesData, relacionadosData } = Astro.props;
+const { examen, relacionadosData, perfilesData } = Astro.props;
 
 const categoriaLabel =
   CATEGORIAS.find((c) => c.slug === examen.categoria)?.label ?? examen.categoria;
 
 const waCotizar = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(`Quisiera cotizar el examen: ${examen.nombre}`)}`;
-const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(`Quisiera solicitar toma a domicilio para: ${examen.nombre}`)}`;
-
-const SEDES_PREVIEW = 3;
-const displayedSedes = sedesData.slice(0, SEDES_PREVIEW);
-const remainingCount = sedesData.length - SEDES_PREVIEW;
+const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(`Quisiera solicitar toma a domicilio para: ${examen.nombre}`)}}`;
 ---
 
 <ExamenLayout examen={examen}>
@@ -81,6 +70,13 @@ const remainingCount = sedesData.length - SEDES_PREVIEW;
         {examen.nombresAlternativos.length > 0 && (
           <p class="mt-1 text-sm text-gray-500">
             También conocido como: {examen.nombresAlternativos.join(', ')}
+          </p>
+        )}
+        {examen.codigoCups && (
+          <p class="mt-2">
+            <span class="inline-flex items-center gap-1 rounded bg-gray-100 px-2 py-0.5 font-mono text-xs text-gray-500">
+              CUPS {examen.codigoCups}
+            </span>
           </p>
         )}
         <div class="mt-6 flex flex-wrap gap-3">
@@ -120,8 +116,13 @@ const remainingCount = sedesData.length - SEDES_PREVIEW;
           </div>
         )}
         <div class="bg-white p-4">
-          <dt class="text-xs font-medium uppercase tracking-wide text-gray-500">Precio</dt>
-          <dd class="mt-1 font-semibold text-gray-900">Cotizar</dd>
+          <dt class="text-xs font-medium uppercase tracking-wide text-gray-500">Cotizar precio</dt>
+          <dd class="mt-1">
+            <a href={waCotizar} target="_blank" rel="noopener noreferrer"
+               class="font-semibold text-green-700 hover:text-green-800 transition-colors duration-200">
+              WhatsApp →
+            </a>
+          </dd>
         </div>
       </dl>
 
@@ -169,30 +170,25 @@ const remainingCount = sedesData.length - SEDES_PREVIEW;
         </section>
       </div>
 
-      <!-- Sedes donde se realiza -->
-      <section aria-labelledby="sedes-heading" class="mt-6 rounded-xl border border-gray-200 p-6">
-        <h2 id="sedes-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
-          Sedes donde se realiza
-        </h2>
-        <ul role="list" class="mt-4 flex flex-wrap gap-2">
-          {displayedSedes.map(({ slug, nombre }) => (
-            <li>
-              <a href={`/sedes/${slug}`}
-                 class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1.5 text-sm font-medium text-gray-700 hover:bg-red-50 hover:text-red-700 transition-colors duration-200">
-                {nombre} →
-              </a>
-            </li>
-          ))}
-          {remainingCount > 0 && (
-            <li>
-              <a href="/sedes"
-                 class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1.5 text-sm font-medium text-gray-500 hover:bg-red-50 hover:text-red-700 transition-colors duration-200">
-                +{remainingCount} más
-              </a>
-            </li>
-          )}
-        </ul>
-      </section>
+      <!-- Perfiles que incluyen este examen -->
+      {perfilesData.length > 0 && (
+        <section aria-labelledby="perfiles-heading" class="mt-6 rounded-xl border border-gray-200 p-6">
+          <h2 id="perfiles-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
+            Incluido en estos perfiles
+          </h2>
+          <ul role="list" class="mt-4 space-y-2">
+            {perfilesData.map(({ slug, nombre, descripcion }) => (
+              <li>
+                <a href={`/examenes/perfiles/${slug}`}
+                   class="block rounded-lg border border-gray-200 px-4 py-3 transition-colors duration-200 hover:border-red-200 hover:bg-red-50">
+                  <span class="text-sm font-medium text-gray-900">{nombre}</span>
+                  <span class="mt-0.5 block text-xs text-gray-500">{descripcion}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <!-- Exámenes relacionados -->
       {relacionadosData.length > 0 && (
