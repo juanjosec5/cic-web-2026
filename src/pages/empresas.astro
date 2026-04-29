@@ -41,22 +41,22 @@ const waEmpresa = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompone
     <section aria-labelledby="propuestas-heading" class="mt-12">
       <h2 id="propuestas-heading" class="sr-only">Por qué elegirnos</h2>
       <ul role="list" class="grid grid-cols-1 gap-6 md:grid-cols-3">
-        <li>
-          <article class="rounded-xl border border-gray-200 p-6">
+        <li class="flex">
+          <article class="h-full w-full rounded-xl border border-gray-200 p-6">
             <h3>Resultados el mismo día</h3>
             {/* TODO (content-needed): Add detail copy */}
             <p class="mt-2 text-sm text-gray-600">Informes listos para que sus colaboradores continúen su jornada.</p>
           </article>
         </li>
-        <li>
-          <article class="rounded-xl border border-gray-200 p-6">
+        <li class="flex">
+          <article class="h-full w-full rounded-xl border border-gray-200 p-6">
             <h3>Toma en sitio</h3>
             {/* TODO (content-needed): Add detail copy */}
             <p class="mt-2 text-sm text-gray-600">Personal capacitado para jornadas en sus instalaciones.</p>
           </article>
         </li>
-        <li>
-          <article class="rounded-xl border border-gray-200 p-6">
+        <li class="flex">
+          <article class="h-full w-full rounded-xl border border-gray-200 p-6">
             <h3>Informes consolidados</h3>
             {/* TODO (content-needed): Add detail copy */}
             <p class="mt-2 text-sm text-gray-600">Reportes para RR.HH. con todos los resultados en un solo lugar.</p>
@@ -70,12 +70,12 @@ const waEmpresa = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompone
       <h2 id="servicios-empresa-heading">Servicios disponibles</h2>
       <ul role="list" class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
         {serviciosEmpresa.map((s: CollectionEntry<'servicios'>) => (
-          <li>
-            <article class="rounded-xl border border-gray-200 p-6">
+          <li class="flex">
+            <article class="flex h-full w-full flex-col rounded-xl border border-gray-200 p-6">
               <h3>
                 <a href={`/servicios/${s.data.slug}`} class="text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200">{s.data.nombre}</a>
               </h3>
-              <p class="mt-2 text-sm text-gray-600">{s.data.descripcion}</p>
+              <p class="mt-2 flex-1 text-sm text-gray-600">{s.data.descripcion}</p>
             </article>
           </li>
         ))}
@@ -109,13 +109,13 @@ const waEmpresa = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompone
         {/* TODO (content-needed): Add contact form in v2 */}
         Contáctenos para recibir una propuesta personalizada para su empresa.
       </p>
-      <div class="mt-6 flex flex-wrap gap-3">
+      <div class="mt-6 flex flex-col gap-3 sm:flex-row">
         <a href={waEmpresa} target="_blank" rel="noopener noreferrer"
-           class="inline-flex items-center gap-2 rounded-lg bg-green-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-700 active:scale-95 transition-all duration-200">
+           class="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-green-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-700 active:scale-95 transition-all duration-200 sm:w-auto">
           Contactar por WhatsApp
         </a>
         <a href="mailto:empresas@ciclaboratorios.com?subject=Solicitud%20de%20cotizaci%C3%B3n"
-           class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200">
+           class="inline-flex w-full items-center justify-center rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200 sm:w-auto">
           Enviar correo
         </a>
       </div>
