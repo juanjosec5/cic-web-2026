@@ -13,6 +13,11 @@ img {
 }
 
 @layer base {
+  /* ── Base background ──────────────────────────────────────── */
+  html {
+    background-color: #faf9f7; /* warm bone white — easier on the eyes than pure white */
+  }
+
   /* ── Headings ─────────────────────────────────────────────── */
   h1 {
     font-size: 1.875rem;   /* text-3xl */
