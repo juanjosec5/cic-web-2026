@@ -78,6 +78,11 @@ img {
   }
 }
 
+/* Scroll smooth — skip for users who prefer reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
 /* Reduced motion — map pulse animation */
 @media (prefers-reduced-motion: reduce) {
   .sede-pulse { animation: none; }
