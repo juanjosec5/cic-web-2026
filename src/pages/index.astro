@@ -72,9 +72,19 @@ const sedesParaMapa = sedes
         {promo.modo === 'imagen' && promo.imagenCompletaUrl ? (
           <a href={promo.ctaUrl ?? '#'} target="_blank" rel="noopener noreferrer">
             <img
-              src={promo.imagenCompletaUrl}
+              src={`${promo.imagenCompletaUrl}?w=1200&auto=format&q=85`}
+              srcset={[
+                `${promo.imagenCompletaUrl}?w=640&auto=format&q=85 640w`,
+                `${promo.imagenCompletaUrl}?w=1024&auto=format&q=85 1024w`,
+                `${promo.imagenCompletaUrl}?w=1600&auto=format&q=85 1600w`,
+              ].join(', ')}
+              sizes="(max-width: 640px) 640px, (max-width: 1024px) 1024px, 1600px"
               alt={promo.titulo ?? 'Promoción del mes'}
               class="w-full rounded-2xl object-cover"
+              loading="eager"
+              decoding="async"
+              width="1600"
+              height="600"
             />
           </a>
         ) : (
