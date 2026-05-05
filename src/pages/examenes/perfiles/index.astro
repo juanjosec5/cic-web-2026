@@ -6,6 +6,37 @@ import type { CollectionEntry } from 'astro:content';
 
 const perfiles = await getCollection('perfiles');
 const sorted = [...perfiles].sort((a, b) => (a.data.precio ?? 0) - (b.data.precio ?? 0));
+
+const CATEGORIA_MAP: Record<string, string> = {
+  'lipidico':             'cardiovascular',
+  'hipertension':         'cardiovascular',
+  'renal':                'metabolico',
+  'hepatico':             'metabolico',
+  'diabetico':            'metabolico',
+  'tiroideo':             'metabolico',
+  'dengue-igm':           'infeccioso',
+  'dengue-ns1':           'infeccioso',
+  'enfermedades-sexuales':'infeccioso',
+  'ninos':                'general',
+  'deportivo':            'general',
+  'pre-quirurgico':       'general',
+  'prenatal':             'femenino',
+  'mujer-gestante':       'femenino',
+  'femenino':             'femenino',
+  'general-mujeres':      'femenino',
+  'prostatico':           'masculino',
+  'general-hombres':      'masculino',
+};
+
+const FILTROS = [
+  { value: 'todos',         label: 'Todos' },
+  { value: 'cardiovascular',label: 'Cardiovascular' },
+  { value: 'metabolico',    label: 'Metabólico' },
+  { value: 'infeccioso',    label: 'Infeccioso' },
+  { value: 'femenino',      label: 'Femenino' },
+  { value: 'masculino',     label: 'Masculino' },
+  { value: 'general',       label: 'General' },
+];
 ---
 
 <BaseLayout
@@ -28,9 +59,31 @@ const sorted = [...perfiles].sort((a, b) => (a.data.precio ?? 0) - (b.data.preci
       </p>
     </header>
 
-    <ul role="list" class="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    <!-- Filter pills -->
+    <div class="mt-6 flex flex-wrap gap-2" role="group" aria-label="Filtrar por categoría">
+      {FILTROS.map((f) => (
+        <button
+          type="button"
+          data-filter={f.value}
+          class:list={[
+            'filter-pill rounded-full border px-4 py-1.5 text-sm font-medium transition-colors duration-150',
+            f.value === 'todos'
+              ? 'border-red-600 bg-red-600 text-white'
+              : 'border-gray-300 bg-white text-gray-600 hover:border-gray-400 hover:text-gray-900',
+          ]}
+        >
+          {f.label}
+        </button>
+      ))}
+    </div>
+
+    <!-- Cards -->
+    <ul id="perfiles-grid" role="list" class="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {sorted.map((perfil: CollectionEntry<'perfiles'>) => (
-        <li class="relative flex flex-col rounded-xl border border-gray-200 bg-white transition-all duration-200 hover:shadow-md hover:-translate-y-0.5">
+        <li
+          class="relative flex flex-col rounded-xl border border-gray-200 bg-white transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
+          data-categoria={CATEGORIA_MAP[perfil.data.slug] ?? 'general'}
+        >
           <!-- Price badge -->
           {perfil.data.precio && (
             <div class="absolute right-4 top-4">
@@ -80,5 +133,38 @@ const sorted = [...perfiles].sort((a, b) => (a.data.precio ?? 0) - (b.data.preci
       ))}
     </ul>
 
+    <!-- Empty state -->
+    <p id="perfiles-empty" class="hidden mt-12 text-center text-sm text-gray-400">
+      No hay perfiles en esta categoría.
+    </p>
+
   </div>
 </BaseLayout>
+
+<script>
+  const pills = document.querySelectorAll<HTMLButtonElement>('.filter-pill');
+  const cards = document.querySelectorAll<HTMLLIElement>('#perfiles-grid > li');
+  const empty = document.getElementById('perfiles-empty');
+
+  function applyFilter(filter: string) {
+    let visible = 0;
+    cards.forEach((card) => {
+      const match = filter === 'todos' || card.dataset.categoria === filter;
+      card.style.display = match ? '' : 'none';
+      if (match) visible++;
+    });
+    empty?.classList.toggle('hidden', visible > 0);
+  }
+
+  pills.forEach((pill) => {
+    pill.addEventListener('click', () => {
+      pills.forEach((p) => {
+        p.classList.remove('border-red-600', 'bg-red-600', 'text-white');
+        p.classList.add('border-gray-300', 'bg-white', 'text-gray-600');
+      });
+      pill.classList.remove('border-gray-300', 'bg-white', 'text-gray-600');
+      pill.classList.add('border-red-600', 'bg-red-600', 'text-white');
+      applyFilter(pill.dataset.filter ?? 'todos');
+    });
+  });
+</script>
