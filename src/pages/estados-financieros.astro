@@ -2,18 +2,53 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
 
-const documentos = [
+const años = [
+  {
+    año: 2025,
+    documentos: [
+      {
+        titulo: 'Estado de Situación Financiera',
+        archivo: '/docs/estados-financieros/2025/ESTADO_DE_SITUACION_FINANCIERA.pdf',
+      },
+      {
+        titulo: 'Estado de Resultados',
+        archivo: '/docs/estados-financieros/2025/ESTADO_DE_RESULTADOS.pdf',
+      },
+      {
+        titulo: 'Notas a los Estados Financieros',
+        archivo: '/docs/estados-financieros/2025/NOTAS_A_LOS_ESTADOS_FINANCIEROS.pdf',
+      },
+    ],
+  },
   {
     año: 2024,
-    titulo: 'Estados Financieros 2024',
-    descripcion: 'Balance general y estado de resultados del ejercicio fiscal 2024.',
-    archivo: '/docs/estados-financieros/estados-financieros-2024.pdf',
+    documentos: [
+      {
+        titulo: 'Estado de Situación Financiera',
+        archivo: '/docs/estados-financieros/2024/ESFCIC2024.pdf',
+      },
+      {
+        titulo: 'Estado de Resultados Integrales',
+        archivo: '/docs/estados-financieros/2024/ERICIC2024.pdf',
+      },
+      {
+        titulo: 'Notas a los Estados Financieros',
+        archivo: '/docs/estados-financieros/2024/NOTASCIC2024.pdf',
+      },
+    ],
   },
   {
     año: 2023,
-    titulo: 'Estados Financieros 2023',
-    descripcion: 'Balance general y estado de resultados del ejercicio fiscal 2023.',
-    archivo: '/docs/estados-financieros/estados-financieros-2023.pdf',
+    documentos: [
+      {
+        titulo: 'Estado de Situación Financiera',
+        archivo: '/docs/estados-financieros/2023/ESFCIC2023.pdf',
+      },
+      {
+        titulo: 'Política de Datos',
+        archivo: '/docs/estados-financieros/2023/POLITICA_DATOS_2023.pdf',
+      },
+    ],
   },
 ];
 ---
@@ -37,42 +72,43 @@ const documentos = [
       </p>
     </header>
 
-    <ul role="list" class="mt-10 space-y-4">
-      {documentos.map((doc) => (
-        <li class="flex flex-col gap-4 rounded-xl border border-gray-200 p-6 sm:flex-row sm:items-center sm:justify-between">
-          <div class="flex items-start gap-5">
-            <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-gray-100 text-lg font-bold text-gray-700">
-              {doc.año}
-            </span>
-            <div>
-              <h2 class="text-base font-semibold text-gray-900">{doc.titulo}</h2>
-              <p class="mt-0.5 text-sm text-gray-500">{doc.descripcion}</p>
-            </div>
-          </div>
-          <div class="flex shrink-0 gap-2 sm:flex-col sm:items-end lg:flex-row">
-            <a
-              href={doc.archivo}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200"
-            >
-              Ver PDF
-            </a>
-            <a
-              href={doc.archivo}
-              download
-              class="inline-flex items-center justify-center rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700 active:scale-95 transition-all duration-200"
-            >
-              Descargar
-            </a>
-          </div>
-        </li>
+    <div class="mt-10 space-y-10">
+      {años.map((grupo) => (
+        <section aria-labelledby={`año-${grupo.año}`}>
+          <h2 id={`año-${grupo.año}`} class="mb-4 text-lg font-semibold text-gray-900">
+            Ejercicio {grupo.año}
+          </h2>
+          <ul role="list" class="space-y-3">
+            {grupo.documentos.map((doc) => (
+              <li class="flex flex-col gap-3 rounded-xl border border-gray-200 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+                <span class="text-sm font-medium text-gray-800">{doc.titulo}</span>
+                <div class="flex shrink-0 gap-2">
+                  <a
+                    href={doc.archivo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-4 py-1.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200"
+                  >
+                    Ver PDF
+                  </a>
+                  <a
+                    href={doc.archivo}
+                    download
+                    class="inline-flex items-center justify-center rounded-lg bg-red-600 px-4 py-1.5 text-sm font-semibold text-white hover:bg-red-700 active:scale-95 transition-all duration-200"
+                  >
+                    Descargar
+                  </a>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
       ))}
-    </ul>
+    </div>
 
     <p class="mt-10 text-xs text-gray-400">
-      Documentos disponibles bajo cumplimiento normativo colombiano. Para consultas sobre esta
-      información, contáctenos a
+      Documentos disponibles bajo cumplimiento normativo colombiano. Para consultas,
+      contáctenos a
       <a href="mailto:buga@ciclaboratorios.com" class="hover:text-red-600 transition-colors">
         buga@ciclaboratorios.com
       </a>.
