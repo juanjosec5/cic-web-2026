@@ -6,8 +6,8 @@ import { schemaTypes } from './src/sanity/schemas';
 export default defineConfig({
   name: 'cic-laboratorios',
   title: 'CIC Laboratorios',
-  projectId: process.env.SANITY_PROJECT_ID!,
-  dataset: process.env.SANITY_DATASET ?? 'production',
+  projectId: '9odcnl2q',
+  dataset: 'production',
   plugins: [structureTool(), visionTool()],
   schema: { types: schemaTypes },
 });
