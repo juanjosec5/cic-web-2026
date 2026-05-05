@@ -78,6 +78,7 @@ const sedesCollection = defineCollection({
     convenios: z.array(z.string()).default([]),
     domicilioGratisDesde: z.number().optional(),
     esSedePrincipal: z.boolean().default(false),
+    mapEmbedUrl: z.string().optional(),
   }),
 });
 
