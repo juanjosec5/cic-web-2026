@@ -55,51 +55,6 @@ const examenesCollection = defineCollection({
 });
 
 // ---------------------------------------------------------------------------
-// sedes
-// ---------------------------------------------------------------------------
-const horarioSchema = z.object({
-  lunes: z.string().optional(),
-  martes: z.string().optional(),
-  miercoles: z.string().optional(),
-  jueves: z.string().optional(),
-  viernes: z.string().optional(),
-  sabado: z.string().optional(),
-  domingo: z.string().optional(),
-});
-
-const sedesCollection = defineCollection({
-  type: 'data',
-  schema: z.object({
-    slug: z.string(),
-    nombre: z.string(),
-    ciudad: z.string(),
-    direccion: z.string(),
-    lat: z.number().optional(),
-    lng: z.number().optional(),
-    telefono: z.string(),
-    whatsapp: z.string(),
-    email: z.string().optional(),
-    horario: horarioSchema,
-    servicios: z.array(
-      z.enum([
-        'toma-muestras',
-        'domicilio',
-        'ginecologia-vph',
-        'jornadas-empresariales',
-        'salud-ocupacional',
-        'validacion-qr',
-      ])
-    ),
-    fotos: z.array(z.string()).default([]),
-    video: z.string().nullable().optional(),
-    convenios: z.array(z.string()).default([]),
-    domicilioGratisDesde: z.number().optional(),
-    esSedePrincipal: z.boolean().default(false),
-    mapEmbedUrl: z.string().optional(),
-  }),
-});
-
-// ---------------------------------------------------------------------------
 // servicios
 // ---------------------------------------------------------------------------
 const serviciosCollection = defineCollection({
@@ -152,7 +107,6 @@ const aliadosCollection = defineCollection({
 // ---------------------------------------------------------------------------
 export const collections = {
   examenes: examenesCollection,
-  sedes: sedesCollection,
   servicios: serviciosCollection,
   perfiles: perfilesCollection,
   aliados: aliadosCollection,
