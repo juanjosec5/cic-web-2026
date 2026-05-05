@@ -16,6 +16,7 @@
     "@astrojs/vue": "^5.1.4",
     "@sanity/client": "^7.22.0",
     "@sanity/image-url": "^2.1.1",
+    "@sanity/vision": "^5.24.0",
     "@tailwindcss/vite": "^4.1.4",
     "astro": "^5.7.0",
     "d3-geo": "^3.1.1",
