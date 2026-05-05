@@ -1,0 +1,18 @@
+{
+  "id": "HOMO",
+  "nombre": "HOMOCISTEINA EN SUERO / PLASMA",
+  "codigoCups": "903022",
+  "slug": "homocisteina-en-suero-plasma",
+  "categoria": "quimica",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "4 días hábiles a partir del día de procesamiento",
+  "muestra": "Suero /Plasma (2,0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

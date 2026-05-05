@@ -1,0 +1,18 @@
+{
+  "id": "MARC",
+  "nombre": "ALFAFETOPROTEÍNA (AFP) BETAGONADOTROPINA CORIÓNICA LIBRE (BHCG LIBRE) Y ESTRIOL TRIPLE MARCADOR",
+  "codigoCups": "903050",
+  "slug": "alfafetoproteina-afp-betagonadotropina-corionica-libre-bhcg-libre-y-estriol-triple-marcador",
+  "categoria": "inmunologia",
+  "diaProceso": "MARTES Y JUEVES",
+  "oportunidadResultados": "5 dias a partir del día de procesamiento",
+  "muestra": "Suero (1.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

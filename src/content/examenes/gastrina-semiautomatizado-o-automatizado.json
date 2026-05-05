@@ -1,17 +1,18 @@
 {
-  "id": "906624",
-  "mongoId": "635afd054d2fd1d313dd4c33",
+  "id": "GAST",
   "nombre": "GASTRINA SEMIAUTOMATIZADO O AUTOMATIZADO",
   "codigoCups": "906624",
   "slug": "gastrina-semiautomatizado-o-automatizado",
   "categoria": "hormonas",
+  "diaProceso": "JUEVES",
+  "oportunidadResultados": "10 días hábiles a partir del día Del dia de procesamiento",
+  "muestra": "Suero (2.0mL)",
+  "preparacion": "En ayunas Relacionar datos clínicos del paciente en la Solicitud",
   "nombresAlternativos": [],
-  "requiereAyuno": false,
-  "preparacion": "En ayunas. Relacionar datos clínicos del paciente en la solicitud.",
-  "oportunidadResultados": "10 días hábiles a partir del día Del dia de procesamiento.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

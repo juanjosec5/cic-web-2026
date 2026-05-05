@@ -1,0 +1,18 @@
+{
+  "id": "905762",
+  "nombre": "ACIDO HIPURICO SEMIAUTOMATIZADO (TOLUENO EN ORINA)",
+  "codigoCups": "905762",
+  "slug": "acido-hipurico-semiautomatizado-tolueno-en-orina",
+  "categoria": "toxicologia",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "16 días a partir de la fecha de envío a la red de apoyo internacional",
+  "muestra": "Orina (10.0mL)",
+  "preparacion": "El paciente debe suspender la ingesta de Anti-Inflamatorios tipo AINEs (ASA, Ibuprofeno, Advil, Motrí), 5 días antes de la toma de muestra",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

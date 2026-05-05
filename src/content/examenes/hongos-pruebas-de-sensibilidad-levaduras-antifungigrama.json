@@ -1,17 +1,18 @@
 {
-  "id": "901004",
-  "mongoId": "635afd054d2fd1d313dd4d69",
+  "id": "CHG",
   "nombre": "HONGOS PRUEBAS DE SENSIBILIDAD ( LEVADURAS - ANTIFUNGIGRAMA",
   "codigoCups": "901004",
   "slug": "hongos-pruebas-de-sensibilidad-levaduras-antifungigrama",
   "categoria": "microbiologia",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "06 dias habiles a partir del día de procesamiento",
+  "muestra": "Cepa pura",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente",
   "nombresAlternativos": [],
-  "requiereAyuno": false,
-  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente.",
-  "oportunidadResultados": "06 días hábiles a partir del día de procesamiento.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

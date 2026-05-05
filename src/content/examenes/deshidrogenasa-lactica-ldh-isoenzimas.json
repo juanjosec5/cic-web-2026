@@ -1,0 +1,18 @@
+{
+  "id": "DESLAC",
+  "nombre": "DESHIDROGENASA LACTICA (LDH), ISOENZIMAS",
+  "codigoCups": "903829",
+  "slug": "deshidrogenasa-lactica-ldh-isoenzimas",
+  "categoria": "quimica",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "12 días habiles a partir del dia de procesamiento, envío de red de apoyo internacional",
+  "muestra": "Suero (1.0mL)",
+  "preparacion": "En ayunas Relacionar datos clínicos del paciente en la Solicitud.",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

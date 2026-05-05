@@ -1,17 +1,18 @@
 {
-  "id": "904109",
-  "mongoId": "635afd054d2fd1d313dd4ce6",
+  "id": "POOL",
   "nombre": "PROLACTINA MEZCLA DE TRES MUESTRAS (POOL)",
   "codigoCups": "904109",
   "slug": "prolactina-mezcla-de-tres-muestras-pool",
   "categoria": "hormonas",
+  "diaProceso": "Viernes",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Suero (2.0mL)",
+  "preparacion": "Paciente en ayuno. Relacionar datos clínicos del paciente en la Solicitud",
   "nombresAlternativos": [],
-  "requiereAyuno": true,
-  "preparacion": "Paciente en ayuno. Relacionar datos clínicos del paciente en la solicitud.",
-  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

@@ -1,0 +1,18 @@
+{
+  "id": "HIV",
+  "nombre": "HIV PRUEBA RAPIDA (Virus de Inmunodeficiencia Humana 1 y 2 acs)",
+  "codigoCups": "906249",
+  "slug": "hiv-prueba-rapida-virus-de-inmunodeficiencia-humana-1-y-2-acs",
+  "categoria": "inmunologia-infecciosa",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Suero (1.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

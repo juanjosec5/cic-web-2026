@@ -95,7 +95,7 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
         </div>
       </header>
 
-      <!-- 4-stat strip -->
+      <!-- Stat strip -->
       <dl class="mt-6 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-gray-200 bg-gray-200 sm:grid-cols-4">
         {examen.muestra && (
           <div class="bg-white p-4">
@@ -103,15 +103,15 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
             <dd class="mt-1 font-semibold text-gray-900">{examen.muestra}</dd>
           </div>
         )}
-        <div class="bg-white p-4">
-          <dt class="text-xs font-medium uppercase tracking-wide text-gray-500">Ayuno</dt>
-          <dd class="mt-1 font-semibold text-gray-900">
-            {examen.requiereAyuno === true ? 'Requerido' : examen.requiereAyuno === false ? 'No requiere' : '—'}
-          </dd>
-        </div>
+        {examen.diaProceso && (
+          <div class="bg-white p-4">
+            <dt class="text-xs font-medium uppercase tracking-wide text-gray-500">Día de proceso</dt>
+            <dd class="mt-1 font-semibold text-gray-900">{examen.diaProceso}</dd>
+          </div>
+        )}
         {examen.oportunidadResultados && (
           <div class="bg-white p-4">
-            <dt class="text-xs font-medium uppercase tracking-wide text-gray-500">Resultados</dt>
+            <dt class="text-xs font-medium uppercase tracking-wide text-gray-500">Tiempo de informe</dt>
             <dd class="mt-1 font-semibold text-gray-900">{examen.oportunidadResultados}</dd>
           </div>
         )}
@@ -126,49 +126,15 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
         </div>
       </dl>
 
-      <!-- ¿Qué es? — always rendered -->
-      <section aria-labelledby="que-es-heading" class="mt-6 rounded-xl border border-gray-200 p-6">
-        <h2 id="que-es-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
-          ¿Qué es?
-        </h2>
-        {examen.descripcionQueEs ? (
-          <p class="mt-3 text-gray-700">{examen.descripcionQueEs}</p>
-        ) : (
-          <p class="mt-3 text-sm italic text-gray-400">
-            [ Descripción clínica del examen — próximamente ]
-          </p>
-        )}
-      </section>
-
-      <!-- ¿Para qué sirve? + Preparación — always rendered -->
-      <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
-        <section aria-labelledby="para-que-heading" class="rounded-xl border border-gray-200 p-6">
-          <h3 id="para-que-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
-            ¿Para qué sirve?
-          </h3>
-          {examen.descripcionParaQueSirve ? (
-            <p class="mt-3 text-gray-700">{examen.descripcionParaQueSirve}</p>
-          ) : (
-            <p class="mt-3 text-sm italic text-gray-400">[ Próximamente ]</p>
-          )}
+      <!-- Condiciones del paciente / Preparación -->
+      {examen.preparacion && (
+        <section aria-labelledby="preparacion-heading" class="mt-6 rounded-xl border border-gray-200 p-6">
+          <h2 id="preparacion-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
+            Condiciones del paciente
+          </h2>
+          <p class="mt-3 text-gray-700">{examen.preparacion}</p>
         </section>
-
-        <section aria-labelledby="preparacion-heading" class="rounded-xl border border-gray-200 p-6">
-          <h3 id="preparacion-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
-            Preparación
-          </h3>
-          {examen.preparacion ? (
-            <div class="mt-3">
-              {examen.requiereAyuno && (
-                <p class="text-sm font-semibold text-amber-700">Requiere ayuno.</p>
-              )}
-              <p class="text-gray-700">{examen.preparacion}</p>
-            </div>
-          ) : (
-            <p class="mt-3 text-sm italic text-gray-400">[ Próximamente ]</p>
-          )}
-        </section>
-      </div>
+      )}
 
       <!-- Perfiles que incluyen este examen -->
       {perfilesData.length > 0 && (

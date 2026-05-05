@@ -1,0 +1,18 @@
+{
+  "id": "INSC4",
+  "nombre": "INSULINA CURVA DE 2 HORAS (4 MUESTRAS:0, 30, 60 Y 120 MINUTOS)",
+  "codigoCups": "904712",
+  "slug": "insulina-curva-de-2-horas-4-muestras-0-30-60-y-120-minutos",
+  "categoria": "hormonas",
+  "diaProceso": "Miercoles",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Suero (2.0mL)",
+  "preparacion": "En ayunas Relacionar datos clínicos del paciente en la Solicitud El paciente no debe tener fiebre o algún proceso viral o infeccioso.",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

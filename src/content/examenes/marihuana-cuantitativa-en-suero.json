@@ -1,0 +1,18 @@
+{
+  "id": "MARSU",
+  "nombre": "MARIHUANA CUANTITATIVA EN SUERO",
+  "codigoCups": "905716",
+  "slug": "marihuana-cuantitativa-en-suero",
+  "categoria": "toxicologia",
+  "diaProceso": "JUEVES",
+  "oportunidadResultados": "10 Dias a partir del dia de procesamiento",
+  "muestra": "Suero (3.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud. Anexar cadena de custodia y consentimiento informado.",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

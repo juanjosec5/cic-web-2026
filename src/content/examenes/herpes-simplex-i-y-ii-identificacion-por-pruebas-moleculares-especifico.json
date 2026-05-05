@@ -1,0 +1,18 @@
+{
+  "id": "HERPESDNA",
+  "nombre": "HERPES SIMPLEX I Y II IDENTIFICACION POR PRUEBAS MOLECULARES (ESPECIFICO)",
+  "codigoCups": "908872",
+  "slug": "herpes-simplex-i-y-ii-identificacion-por-pruebas-moleculares-especifico",
+  "categoria": "inmunologia-infecciosa",
+  "diaProceso": "LUNES Y JUEVES",
+  "oportunidadResultados": "7 dias a partir del día de procesamiento",
+  "muestra": "Sangre Total (5ml)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

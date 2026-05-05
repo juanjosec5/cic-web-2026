@@ -1,0 +1,18 @@
+{
+  "id": "AT3",
+  "nombre": "ANTITROMBINA III, FUNCIONAL AUTOMATIZADA",
+  "codigoCups": "902007",
+  "slug": "antitrombina-iii-funcional-automatizada",
+  "categoria": "coagulacion",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "7 días hábiles a partir de la fecha de envío a la red de apoyo internacional",
+  "muestra": "Plasma (2.0mL)",
+  "preparacion": "En ayunas, Adjuntar resumen de la Historia Clínica.",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

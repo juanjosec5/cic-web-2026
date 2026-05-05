@@ -1,0 +1,18 @@
+{
+  "id": "PSATL",
+  "nombre": "ANTÍGENO ESPECÍFICO DE PRÓSTATA FRACCIÓN LIBRE SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906611",
+  "slug": "antigeno-especifico-de-prostata-fraccion-libre-semiautomatizado-o-automatizado",
+  "categoria": "marcadores-tumorales",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Suero (1.0mL)",
+  "preparacion": "debe guardar 3 días si ha realizado ejercicio en bicicleta o equitación, si ha tenido relaciones sexuales, masturbación o Si conduce moto o bicicleta y guaradar 1 mes si se ha realizado masaje prostático, tacto rectal, biopsia de próstata o tratamiento para infección urinaria.",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

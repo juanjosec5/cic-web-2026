@@ -1,0 +1,18 @@
+{
+  "id": "KAPPDALIBR",
+  "nombre": "INMUNOGLOBULINAS CADENAS LIVIANAS LIBRES KAPPA SEMIAUTOMATIZADO O AUTOMATIZADO (SUERO)",
+  "codigoCups": "906842",
+  "slug": "inmunoglobulinas-cadenas-livianas-libres-kappa-semiautomatizado-o-automatizado-suero",
+  "categoria": "proteinas-especificas",
+  "diaProceso": "MARTES Y VIERNES",
+  "oportunidadResultados": "7 días a partir del día de procesamiento",
+  "muestra": "Suero (1.0mL)",
+  "preparacion": "En ayunas Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

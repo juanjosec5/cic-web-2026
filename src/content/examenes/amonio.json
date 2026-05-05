@@ -1,17 +1,18 @@
 {
-  "id": "903602",
-  "mongoId": "635afd054d2fd1d313dd4b5a",
+  "id": "AMO",
   "nombre": "AMONIO",
   "codigoCups": "903602",
   "slug": "amonio",
   "categoria": "quimica",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "3 dias a partir del día de procesamiento",
+  "muestra": "Plasma con Edta (2.0mL)",
+  "preparacion": "Evitar ejercicio físico. No fumar por lo menos 12 horas antes de la toma de muestra. TOMAR LA MUESTRA SIN TORNIQUETE.",
   "nombresAlternativos": [],
-  "requiereAyuno": false,
-  "preparacion": "Evitar ejercicio físico. No fumar por lo menos 12 horas antes de la toma de muestra.",
-  "oportunidadResultados": "48 horas a partir del día de procesamiento.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

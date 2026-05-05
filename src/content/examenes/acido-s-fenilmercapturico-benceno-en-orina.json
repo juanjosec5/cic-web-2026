@@ -1,0 +1,18 @@
+{
+  "id": "ACIME",
+  "nombre": "ACIDO S- FENILMERCAPTURICO (Benceno) EN ORINA",
+  "codigoCups": "905758",
+  "slug": "acido-s-fenilmercapturico-benceno-en-orina",
+  "categoria": "quimica",
+  "diaProceso": "1 VEZ POR SEMANA",
+  "oportunidadResultados": "904106",
+  "muestra": "Orina al azar. Enviar alicuota. (50 mL)",
+  "preparacion": "Orina al azar recogida después de la jornada laboral; mantener refrigerada posterior a la recolección.",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

@@ -1,17 +1,18 @@
 {
-  "id": "906621",
-  "mongoId": "635afd054d2fd1d313dd4b90",
+  "id": "CCT",
   "nombre": "CALCITONINA SEMIAUTOMATIZADO O AUTOMATIZADO",
   "codigoCups": "906621",
   "slug": "calcitonina-semiautomatizado-o-automatizado",
   "categoria": "hormonas",
+  "diaProceso": "MARTES Y JUEVES",
+  "oportunidadResultados": "8 dias habiles a partir del día de procesamiento",
+  "muestra": "Suero (1.0mL)",
+  "preparacion": "En ayunas Relacionar datos clínicos del paciente en la Solicitud",
   "nombresAlternativos": [],
-  "requiereAyuno": false,
-  "preparacion": "En ayunas. Relacionar datos clínicos del paciente en la solicitud.",
-  "oportunidadResultados": "3 días hábiles a partir del día de procesamiento.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

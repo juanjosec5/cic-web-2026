@@ -1,0 +1,18 @@
+{
+  "id": "TOXOCARA",
+  "nombre": "Toxocara spp ANTICUERPOS IGG SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906125",
+  "slug": "toxocara-spp-anticuerpos-igg-semiautomatizado-o-automatizado",
+  "categoria": "inmunologia-infecciosa",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "12 dias a partir de la fecha de envío a la red de apoyo internacional",
+  "muestra": "Suero (2,0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

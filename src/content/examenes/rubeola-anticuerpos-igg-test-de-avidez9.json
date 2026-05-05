@@ -1,0 +1,18 @@
+{
+  "id": "TESRUG",
+  "nombre": "RUBEOLA, ANTICUERPOS IGG (TEST DE AVIDEZ9",
+  "codigoCups": "906268",
+  "slug": "rubeola-anticuerpos-igg-test-de-avidez9",
+  "categoria": "inmunologia-infecciosa",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "18 dias a partir de la fecha de envío a la red de apoyo internacional",
+  "muestra": "Suero (1.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

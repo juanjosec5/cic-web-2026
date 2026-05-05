@@ -1,17 +1,18 @@
 {
-  "id": "902223",
-  "mongoId": "635afd054d2fd1d313dd4d02",
+  "id": "RETICP",
   "nombre": "RECUENTO DE RETICULOCITOS METODO MANUAL",
   "codigoCups": "902223",
   "slug": "recuento-de-reticulocitos-metodo-manual",
   "categoria": "hematologia",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Sangre Venosa (5.0 mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
   "nombresAlternativos": [],
-  "requiereAyuno": false,
-  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
-  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

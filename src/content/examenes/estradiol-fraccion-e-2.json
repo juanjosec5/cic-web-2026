@@ -1,17 +1,18 @@
 {
-  "id": "904503",
-  "mongoId": "635afd054d2fd1d313dd4c07",
+  "id": "E2",
   "nombre": "ESTRADIOL FRACCION E-2",
   "codigoCups": "904503",
   "slug": "estradiol-fraccion-e-2",
   "categoria": "hormonas",
+  "diaProceso": "Viernes",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Suero (2.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
   "nombresAlternativos": [],
-  "requiereAyuno": false,
-  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
-  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

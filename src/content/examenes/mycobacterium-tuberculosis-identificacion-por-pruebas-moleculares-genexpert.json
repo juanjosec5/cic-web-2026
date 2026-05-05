@@ -1,0 +1,18 @@
+{
+  "id": "MYCPCR",
+  "nombre": "Mycobacterium tuberculosis IDENTIFICACION POR PRUEBAS MOLECULARES (GENEXPERT)",
+  "codigoCups": "908873",
+  "slug": "mycobacterium-tuberculosis-identificacion-por-pruebas-moleculares-genexpert",
+  "categoria": "biologia-molecular",
+  "diaProceso": "LUNES A SABADO",
+  "oportunidadResultados": "4 días hábiles a partir del día de procesamiento",
+  "muestra": "Esputo inducido o espectorado/ Lavado broncoalveolar",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar el medicamento específico utilizado para tratar al paciente.",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

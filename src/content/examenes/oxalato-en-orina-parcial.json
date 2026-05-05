@@ -1,0 +1,18 @@
+{
+  "id": "OXALATO",
+  "nombre": "OXALATO EN ORINA PARCIAL",
+  "codigoCups": "903036",
+  "slug": "oxalato-en-orina-parcial",
+  "categoria": "quimica",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "12 dias a partir de la fecha de envío a la red de apoyo internacional",
+  "muestra": "Orina (10.0mL)",
+  "preparacion": "Evitar el consumo de vitamina C puede alterar los resultados",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

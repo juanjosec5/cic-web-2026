@@ -1,17 +1,18 @@
 {
-  "id": "903845",
-  "mongoId": "635afd054d2fd1d313dd4c41",
+  "id": "SULLI",
   "nombre": "GLUCOSA TEST O’ SULLIVAN",
   "codigoCups": "903845",
   "slug": "glucosa-test-o-sullivan",
   "categoria": "quimica",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Suero (1.0mL)",
+  "preparacion": "Ayuno de 10 -12 horas Relacionar datos clínicos del paciente en la Solicitud",
   "nombresAlternativos": [],
-  "requiereAyuno": true,
-  "preparacion": "Ayuno de 10 -12 horas. Relacionar datos clínicos del paciente en la solicitud.",
-  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

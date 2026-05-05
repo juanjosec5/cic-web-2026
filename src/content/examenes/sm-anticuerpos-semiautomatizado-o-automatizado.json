@@ -1,0 +1,18 @@
+{
+  "id": "SM",
+  "nombre": "Sm ANTICUERPOS SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906456",
+  "slug": "sm-anticuerpos-semiautomatizado-o-automatizado",
+  "categoria": "reumatologia",
+  "diaProceso": "Martes",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Suero (1.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

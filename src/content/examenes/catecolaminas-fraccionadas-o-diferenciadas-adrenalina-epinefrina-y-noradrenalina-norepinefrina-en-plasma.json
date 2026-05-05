@@ -1,0 +1,18 @@
+{
+  "id": "CATEFRA",
+  "nombre": "CATECOLAMINAS FRACCIONADAS O DIFERENCIADAS (ADRENALINA [EPINEFRINA] Y NORADRENALINA [NOREPINEFRINA]) EN PLASMA",
+  "codigoCups": "903008",
+  "slug": "catecolaminas-fraccionadas-o-diferenciadas-adrenalina-epinefrina-y-noradrenalina-norepinefrina-en-plasma",
+  "categoria": "quimica",
+  "diaProceso": "JUEVES",
+  "oportunidadResultados": "10 días hábiles a partir del dia de procesamiento",
+  "muestra": "Plasma (3.0mL)",
+  "preparacion": "Paciente en ayuno. Abstenerse de fumar, tomar cafe o te 4 horas antes de la toma de la muestra. Suspender uso de medicamentos y sustancias que interfieran con la prueba, como Alfa-metildopa, Mandelato de Metenamida, Isoprotenol y Labetol.",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

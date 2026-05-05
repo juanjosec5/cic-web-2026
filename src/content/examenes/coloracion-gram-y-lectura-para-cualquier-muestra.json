@@ -1,0 +1,18 @@
+{
+  "id": "GRAM",
+  "nombre": "COLORACIÓN GRAM Y LECTURA PARA CUALQUIER MUESTRA",
+  "codigoCups": "901107",
+  "slug": "coloracion-gram-y-lectura-para-cualquier-muestra",
+  "categoria": "microscopia",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Extendido de Muestra en Lámina",
+  "preparacion": "Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

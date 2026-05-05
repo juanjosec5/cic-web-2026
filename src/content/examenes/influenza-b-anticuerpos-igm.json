@@ -1,0 +1,18 @@
+{
+  "id": "INFLB",
+  "nombre": "INFLUENZA B ANTICUERPOS IgM",
+  "codigoCups": "906237",
+  "slug": "influenza-b-anticuerpos-igm",
+  "categoria": "inmunologia-infecciosa",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "11 dias habiles a partir del día de procesamiento",
+  "muestra": "Suero (2.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

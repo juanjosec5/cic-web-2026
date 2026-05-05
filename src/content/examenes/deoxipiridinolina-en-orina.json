@@ -1,0 +1,18 @@
+{
+  "id": "DEOXI",
+  "nombre": "DEOXIPIRIDINOLINA EN ORINA",
+  "codigoCups": "903011",
+  "slug": "deoxipiridinolina-en-orina",
+  "categoria": "hormonas",
+  "diaProceso": "LUNES Y JUEVES",
+  "oportunidadResultados": "5 dias habiles a partir del día de procesamiento",
+  "muestra": "Orina 5mL",
+  "preparacion": "Condidicones del paciente, no requiere preparacion previa",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

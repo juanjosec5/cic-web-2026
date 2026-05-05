@@ -1,17 +1,18 @@
 {
-  "id": "903823",
-  "mongoId": "635afd054d2fd1d313dd4bec",
+  "id": "DCRE",
   "nombre": "CREATININA DEPURACIÓN",
   "codigoCups": "903823",
   "slug": "creatinina-depuracion",
   "categoria": "quimica",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Orina (10.0mL) y suero (1,0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud Refrigerar durante la recolección y envío",
   "nombresAlternativos": [],
-  "requiereAyuno": false,
-  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud. Refrigerar durante la recolección y envío.",
-  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

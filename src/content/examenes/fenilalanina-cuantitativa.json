@@ -1,0 +1,18 @@
+{
+  "id": "FENCUAN",
+  "nombre": "FENILALANINA CUANTITATIVA",
+  "codigoCups": "908316",
+  "slug": "fenilalanina-cuantitativa",
+  "categoria": "medicamentos",
+  "diaProceso": "UNA VEZ A LA SEMANA",
+  "oportunidadResultados": "10 dias a partir del día de procesamiento",
+  "muestra": "Plasma con Edta (4,0mL)",
+  "preparacion": "Paciente en ayuno. Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

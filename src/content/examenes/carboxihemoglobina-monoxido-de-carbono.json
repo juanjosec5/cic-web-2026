@@ -1,0 +1,18 @@
+{
+  "id": "CARBOX",
+  "nombre": "CARBOXIHEMOGLOBINA (MONOXIDO DE CARBONO)",
+  "codigoCups": "905737",
+  "slug": "carboxihemoglobina-monoxido-de-carbono",
+  "categoria": "toxicologia",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "3 dias despues a partir del dia deprocesamiento",
+  "muestra": "Sangre Total (10ml)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud. TOMAR 2 TUBOS TAPA LILA.",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

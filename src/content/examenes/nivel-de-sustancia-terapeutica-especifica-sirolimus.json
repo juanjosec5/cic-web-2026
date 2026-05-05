@@ -1,0 +1,18 @@
+{
+  "id": "SIRO",
+  "nombre": "NIVEL DE SUSTANCIA TERAPEUTICA (ESPECIFICA) SIROLIMUS",
+  "codigoCups": "905801",
+  "slug": "nivel-de-sustancia-terapeutica-especifica-sirolimus",
+  "categoria": "medicamentos",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "10 días a partir de la fecha de envío a la red de apoyo internacional",
+  "muestra": "Sangre Venosa (5,0 mL)",
+  "preparacion": "Extraer la muestra inmediatamente antes de la dosis programada",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

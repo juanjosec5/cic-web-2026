@@ -1,0 +1,18 @@
+{
+  "id": "ANCA",
+  "nombre": "CITOPLASMA DE NEUTRÓFILOS ANTICUERPOS TOTALES [C-ANCA O P-ANCA] MANUAL O SEMIAUTOMATIZADO",
+  "codigoCups": "906414",
+  "slug": "citoplasma-de-neutrofilos-anticuerpos-totales-c-anca-o-p-anca-manual-o-semiautomatizado",
+  "categoria": "reumatologia",
+  "diaProceso": "Jueves",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Suero (1.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

@@ -1,0 +1,18 @@
+{
+  "id": "GLU",
+  "nombre": "GLUCOSA EN SUERO U OTRO FLUIDO DIFERENTE A ORINA",
+  "codigoCups": "903841",
+  "slug": "glucosa-en-suero-u-otro-fluido-diferente-a-orina",
+  "categoria": "quimica",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Suero (1.0mL)",
+  "preparacion": "Ayuno de 10 -12 horas Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

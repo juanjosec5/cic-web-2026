@@ -1,0 +1,18 @@
+{
+  "id": "ACETILRF",
+  "nombre": "ACETILCOLINA RECEPTORES ACS FIJADORES SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906468",
+  "slug": "acetilcolina-receptores-acs-fijadores-semiautomatizado-o-automatizado",
+  "categoria": "inmunologia",
+  "diaProceso": "2 VECES POR SEMANA",
+  "oportunidadResultados": "17 días hábiles a partir de la fecha de envío a la red de apoyo internacional",
+  "muestra": "Suero (2.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

@@ -1,0 +1,18 @@
+{
+  "id": "INFLA",
+  "nombre": "INFLUENZA A ANTICUERPOS IgM",
+  "codigoCups": "906235",
+  "slug": "influenza-a-anticuerpos-igm",
+  "categoria": "inmunologia-infecciosa",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "10 dias habiles a partir del día de procesamiento",
+  "muestra": "Suero (2.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

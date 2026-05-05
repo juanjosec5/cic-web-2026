@@ -1,0 +1,18 @@
+{
+  "id": "CBTX",
+  "nombre": "Complejo BTX en Orina (Exposición a Benceno - Tolueno - Xileno) Hidrocarburos cuantitativos",
+  "codigoCups": "905758",
+  "slug": "complejo-btx-en-orina-exposicion-a-benceno-tolueno-xileno-hidrocarburos-cuantitativos",
+  "categoria": "toxicologia",
+  "diaProceso": "Dos veces por semana",
+  "oportunidadResultados": "6 dias habiles a partir del día de procesamiento",
+  "muestra": "Orina (20.0mL)",
+  "preparacion": "Orina al azar recogida después de la jornada laboral; mantener refrigerada posterior a la recolección. Datos clinicos.",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

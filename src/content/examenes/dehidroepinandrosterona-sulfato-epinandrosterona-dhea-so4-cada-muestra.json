@@ -1,17 +1,18 @@
 {
-  "id": "904809",
-  "mongoId": "635afd054d2fd1d313dd4be9",
+  "id": "DHEAS",
   "nombre": "DEHIDROEPINANDROSTERONA SULFATO [EPINANDROSTERONA - DHEA-SO4] CADA MUESTRA",
   "codigoCups": "904809",
   "slug": "dehidroepinandrosterona-sulfato-epinandrosterona-dhea-so4-cada-muestra",
   "categoria": "hormonas",
+  "diaProceso": "MIERCOLES",
+  "oportunidadResultados": "8 dias a partir del día de procesamiento",
+  "muestra": "Suero (2,0mL)",
+  "preparacion": "No requiere ninguna preparacion previa. Con el ejercicio vigoroso se pueden aumentar los niveles hasta 36 horas después de realizado. Fenitoína y Carbamacepina pueden disminuir sus niveles. Los valores disminuyen con la edad en ambos sexos. Relacionar datos clínicos del paciente en la Solicitud",
   "nombresAlternativos": [],
-  "requiereAyuno": false,
-  "preparacion": "No requiere ninguna preparacion previa. Con el ejercicio vigoroso se pueden aumentar los niveles hasta 36 horas después de realizado.\nFenitoína y Carbamacepina pueden disminuir sus niveles.\nLos valores disminuyen con la edad en ambos sexos.\nRelacionar datos clínicos del paciente en la solicitud.",
-  "oportunidadResultados": "72 horas a partir del día de procesamiento.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

@@ -1,17 +1,18 @@
 {
-  "id": "904813",
-  "mongoId": "635afd054d2fd1d313dd4bd0",
+  "id": "COR4PM",
   "nombre": "CORTISOL PM",
   "codigoCups": "904813",
   "slug": "cortisol-pm",
   "categoria": "hormonas",
+  "diaProceso": "Miercoles",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Suero (2,0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud • La toma de muestra debe realizarse preferiblemente a las 4:00 p.m.",
   "nombresAlternativos": [],
-  "requiereAyuno": false,
-  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud. La toma de muestra debe realizarse preferiblemente a las 4:00 p.m.",
-  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

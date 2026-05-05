@@ -1,0 +1,18 @@
+{
+  "id": "FCPL",
+  "nombre": "FACTOR DE CRECIMIENTO PLACENTARIO (PIGF)",
+  "codigoCups": "906854",
+  "slug": "factor-de-crecimiento-placentario-pigf",
+  "categoria": "hormonas",
+  "diaProceso": "MARTES Y VIERNES",
+  "oportunidadResultados": "5 dias habiles a partir del día de procesamiento",
+  "muestra": "Suero (2.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

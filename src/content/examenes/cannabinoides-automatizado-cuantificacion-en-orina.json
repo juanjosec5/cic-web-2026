@@ -1,0 +1,18 @@
+{
+  "id": "MAROCU",
+  "nombre": "CANNABINOIDES AUTOMATIZADO ( CUANTIFICACION EN ORINA)",
+  "codigoCups": "905716",
+  "slug": "cannabinoides-automatizado-cuantificacion-en-orina",
+  "categoria": "toxicologia",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "4 Dias a partir del dia de procesamiento",
+  "muestra": "Orina (20.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud. Anexar cadena de custodia y consentimiento informado.",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

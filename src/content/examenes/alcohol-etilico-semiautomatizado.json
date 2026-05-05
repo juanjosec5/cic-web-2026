@@ -1,0 +1,18 @@
+{
+  "id": "AE",
+  "nombre": "ALCOHOL ETILICO SEMIAUTOMATIZADO",
+  "codigoCups": "905706",
+  "slug": "alcohol-etilico-semiautomatizado",
+  "categoria": "toxicologia",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "4 dias a partir del día de procesamiento",
+  "muestra": "Sangre Total con Citrato (5,0 mL), 2 tubos",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

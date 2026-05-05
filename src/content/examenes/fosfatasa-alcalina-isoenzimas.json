@@ -1,17 +1,18 @@
 {
-  "id": "903017",
-  "mongoId": "635afd054d2fd1d313dd4c25",
+  "id": "FALI",
   "nombre": "FOSFATASA ALCALINA - ISOENZIMAS",
   "codigoCups": "903017",
   "slug": "fosfatasa-alcalina-isoenzimas",
   "categoria": "quimica",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "24 días hábiles a partir de la fecha de envío a la red de apoyo internacional",
+  "muestra": "Suero (2.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
   "nombresAlternativos": [],
-  "requiereAyuno": false,
-  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
-  "oportunidadResultados": "9 días hábiles a partir de la fecha de envío a la red de apoyo internacional.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

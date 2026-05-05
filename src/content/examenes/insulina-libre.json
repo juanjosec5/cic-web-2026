@@ -1,17 +1,18 @@
 {
-  "id": "904705",
-  "mongoId": "635afd054d2fd1d313dd4c9b",
+  "id": "INSL",
   "nombre": "INSULINA LIBRE",
   "codigoCups": "904705",
   "slug": "insulina-libre",
   "categoria": "hormonas",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "7 días hábiles a partir de la fecha de envío a la red de apoyo internacional",
+  "muestra": "Suero (2.0mL)",
+  "preparacion": "En ayunas Relacionar datos clínicos del paciente en la Solicitud",
   "nombresAlternativos": [],
-  "requiereAyuno": false,
-  "preparacion": "En ayunas. Relacionar datos clínicos del paciente en la solicitud.",
-  "oportunidadResultados": "9 días hábiles a partir de la fecha de envío a la red de apoyo internacional.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

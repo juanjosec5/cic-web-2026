@@ -1,17 +1,18 @@
 {
-  "id": "903883",
-  "mongoId": "635afd054d2fd1d313dd4c39",
+  "id": "GLUCOM",
   "nombre": "GLUCOSA SEMIAUTOMATIZADA [GLUCOMETRÍA]",
   "codigoCups": "903883",
   "slug": "glucosa-semiautomatizada-glucometria",
   "categoria": "quimica",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Sangre Venosa (1 gota)",
+  "preparacion": "Relacionar datos clínicos del paciente en la Solicitud",
   "nombresAlternativos": [],
-  "requiereAyuno": false,
-  "preparacion": "Relacionar datos clínicos del paciente en la solicitud.",
-  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

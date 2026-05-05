@@ -1,0 +1,18 @@
+{
+  "id": "ENAS",
+  "nombre": "ANTICUERPOS NUCLEARES EXTRACTABLES TOTALES [ENA] SS-A [Ro] SS-B [La] RNP y Sm SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906406",
+  "slug": "anticuerpos-nucleares-extractables-totales-ena-ss-a-ro-ss-b-la-rnp-y-sm-semiautomatizado-o-automatizado",
+  "categoria": "reumatologia",
+  "diaProceso": "Martes",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Suero (2.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

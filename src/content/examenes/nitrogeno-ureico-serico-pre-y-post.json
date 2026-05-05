@@ -1,17 +1,18 @@
 {
-  "id": "903856",
-  "mongoId": "635afd054d2fd1d313dd4cc3",
+  "id": "BUNPPS",
   "nombre": "NITROGENO UREICO SERICO PRE Y POST",
   "codigoCups": "903856",
   "slug": "nitrogeno-ureico-serico-pre-y-post",
   "categoria": "quimica",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Suero (1.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
   "nombresAlternativos": [],
-  "requiereAyuno": false,
-  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
-  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

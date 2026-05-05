@@ -1,0 +1,18 @@
+{
+  "id": "ESPQX",
+  "nombre": "ESTUDIO DE COLORACION BASICA EN ESPECIMEN DE RECONOCIMIENTO",
+  "codigoCups": "898201",
+  "slug": "estudio-de-coloracion-basica-en-especimen-de-reconocimiento",
+  "categoria": "patologia",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "10 días hábiles a partir de la fecha de envío a la red de apoyo",
+  "muestra": "Biopsia de tejido",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

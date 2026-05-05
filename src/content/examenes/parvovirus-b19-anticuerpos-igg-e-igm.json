@@ -1,0 +1,18 @@
+{
+  "id": "PARVO",
+  "nombre": "Parvovirus B19, Anticuerpos IgG e IgM",
+  "codigoCups": "906259",
+  "slug": "parvovirus-b19-anticuerpos-igg-e-igm",
+  "categoria": "inmunologia-infecciosa",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "11 dias habiles a partir de la fecha de envio a la red de apoyo internacional",
+  "muestra": "Suero (2,0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

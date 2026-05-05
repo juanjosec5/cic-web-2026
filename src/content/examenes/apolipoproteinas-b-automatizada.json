@@ -1,0 +1,18 @@
+{
+  "id": "APOB",
+  "nombre": "APOLIPOPROTEINAS B AUTOMATIZADA",
+  "codigoCups": "903412",
+  "slug": "apolipoproteinas-b-automatizada",
+  "categoria": "proteinas-especificas",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "5 días hábiles a partir del dia de procesamiento",
+  "muestra": "Suero (2.0mL)",
+  "preparacion": "En ayunas de 12 a 14 horas. Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

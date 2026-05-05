@@ -1,0 +1,18 @@
+{
+  "id": "EPROX",
+  "nombre": "ELECTROFORESIS DE PROTEINAS SEMIAUTOMATIZADO Y AUTOMATIZADO EN SUERO",
+  "codigoCups": "906812",
+  "slug": "electroforesis-de-proteinas-semiautomatizado-y-automatizado-en-suero",
+  "categoria": "electroforesis",
+  "diaProceso": "LUNES MIERCOLES Y VIERNES",
+  "oportunidadResultados": "6 días hábiles a partir del día de procesamiento",
+  "muestra": "Suero (3,0mL)",
+  "preparacion": "En ayunas Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

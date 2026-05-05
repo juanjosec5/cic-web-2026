@@ -1,0 +1,18 @@
+{
+  "id": "HIVR",
+  "nombre": "HIV-1 / HIV-2 ANTICUERPOS TOTALES",
+  "codigoCups": "906249",
+  "slug": "hiv-1-hiv-2-anticuerpos-totales",
+  "categoria": "inmunologia-infecciosa",
+  "diaProceso": "Jueves",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Suero (1.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

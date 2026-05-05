@@ -1,17 +1,18 @@
 {
-  "id": "903815",
-  "mongoId": "635afd054d2fd1d313dd4bba",
+  "id": "HDL",
   "nombre": "COLESTEROL DE ALTA DENSIDAD - HDL",
   "codigoCups": "903815",
   "slug": "colesterol-de-alta-densidad-hdl",
   "categoria": "quimica",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Suero (1.0mL)",
+  "preparacion": "En ayunas Relacionar datos clínicos del paciente en la Solicitud",
   "nombresAlternativos": [],
-  "requiereAyuno": false,
-  "preparacion": "En ayunas. Relacionar datos clínicos del paciente en la solicitud.",
-  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

@@ -1,17 +1,18 @@
 {
-  "id": "903044",
-  "mongoId": "635afd054d2fd1d313dd4d15",
+  "id": "STRANS",
   "nombre": "SATURACION DE TRANSFERRINA",
   "codigoCups": "903044",
   "slug": "saturacion-de-transferrina",
   "categoria": "quimica",
-  "nombresAlternativos": [],
-  "requiereAyuno": false,
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Suero (2,0mL)",
   "preparacion": "Tomar muestra preferiblemente en las primeras horas de la mañana.",
-  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
+  "nombresAlternativos": [],
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

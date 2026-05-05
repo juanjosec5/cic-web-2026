@@ -1,0 +1,18 @@
+{
+  "id": "CD3",
+  "nombre": "LINFOCITOS T CD3 SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906712",
+  "slug": "linfocitos-t-cd3-semiautomatizado-o-automatizado-906712",
+  "categoria": "citometria",
+  "diaProceso": "lunes a sabado",
+  "oportunidadResultados": "06 dias habiles a partir del día de procesamiento",
+  "muestra": "Sangre Venosa ( 4 ml)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

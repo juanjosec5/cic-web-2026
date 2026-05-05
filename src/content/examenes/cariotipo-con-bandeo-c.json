@@ -1,0 +1,18 @@
+{
+  "id": "908406",
+  "nombre": "CARIOTIPO CON BANDEO C",
+  "codigoCups": "908406",
+  "slug": "cariotipo-con-bandeo-c",
+  "categoria": "citogenetica",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "23 días a partir del día de procesamiento",
+  "muestra": "Sangre Venosa (5 mL)",
+  "preparacion": "Adjuntar resumen de la historia clínica - solicitar tubo y Consentimiento Informado al area de LOGISTICA.",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

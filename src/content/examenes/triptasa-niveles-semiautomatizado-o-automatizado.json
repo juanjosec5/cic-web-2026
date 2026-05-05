@@ -1,17 +1,18 @@
 {
-  "id": "903440",
-  "mongoId": "635afd054d2fd1d313dd4d40",
+  "id": "TRIP",
   "nombre": "TRIPTASA NIVELES SEMIAUTOMATIZADO O AUTOMATIZADO",
   "codigoCups": "903440",
   "slug": "triptasa-niveles-semiautomatizado-o-automatizado",
   "categoria": "quimica",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "13 días a partir de la fecha de envío a la red de apoyo internacional",
+  "muestra": "Suero (4.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
   "nombresAlternativos": [],
-  "requiereAyuno": false,
-  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
-  "oportunidadResultados": "10 días a partir de la fecha de envío a la red de apoyo internacional.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }
