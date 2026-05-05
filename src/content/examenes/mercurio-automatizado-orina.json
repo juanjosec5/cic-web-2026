@@ -1,0 +1,18 @@
+{
+  "id": "MERCURIO",
+  "nombre": "MERCURIO AUTOMATIZADO (ORINA)",
+  "codigoCups": "905731",
+  "slug": "mercurio-automatizado-orina",
+  "categoria": "toxicologia",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "9 días hábiles a partir de la fecha de envío a la red de apoyo internacional",
+  "muestra": "Orina (10.0mL)",
+  "preparacion": "Evitar el consumo de alimentos de mar y mariscos 48 horas antes de la recolección de la muestra",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

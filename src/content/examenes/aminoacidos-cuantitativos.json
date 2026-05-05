@@ -1,0 +1,18 @@
+{
+  "id": "GLICINA",
+  "nombre": "AMINOACIDOS CUANTITATIVOS",
+  "codigoCups": "908338",
+  "slug": "aminoacidos-cuantitativos",
+  "categoria": "metabolicas",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "18 dias habiles a partir del dia de procesamiento",
+  "muestra": "Plasma (2.0mL)",
+  "preparacion": "Estar en Ayunas. Adjuntar resumen de la historia clínica. Anexar formato de Errores Metabólicos.Informar modificacion nutricional del paciente como restriccion proteica o dieta hiperproteica",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

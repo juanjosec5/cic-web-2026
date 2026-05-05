@@ -1,0 +1,18 @@
+{
+  "id": "PRORI",
+  "nombre": "PROTEINA P RIBOSOMAL, ANTICUERPOS IGG",
+  "codigoCups": "906450",
+  "slug": "proteina-p-ribosomal-anticuerpos-igg",
+  "categoria": "inmunologia",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "12 días hábiles a partir de la fecha de envío a la red de apoyo internacional",
+  "muestra": "Suero (4.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

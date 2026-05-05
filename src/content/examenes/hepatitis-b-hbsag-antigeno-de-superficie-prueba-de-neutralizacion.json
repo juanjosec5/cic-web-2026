@@ -1,0 +1,18 @@
+{
+  "id": "HBANG",
+  "nombre": "Hepatitis B (HBsAg), Antígeno de Superficie, Prueba de Neutralización",
+  "codigoCups": "936332",
+  "slug": "hepatitis-b-hbsag-antigeno-de-superficie-prueba-de-neutralizacion",
+  "categoria": "inmunologia-infecciosa",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "4 Días a partir del día de procesamiento",
+  "muestra": "Suero (2.0mL)",
+  "preparacion": "Ayuno previo. Relacionar datos clinicos del paciente en la Solicitud.",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

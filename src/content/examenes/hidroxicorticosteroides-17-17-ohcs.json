@@ -1,0 +1,18 @@
+{
+  "id": "17HC",
+  "nombre": "HIDROXICORTICOSTEROIDES-17 [17-OHCS]",
+  "codigoCups": "904811",
+  "slug": "hidroxicorticosteroides-17-17-ohcs",
+  "categoria": "quimica",
+  "diaProceso": "1 VEZ POR SEMANA",
+  "oportunidadResultados": "11 días hábiles a partir de la fecha de envío a la red de apoyo internacional",
+  "muestra": "Orina 24 horas alicuota (10.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud Refrigerar después de la recolección",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

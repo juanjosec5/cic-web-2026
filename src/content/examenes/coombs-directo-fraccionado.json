@@ -1,0 +1,18 @@
+{
+  "id": "COOMFRA",
+  "nombre": "COOMBS DIRECTO FRACCIONADO",
+  "codigoCups": "911010",
+  "slug": "coombs-directo-fraccionado",
+  "categoria": "hematologia",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "3 dias habiles a partir del día de procesamiento",
+  "muestra": "Sangre Venosa ( 5 ml)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

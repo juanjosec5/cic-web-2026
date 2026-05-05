@@ -1,0 +1,18 @@
+{
+  "id": "TRAB",
+  "nombre": "ANTICUERPOS ANTIRECEPTORES DE TSH SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906492",
+  "slug": "anticuerpos-antireceptores-de-tsh-semiautomatizado-o-automatizado",
+  "categoria": "hormonas",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "7 dias a partir del día de procesamiento",
+  "muestra": "Suero (2.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

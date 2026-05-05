@@ -1,0 +1,18 @@
+{
+  "id": "VALPRO",
+  "nombre": "ACIDO VALPROICO LIBRE AUTOMATIZADO",
+  "codigoCups": "905202",
+  "slug": "acido-valproico-libre-automatizado",
+  "categoria": "medicamentos",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "4 días hábiles a partir de la fecha de envío a la red de apoyo",
+  "muestra": "Suero (1.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud.Tomar la muestra 30 minutos antes de la próxima dosis.",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

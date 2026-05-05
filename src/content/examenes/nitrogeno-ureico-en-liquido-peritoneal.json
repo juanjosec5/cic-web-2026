@@ -1,17 +1,18 @@
 {
-  "id": "903856-02",
-  "mongoId": "635afd054d2fd1d313dd4cc2",
+  "id": "BUNLP",
   "nombre": "NITROGENO UREICO EN LIQUIDO PERITONEAL",
   "codigoCups": "903856-02",
   "slug": "nitrogeno-ureico-en-liquido-peritoneal",
   "categoria": "quimica",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Líquido Peritoneal (5,0 mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
   "nombresAlternativos": [],
-  "requiereAyuno": false,
-  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
-  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

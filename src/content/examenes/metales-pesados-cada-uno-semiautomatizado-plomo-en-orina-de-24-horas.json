@@ -1,0 +1,18 @@
+{
+  "id": "PLOMOO",
+  "nombre": "METALES PESADOS CADA UNO SEMIAUTOMATIZADO : PLOMO EN ORINA DE 24 HORAS",
+  "codigoCups": "905736",
+  "slug": "metales-pesados-cada-uno-semiautomatizado-plomo-en-orina-de-24-horas",
+  "categoria": "toxicologia",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "10 dias a partir de la fecha de envío a la red de apoyo internacional",
+  "muestra": "Orina (20.0mL)",
+  "preparacion": "Evitar el consumo de alimentos de mar y mariscos 48 horas antes de la recolección de la muestra - Evitar la recolección en el sitio de trabajo. Relacionar datos clínicos del paciente",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

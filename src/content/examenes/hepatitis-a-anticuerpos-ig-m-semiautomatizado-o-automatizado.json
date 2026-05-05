@@ -1,0 +1,18 @@
+{
+  "id": "HAVIGM",
+  "nombre": "Hepatitis A ANTICUERPOS Ig M SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906218",
+  "slug": "hepatitis-a-anticuerpos-ig-m-semiautomatizado-o-automatizado",
+  "categoria": "inmunologia-infecciosa",
+  "diaProceso": "Jueves",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Suero (1.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

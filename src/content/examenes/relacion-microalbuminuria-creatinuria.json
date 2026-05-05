@@ -1,0 +1,18 @@
+{
+  "id": "MICALB",
+  "nombre": "RELACION MICROALBUMINURIA / CREATINURIA",
+  "codigoCups": "N/A",
+  "slug": "relacion-microalbuminuria-creatinuria",
+  "categoria": "quimica",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Orina (10.0mL)",
+  "preparacion": "• No tener relaciones sexuales el día anterior a la toma de muestra, no estar menstruando, Realizar aseo genital completo antes de recolectar la muestra. • Recolectar muestra a partir de la segunda parte de la micción",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

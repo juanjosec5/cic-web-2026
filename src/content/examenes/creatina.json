@@ -1,17 +1,18 @@
 {
-  "id": "903822",
-  "mongoId": "635afd054d2fd1d313dd4bd4",
+  "id": "CR",
   "nombre": "CREATINA",
   "codigoCups": "903822",
   "slug": "creatina",
   "categoria": "quimica",
+  "diaProceso": "1 VEZ POR SEMANA",
+  "oportunidadResultados": "10 días hábiles a partir del dia de proceso",
+  "muestra": "Suero (4.0mL)",
+  "preparacion": "En ayunas Relacionar datos clínicos del paciente en la Solicitud",
   "nombresAlternativos": [],
-  "requiereAyuno": false,
-  "preparacion": "En ayunas. Relacionar datos clínicos del paciente en la solicitud.",
-  "oportunidadResultados": "14 días hábiles a partir de la fecha de envío a la red de apoyo internacional.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

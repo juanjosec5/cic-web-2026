@@ -1,17 +1,18 @@
 {
-  "id": "903834",
-  "mongoId": "635afd054d2fd1d313dd4c26",
+  "id": "FALEH",
   "nombre": "FOSFATASA ALCALINA ESPECIFICA DE HUESO",
   "codigoCups": "903834",
   "slug": "fosfatasa-alcalina-especifica-de-hueso",
   "categoria": "quimica",
+  "diaProceso": "1 VEZ POR SEMANA",
+  "oportunidadResultados": "14 días hábiles a partir de la fecha de envío a la red de apoyo internacional",
+  "muestra": "Suero (1.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
   "nombresAlternativos": [],
-  "requiereAyuno": false,
-  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
-  "oportunidadResultados": "8 días hábiles a partir de la fecha de envío a la red de apoyo internacional.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

@@ -1,0 +1,18 @@
+{
+  "id": "SV",
+  "nombre": "SECRECION VAGINAL, EXAMEN DIRECTO",
+  "codigoCups": "901304",
+  "slug": "secrecion-vaginal-examen-directo",
+  "categoria": "microscopia",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Secreción Vaginal",
+  "preparacion": "La muestra debe ser tomada por lo menos 3 días antes o 3 días después de terminada la menstruación. No tener relaciones sexuales l No aplicarse duchas intravaginales, cremas, óvulos, tampones, ni anticonceptivos vaginales 72 horas antes de la toma de la muestra.",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

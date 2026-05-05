@@ -1,0 +1,18 @@
+{
+  "id": "CORSAL",
+  "nombre": "CORTISOL EN SALIVA",
+  "codigoCups": "904805",
+  "slug": "cortisol-en-saliva",
+  "categoria": "hormonas",
+  "diaProceso": "MARTES Y VIERNES",
+  "oportunidadResultados": "5 dias habiles a partir del día de procesamiento",
+  "muestra": "Saliva (4,0 a 5,0 ml)",
+  "preparacion": "Es importante recibir muestras claras que no estén contaminadas con alimentos, lápiz labial, sangre u otros materiales extraños.",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

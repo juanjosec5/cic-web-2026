@@ -1,0 +1,18 @@
+{
+  "id": "ADALI",
+  "nombre": "Adenosín Deaminasa (ADA), Otros Líquidos Corporales",
+  "codigoCups": "903401",
+  "slug": "adenosin-deaminasa-ada-otros-liquidos-corporales",
+  "categoria": "quimica",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "11 dias a partir de la fecha de envío a la red de apoyo internacional",
+  "muestra": "Liquido pericardico, peritoneal, sinovial (5,0ml)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

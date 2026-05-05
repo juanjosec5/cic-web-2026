@@ -1,0 +1,18 @@
+{
+  "id": "LEISHMANIA",
+  "nombre": "Leishmania ANTICUERPOS TOTALES AUTOMATIZADO",
+  "codigoCups": "901309",
+  "slug": "leishmania-anticuerpos-totales-automatizado",
+  "categoria": "inmunologia-infecciosa",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "15 días hábiles a partir de la fecha de envío a la red de apoyo internacional",
+  "muestra": "Suero (1.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

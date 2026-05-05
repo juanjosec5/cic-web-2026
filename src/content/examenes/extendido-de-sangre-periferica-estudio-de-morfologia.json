@@ -1,17 +1,18 @@
 {
-  "id": "902206",
-  "mongoId": "635afd054d2fd1d313dd4c0d",
+  "id": "ESP",
   "nombre": "EXTENDIDO DE SANGRE PERIFERICA ESTUDIO DE MORFOLOGIA",
   "codigoCups": "902206",
   "slug": "extendido-de-sangre-periferica-estudio-de-morfologia",
   "categoria": "hematologia",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "puncion capilar",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
   "nombresAlternativos": [],
-  "requiereAyuno": false,
-  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
-  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

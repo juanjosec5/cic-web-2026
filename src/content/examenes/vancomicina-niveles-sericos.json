@@ -1,0 +1,18 @@
+{
+  "id": "VANCO",
+  "nombre": "VANCOMICINA NIVELES SERICOS",
+  "codigoCups": "905410",
+  "slug": "vancomicina-niveles-sericos",
+  "categoria": "medicamentos",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "4 días hábiles a partir del día de procesamiento",
+  "muestra": "Suero (2.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

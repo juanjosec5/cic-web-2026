@@ -1,0 +1,18 @@
+{
+  "id": "SOG",
+  "nombre": "SANGRE OCULTA EN MATERIA FECAL (GUAYACO O EQUIVALENTE)",
+  "codigoCups": "907008",
+  "slug": "sangre-oculta-en-materia-fecal-guayaco-o-equivalente",
+  "categoria": "microscopia",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Materia Fecal (5.0 g)",
+  "preparacion": "El paciente por 2 o 3 dias, no debe ingerir carnes rojas, coliflor, brocoli, uvas, manzana, bananos, alcohol o alimentos ricos en Vitamina C, informar si presenta hemorroides.",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

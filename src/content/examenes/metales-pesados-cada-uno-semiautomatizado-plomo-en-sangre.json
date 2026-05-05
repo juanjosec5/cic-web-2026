@@ -1,0 +1,18 @@
+{
+  "id": "PLOMOS",
+  "nombre": "METALES PESADOS CADA UNO SEMIAUTOMATIZADO : PLOMO EN SANGRE",
+  "codigoCups": "905736",
+  "slug": "metales-pesados-cada-uno-semiautomatizado-plomo-en-sangre",
+  "categoria": "toxicologia",
+  "diaProceso": "2 VECES POR SEMANA",
+  "oportunidadResultados": "06 dias habiles a partir del día de procesamiento",
+  "muestra": "Sangre Venosa (10 ml)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

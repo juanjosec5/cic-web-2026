@@ -1,0 +1,18 @@
+{
+  "id": "HPYT",
+  "nombre": "HELICOBACTER PYLORI ANTICUERPOS TOTALES (M Y G) CUALITATIVO",
+  "codigoCups": "906025",
+  "slug": "helicobacter-pylori-anticuerpos-totales-m-y-g-cualitativo",
+  "categoria": "inmunologia-infecciosa",
+  "diaProceso": "LUNES A SABADO",
+  "oportunidadResultados": "Diario",
+  "muestra": "Suero (1.0ml)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

@@ -1,0 +1,18 @@
+{
+  "id": "HCBP",
+  "nombre": "HORMONA DE CRECIMIENTO BASAL Y POST GLUCOSA: 5 MUESTRAS",
+  "codigoCups": "904207",
+  "slug": "hormona-de-crecimiento-basal-y-post-glucosa-5-muestras",
+  "categoria": "hormonas",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "3 dias habiles a partir del día de procesamiento",
+  "muestra": "Suero (2.0mL)",
+  "preparacion": "El paciente debe estar completamente en ayuno, si es un niño menor de 2 años, el ayuno debe ser mínimo de 4 horas",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

@@ -1,0 +1,18 @@
+{
+  "id": "ABIL",
+  "nombre": "ACIDOS BILIARES, TOTALES",
+  "codigoCups": "903101",
+  "slug": "acidos-biliares-totales",
+  "categoria": "quimica",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "12 dias a partir de la fecha de envío a la red de apoyo internacional",
+  "muestra": "Suero (2.0mL)",
+  "preparacion": "En ayunas Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

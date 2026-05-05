@@ -1,17 +1,18 @@
 {
-  "id": "904921",
-  "mongoId": "635afd054d2fd1d313dd4d25",
+  "id": "T4L",
   "nombre": "T4L-TIROXINA LIBRE",
   "codigoCups": "904921",
   "slug": "t4l-tiroxina-libre",
   "categoria": "hormonas",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Suero (2.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
   "nombresAlternativos": [],
-  "requiereAyuno": false,
-  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
-  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

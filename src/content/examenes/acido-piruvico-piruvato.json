@@ -1,0 +1,18 @@
+{
+  "id": "PIRUVICO",
+  "nombre": "ACIDO PIRUVICO (PIRUVATO)",
+  "codigoCups": "903112",
+  "slug": "acido-piruvico-piruvato",
+  "categoria": "quimica",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "8 días hábiles a partir de la fecha de envío a la red de apoyo internacional",
+  "muestra": "Sangre Venosa (5,0 mL)",
+  "preparacion": "• Ayuno mínimo de 4 horas • Reposar 20 minutos antes de la toma de la muestra.",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

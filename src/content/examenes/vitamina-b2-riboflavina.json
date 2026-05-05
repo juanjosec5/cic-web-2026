@@ -1,0 +1,18 @@
+{
+  "id": "VB2",
+  "nombre": "VITAMINA B2 RIBOFLAVINA",
+  "codigoCups": "903704",
+  "slug": "vitamina-b2-riboflavina",
+  "categoria": "metabolicas",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "18 dias a partir de la fecha de envío a la red de apoyo internacional",
+  "muestra": "Sangre Venosa (5.0 mL)",
+  "preparacion": "Ayuno de 12 a 14 horas.",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

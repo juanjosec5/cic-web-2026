@@ -1,17 +1,18 @@
 {
-  "id": "902112",
-  "mongoId": "635afd054d2fd1d313dd4c4e",
+  "id": "HBFETAL",
   "nombre": "HEMOGLOBINA FETAL AUTOMATIZADA",
   "codigoCups": "902112",
   "slug": "hemoglobina-fetal-automatizada",
   "categoria": "hematologia",
+  "diaProceso": "2 VECES POR SEMANA",
+  "oportunidadResultados": "9 días hábiles a partir de la fecha de envío a la red de apoyo internacional",
+  "muestra": "Sangre Venosa (5,0 mL)",
+  "preparacion": "La edad y etnia del paciente son indispensables Transfusión sanguínea menor a 4 meses puede afectar los resultados. Relacionar datos clínicos del paciente en la Solicitud",
   "nombresAlternativos": [],
-  "requiereAyuno": false,
-  "preparacion": "La edad y etnia del paciente son indispensables.\nTransfusión sanguínea menor a 4 meses puede afectar los resultados. Relacionar datos clínicos del paciente en la solicitud.",
-  "oportunidadResultados": "9 días hábiles a partir de la fecha de envío a la red de apoyo internacional.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

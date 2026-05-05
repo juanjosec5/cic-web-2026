@@ -1,0 +1,18 @@
+{
+  "id": "HGHPOST",
+  "nombre": "HORMONA DEL CRECIMIENTO [SOMATOTROPICA] PRE Y POST ESTIMULO GLUCOSA CADA MUESTRA (2 MUESTRAS)",
+  "codigoCups": "904207",
+  "slug": "hormona-del-crecimiento-somatotropica-pre-y-post-estimulo-glucosa-cada-muestra-2-muestras",
+  "categoria": "hormonas",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "3 dias a partir del día de procesamiento",
+  "muestra": "Suero ( 2,0 ml)",
+  "preparacion": "Disponer mínimo de 3 horas para la toma de muestras. En ayunas / Dosis de Glucosa: 100 mg o 1.75 g/kg de peso. Via oral",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

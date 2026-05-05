@@ -1,0 +1,18 @@
+{
+  "id": "RICKEIGM",
+  "nombre": "Rickettsia spp ANTICUERPOS Ig M SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906141",
+  "slug": "rickettsia-spp-anticuerpos-ig-m-semiautomatizado-o-automatizado",
+  "categoria": "inmunologia-infecciosa",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "12 dias a partir de la fecha de envío a la red de apoyo internacional",
+  "muestra": "Suero (2,0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

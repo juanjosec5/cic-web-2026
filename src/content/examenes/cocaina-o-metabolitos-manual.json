@@ -1,0 +1,18 @@
+{
+  "id": "COCAINA",
+  "nombre": "COCAINA O METABOLITOS MANUAL",
+  "codigoCups": "905724",
+  "slug": "cocaina-o-metabolitos-manual",
+  "categoria": "toxicologia",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Orina (50.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud Recolectar muestra a partir de la segunda parte de la micción.",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

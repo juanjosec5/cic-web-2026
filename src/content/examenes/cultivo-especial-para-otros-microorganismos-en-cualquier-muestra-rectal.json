@@ -1,0 +1,18 @@
+{
+  "id": "CULMORG",
+  "nombre": "CULTIVO ESPECIAL PARA OTROS MICROORGANISMOS EN CUALQUIER MUESTRA (RECTAL)",
+  "codigoCups": "901210",
+  "slug": "cultivo-especial-para-otros-microorganismos-en-cualquier-muestra-rectal",
+  "categoria": "microbiologia",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "De 3 a 5 días hábiles a partir del día de procesamiento",
+  "muestra": "Muestra rectal",
+  "preparacion": "no tener realaciones sexulaes, no usar óvulos, cremas o duchas vaginales 5 días antes de la realización del examen",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

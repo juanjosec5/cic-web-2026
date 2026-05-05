@@ -1,0 +1,18 @@
+{
+  "id": "CA19",
+  "nombre": "ANTÍGENO DE CÁNCER DE TUBO DIGESTIVO [CA 19-9] SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906606",
+  "slug": "antigeno-de-cancer-de-tubo-digestivo-ca-19-9-semiautomatizado-o-automatizado",
+  "categoria": "marcadores-tumorales",
+  "diaProceso": "Lunes y Jueves",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Suero (2.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

@@ -1,17 +1,18 @@
 {
-  "id": "902115",
-  "mongoId": "635afd054d2fd1d313dd4c52",
+  "id": "HAM",
   "nombre": "HEMOLISIS ACIDA (PRUEBA DE HAM)",
   "codigoCups": "902115",
   "slug": "hemolisis-acida-prueba-de-ham",
   "categoria": "hematologia",
+  "diaProceso": "LUNES A JUEVES",
+  "oportunidadResultados": "4 días hábiles a partir del día de procesamiento",
+  "muestra": "Sangre Venosa (5,0 mL) y Suero",
+  "preparacion": "No requiere ninguna preparación especial previa. adjuntar copia de la Historia clínica",
   "nombresAlternativos": [],
-  "requiereAyuno": false,
-  "preparacion": "No requiere ninguna preparación especial previa. Adjuntar copia de la Historia clínica.",
-  "oportunidadResultados": "7 días hábiles a partir del día de procesamiento.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

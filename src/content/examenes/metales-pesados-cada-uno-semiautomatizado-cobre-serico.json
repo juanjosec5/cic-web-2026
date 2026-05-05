@@ -1,0 +1,18 @@
+{
+  "id": "COB",
+  "nombre": "METALES PESADOS CADA UNO SEMIAUTOMATIZADO, (COBRE SERICO)",
+  "codigoCups": "905736",
+  "slug": "metales-pesados-cada-uno-semiautomatizado-cobre-serico",
+  "categoria": "toxicologia",
+  "diaProceso": "1 VEZ POR SEMANA",
+  "oportunidadResultados": "10 días hábiles a partir del día de procesamiento",
+  "muestra": "Suero (2,0mL)",
+  "preparacion": "Datos Clinicos. Es recomendable realizar las extracciones a la misma hora del día (p. ej., entre las 08:00 y 10:00 horas) debido al ritmo circadiano que presentan las concentraciones de este elemento en el suero.",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

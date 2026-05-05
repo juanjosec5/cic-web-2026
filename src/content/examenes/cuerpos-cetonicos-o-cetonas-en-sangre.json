@@ -1,17 +1,18 @@
 {
-  "id": "903827",
-  "mongoId": "635afd054d2fd1d313dd4bdc",
+  "id": "CCS",
   "nombre": "CUERPOS CETÓNICOS O CETONAS EN SANGRE",
   "codigoCups": "903827",
   "slug": "cuerpos-cetonicos-o-cetonas-en-sangre",
   "categoria": "quimica",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "7 dias a partir del dia de envio a red de apoyo internacional",
+  "muestra": "Suero (2.0mL)",
+  "preparacion": "En ayunas 8 a 10 horas Relacionar datos clínicos del paciente en la Solicitud",
   "nombresAlternativos": [],
-  "requiereAyuno": false,
-  "preparacion": "En ayunas 8 a 10 horas. Relacionar datos clínicos del paciente en la solicitud.",
-  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

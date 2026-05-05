@@ -1,17 +1,18 @@
 {
-  "id": "903832",
-  "mongoId": "635afd054d2fd1d313dd4c23",
+  "id": "FAP",
   "nombre": "FOSFATASA ACIDA FRACCION PROSTATICA AUTOMATIZADA",
   "codigoCups": "903832",
   "slug": "fosfatasa-acida-fraccion-prostatica-automatizada",
   "categoria": "quimica",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "3 Días hábiles a partir del día de procesamiento",
+  "muestra": "Suero (1.0mL)",
+  "preparacion": "La muestra debe tomarse antes de cualquier manipulación de la próstata, tacto rectal o masaje prostático",
   "nombresAlternativos": [],
-  "requiereAyuno": false,
-  "preparacion": "La muestra debe tomarse antes de cualquier manipulación de la próstata, tacto rectal o masaje prostático.",
-  "oportunidadResultados": "3 Días hábiles a partir del día de procesamiento.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

@@ -1,0 +1,18 @@
+{
+  "id": "GLUP",
+  "nombre": "GLUCOSA POST DIALISIS",
+  "codigoCups": "903841",
+  "slug": "glucosa-post-dialisis",
+  "categoria": "quimica",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Suero (1.0mL)",
+  "preparacion": "Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

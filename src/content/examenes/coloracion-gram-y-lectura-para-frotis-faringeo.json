@@ -1,0 +1,18 @@
+{
+  "id": "FG",
+  "nombre": "COLORACIÓN GRAM Y LECTURA PARA FROTIS FARINGEO",
+  "codigoCups": "901107",
+  "slug": "coloracion-gram-y-lectura-para-frotis-faringeo",
+  "categoria": "microbiologia",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Frotis Faringeo",
+  "preparacion": "No estar en tratamiento antimicrobiano Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

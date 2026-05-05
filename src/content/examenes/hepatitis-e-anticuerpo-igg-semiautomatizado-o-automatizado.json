@@ -1,0 +1,18 @@
+{
+  "id": "HEV",
+  "nombre": "HEPATITIS E ANTICUERPO IgG SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906266",
+  "slug": "hepatitis-e-anticuerpo-igg-semiautomatizado-o-automatizado",
+  "categoria": "inmunologia-infecciosa",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "12 días hábiles a partir de la fecha de envío a la red de apoyo",
+  "muestra": "Suero (2.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

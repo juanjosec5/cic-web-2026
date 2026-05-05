@@ -1,17 +1,18 @@
 {
-  "id": "906509",
-  "mongoId": "635afd054d2fd1d313dd4d68",
+  "id": "CITOTOXICO",
   "nombre": "ANTICUERPOS CITOTOXICOS ANTI HLA",
   "codigoCups": "906509",
   "slug": "anticuerpos-citotoxicos-anti-hla",
   "categoria": "inmunologia",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "05 dias habiles a partir del día de procesamiento",
+  "muestra": "Suero (2.0mL)",
+  "preparacion": "En ayunas No tomar muestras después de realizar hemodiálisis, La muestra no se debe tomar si el paciente ha recibido transfusión de sangre o plaquetas en los 14 días anteriores . Relacionar datos clínicos del paciente",
   "nombresAlternativos": [],
-  "requiereAyuno": false,
-  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente.",
-  "oportunidadResultados": "07 días híbiles a partir del día de procesamiento.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

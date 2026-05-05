@@ -1,0 +1,18 @@
+{
+  "id": "PROCF",
+  "nombre": "PROTEINA C DE LA COAGULACION ACTIVIDAD (FUNCIONAL)",
+  "codigoCups": "902033",
+  "slug": "proteina-c-de-la-coagulacion-actividad-funcional",
+  "categoria": "coagulacion",
+  "diaProceso": "MARTES Y JUEVES",
+  "oportunidadResultados": "9 dias a partir del dia de procesamiento",
+  "muestra": "Plasma (1.0mL)",
+  "preparacion": "En ayunas Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

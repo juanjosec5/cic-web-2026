@@ -1,0 +1,18 @@
+{
+  "id": "EOSINO",
+  "nombre": "EOSINÓFILOS EN MOCO NASAL",
+  "codigoCups": "902219",
+  "slug": "eosinofilos-en-moco-nasal-902219",
+  "categoria": "microscopia",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Secreción Nasal",
+  "preparacion": "Relacionar datos clínicos del paciente en la Solicitud el uso de antihistamínicos puede generar una disminución de los eosinófilos.",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

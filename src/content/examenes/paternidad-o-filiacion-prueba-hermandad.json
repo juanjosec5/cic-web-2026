@@ -1,0 +1,18 @@
+{
+  "id": "PRHERMAN",
+  "nombre": "PATERNIDAD O FILIACION PRUEBA (HERMANDAD)",
+  "codigoCups": "908440",
+  "slug": "paternidad-o-filiacion-prueba-hermandad",
+  "categoria": "genetica",
+  "diaProceso": "CITA PREVIA",
+  "oportunidadResultados": "10 días hábiles a partir de la fecha de envío a la red de apoyo",
+  "muestra": "Sangre puncion capilar",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud Se toman 5 muestras: 3 hijos reconocidos de padre y madre, 1 muestra del dubitado, 1 muestra de la madre del dubitado",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

@@ -1,17 +1,18 @@
 {
-  "id": "901206",
-  "mongoId": "635afd054d2fd1d313dd4bde",
+  "id": "COPROCUL",
   "nombre": "COPROCULTIVO",
   "codigoCups": "901206",
   "slug": "coprocultivo",
   "categoria": "microbiologia",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "De 3 a 5 días hábiles a partir del día de procesamiento",
+  "muestra": "Materia Fecal (5.0 g)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
   "nombresAlternativos": [],
-  "requiereAyuno": false,
-  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
-  "oportunidadResultados": "De 3 a 5 días hábiles a partir del día de procesamiento.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

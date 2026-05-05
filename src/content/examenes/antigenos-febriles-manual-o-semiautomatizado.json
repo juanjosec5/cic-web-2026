@@ -1,0 +1,18 @@
+{
+  "id": "AGFEB",
+  "nombre": "ANTIGENOS FEBRILES MANUAL O SEMIAUTOMATIZADO",
+  "codigoCups": "906304",
+  "slug": "antigenos-febriles-manual-o-semiautomatizado",
+  "categoria": "inmunologia-infecciosa",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Suero (4.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

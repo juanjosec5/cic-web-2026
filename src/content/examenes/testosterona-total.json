@@ -1,17 +1,18 @@
 {
-  "id": "904602",
-  "mongoId": "635afd054d2fd1d313dd4d2a",
+  "id": "TESTT",
   "nombre": "TESTOSTERONA TOTAL",
   "codigoCups": "904602",
   "slug": "testosterona-total",
   "categoria": "hormonas",
+  "diaProceso": "Viernes",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Suero (2.0mL)",
+  "preparacion": "Paciente en ayuno. Relacionar datos clínicos del paciente en la Solicitud",
   "nombresAlternativos": [],
-  "requiereAyuno": true,
-  "preparacion": "Paciente en ayuno. Relacionar datos clínicos del paciente en la solicitud.",
-  "oportunidadResultados": "24 horas a partir del día de procesamiento.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

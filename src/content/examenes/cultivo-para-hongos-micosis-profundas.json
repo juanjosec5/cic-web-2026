@@ -1,17 +1,18 @@
 {
-  "id": "901212",
-  "mongoId": "635afd054d2fd1d313dd4be1",
+  "id": "CHMP",
   "nombre": "CULTIVO PARA HONGOS MICOSIS PROFUNDAS",
   "codigoCups": "901212",
   "slug": "cultivo-para-hongos-micosis-profundas",
   "categoria": "microbiologia",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "9 semanas a partir de su procesamiento",
+  "muestra": "secreciones, liquidos corporales, tejidos en biopsia",
+  "preparacion": "No aplicar medicamentos o cremas en la zona afectada",
   "nombresAlternativos": [],
-  "requiereAyuno": false,
-  "preparacion": "No aplicar medicamentos o cremas en la zona afectada.",
-  "oportunidadResultados": "9 semanas a partir de su procesamiento.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

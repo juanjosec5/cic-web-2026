@@ -1,0 +1,18 @@
+{
+  "id": "IDLEV",
+  "nombre": "IDENTIFICACIÓN DE LEVADURAS (EM MALDI -TOF)",
+  "codigoCups": "901240",
+  "slug": "identificacion-de-levaduras-em-maldi-tof",
+  "categoria": "microbiologia",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "4 dias a partir del día de procesamiento",
+  "muestra": "Cepa pura",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

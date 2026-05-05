@@ -1,0 +1,18 @@
+{
+  "id": "VON MULTIM",
+  "nombre": "MULTIMEROS DEL FACTOR DE VON WILLEBRAND: (VWF:MA)",
+  "codigoCups": "902069",
+  "slug": "multimeros-del-factor-de-von-willebrand-vwf-ma",
+  "categoria": "coagulacion",
+  "diaProceso": "2 VECES POR SEMANA",
+  "oportunidadResultados": "18 días hábiles a partir de la fecha de envío a la red de apoyo internacional",
+  "muestra": "Plasma (2.0mL)",
+  "preparacion": "En ayunas Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

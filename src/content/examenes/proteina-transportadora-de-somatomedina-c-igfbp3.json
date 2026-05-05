@@ -1,0 +1,18 @@
+{
+  "id": "PROSOMA",
+  "nombre": "PROTEINA TRANSPORTADORA DE SOMATOMEDINA C IGFBP3",
+  "codigoCups": "904710",
+  "slug": "proteina-transportadora-de-somatomedina-c-igfbp3",
+  "categoria": "hormonas",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "11 días a partir de la fecha de envío a la red de apoyo internacional",
+  "muestra": "Suero (1.0 mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

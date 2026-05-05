@@ -1,0 +1,18 @@
+{
+  "id": "OXALATOS",
+  "nombre": "OXALATO EN SANGRE",
+  "codigoCups": "903036",
+  "slug": "oxalato-en-sangre",
+  "categoria": "quimica",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "13 dias a partir de la fecha de envío a la red de apoyo internacional",
+  "muestra": "Suero (1,0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

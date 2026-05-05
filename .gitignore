@@ -27,3 +27,7 @@ repomix-output.xml
 # Migration data (raw dumps and reports — never commit PII)
 data/raw/
 data/reports/
+
+# Source data files — contain lab portfolio, never commit
+*.xlsx
+*.xls

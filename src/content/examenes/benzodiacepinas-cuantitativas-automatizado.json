@@ -1,0 +1,18 @@
+{
+  "id": "BEN",
+  "nombre": "BENZODIACEPINAS CUANTITATIVAS AUTOMATIZADO",
+  "codigoCups": "905305",
+  "slug": "benzodiacepinas-cuantitativas-automatizado",
+  "categoria": "toxicologia",
+  "diaProceso": "LUNES A SABADO",
+  "oportunidadResultados": "72 horas a partir del día de procesamiento",
+  "muestra": "Orina (20.0mL)",
+  "preparacion": "Recolectar muestra a partir de la segunda parte de la micción, enviar en recipiente de polipropileno estéril sellado y diligenciar el Formato para procesamiento.",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

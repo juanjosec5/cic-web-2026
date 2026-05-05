@@ -1,0 +1,18 @@
+{
+  "id": "CQ1FUN",
+  "nombre": "INHIBIDOR C1 ESTERASA CONCENTRACION O FUNCIONAL SEMIAUTOMATIZADO O AUTOMATIZADO - FUNCIONAL",
+  "codigoCups": "906823",
+  "slug": "inhibidor-c1-esterasa-concentracion-o-funcional-semiautomatizado-o-automatizado-funcional",
+  "categoria": "inmunologia",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "11 dias a partir de la fecha de envío a la red de apoyo internacional",
+  "muestra": "Suero (2.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

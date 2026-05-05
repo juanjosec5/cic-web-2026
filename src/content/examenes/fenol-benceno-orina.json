@@ -1,0 +1,18 @@
+{
+  "id": "FENORI",
+  "nombre": "FENOL (BENCENO) - ORINA",
+  "codigoCups": "905761",
+  "slug": "fenol-benceno-orina",
+  "categoria": "quimica",
+  "diaProceso": "MIERCOLES Y VIERNES",
+  "oportunidadResultados": "06 dias habiles a partir del día de procesamiento",
+  "muestra": "Orina al azar. Enviar alicuota. (50 mL)",
+  "preparacion": "Orina al azar recogida después de la jornada laboral; mantener refrigerada posterior a la recolección.",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

@@ -1,0 +1,18 @@
+{
+  "id": "UROCUL",
+  "nombre": "UROCULTIVO (ANTIBIOGRAMA CONCENTRACIÓN MÍNIMA INHIBITORIA AUTOMATIZADO)",
+  "codigoCups": "901236",
+  "slug": "urocultivo-antibiograma-concentracion-minima-inhibitoria-automatizado",
+  "categoria": "microbiologia",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "De 3 a 5 días a partir del día de procesamiento",
+  "muestra": "Orina (20.0mL)",
+  "preparacion": "• Previo aseo •recolectar en recipiente plástico estéril preferiblemente la primera orina de la mañana a partir de la segunda parte de la micción. • La muestra debe ser enviada al laboratorio en el menor tiempo posible. • Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

@@ -1,0 +1,18 @@
+{
+  "id": "CALPMF",
+  "nombre": "CALPROTECTINA EN MATERIA FECAL SEMIAUTOMATIZADO O AUTOMATIZADO",
+  "codigoCups": "906851",
+  "slug": "calprotectina-en-materia-fecal-semiautomatizado-o-automatizado",
+  "categoria": "inmunologia",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Materia Fecal",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

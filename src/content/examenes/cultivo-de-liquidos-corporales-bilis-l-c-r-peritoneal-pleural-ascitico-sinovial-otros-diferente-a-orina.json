@@ -1,0 +1,18 @@
+{
+  "id": "CGC",
+  "nombre": "CULTIVO DE LÍQUIDOS CORPORALES (BILIS L.C.R PERITONEAL PLEURAL ASCITICO SINOVIAL OTROS DIFERENTE A ORINA)",
+  "codigoCups": "901209",
+  "slug": "cultivo-de-liquidos-corporales-bilis-l-c-r-peritoneal-pleural-ascitico-sinovial-otros-diferente-a-orina",
+  "categoria": "microbiologia",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "De 3 a 5 días hábiles a partir del día de procesamiento",
+  "muestra": "Líquido Corporal (2.0 mL)",
+  "preparacion": "Relacionar datos clínicos del paciente en la Solicitud Informar la forma de obtención de la muestra si estuvo en tratamiento de antibioticos informar la fecha de terminación del tratamiento.",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

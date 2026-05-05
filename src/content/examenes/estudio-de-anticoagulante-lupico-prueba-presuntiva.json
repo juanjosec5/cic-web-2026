@@ -1,0 +1,18 @@
+{
+  "id": "LUPICO",
+  "nombre": "ESTUDIO DE ANTICOAGULANTE LUPICO (PRUEBA PRESUNTIVA)",
+  "codigoCups": "902079",
+  "slug": "estudio-de-anticoagulante-lupico-prueba-presuntiva",
+  "categoria": "coagulacion",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Plasma (2.0mL)",
+  "preparacion": "se sugiere tomar muestra en ayuno, mas no es excluyente, Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

@@ -1,0 +1,18 @@
+{
+  "id": "CURGHPC",
+  "nombre": "HORMONA DEL CRECIMIENTO [SOMATOTROPICA] PRE Y POST ESTIMULO CLONIDINA CADA MUESTRA (3 MUESTRAS)",
+  "codigoCups": "904205",
+  "slug": "hormona-del-crecimiento-somatotropica-pre-y-post-estimulo-clonidina-cada-muestra-3-muestras",
+  "categoria": "hormonas",
+  "diaProceso": "LUNES MIERCOLES Y VIERNES",
+  "oportunidadResultados": "4 Días a partir del día de procesamiento",
+  "muestra": "NO APLICA",
+  "preparacion": "El paciente debe estar completamente en ayuno, si es un niño menor de 2 años, el ayuno debe ser mínimo de 4 horas El paciente no debe tener fiebre o algún proceso viral o infeccioso.",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

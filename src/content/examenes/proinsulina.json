@@ -1,0 +1,18 @@
+{
+  "id": "PROIN",
+  "nombre": "PROINSULINA",
+  "codigoCups": "904707",
+  "slug": "proinsulina",
+  "categoria": "hormonas",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "18 días hábiles a partir de la fecha de envío a la red de apoyo internacional",
+  "muestra": "Plasma (1ml)",
+  "preparacion": "En ayunas Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

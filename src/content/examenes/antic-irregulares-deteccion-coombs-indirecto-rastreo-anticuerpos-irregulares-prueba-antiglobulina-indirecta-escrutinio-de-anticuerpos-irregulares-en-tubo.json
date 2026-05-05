@@ -1,0 +1,18 @@
+{
+  "id": "RASTREO",
+  "nombre": "ANTIC. IRREGULARES DETECCIÓN (COOMBS INDIRECTO, RASTREO ANTICUERPOS IRREGULARES, PRUEBA ANTIGLOBULINA INDIRECTA, ESCRUTINIO DE ANTICUERPOS IRREGULARES) EN TUBO",
+  "codigoCups": "911004",
+  "slug": "antic-irregulares-deteccion-coombs-indirecto-rastreo-anticuerpos-irregulares-prueba-antiglobulina-indirecta-escrutinio-de-anticuerpos-irregulares-en-tubo",
+  "categoria": "inmunologia",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "3 días a partir del día de procesamiento",
+  "muestra": "Sangre Venosa (10 mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

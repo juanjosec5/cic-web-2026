@@ -1,0 +1,18 @@
+{
+  "id": "CONGO",
+  "nombre": "COLORACION ROJO CONGO",
+  "codigoCups": "NULL",
+  "slug": "coloracion-rojo-congo",
+  "categoria": "patologia",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "10 días hábiles a partir de la fecha de envio a proceso",
+  "muestra": "Biopsia embalada en formol o bloque de parafina respectivo.",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

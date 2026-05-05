@@ -1,0 +1,18 @@
+{
+  "id": "CRS",
+  "nombre": "CROMO EN SANGRE",
+  "codigoCups": "905736",
+  "slug": "cromo-en-sangre",
+  "categoria": "toxicologia",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "10 días a partir del dia de procesamiento",
+  "muestra": "Sangre Total (5ml)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}

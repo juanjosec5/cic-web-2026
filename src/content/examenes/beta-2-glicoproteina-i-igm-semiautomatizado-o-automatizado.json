@@ -1,17 +1,18 @@
 {
-  "id": "906482",
-  "mongoId": "635afd054d2fd1d313dd4b83",
+  "id": "B2IGM",
   "nombre": "BETA 2 GLICOPROTEINA I IgM SEMIAUTOMATIZADO O AUTOMATIZADO",
   "codigoCups": "906482",
   "slug": "beta-2-glicoproteina-i-igm-semiautomatizado-o-automatizado",
   "categoria": "inmunologia",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "24 horas a partir del día de procesamiento",
+  "muestra": "Suero (2.0mL)",
+  "preparacion": "No requiere ninguna preparación especial previa Relacionar datos clínicos del paciente en la Solicitud",
   "nombresAlternativos": [],
-  "requiereAyuno": false,
-  "preparacion": "No requiere ninguna preparación especial previa. Relacionar datos clínicos del paciente en la solicitud.",
-  "oportunidadResultados": "3 días hábiles a partir del día de procesamiento.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

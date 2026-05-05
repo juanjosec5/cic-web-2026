@@ -1,17 +1,18 @@
 {
-  "id": "901230",
-  "mongoId": "635afd054d2fd1d313dd4be0",
+  "id": "CMICOTUB",
   "nombre": "Mycobacterium tuberculosis CULTIVO",
   "codigoCups": "901230",
   "slug": "mycobacterium-tuberculosis-cultivo",
   "categoria": "microbiologia",
+  "diaProceso": "DIARIO",
+  "oportunidadResultados": "60 días a partir del día de proceso",
+  "muestra": "Esputo",
+  "preparacion": "Recomendable enjuagar la boca solo con agua, sin crema dental, el apciente debe proceder a la expectoración de esputo (flema), preferiblemente la primera de la mañana, en un envase estéril de boca ancha. Se debe asegurar que sea material bronquial (espeso, verdoso/amarillento) y no saliva. Relacionar datos clínicos del paciente en la Solicitud",
   "nombresAlternativos": [],
-  "requiereAyuno": false,
-  "preparacion": "Recomendable enjuagar la boca solo con agua. Relacionar datos clínicos del paciente en la solicitud.",
-  "oportunidadResultados": "60 días a partir del día de proceso.",
   "sedesDisponibles": [],
   "examenesRelacionados": [],
   "perfiles": [],
+  "requiereAyuno": false,
   "imagen": null,
   "activo": true
 }

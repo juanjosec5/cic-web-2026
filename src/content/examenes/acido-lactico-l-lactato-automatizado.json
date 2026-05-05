@@ -1,0 +1,18 @@
+{
+  "id": "ALAC",
+  "nombre": "ACIDO LACTICO [L-LACTATO] [AUTOMATIZADO]",
+  "codigoCups": "903111",
+  "slug": "acido-lactico-l-lactato-automatizado",
+  "categoria": "metabolicas",
+  "diaProceso": "LUNES A VIERNES",
+  "oportunidadResultados": "3 dias a partir del día de procesamiento",
+  "muestra": "Plama (2.0mL)",
+  "preparacion": "• El paciente debe permanecer en reposo 30 minutos antes de la toma de la muestra. • En ayunas • No hacer ejercicio intenso un día antes de la prueba.",
+  "nombresAlternativos": [],
+  "sedesDisponibles": [],
+  "examenesRelacionados": [],
+  "perfiles": [],
+  "requiereAyuno": false,
+  "imagen": null,
+  "activo": true
+}
