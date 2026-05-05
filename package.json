@@ -8,7 +8,9 @@
     "preview": "astro preview",
     "type-check": "astro check",
     "migrate:examenes": "tsx scripts/migrate-examenes.ts",
-    "migrate:sedes": "node --env-file=.env scripts/migrate-sedes.mjs"
+    "migrate:sedes": "node scripts/migrate-sedes.mjs",
+    "studio:dev": "sanity dev",
+    "studio:deploy": "sanity deploy"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
