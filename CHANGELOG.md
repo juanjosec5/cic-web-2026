@@ -9,6 +9,11 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 ## [Unreleased]
 
+### Added (estados financieros)
+- `src/pages/estados-financieros.astro`: new legal-compliance page listing yearly PDF documents; each card shows year badge, title, description, and two CTAs (Ver PDF / Descargar); PDFs served from `public/docs/estados-financieros/`
+- `src/components/Header.astro`: "Nosotros" converted to dropdown with sub-links — "Sobre nosotros" → `/nosotros` and "Estados financieros" → `/estados-financieros`
+- `src/components/Footer.astro`: "Estados financieros" added to sitemap link list
+
 ### Added (perfiles de laboratorio)
 - `scripts/import-perfiles.mjs`: new script that parses `perfiles_laboratorio.md` and writes 17 JSON files to `src/content/perfiles/`; exam-name → slug lookup table resolves all 17 profiles; composite MD items (Sodio y Potasio, PT y PTT, TGO – TGP) expand to separate entries; exams without a matching slug (Índice arterial, Dengue NS1) are stored as plain-name objects
 - `src/content/config.ts`: `examenesIncluidos` schema changed from `z.array(z.string())` to `z.array(z.object({ nombre, slug? }))` so human-readable names can be stored alongside optional exam-page slugs; allows linking only when a slug exists
