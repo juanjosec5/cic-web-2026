@@ -2,10 +2,17 @@
   "slug": "la-union",
   "nombre": "CIC Laboratorios — La Unión",
   "ciudad": "La Unión",
-  "direccion": "Calle 13 # 11 - 26, Local 109 Pasaje Belén",
+  "direccion": "Calle 13  # 11-26 Local 109 Pasaje Belén",
   "telefono": "316 017 6054",
   "whatsapp": "316 017 6054",
-  "horario": {},
+  "horario": {
+    "lunes": "6:30 am a 12:00 m y de 2:00 pm a 5:00 pm",
+    "martes": "6:30 am a 12:00 m y de 2:00 pm a 5:00 pm",
+    "miercoles": "6:30 am a 12:00 m y de 2:00 pm a 5:00 pm",
+    "jueves": "6:30 am a 12:00 m y de 2:00 pm a 5:00 pm",
+    "viernes": "6:30 am a 12:00 m y de 2:00 pm a 5:00 pm",
+    "sabado": "7:30 am a 9:00 am - No se Toma Muestras"
+  },
   "servicios": [
     "toma-muestras",
     "validacion-qr"
@@ -14,5 +21,6 @@
   "convenios": [],
   "esSedePrincipal": false,
   "lat": 4.531,
-  "lng": -76.099
+  "lng": -76.099,
+  "email": "launion@ciclaboratorios.com"
 }

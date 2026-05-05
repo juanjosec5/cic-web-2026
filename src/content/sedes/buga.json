@@ -2,16 +2,16 @@
   "slug": "buga",
   "nombre": "CIC Laboratorios — Buga",
   "ciudad": "Guadalajara de Buga",
-  "direccion": "Cra 13 # 4 - 51",
-  "telefono": "315 819 7366",
+  "direccion": "Carrera 13 # 4-51",
+  "telefono": "317 432 8255",
   "whatsapp": "317 432 8255",
   "horario": {
-    "lunes": "TODO",
-    "martes": "TODO",
-    "miercoles": "TODO",
-    "jueves": "TODO",
-    "viernes": "TODO",
-    "sabado": "TODO"
+    "lunes": "6:30 am a 12:00 m y de 2:00 pm a 5:00 pm",
+    "martes": "6:30 am a 12:00 m y de 2:00 pm a 5:00 pm",
+    "miercoles": "6:30 am a 12:00 m y de 2:00 pm a 5:00 pm",
+    "jueves": "6:30 am a 12:00 m y de 2:00 pm a 5:00 pm",
+    "viernes": "6:30 am a 12:00 m y de 2:00 pm a 5:00 pm",
+    "sabado": "7:00 am a 12:00 m"
   },
   "servicios": [
     "toma-muestras",
@@ -26,5 +26,6 @@
   "domicilioGratisDesde": 50000,
   "esSedePrincipal": true,
   "lat": 3.901,
-  "lng": -76.299
+  "lng": -76.299,
+  "email": "recepcion@ciclaboratorios.com"
 }

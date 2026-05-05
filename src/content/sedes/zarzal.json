@@ -2,10 +2,17 @@
   "slug": "zarzal",
   "nombre": "CIC Laboratorios — Zarzal",
   "ciudad": "Zarzal",
-  "direccion": "Cra 10 # 5 - 19",
-  "telefono": "(602) 220 6452",
+  "direccion": "Carrera 10 # 5-19",
+  "telefono": "316 017 6055",
   "whatsapp": "316 017 6055",
-  "horario": {},
+  "horario": {
+    "lunes": "7:00 am a 11:00 am",
+    "martes": "7:00 am a 11:00 am",
+    "miercoles": "7:00 am a 11:00 am",
+    "jueves": "7:00 am a 11:00 am",
+    "viernes": "7:00 am a 11:00 am",
+    "sabado": "7:00 am a 09:00 am - No se Toma Muestras"
+  },
   "servicios": [
     "toma-muestras",
     "validacion-qr"
@@ -14,5 +21,6 @@
   "convenios": [],
   "esSedePrincipal": false,
   "lat": 4.398,
-  "lng": -76.069
+  "lng": -76.069,
+  "email": "zarzal@ciclaboratorios.com"
 }

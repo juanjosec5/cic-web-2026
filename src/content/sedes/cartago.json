@@ -2,10 +2,16 @@
   "slug": "cartago",
   "nombre": "CIC Laboratorios — Cartago",
   "ciudad": "Cartago",
-  "direccion": "Cra 1 # 14 - 36",
+  "direccion": "Carrea 1 # 14-36",
   "telefono": "316 545 7444",
   "whatsapp": "316 545 7444",
-  "horario": {},
+  "horario": {
+    "lunes": "7:00 am a 11:20 am",
+    "martes": "7:00 am a 11:20 am",
+    "miercoles": "7:00 am a 11:20 am",
+    "jueves": "7:00 am a 11:20 am",
+    "viernes": "7:00 am a 11:20 am"
+  },
   "servicios": [
     "toma-muestras",
     "validacion-qr"
@@ -14,5 +20,6 @@
   "convenios": [],
   "esSedePrincipal": false,
   "lat": 4.745,
-  "lng": -75.913
+  "lng": -75.913,
+  "email": "cartago@ciclaboratorios.com"
 }
