@@ -2,10 +2,17 @@
   "slug": "restrepo",
   "nombre": "CIC Laboratorios — Restrepo",
   "ciudad": "Restrepo",
-  "direccion": "Calle 9 # 16 A - 17",
+  "direccion": "Calle 9 # 16 a 17",
   "telefono": "316 017 6051",
   "whatsapp": "316 017 6051",
-  "horario": {},
+  "horario": {
+    "lunes": "7:00 am a 10:50 am",
+    "martes": "7:00 am a 10:50 am",
+    "miercoles": "7:00 am a 10:50 am",
+    "jueves": "7:00 am a 10:50 am",
+    "viernes": "7:00 am a 10:50 am",
+    "sabado": "7:00 am a 10:00 am"
+  },
   "servicios": [
     "toma-muestras",
     "validacion-qr"
@@ -14,5 +21,6 @@
   "convenios": [],
   "esSedePrincipal": false,
   "lat": 3.828,
-  "lng": -76.527
+  "lng": -76.527,
+  "email": "restrepo@ciclaboratorios.com"
 }

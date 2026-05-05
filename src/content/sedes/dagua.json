@@ -1,10 +1,11 @@
 {
-  "slug": "la-cumbre",
-  "nombre": "CIC Laboratorios — La Cumbre",
-  "ciudad": "La Cumbre",
-  "direccion": "Calle 4 # 5-20",
-  "telefono": "316 017 6047",
-  "whatsapp": "316 017 6047",
+  "slug": "dagua",
+  "nombre": "CIC Laboratorios — Dagua",
+  "ciudad": "Dagua",
+  "direccion": "Carrera 21 # 10-15",
+  "telefono": "318 349 2629",
+  "whatsapp": "318 349 2629",
+  "email": "dagua@ciclaboratorios.com",
   "horario": {
     "lunes": "6:30 am a 10:50 am",
     "martes": "6:30 am a 10:50 am",
@@ -18,8 +19,5 @@
   ],
   "fotos": [],
   "convenios": [],
-  "esSedePrincipal": false,
-  "lat": 3.65,
-  "lng": -76.567,
-  "email": "lacumbre@ciclaboratorios.com"
+  "esSedePrincipal": false
 }

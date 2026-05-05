@@ -5,7 +5,14 @@
   "direccion": "Calle 26 # 34-19",
   "telefono": "316 017 6056",
   "whatsapp": "316 017 6056",
-  "horario": {},
+  "horario": {
+    "lunes": "7:00 am a 10:50 am",
+    "martes": "7:00 am a 10:50 am",
+    "miercoles": "7:00 am a 10:50 am",
+    "jueves": "7:00 am a 10:50 am",
+    "viernes": "7:00 am a 10:50 am",
+    "sabado": "7:00 am a 10:00 am"
+  },
   "servicios": [
     "toma-muestras",
     "domicilio",
@@ -16,5 +23,6 @@
   "convenios": [],
   "esSedePrincipal": false,
   "lat": 4.084,
-  "lng": -76.200
+  "lng": -76.2,
+  "email": "tulua@ciclaboratorios.com"
 }

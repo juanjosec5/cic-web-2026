@@ -2,10 +2,17 @@
   "slug": "bugalagrande",
   "nombre": "CIC Laboratorios — Bugalagrande",
   "ciudad": "Bugalagrande",
-  "direccion": "Calle 7 # 7 - 10",
-  "telefono": "(602) 226 5939",
+  "direccion": "Calle 7 # 7-10",
+  "telefono": "316 017 6053",
   "whatsapp": "316 017 6053",
-  "horario": {},
+  "horario": {
+    "lunes": "7:00 am a 10:50 am",
+    "martes": "7:00 am a 10:50 am",
+    "miercoles": "7:00 am a 10:50 am",
+    "jueves": "7:00 am a 10:50 am",
+    "viernes": "7:00 am a 10:50 am",
+    "sabado": "7:00 am a 10:00 am"
+  },
   "servicios": [
     "toma-muestras",
     "validacion-qr"
@@ -14,5 +21,6 @@
   "convenios": [],
   "esSedePrincipal": false,
   "lat": 4.212,
-  "lng": -76.162
+  "lng": -76.162,
+  "email": "bugalagrande@ciclaboratorios.com"
 }
