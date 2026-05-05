@@ -1,0 +1,27 @@
+{
+  "slug": "lipidico",
+  "nombre": "Perfil Lipídico",
+  "descripcion": "Evaluación de lípidos en sangre para valorar riesgo cardiovascular.",
+  "examenesIncluidos": [
+    {
+      "nombre": "Colesterol total",
+      "slug": "colesterol-total"
+    },
+    {
+      "nombre": "Colesterol de alta densidad (HDL)",
+      "slug": "colesterol-de-alta-densidad-hdl"
+    },
+    {
+      "nombre": "Colesterol de baja densidad (LDL)",
+      "slug": "colesterol-de-baja-densidad-ldl-enzimatico-automatizado"
+    },
+    {
+      "nombre": "Triglicéridos",
+      "slug": "trigliceridos"
+    },
+    {
+      "nombre": "Índice arterial"
+    }
+  ],
+  "precio": 26000
+}

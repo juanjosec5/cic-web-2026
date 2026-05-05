@@ -1,0 +1,15 @@
+{
+  "slug": "dengue-ns1",
+  "nombre": "Perfil Dengue – Antígeno NS1",
+  "descripcion": "Detección temprana de dengue mediante antígeno NS1 en fase aguda.",
+  "examenesIncluidos": [
+    {
+      "nombre": "Hemograma",
+      "slug": "hemograma-iv-hemoglobina-hematocrito-recuento-de-eritrocitos-indices-eritrocitarios-leucograma-recuento-de-plaquetas-indices-plaquetarios-y-morfologia-electronica-e-histograma-automatizado"
+    },
+    {
+      "nombre": "Dengue antígeno NS1"
+    }
+  ],
+  "precio": 78000
+}

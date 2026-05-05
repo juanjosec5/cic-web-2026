@@ -1,0 +1,20 @@
+{
+  "slug": "prostatico",
+  "nombre": "Perfil Prostático",
+  "descripcion": "Detección temprana de alteraciones prostáticas mediante PSA y uroanálisis.",
+  "examenesIncluidos": [
+    {
+      "nombre": "Antígeno prostático específico total (PSA)",
+      "slug": "antigeno-especifico-de-prostata-psa-automatizado"
+    },
+    {
+      "nombre": "Antígeno prostático libre (PSA)",
+      "slug": "antigeno-especifico-de-prostata-fraccion-libre-automatizado"
+    },
+    {
+      "nombre": "Uroanálisis",
+      "slug": "uroanalisis"
+    }
+  ],
+  "precio": 85000
+}

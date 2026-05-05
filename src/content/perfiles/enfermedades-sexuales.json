@@ -1,0 +1,28 @@
+{
+  "slug": "enfermedades-sexuales",
+  "nombre": "Perfil Enfermedades Sexuales",
+  "descripcion": "Cribado completo de infecciones de transmisión sexual.",
+  "examenesIncluidos": [
+    {
+      "nombre": "HIV prueba rápida",
+      "slug": "hiv-prueba-rapida"
+    },
+    {
+      "nombre": "Prueba no treponémica manual – VDRL (Serología)",
+      "slug": "prueba-no-treponemica-manual-vdrl"
+    },
+    {
+      "nombre": "Citología cérvico vaginal",
+      "slug": "citologia-cervico-vaginal"
+    },
+    {
+      "nombre": "Detección virus del papiloma humano por pruebas moleculares (específico)",
+      "slug": "deteccion-virus-del-papiloma-humano-por-pruebas-moleculares-especifico"
+    },
+    {
+      "nombre": "Hepatitis B antígeno de superficie (AG-HBs)",
+      "slug": "hepatitis-b-antigeno-de-superficie-ag-hbs-2"
+    }
+  ],
+  "precio": 224000
+}

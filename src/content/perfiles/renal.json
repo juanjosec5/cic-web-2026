@@ -1,0 +1,20 @@
+{
+  "slug": "renal",
+  "nombre": "Perfil Renal",
+  "descripcion": "Valoración de la función renal: filtración, depuración y análisis de orina.",
+  "examenesIncluidos": [
+    {
+      "nombre": "Uroanálisis",
+      "slug": "uroanalisis"
+    },
+    {
+      "nombre": "Creatinina en suero",
+      "slug": "creatinina-en-suero"
+    },
+    {
+      "nombre": "Nitrógeno Uréico BUN en suero",
+      "slug": "nitrogeno-ureico-serico-pre-y-post"
+    }
+  ],
+  "precio": 31000
+}

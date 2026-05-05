@@ -1,0 +1,24 @@
+{
+  "slug": "diabetico",
+  "nombre": "Perfil Diabético",
+  "descripcion": "Control glucémico completo: glucosa, insulina y hemoglobina glicosilada.",
+  "examenesIncluidos": [
+    {
+      "nombre": "Glucosa en suero",
+      "slug": "glucosa-en-suero"
+    },
+    {
+      "nombre": "Hemoglobina glicosilada (Fracción A1C)",
+      "slug": "hemoglobina-glicosilada-automatizada-a1c"
+    },
+    {
+      "nombre": "Glucosa PRE y POST prandial",
+      "slug": "glucosa-pre-y-post-prandial"
+    },
+    {
+      "nombre": "Insulina PRE y POST prandial",
+      "slug": "insulina-pre-y-post-glucosa"
+    }
+  ],
+  "precio": 117000
+}

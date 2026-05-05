@@ -1,0 +1,16 @@
+{
+  "slug": "dengue-igm",
+  "nombre": "Perfil Dengue – Anticuerpos IGM",
+  "descripcion": "Detección de infección activa o reciente por dengue mediante anticuerpos IGM.",
+  "examenesIncluidos": [
+    {
+      "nombre": "Hemograma",
+      "slug": "hemograma-iv-hemoglobina-hematocrito-recuento-de-eritrocitos-indices-eritrocitarios-leucograma-recuento-de-plaquetas-indices-plaquetarios-y-morfologia-electronica-e-histograma-automatizado"
+    },
+    {
+      "nombre": "Dengue anticuerpos IGM",
+      "slug": "dengue-anticuerpos-ig-m"
+    }
+  ],
+  "precio": 72000
+}

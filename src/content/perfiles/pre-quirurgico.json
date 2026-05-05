@@ -1,0 +1,36 @@
+{
+  "slug": "pre-quirurgico",
+  "nombre": "Perfil Pre-Quirúrgico",
+  "descripcion": "Exámenes preoperatorios obligatorios: hemograma, coagulación y serología.",
+  "examenesIncluidos": [
+    {
+      "nombre": "Hemograma de IV generación",
+      "slug": "hemograma-iv-hemoglobina-hematocrito-recuento-de-eritrocitos-indices-eritrocitarios-leucograma-recuento-de-plaquetas-indices-plaquetarios-y-morfologia-electronica-e-histograma-automatizado"
+    },
+    {
+      "nombre": "Glucosa en suero",
+      "slug": "glucosa-en-suero"
+    },
+    {
+      "nombre": "Creatinina en suero",
+      "slug": "creatinina-en-suero"
+    },
+    {
+      "nombre": "Uroanálisis",
+      "slug": "uroanalisis"
+    },
+    {
+      "nombre": "HIV prueba rápida",
+      "slug": "hiv-prueba-rapida"
+    },
+    {
+      "nombre": "Tiempo de protrombina – PT",
+      "slug": "tiempo-de-protrombina-tp"
+    },
+    {
+      "nombre": "Tiempo parcial de tromboplastina – PTT",
+      "slug": "tiempo-de-tromboplastina-parcial-ttp"
+    }
+  ],
+  "precio": 103000
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "femenino",
+  "nombre": "Perfil Femenino",
+  "descripcion": "Detección de cáncer cervicouterino: citología, VPH y CA-125.",
+  "examenesIncluidos": [
+    {
+      "nombre": "Citología cérvico vaginal",
+      "slug": "citologia-cervico-vaginal"
+    },
+    {
+      "nombre": "Detección virus del papiloma humano por pruebas moleculares (específico)",
+      "slug": "deteccion-virus-del-papiloma-humano-por-pruebas-moleculares-especifico"
+    },
+    {
+      "nombre": "Antígeno CA-125",
+      "slug": "antigeno-de-cancer-de-ovario-ca-125-automatizado"
+    }
+  ],
+  "precio": 199000
+}
