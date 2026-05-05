@@ -5,6 +5,9 @@ dist/
 # Astro generated files
 .astro/
 
+# Sanity local cache
+.sanity/
+
 # Dependencies
 node_modules/
 
