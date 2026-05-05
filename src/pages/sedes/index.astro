@@ -2,26 +2,27 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
 import SedeMapD3 from '@/components/islands/SedeMapD3.vue';
-import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
+import { client } from '@/sanity/client';
+import { ALL_SEDES_QUERY } from '@/sanity/queries';
+import type { Sede } from '@/sanity/types';
 
-const sedes = await getCollection('sedes');
+const sedes: Sede[] = await client.fetch(ALL_SEDES_QUERY);
 const sedesOrdenadas = [...sedes].sort((a, b) =>
-  a.data.esSedePrincipal ? -1 : b.data.esSedePrincipal ? 1 : 0
+  a.esSedePrincipal ? -1 : b.esSedePrincipal ? 1 : 0
 );
 
 const sedesParaMapa = sedesOrdenadas
-  .filter((s: CollectionEntry<'sedes'>) => s.data.lat !== undefined && s.data.lng !== undefined)
-  .map((s: CollectionEntry<'sedes'>) => ({
-    slug: s.data.slug,
-    nombre: s.data.nombre,
-    ciudad: s.data.ciudad,
-    direccion: s.data.direccion,
-    telefono: s.data.telefono,
-    whatsapp: s.data.whatsapp,
-    lat: s.data.lat!,
-    lng: s.data.lng!,
-    esSedePrincipal: s.data.esSedePrincipal ?? false,
+  .filter((s: Sede) => s.lat !== undefined && s.lng !== undefined)
+  .map((s: Sede) => ({
+    slug: s.slug,
+    nombre: s.nombre,
+    ciudad: s.ciudad,
+    direccion: s.direccion,
+    telefono: s.telefono,
+    whatsapp: s.whatsapp,
+    lat: s.lat!,
+    lng: s.lng!,
+    esSedePrincipal: s.esSedePrincipal ?? false,
   }));
 ---
 
@@ -63,29 +64,29 @@ const sedesParaMapa = sedesOrdenadas
     <section aria-labelledby="lista-sedes-heading" class="mt-12">
       <h2 id="lista-sedes-heading" class="sr-only">Lista de sedes</h2>
       <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {sedesOrdenadas.map((sede: CollectionEntry<'sedes'>) => (
+        {sedesOrdenadas.map((sede: Sede) => (
           <li class="flex">
             <article class="flex h-full w-full flex-col rounded-xl border border-gray-200 p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
               <header class="flex items-start justify-between gap-3">
                 <h2 class="text-base font-semibold text-gray-900">
-                  <a href={`/sedes/${sede.data.slug}`} class="hover:text-red-600 transition-colors duration-200">
-                    {sede.data.nombre}
+                  <a href={`/sedes/${sede.slug}`} class="hover:text-red-600 transition-colors duration-200">
+                    {sede.nombre}
                   </a>
                 </h2>
-                {sede.data.esSedePrincipal && (
+                {sede.esSedePrincipal && (
                   <span class="shrink-0 inline-flex items-center rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-700">
                     Sede principal
                   </span>
                 )}
               </header>
               <address class="mt-2 flex-1 text-sm text-gray-500 not-italic space-y-0.5">
-                <p>{sede.data.direccion}</p>
-                <p>{sede.data.ciudad}</p>
+                <p>{sede.direccion}</p>
+                <p>{sede.ciudad}</p>
                 <p>
-                  <a href={`tel:${sede.data.telefono}`} class="hover:text-red-600 transition-colors duration-200">{sede.data.telefono}</a>
+                  <a href={`tel:${sede.telefono}`} class="hover:text-red-600 transition-colors duration-200">{sede.telefono}</a>
                 </p>
               </address>
-              <a href={`/sedes/${sede.data.slug}`} class="mt-4 inline-block text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200">
+              <a href={`/sedes/${sede.slug}`} class="mt-4 inline-block text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200">
                 Ver detalles →
               </a>
             </article>

@@ -9,6 +9,24 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 ## [Unreleased]
 
+### Added (Sanity CMS integration — sedes + promoción del mes)
+- `src/sanity/client.ts`: singleton `@sanity/client` instance using `import.meta.env.SANITY_PROJECT_ID` / `SANITY_DATASET`; `useCdn: true`, `apiVersion: '2024-01-01'`
+- `src/sanity/types.ts`: TypeScript interfaces `Horario`, `ServicioSlug`, `Sede`, `PromoMes` — replace `CollectionEntry<'sedes'>['data']` throughout; `PromoMes.modo` is `'imagen' | 'compuesto'` and drives homepage banner rendering
+- `src/sanity/queries.ts`: GROQ `ALL_SEDES_QUERY`, `SEDE_BY_SLUG_QUERY`, `PROMO_MES_QUERY`; shared `SEDE_PROJECTION` normalizes `slug.current → slug` and resolves `fotos[].asset->url` so downstream pages need no Sanity-specific logic
+- `src/sanity/schemas/sede.ts`: Sanity document schema with editor-friendly fields; `horario` as inline object with one string per day; `servicios` as array of strings with predefined value list; `fotos` as Sanity image assets (uploaded via Studio)
+- `src/sanity/schemas/promocionMes.ts`: fields — titulo, descripcion, mes (YYYY-MM), modo (radio), imagenCompleta (image), imagenFondo (image, optional), colorFondo (#dc2626 default), ctaTexto, ctaUrl, activo (boolean); only the latest `activo == true` doc is shown
+- `src/sanity/schemas/index.ts`: barrel exporting `schemaTypes = [sedeType, promocionMesType]`
+- `sanity.config.ts`, `sanity.cli.ts`: Studio config for `npm run studio:deploy`; project ID hardcoded (public value, not a secret)
+- `scripts/migrate-sedes.mjs`: reads all 18 JSON files from `src/content/sedes/`, posts each via `client.createOrReplace()` with deterministic `_id: sede-${slug}`; loads `.env` manually for Node < 20.6 compatibility
+- `.env.example`: template with `SANITY_PROJECT_ID`, `SANITY_DATASET`, `SANITY_API_TOKEN`
+- `package.json`: added `migrate:sedes`, `studio:dev`, `studio:deploy` scripts
+
+### Changed (sedes data source → Sanity)
+- `src/content/config.ts`: `sedesCollection` definition and `sedes` export entry removed; sedes are no longer an Astro content collection
+- `src/pages/sedes/index.astro`: replaced `getCollection('sedes')` + `CollectionEntry<'sedes'>` with `client.fetch(ALL_SEDES_QUERY)` + `Sede[]`; removed `.data` wrapper
+- `src/pages/sedes/[slug].astro`: `getStaticPaths` now fetches all sedes from Sanity; `Props` interface uses `Sede` directly; `domicilioGratisDesde != null` guard handles Sanity returning `null` for unset fields
+- `src/pages/index.astro`: sedes and promo fetched in parallel via `Promise.all`; hardcoded promo placeholder replaced with conditional dual-mode banner — hidden when no active promo exists in Sanity
+
 ### Added (estados financieros)
 - `src/pages/estados-financieros.astro`: new legal-compliance page listing yearly PDF documents; each card shows year badge, title, description, and two CTAs (Ver PDF / Descargar); PDFs served from `public/docs/estados-financieros/`
 - `src/components/Header.astro`: "Nosotros" converted to dropdown with sub-links — "Sobre nosotros" → `/nosotros` and "Estados financieros" → `/estados-financieros`

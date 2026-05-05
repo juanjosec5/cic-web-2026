@@ -5,8 +5,14 @@ import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import { SITE_CONFIG, CATEGORIAS } from '@/lib/config';
 import { buildOrganizationJsonLd } from '@/lib/seo';
+import { client } from '@/sanity/client';
+import { ALL_SEDES_QUERY, PROMO_MES_QUERY } from '@/sanity/queries';
+import type { Sede, PromoMes } from '@/sanity/types';
 
-const sedes = await getCollection('sedes');
+const [sedes, promo] = await Promise.all([
+  client.fetch<Sede[]>(ALL_SEDES_QUERY),
+  client.fetch<PromoMes | null>(PROMO_MES_QUERY),
+]);
 const examenes = await getCollection('examenes', ({ data }: CollectionEntry<'examenes'>) => data.activo);
 const servicios = await getCollection('servicios');
 const aliados = await getCollection('aliados');
@@ -14,17 +20,17 @@ const aliados = await getCollection('aliados');
 const waHero = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent('¡Hola! Quisiera información sobre los servicios de CIC Laboratorios.')}`;
 
 const sedesParaMapa = sedes
-  .filter((s: CollectionEntry<'sedes'>) => s.data.lat !== undefined && s.data.lng !== undefined)
-  .map((s: CollectionEntry<'sedes'>) => ({
-    slug: s.data.slug,
-    nombre: s.data.nombre,
-    ciudad: s.data.ciudad,
-    direccion: s.data.direccion,
-    telefono: s.data.telefono,
-    whatsapp: s.data.whatsapp,
-    lat: s.data.lat!,
-    lng: s.data.lng!,
-    esSedePrincipal: s.data.esSedePrincipal ?? false,
+  .filter((s: Sede) => s.lat !== undefined && s.lng !== undefined)
+  .map((s: Sede) => ({
+    slug: s.slug,
+    nombre: s.nombre,
+    ciudad: s.ciudad,
+    direccion: s.direccion,
+    telefono: s.telefono,
+    whatsapp: s.whatsapp,
+    lat: s.lat!,
+    lng: s.lng!,
+    esSedePrincipal: s.esSedePrincipal ?? false,
   }));
 ---
 
@@ -60,30 +66,40 @@ const sedesParaMapa = sedes
   </section>
 
   <!-- 2. MONTHLY PROMOTION BANNER -->
-  {/* TODO (content-needed): Update promo title, description, and CTA each month */}
-  <section aria-labelledby="promo-heading" class="py-6">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6">
-      <div class="flex flex-col gap-4 rounded-2xl bg-red-600 px-8 py-7 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <p class="text-xs font-semibold uppercase tracking-widest text-red-200">Promoción del mes</p>
-          <h2 id="promo-heading" class="mt-1 text-xl font-bold text-white">
-            [ Título de la promoción — pendiente ]
-          </h2>
-          <p class="mt-1 text-sm text-red-100">
-            [ Descripción breve de la promoción — pendiente ]
-          </p>
-        </div>
-        <a
-          href={waHero}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex w-full shrink-0 items-center justify-center rounded-lg bg-white px-6 py-3 text-sm font-semibold text-red-600 shadow-sm hover:bg-red-50 active:scale-95 transition-all duration-200 sm:w-auto"
-        >
-          Consultar promoción
-        </a>
+  {promo && (
+    <section aria-labelledby="promo-heading" class="py-6">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6">
+        {promo.modo === 'imagen' && promo.imagenCompletaUrl ? (
+          <a href={promo.ctaUrl ?? '#'} target="_blank" rel="noopener noreferrer">
+            <img
+              src={promo.imagenCompletaUrl}
+              alt={promo.titulo ?? 'Promoción del mes'}
+              class="w-full rounded-2xl object-cover"
+            />
+          </a>
+        ) : (
+          <div
+            class="flex flex-col gap-4 rounded-2xl px-8 py-7 sm:flex-row sm:items-center sm:justify-between"
+            style={`background-color: ${promo.colorFondo ?? '#dc2626'};${promo.imagenFondoUrl ? ` background-image: url(${promo.imagenFondoUrl}); background-size: cover; background-position: center;` : ''}`}
+          >
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-widest text-red-200">Promoción del mes</p>
+              <h2 id="promo-heading" class="mt-1 text-xl font-bold text-white">{promo.titulo}</h2>
+              {promo.descripcion && <p class="mt-1 text-sm text-red-100">{promo.descripcion}</p>}
+            </div>
+            <a
+              href={promo.ctaUrl ?? '#'}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex w-full shrink-0 items-center justify-center rounded-lg bg-white px-6 py-3 text-sm font-semibold text-red-600 shadow-sm hover:bg-red-50 active:scale-95 transition-all duration-200 sm:w-auto"
+            >
+              {promo.ctaTexto ?? 'Consultar promoción'}
+            </a>
+          </div>
+        )}
       </div>
-    </div>
-  </section>
+    </section>
+  )}
 
   <!-- 3. PILLARS STRIP -->
   <section aria-labelledby="pillars-heading" class="py-12">

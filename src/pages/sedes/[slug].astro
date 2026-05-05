@@ -1,25 +1,25 @@
 ---
-import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
 import SedeLayout from '@/layouts/SedeLayout.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
 import { SITE_CONFIG } from '@/lib/config';
+import { client } from '@/sanity/client';
+import { ALL_SEDES_QUERY } from '@/sanity/queries';
+import type { Sede } from '@/sanity/types';
 
 interface Props {
-  sede: CollectionEntry<'sedes'>['data'];
-  otrosSedes: Array<CollectionEntry<'sedes'>['data']>;
+  sede: Sede;
+  otrosSedes: Sede[];
 }
 
 export async function getStaticPaths() {
-  const sedes = await getCollection('sedes');
-  return sedes.map((sede: CollectionEntry<'sedes'>) => ({
-    params: { slug: sede.data.slug },
+  const sedes: Sede[] = await client.fetch(ALL_SEDES_QUERY);
+  return sedes.map((sede: Sede) => ({
+    params: { slug: sede.slug },
     props: {
-      sede: sede.data,
+      sede,
       otrosSedes: sedes
-        .filter((s: CollectionEntry<'sedes'>) => s.data.slug !== sede.data.slug)
-        .slice(0, 3)
-        .map((s: CollectionEntry<'sedes'>) => s.data),
+        .filter((s: Sede) => s.slug !== sede.slug)
+        .slice(0, 3),
     },
   }));
 }
@@ -173,7 +173,7 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
     </section>
 
     <!-- Promo banner -->
-    {sede.domicilioGratisDesde !== undefined && (
+    {sede.domicilioGratisDesde != null && (
       <div class="mt-6 rounded-xl border border-blue-200 bg-blue-50 px-6 py-4 text-sm font-medium text-blue-700">
         Domicilio gratis en {sede.ciudad} para exámenes ≥ ${sede.domicilioGratisDesde.toLocaleString('es-CO')}
       </div>
