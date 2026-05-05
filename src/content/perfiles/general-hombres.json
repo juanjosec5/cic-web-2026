@@ -1,0 +1,107 @@
+{
+  "slug": "general-hombres",
+  "nombre": "Perfil General Hombres",
+  "descripcion": "Chequeo integral masculino: PSA, marcadores tumorales, hormonas tiroideas y función orgánica.",
+  "examenesIncluidos": [
+    {
+      "nombre": "CA 19-9 (cáncer de páncreas)",
+      "slug": "antigeno-de-cancer-de-tubo-digestivo-ca-19-9-automatizado"
+    },
+    {
+      "nombre": "Antígeno prostático específico total (PSA)",
+      "slug": "antigeno-especifico-de-prostata-psa-automatizado"
+    },
+    {
+      "nombre": "Antígeno prostático libre (PSA)",
+      "slug": "antigeno-especifico-de-prostata-fraccion-libre-automatizado"
+    },
+    {
+      "nombre": "Colesterol total",
+      "slug": "colesterol-total"
+    },
+    {
+      "nombre": "Colesterol de alta densidad (HDL)",
+      "slug": "colesterol-de-alta-densidad-hdl"
+    },
+    {
+      "nombre": "Colesterol de baja densidad (LDL)",
+      "slug": "colesterol-de-baja-densidad-ldl-enzimatico-automatizado"
+    },
+    {
+      "nombre": "Triglicéridos",
+      "slug": "trigliceridos"
+    },
+    {
+      "nombre": "Índice arterial"
+    },
+    {
+      "nombre": "Creatinina en suero",
+      "slug": "creatinina-en-suero"
+    },
+    {
+      "nombre": "Fosfatasa alcalina",
+      "slug": "fosfatasa-alcalina"
+    },
+    {
+      "nombre": "Glucosa en suero",
+      "slug": "glucosa-en-suero"
+    },
+    {
+      "nombre": "Gamma Glutamil Transferasa (GGT)",
+      "slug": "ggt-gamma-glutamil-transferasa"
+    },
+    {
+      "nombre": "Hemograma",
+      "slug": "hemograma-iv-hemoglobina-hematocrito-recuento-de-eritrocitos-indices-eritrocitarios-leucograma-recuento-de-plaquetas-indices-plaquetarios-y-morfologia-electronica-e-histograma-automatizado"
+    },
+    {
+      "nombre": "Sodio en suero",
+      "slug": "sodio-en-suero"
+    },
+    {
+      "nombre": "Potasio en suero",
+      "slug": "potasio-en-suero"
+    },
+    {
+      "nombre": "Cloro sérico",
+      "slug": "cloro-serico"
+    },
+    {
+      "nombre": "Tiempo de protrombina – PT",
+      "slug": "tiempo-de-protrombina-tp"
+    },
+    {
+      "nombre": "Tiempo parcial de tromboplastina – PTT",
+      "slug": "tiempo-de-tromboplastina-parcial-ttp"
+    },
+    {
+      "nombre": "TSH",
+      "slug": "hormona-estimulante-de-tiroides-tsh"
+    },
+    {
+      "nombre": "T3 Total",
+      "slug": "t3-total-triyodotironina-total-t3-total"
+    },
+    {
+      "nombre": "T4 Total",
+      "slug": "t4-total-tiroxina-total"
+    },
+    {
+      "nombre": "T4 Libre",
+      "slug": "t4l-tiroxina-libre"
+    },
+    {
+      "nombre": "Transaminasa AST-TGO",
+      "slug": "transaminasa-glutamico-oxalacetica-aspartato-amino-transferasa-ast-tgo"
+    },
+    {
+      "nombre": "Transaminasa ALT-TGP",
+      "slug": "transaminasa-glutamico-piruvica-alanino-amino-transferasa-alt-tgp"
+    },
+    {
+      "nombre": "Uroanálisis",
+      "slug": "uroanalisis"
+    }
+  ],
+  "precio": 397000
+}

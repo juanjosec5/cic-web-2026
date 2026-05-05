@@ -9,6 +9,16 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 ## [Unreleased]
 
+### Added (perfiles de laboratorio)
+- `scripts/import-perfiles.mjs`: new script that parses `perfiles_laboratorio.md` and writes 17 JSON files to `src/content/perfiles/`; exam-name → slug lookup table resolves all 17 profiles; composite MD items (Sodio y Potasio, PT y PTT, TGO – TGP) expand to separate entries; exams without a matching slug (Índice arterial, Dengue NS1) are stored as plain-name objects
+- `src/content/config.ts`: `examenesIncluidos` schema changed from `z.array(z.string())` to `z.array(z.object({ nombre, slug? }))` so human-readable names can be stored alongside optional exam-page slugs; allows linking only when a slug exists
+- `src/content/perfiles/prenatal.json`: converted to new schema format
+- `src/content/perfiles/`: 17 new profile JSONs generated (lipidico, dengue-igm, dengue-ns1, hipertension, renal, hepatico, deportivo, ninos, diabetico, tiroideo, prostatico, mujer-gestante, femenino, enfermedades-sexuales, pre-quirurgico, general-mujeres, general-hombres)
+- `src/pages/examenes/perfiles/[slug].astro`: redesigned — price badge (blue), exam count in section heading, exam list renders `nombre` from data (not slug-humanized); exams with a slug show a link icon (→ exam detail page); exams without a slug render as plain text; WhatsApp CTA below exam list
+
+### Changed (nav dropdown for Exámenes)
+- `src/components/Header.astro`: "Exámenes" nav entry converted to a dropdown; desktop uses `group`/`group-hover` CSS (no JS); mobile renders sub-links inline below parent label; `navLinks` typed with optional `children` array; `isActive()` helper checks children hrefs for parent highlight; sub-links: "Catálogo de exámenes" → `/examenes`, "Paquetes y perfiles" → `/examenes/perfiles`
+
 ### Changed (header polish)
 - `src/components/Header.astro`: layout changed to `justify-between` (logo left, nav right) — dropped `flex-1 justify-center` centering wrapper; `py-4` replaces fixed `h-16` on the row; "Inicio" added as first nav link; logo `max-w-[180px]` moved from `<img>` to the `<a>` wrapper with `img` set to `w-full` so the constraint is enforced by the container
 - `src/components/Header.astro`: mobile nav panel now slides in/out via `max-height` CSS transition (300 ms ease-in-out) instead of toggling `hidden`; `aria-hidden` attribute tracks open state

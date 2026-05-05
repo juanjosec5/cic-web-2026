@@ -2,6 +2,10 @@
   "slug": "prenatal",
   "nombre": "Perfil Prenatal Básico",
   "descripcion": "Batería de exámenes recomendada durante el control prenatal para evaluar el estado de salud de la gestante y detectar condiciones que requieran seguimiento.",
-  "examenesIncluidos": ["hemograma", "tsh", "glucosa"],
+  "examenesIncluidos": [
+    { "nombre": "Hemograma", "slug": "hemograma-iv-hemoglobina-hematocrito-recuento-de-eritrocitos-indices-eritrocitarios-leucograma-recuento-de-plaquetas-indices-plaquetarios-y-morfologia-electronica-e-histograma-automatizado" },
+    { "nombre": "TSH", "slug": "hormona-estimulante-de-tiroides-tsh" },
+    { "nombre": "Glucosa en suero", "slug": "glucosa-en-suero" }
+  ],
   "precio": 85000
 }

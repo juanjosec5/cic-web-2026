@@ -1,0 +1,24 @@
+{
+  "slug": "tiroideo",
+  "nombre": "Perfil Tiroideo",
+  "descripcion": "Evaluación completa de la función tiroidea: T3, T4 y TSH.",
+  "examenesIncluidos": [
+    {
+      "nombre": "T3 Total – Triyodotirona total",
+      "slug": "t3-total-triyodotironina-total-t3-total"
+    },
+    {
+      "nombre": "T4 Total – Tiroxina total",
+      "slug": "t4-total-tiroxina-total"
+    },
+    {
+      "nombre": "T4L – Tiroxina libre",
+      "slug": "t4l-tiroxina-libre"
+    },
+    {
+      "nombre": "TSH – Hormona estimulante de tiroides",
+      "slug": "hormona-estimulante-de-tiroides-tsh"
+    }
+  ],
+  "precio": 92000
+}

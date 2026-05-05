@@ -1,0 +1,40 @@
+{
+  "slug": "ninos",
+  "nombre": "Perfil Niños",
+  "descripcion": "Batería pediátrica para seguimiento del estado de salud general.",
+  "examenesIncluidos": [
+    {
+      "nombre": "Hemograma de IV generación",
+      "slug": "hemograma-iv-hemoglobina-hematocrito-recuento-de-eritrocitos-indices-eritrocitarios-leucograma-recuento-de-plaquetas-indices-plaquetarios-y-morfologia-electronica-e-histograma-automatizado"
+    },
+    {
+      "nombre": "Uroanálisis",
+      "slug": "uroanalisis"
+    },
+    {
+      "nombre": "Coproscópico",
+      "slug": "coproscopico"
+    },
+    {
+      "nombre": "Glucosa en suero",
+      "slug": "glucosa-en-suero"
+    },
+    {
+      "nombre": "Creatinina en suero",
+      "slug": "creatinina-en-suero"
+    },
+    {
+      "nombre": "Bilirrubina total y directa",
+      "slug": "bilirrubina-total-y-directa"
+    },
+    {
+      "nombre": "Sodio en suero",
+      "slug": "sodio-en-suero"
+    },
+    {
+      "nombre": "Potasio en suero",
+      "slug": "potasio-en-suero"
+    }
+  ],
+  "precio": 92000
+}

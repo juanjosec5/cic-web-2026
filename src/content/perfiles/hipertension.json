@@ -1,0 +1,36 @@
+{
+  "slug": "hipertension",
+  "nombre": "Perfil Hipertensión",
+  "descripcion": "Evaluación de órganos diana en pacientes con presión arterial elevada.",
+  "examenesIncluidos": [
+    {
+      "nombre": "Creatinina en suero",
+      "slug": "creatinina-en-suero"
+    },
+    {
+      "nombre": "Glucosa en suero",
+      "slug": "glucosa-en-suero"
+    },
+    {
+      "nombre": "Colesterol total",
+      "slug": "colesterol-total"
+    },
+    {
+      "nombre": "Colesterol de alta densidad (HDL)",
+      "slug": "colesterol-de-alta-densidad-hdl"
+    },
+    {
+      "nombre": "Triglicéridos",
+      "slug": "trigliceridos"
+    },
+    {
+      "nombre": "Uroanálisis",
+      "slug": "uroanalisis"
+    },
+    {
+      "nombre": "Hemograma",
+      "slug": "hemograma-iv-hemoglobina-hematocrito-recuento-de-eritrocitos-indices-eritrocitarios-leucograma-recuento-de-plaquetas-indices-plaquetarios-y-morfologia-electronica-e-histograma-automatizado"
+    }
+  ],
+  "precio": 72000
+}

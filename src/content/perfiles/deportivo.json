@@ -1,0 +1,43 @@
+{
+  "slug": "deportivo",
+  "nombre": "Perfil Deportivo",
+  "descripcion": "Chequeo integral para deportistas: función metabólica, renal y tiroidea.",
+  "examenesIncluidos": [
+    {
+      "nombre": "Creatinina en suero",
+      "slug": "creatinina-en-suero"
+    },
+    {
+      "nombre": "Hemograma",
+      "slug": "hemograma-iv-hemoglobina-hematocrito-recuento-de-eritrocitos-indices-eritrocitarios-leucograma-recuento-de-plaquetas-indices-plaquetarios-y-morfologia-electronica-e-histograma-automatizado"
+    },
+    {
+      "nombre": "Colesterol total",
+      "slug": "colesterol-total"
+    },
+    {
+      "nombre": "Colesterol de alta densidad (HDL)",
+      "slug": "colesterol-de-alta-densidad-hdl"
+    },
+    {
+      "nombre": "Colesterol de baja densidad (LDL)",
+      "slug": "colesterol-de-baja-densidad-ldl-enzimatico-automatizado"
+    },
+    {
+      "nombre": "Triglicéridos",
+      "slug": "trigliceridos"
+    },
+    {
+      "nombre": "Índice arterial"
+    },
+    {
+      "nombre": "TSH",
+      "slug": "hormona-estimulante-de-tiroides-tsh"
+    },
+    {
+      "nombre": "Glucosa en suero",
+      "slug": "glucosa-en-suero"
+    }
+  ],
+  "precio": 81000
+}

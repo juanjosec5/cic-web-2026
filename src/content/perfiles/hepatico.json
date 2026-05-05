@@ -1,0 +1,36 @@
+{
+  "slug": "hepatico",
+  "nombre": "Perfil Hepático",
+  "descripcion": "Evaluación de la función hepática: enzimas, proteínas y coagulación.",
+  "examenesIncluidos": [
+    {
+      "nombre": "Albúmina en suero",
+      "slug": "albumina-en-suero-u-otros-fluidos"
+    },
+    {
+      "nombre": "Transaminasa ALT-TGP",
+      "slug": "transaminasa-glutamico-piruvica-alanino-amino-transferasa-alt-tgp"
+    },
+    {
+      "nombre": "Transaminasa AST-TGO (glutámico oxalacetina aspartato)",
+      "slug": "transaminasa-glutamico-oxalacetica-aspartato-amino-transferasa-ast-tgo"
+    },
+    {
+      "nombre": "Bilirrubina total y directa",
+      "slug": "bilirrubina-total-y-directa"
+    },
+    {
+      "nombre": "GGT – Gamma glutamil transferasa",
+      "slug": "ggt-gamma-glutamil-transferasa"
+    },
+    {
+      "nombre": "Fosfatasa alcalina",
+      "slug": "fosfatasa-alcalina"
+    },
+    {
+      "nombre": "Tiempo de protrombina – PT",
+      "slug": "tiempo-de-protrombina-tp"
+    }
+  ],
+  "precio": 71000
+}

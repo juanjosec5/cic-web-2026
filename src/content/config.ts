@@ -105,7 +105,12 @@ const perfilesCollection = defineCollection({
     slug: z.string(),
     nombre: z.string(),
     descripcion: z.string(),
-    examenesIncluidos: z.array(z.string()),
+    examenesIncluidos: z.array(
+      z.object({
+        nombre: z.string(),
+        slug: z.string().optional(),
+      })
+    ).default([]),
     precio: z.number().optional(),
   }),
 });

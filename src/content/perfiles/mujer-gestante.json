@@ -1,0 +1,32 @@
+{
+  "slug": "mujer-gestante",
+  "nombre": "Perfil Mujer Gestante",
+  "descripcion": "Seguimiento del embarazo: glicemia, función renal, serología e infecciones.",
+  "examenesIncluidos": [
+    {
+      "nombre": "Glucosa en suero",
+      "slug": "glucosa-en-suero"
+    },
+    {
+      "nombre": "Hemograma",
+      "slug": "hemograma-iv-hemoglobina-hematocrito-recuento-de-eritrocitos-indices-eritrocitarios-leucograma-recuento-de-plaquetas-indices-plaquetarios-y-morfologia-electronica-e-histograma-automatizado"
+    },
+    {
+      "nombre": "Creatinina en suero",
+      "slug": "creatinina-en-suero"
+    },
+    {
+      "nombre": "Uroanálisis",
+      "slug": "uroanalisis"
+    },
+    {
+      "nombre": "HIV prueba rápida",
+      "slug": "hiv-prueba-rapida"
+    },
+    {
+      "nombre": "Prueba no treponémica manual – VDRL (Serología)",
+      "slug": "prueba-no-treponemica-manual-vdrl"
+    }
+  ],
+  "precio": 85000
+}
