@@ -22,7 +22,14 @@ const navLinks: NavLink[] = [
   },
   { label: 'Servicios', href: '/servicios' },
   { label: 'Empresas', href: '/empresas' },
-  { label: 'Nosotros', href: '/nosotros' },
+  {
+    label: 'Nosotros',
+    href: '/nosotros',
+    children: [
+      { label: 'Sobre nosotros', href: '/nosotros' },
+      { label: 'Estados financieros', href: '/estados-financieros' },
+    ],
+  },
   {
     label: 'Resultados',
     href: 'https://resultados.ciclaboratorios.com',
