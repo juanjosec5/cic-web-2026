@@ -27,7 +27,7 @@ export const SEDE_BY_SLUG_QUERY = `
 `;
 
 export const PROMO_MES_QUERY = `
-  *[_type == "promocionMes" && activo == true] | order(mesAño desc) [0] {
+  *[_type == "promocionMes" && activo == true] | order(mes desc) [0] {
     titulo,
     descripcion,
     modo,

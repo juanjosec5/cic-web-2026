@@ -173,7 +173,7 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
     </section>
 
     <!-- Promo banner -->
-    {sede.domicilioGratisDesde !== undefined && (
+    {sede.domicilioGratisDesde != null && (
       <div class="mt-6 rounded-xl border border-blue-200 bg-blue-50 px-6 py-4 text-sm font-medium text-blue-700">
         Domicilio gratis en {sede.ciudad} para exámenes ≥ ${sede.domicilioGratisDesde.toLocaleString('es-CO')}
       </div>

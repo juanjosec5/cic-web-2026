@@ -21,19 +21,19 @@ export interface Sede {
   nombre: string;
   ciudad: string;
   direccion: string;
-  lat?: number;
-  lng?: number;
+  lat?: number | null;
+  lng?: number | null;
   telefono: string;
   whatsapp: string;
-  email?: string;
+  email?: string | null;
   horario: Horario;
   servicios: ServicioSlug[];
   fotos: string[];
   video?: string | null;
   convenios: string[];
-  domicilioGratisDesde?: number;
+  domicilioGratisDesde?: number | null;
   esSedePrincipal: boolean;
-  mapEmbedUrl?: string;
+  mapEmbedUrl?: string | null;
 }
 
 export interface PromoMes {

@@ -7,7 +7,7 @@ export const promocionMesType = defineType({
   fields: [
     defineField({ name: 'titulo', title: 'Título', type: 'string' }),
     defineField({ name: 'descripcion', title: 'Descripción', type: 'text', rows: 3 }),
-    defineField({ name: 'mesAño', title: 'Mes y año (YYYY-MM)', type: 'string', placeholder: '2026-05' }),
+    defineField({ name: 'mes', title: 'Mes y año (YYYY-MM)', type: 'string', placeholder: '2026-05' }),
     defineField({
       name: 'modo',
       title: 'Modo de visualización',
@@ -48,6 +48,6 @@ export const promocionMesType = defineType({
     defineField({ name: 'activo', title: 'Activa', type: 'boolean', initialValue: true }),
   ],
   preview: {
-    select: { title: 'titulo', subtitle: 'mesAño', media: 'imagenCompleta' },
+    select: { title: 'titulo', subtitle: 'mes', media: 'imagenCompleta' },
   },
 });
