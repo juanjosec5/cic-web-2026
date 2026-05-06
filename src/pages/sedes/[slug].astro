@@ -27,6 +27,25 @@ export async function getStaticPaths() {
 const { sede, otrosSedes } = Astro.props;
 
 const waUrl = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(`Hola, quisiera información sobre la sede ${sede.nombre}.`)}`;
+
+function isSafeMapUrl(url: string | null | undefined): url is string {
+  if (!url) return false;
+  try {
+    const { protocol, hostname, pathname } = new URL(url);
+    return (
+      protocol === 'https:' &&
+      (hostname === 'www.google.com' || hostname === 'maps.google.com') &&
+      pathname.startsWith('/maps/')
+    );
+  } catch {
+    return false;
+  }
+}
+
+const safeMapUrl = isSafeMapUrl(sede.mapEmbedUrl)
+  ? sede.mapEmbedUrl
+  : `https://maps.google.com/maps?q=${encodeURIComponent(`${sede.direccion}, ${sede.ciudad}, Valle del Cauca, Colombia`)}&z=16&output=embed`;
+
 const mapsUrl =
   sede.lat && sede.lng
     ? `https://www.google.com/maps/dir/?api=1&destination=${sede.lat},${sede.lng}`
@@ -130,7 +149,7 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
       </h2>
       <div class="mt-4 overflow-hidden rounded-lg">
         <iframe
-          src={sede.mapEmbedUrl ?? `https://maps.google.com/maps?q=${encodeURIComponent(`${sede.direccion}, ${sede.ciudad}, Valle del Cauca, Colombia`)}&z=16&output=embed`}
+          src={safeMapUrl}
           width="100%"
           height="320"
           style="border:0"

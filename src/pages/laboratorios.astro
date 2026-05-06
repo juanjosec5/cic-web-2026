@@ -10,13 +10,14 @@ const [sedes, examenes] = await Promise.all([
   getCollection('examenes', ({ data }: CollectionEntry<'examenes'>) => data.activo),
 ]);
 
-const waAlianza = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent('Quisiera información sobre alianzas con CIC Laboratorios.')}`;
+const WA_MESSAGE_ALIANZA = 'Quisiera información sobre alianzas con CIC Laboratorios.';
+const waAlianza = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(WA_MESSAGE_ALIANZA)}`;
 ---
 
 <BaseLayout
   title="Alianzas con Laboratorios e IPS"
   description="CIC Laboratorios como laboratorio de referencia para IPS y laboratorios clínicos de la región. Referencia de muestras especializadas."
-  whatsappMessage="Quisiera información sobre alianzas con CIC Laboratorios."
+  whatsappMessage={WA_MESSAGE_ALIANZA}
 >
   <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
 
@@ -96,11 +97,11 @@ const waAlianza = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompone
               class="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none bg-white"
             >
               <option value="" disabled selected>Seleccionar tipo…</option>
-              <option>IPS</option>
-              <option>Laboratorio clínico</option>
-              <option>Centro médico</option>
-              <option>Clínica</option>
-              <option>Otro</option>
+              <option value="ips">IPS</option>
+              <option value="laboratorio-clinico">Laboratorio clínico</option>
+              <option value="centro-medico">Centro médico</option>
+              <option value="clinica">Clínica</option>
+              <option value="otro">Otro</option>
             </select>
           </div>
 
@@ -197,13 +198,14 @@ const waAlianza = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompone
           <div class="sm:col-span-2">
             <button
               type="submit"
-              disabled
+              aria-disabled="true"
+              aria-describedby="submit-hint-alianza"
+              onclick="event.preventDefault()"
               class="w-full rounded-lg bg-red-600 px-6 py-3 text-sm font-semibold text-white shadow-sm opacity-50 cursor-not-allowed"
-              title="Próximamente — use WhatsApp o correo por ahora"
             >
               Enviar propuesta
             </button>
-            <p class="mt-2 text-center text-xs text-gray-400">El envío estará disponible próximamente.</p>
+            <p id="submit-hint-alianza" class="mt-2 text-center text-xs text-gray-400">El envío estará disponible próximamente.</p>
           </div>
 
         </form>

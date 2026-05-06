@@ -17,13 +17,14 @@ const [serviciosEmpresa, aliadosEstrategicos] = await Promise.all([
   ),
 ]);
 
-const waEmpresa = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent('Quiero información sobre servicios empresariales de CIC Laboratorios.')}`;
+const WA_MESSAGE_EMPRESA = 'Quiero información sobre servicios empresariales de CIC Laboratorios.';
+const waEmpresa = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(WA_MESSAGE_EMPRESA)}`;
 ---
 
 <BaseLayout
   title="Servicios para Empresas"
   description="Salud ocupacional, jornadas empresariales y toma de muestras para empresas. CIC Laboratorios — su aliado en bienestar corporativo."
-  whatsappMessage="Quiero información sobre servicios empresariales de CIC Laboratorios."
+  whatsappMessage={WA_MESSAGE_EMPRESA}
 >
   <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
 
@@ -145,19 +146,19 @@ const waEmpresa = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompone
               class="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none bg-white"
             >
               <option value="" disabled selected>Seleccionar ciudad…</option>
-              <option>Buga</option>
-              <option>Cali</option>
-              <option>Palmira</option>
-              <option>Tuluá</option>
-              <option>Cartago</option>
-              <option>Buenaventura</option>
-              <option>Yumbo</option>
-              <option>Jamundí</option>
-              <option>Zarzal</option>
-              <option>La Unión</option>
-              <option>Roldanillo</option>
-              <option>Sevilla</option>
-              <option>Otra</option>
+              <option value="buga">Buga</option>
+              <option value="cali">Cali</option>
+              <option value="palmira">Palmira</option>
+              <option value="tulua">Tuluá</option>
+              <option value="cartago">Cartago</option>
+              <option value="buenaventura">Buenaventura</option>
+              <option value="yumbo">Yumbo</option>
+              <option value="jamundi">Jamundí</option>
+              <option value="zarzal">Zarzal</option>
+              <option value="la-union">La Unión</option>
+              <option value="roldanillo">Roldanillo</option>
+              <option value="sevilla">Sevilla</option>
+              <option value="otra">Otra</option>
             </select>
           </div>
 
@@ -237,13 +238,14 @@ const waEmpresa = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompone
           <div class="sm:col-span-2">
             <button
               type="submit"
-              disabled
+              aria-disabled="true"
+              aria-describedby="submit-hint-empresa"
+              onclick="event.preventDefault()"
               class="w-full rounded-lg bg-red-600 px-6 py-3 text-sm font-semibold text-white shadow-sm opacity-50 cursor-not-allowed"
-              title="Próximamente — use WhatsApp o correo por ahora"
             >
               Enviar solicitud
             </button>
-            <p class="mt-2 text-center text-xs text-gray-400">El envío estará disponible próximamente.</p>
+            <p id="submit-hint-empresa" class="mt-2 text-center text-xs text-gray-400">El envío estará disponible próximamente.</p>
           </div>
 
         </form>
