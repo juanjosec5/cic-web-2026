@@ -22,9 +22,10 @@ interface Props {
   canonical?: string;
   ogImage?: string;
   jsonLd?: Record<string, unknown>;
+  whatsappMessage?: string;
 }
 
-const { title, description, canonical, ogImage, jsonLd } = Astro.props;
+const { title, description, canonical, ogImage, jsonLd, whatsappMessage } = Astro.props;
 ---
 
 <!doctype html>
@@ -53,6 +54,6 @@ const { title, description, canonical, ogImage, jsonLd } = Astro.props;
       <slot />
     </main>
     <Footer />
-    <WhatsAppFloating phone={SITE_CONFIG.whatsapp} client:load />
+    <WhatsAppFloating phone={SITE_CONFIG.whatsapp} message={whatsappMessage} client:load />
   </body>
 </html>

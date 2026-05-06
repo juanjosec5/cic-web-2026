@@ -38,6 +38,7 @@ const jsonLd = buildSedeJsonLd({
   title={`Laboratorio Clínico en ${sede.ciudad} — ${sede.nombre} | CIC Laboratorios`}
   description={description ?? `Sede de CIC Laboratorios en ${sede.ciudad}. Exámenes clínicos, resultados el mismo día.`}
   jsonLd={jsonLd}
+  whatsappMessage={`Hola, quisiera información sobre la sede ${sede.nombre} en ${sede.ciudad}.`}
 >
   <slot />
 </BaseLayout>

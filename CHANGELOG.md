@@ -17,6 +17,12 @@ Versions track milestones, not npm semver — this is a content/site project.
 ### Changed (F-07: sitemap configuration)
 - `astro.config.mjs`: sitemap now sets `changefreq: 'weekly'` and `lastmod` globally; `/estados-financieros` and `/nosotros/historia` are excluded from the sitemap via `filter`
 
+### Changed (F-09: contextual WhatsApp message per page)
+- `src/layouts/BaseLayout.astro`: new `whatsappMessage?: string` prop forwarded to `WhatsAppFloating` — when provided, the floating button pre-fills a page-specific message instead of the generic default
+- `src/layouts/SedeLayout.astro`: passes `"Hola, quisiera información sobre la sede {nombre} en {ciudad}."` — gives WhatsApp leads automatic sede context
+- `src/pages/empresas.astro`: passes `"Quiero información sobre servicios empresariales de CIC Laboratorios."`
+- `src/pages/laboratorios.astro`: passes `"Quisiera información sobre alianzas con CIC Laboratorios."`
+
 ### Added (Sanity CMS integration — sedes + promoción del mes)
 - `src/sanity/client.ts`: singleton `@sanity/client` instance using `import.meta.env.SANITY_PROJECT_ID` / `SANITY_DATASET`; `useCdn: true`, `apiVersion: '2024-01-01'`
 - `src/sanity/types.ts`: TypeScript interfaces `Horario`, `ServicioSlug`, `Sede`, `PromoMes` — replace `CollectionEntry<'sedes'>['data']` throughout; `PromoMes.modo` is `'imagen' | 'compuesto'` and drives homepage banner rendering
