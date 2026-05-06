@@ -6,18 +6,66 @@ import type { CollectionEntry } from 'astro:content';
 import { SITE_CONFIG, CATEGORIAS } from '@/lib/config';
 import { buildOrganizationJsonLd } from '@/lib/seo';
 import { client } from '@/sanity/client';
-import { ALL_SEDES_QUERY, PROMO_MES_QUERY } from '@/sanity/queries';
-import type { Sede, PromoMes } from '@/sanity/types';
+import { ALL_SEDES_QUERY, PROMO_MES_QUERY, PAGINA_INICIO_QUERY } from '@/sanity/queries';
+import type { Sede, PromoMes, PaginaInicio } from '@/sanity/types';
 
-const [sedes, promo] = await Promise.all([
+const [sedes, promo, paginaInicio] = await Promise.all([
   client.fetch<Sede[]>(ALL_SEDES_QUERY),
   client.fetch<PromoMes | null>(PROMO_MES_QUERY),
+  client.fetch<PaginaInicio | null>(PAGINA_INICIO_QUERY),
 ]);
 const examenes = await getCollection('examenes', ({ data }: CollectionEntry<'examenes'>) => data.activo);
 const servicios = await getCollection('servicios');
 const aliados = await getCollection('aliados');
 
 const waHero = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent('¡Hola! Quisiera información sobre los servicios de CIC Laboratorios.')}`;
+
+const PILAR_SVGS = [
+  'M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z',
+  'M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5',
+  'M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15M14.25 3.104c.251.023.501.05.75.082M19.8 15a2.25 2.25 0 0 1 .244 1.028l-.001.002a2.25 2.25 0 0 1-2.244 2.22H6.2a2.25 2.25 0 0 1-2.244-2.22l-.001-.002A2.25 2.25 0 0 1 4.2 15m15.6 0-3.675-1.845a2.25 2.25 0 0 0-2.25 0L9.75 15',
+  'm2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25',
+] as const;
+
+const PILAR_LINKS: (string | null)[] = [null, null, '/examenes', '/servicios/domicilio'];
+
+const DEFAULT_PILARES = [
+  { titulo: 'Mismo día', descripcion: 'Resultados disponibles el mismo día de la toma.' },
+  { titulo: 'Sin cita previa', descripcion: `Atención inmediata en las ${sedes.length} sedes.` },
+  { titulo: `+${examenes.length} pruebas`, descripcion: 'El portafolio más completo de la región.' },
+  { titulo: 'Servicio a domicilio', descripcion: 'Toma de muestras en tu hogar o empresa.' },
+];
+
+const DEFAULT_AUDIENCIAS = [
+  {
+    titulo: 'Soy paciente',
+    descripcion: 'Resultados rápidos, sin cita, con atención humanizada.',
+    links: [
+      { label: 'Ver exámenes', url: '/examenes' },
+      { label: 'Preparación de exámenes', url: '/pacientes/preparacion' },
+    ],
+  },
+  {
+    titulo: 'Soy empresa',
+    descripcion: 'Salud ocupacional, jornadas empresariales y convenios.',
+    links: [{ label: 'Servicios para empresas', url: '/empresas' }],
+  },
+  {
+    titulo: 'Soy laboratorio / IPS',
+    descripcion: 'Referencia de muestras y alianzas estratégicas.',
+    links: [{ label: 'Alianzas con laboratorios', url: '/laboratorios' }],
+  },
+];
+
+const DEFAULT_CALIDAD = [
+  { titulo: 'Equipos de última generación', descripcion: 'Tecnología de punta para resultados precisos y confiables.', linkLabel: undefined as string | undefined, linkUrl: undefined as string | undefined },
+  { titulo: 'Política de seguridad del paciente', descripcion: 'Protocolos rigurosos que garantizan la seguridad en cada etapa.', linkLabel: 'Ver certificaciones' as string | undefined, linkUrl: '/nosotros#calidad' as string | undefined },
+  { titulo: 'Validación QR', descripcion: 'Verifica la autenticidad de tus resultados con el código QR único incluido en cada informe.', linkLabel: undefined as string | undefined, linkUrl: undefined as string | undefined },
+];
+
+const pilares = paginaInicio?.pilares ?? DEFAULT_PILARES;
+const audiencias = paginaInicio?.audiencias ?? DEFAULT_AUDIENCIAS;
+const calidad = paginaInicio?.calidad ?? DEFAULT_CALIDAD;
 
 const sedesParaMapa = sedes
   .filter((s: Sede) => s.lat !== undefined && s.lng !== undefined)
@@ -43,23 +91,24 @@ const sedesParaMapa = sedes
   <!-- 1. HERO -->
   <section aria-labelledby="hero-heading" class="py-16 md:py-24">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 text-center">
-      <h1 id="hero-heading">Resultados que transforman vidas</h1>
+      <h1 id="hero-heading">{paginaInicio?.heroTitulo ?? 'Resultados que transforman vidas'}</h1>
       <p>
-        Más de {examenes.length} exámenes clínicos — resultados el mismo día,
-        sin cita previa, en {sedes.length} sedes del Valle del Cauca.
+        Más de {examenes.length} exámenes clínicos —
+        {paginaInicio?.heroSubtitulo ?? 'resultados el mismo día, sin cita previa, en'}
+        {sedes.length} sedes del Valle del Cauca.
       </p>
       <div class="mt-8 flex flex-wrap justify-center gap-4">
-        <a href="/sedes"
+        <a href={paginaInicio?.heroCta1Url ?? '/sedes'}
            class="inline-flex items-center rounded-lg bg-red-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-red-700 active:scale-95 transition-all duration-200">
-          Encontrar sede
+          {paginaInicio?.heroCta1Label ?? 'Encontrar sede'}
         </a>
-        <a href="/examenes"
+        <a href={paginaInicio?.heroCta2Url ?? '/examenes'}
            class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200">
-          Ver exámenes
+          {paginaInicio?.heroCta2Label ?? 'Ver exámenes'}
         </a>
         <a href={waHero} target="_blank" rel="noopener noreferrer"
            class="inline-flex items-center rounded-lg bg-green-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-green-700 active:scale-95 transition-all duration-200">
-          Contáctanos por WhatsApp
+          {paginaInicio?.heroCtaWaLabel ?? 'Contáctanos por WhatsApp'}
         </a>
       </div>
     </div>
@@ -116,38 +165,27 @@ const sedesParaMapa = sedes
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
       <h2 id="pillars-heading" class="sr-only">Por qué CIC Laboratorios</h2>
       <ul role="list" class="grid grid-cols-2 gap-6 md:grid-cols-4">
-        <li class="rounded-xl border border-gray-100 bg-gray-50 p-6">
-          <svg class="h-7 w-7 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-          </svg>
-          <strong class="mt-3 block text-lg font-bold text-gray-900">Mismo día</strong>
-          <p class="mt-1 text-sm text-gray-600">Resultados disponibles el mismo día de la toma.</p>
-        </li>
-        <li class="rounded-xl border border-gray-100 bg-gray-50 p-6">
-          <svg class="h-7 w-7 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
-          </svg>
-          <strong class="mt-3 block text-lg font-bold text-gray-900">Sin cita previa</strong>
-          <p class="mt-1 text-sm text-gray-600">Atención inmediata en las {sedes.length} sedes.</p>
-        </li>
-        <li>
-          <a href="/examenes" class="group block h-full rounded-xl border border-gray-100 bg-gray-50 p-6 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5">
-            <svg class="h-7 w-7 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15M14.25 3.104c.251.023.501.05.75.082M19.8 15a2.25 2.25 0 0 1 .244 1.028l-.001.002a2.25 2.25 0 0 1-2.244 2.22H6.2a2.25 2.25 0 0 1-2.244-2.22l-.001-.002A2.25 2.25 0 0 1 4.2 15m15.6 0-3.675-1.845a2.25 2.25 0 0 0-2.25 0L9.75 15" />
-            </svg>
-            <strong class="mt-3 block text-lg font-bold text-gray-900 transition-colors duration-200 group-hover:text-red-600">+{examenes.length} pruebas</strong>
-            <p class="mt-1 text-sm text-gray-600">El portafolio más completo de la región.</p>
-          </a>
-        </li>
-        <li>
-          <a href="/servicios/domicilio" class="group block h-full rounded-xl border border-gray-100 bg-gray-50 p-6 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5">
-            <svg class="h-7 w-7 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-            </svg>
-            <strong class="mt-3 block text-lg font-bold text-gray-900 transition-colors duration-200 group-hover:text-red-600">Servicio a domicilio</strong>
-            <p class="mt-1 text-sm text-gray-600">Toma de muestras en tu hogar o empresa.</p>
-          </a>
-        </li>
+        {pilares.map((pilar, i) => {
+          const link = PILAR_LINKS[i];
+          const content = (
+            <>
+              <svg class="h-7 w-7 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d={PILAR_SVGS[i]} />
+              </svg>
+              <strong class:list={['mt-3 block text-lg font-bold text-gray-900', link ? 'transition-colors duration-200 group-hover:text-red-600' : '']}>{pilar.titulo}</strong>
+              <p class="mt-1 text-sm text-gray-600">{pilar.descripcion}</p>
+            </>
+          );
+          return link ? (
+            <li>
+              <a href={link} class="group block h-full rounded-xl border border-gray-100 bg-gray-50 p-6 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5">
+                {content}
+              </a>
+            </li>
+          ) : (
+            <li class="rounded-xl border border-gray-100 bg-gray-50 p-6">{content}</li>
+          );
+        })}
       </ul>
     </div>
   </section>
@@ -157,40 +195,25 @@ const sedesParaMapa = sedes
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
       <h2 id="audience-heading">¿Cómo podemos ayudarte?</h2>
       <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-        <article class="relative cursor-pointer rounded-xl border border-gray-200 p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
-          <h3>Soy paciente</h3>
-          <p class="mt-2 text-gray-600">Resultados rápidos, sin cita, con atención humanizada.</p>
-          <div class="mt-4 flex flex-col gap-2">
-            <a href="/examenes"
-               class="text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200 after:absolute after:inset-0 after:rounded-xl">
-              Ver exámenes →
-            </a>
-            <a href="/pacientes/preparacion"
-               class="relative z-10 text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200">
-              Preparación de exámenes →
-            </a>
-          </div>
-        </article>
-        <article class="relative cursor-pointer rounded-xl border border-gray-200 p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
-          <h3>Soy empresa</h3>
-          <p class="mt-2 text-gray-600">Salud ocupacional, jornadas empresariales y convenios.</p>
-          <div class="mt-4">
-            <a href="/empresas"
-               class="text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200 after:absolute after:inset-0 after:rounded-xl">
-              Servicios para empresas →
-            </a>
-          </div>
-        </article>
-        <article class="relative cursor-pointer rounded-xl border border-gray-200 p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
-          <h3>Soy laboratorio / IPS</h3>
-          <p class="mt-2 text-gray-600">Referencia de muestras y alianzas estratégicas.</p>
-          <div class="mt-4">
-            <a href="/laboratorios"
-               class="text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200 after:absolute after:inset-0 after:rounded-xl">
-              Alianzas con laboratorios →
-            </a>
-          </div>
-        </article>
+        {audiencias.map((aud) => (
+          <article class="relative cursor-pointer rounded-xl border border-gray-200 p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
+            <h3>{aud.titulo}</h3>
+            <p class="mt-2 text-gray-600">{aud.descripcion}</p>
+            <div class="mt-4 flex flex-col gap-2">
+              {aud.links.map((lnk, li) => (
+                <a
+                  href={lnk.url}
+                  class:list={[
+                    'text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200',
+                    li === 0 ? 'after:absolute after:inset-0 after:rounded-xl' : 'relative z-10',
+                  ]}
+                >
+                  {lnk.label} →
+                </a>
+              ))}
+            </div>
+          </article>
+        ))}
       </div>
     </div>
   </section>
@@ -291,28 +314,17 @@ const sedesParaMapa = sedes
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
       <h2 id="calidad-heading">Calidad y tecnología al servicio de tu salud</h2>
       <ul role="list" class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-        <li>
-          <strong>Equipos de última generación</strong>
-          <p>
-            {/* TODO (content-needed): Describe key equipment */}
-            Tecnología de punta para resultados precisos y confiables.
-          </p>
-        </li>
-        <li>
-          <strong>Política de seguridad del paciente</strong>
-          <p>
-            {/* TODO (content-needed): Add official patient safety policy summary */}
-            Protocolos rigurosos que garantizan la seguridad en cada etapa.
-          </p>
-          <a href="/nosotros#calidad" class="text-sm font-medium text-gray-700 hover:text-red-600 transition-colors duration-200">Ver certificaciones →</a>
-        </li>
-        <li>
-          <strong>Validación QR</strong>
-          <p>
-            Verifica la autenticidad de tus resultados con el código QR único
-            incluido en cada informe.
-          </p>
-        </li>
+        {calidad.map((item) => (
+          <li>
+            <strong>{item.titulo}</strong>
+            <p>{item.descripcion}</p>
+            {item.linkLabel && item.linkUrl && (
+              <a href={item.linkUrl} class="text-sm font-medium text-gray-700 hover:text-red-600 transition-colors duration-200">
+                {item.linkLabel} →
+              </a>
+            )}
+          </li>
+        ))}
       </ul>
     </div>
   </section>

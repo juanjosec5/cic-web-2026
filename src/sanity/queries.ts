@@ -38,3 +38,15 @@ export const PROMO_MES_QUERY = `
     ctaUrl,
   }
 `;
+
+export const PAGINA_INICIO_QUERY = `
+  *[_type == "paginaInicio"][0] {
+    heroTitulo, heroSubtitulo,
+    heroCta1Label, heroCta1Url,
+    heroCta2Label, heroCta2Url,
+    heroCtaWaLabel,
+    pilares[] { titulo, descripcion },
+    audiencias[] { titulo, descripcion, links[] { label, url } },
+    calidad[] { titulo, descripcion, linkLabel, linkUrl },
+  }
+`;
