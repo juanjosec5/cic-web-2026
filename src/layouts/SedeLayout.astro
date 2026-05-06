@@ -9,7 +9,7 @@
  *   schema.org compliance.
  */
 import BaseLayout from './BaseLayout.astro';
-import { buildSedeJsonLd } from '@/lib/seo';
+import { buildSedeJsonLd, horarioToOpeningHours } from '@/lib/seo';
 import type { Sede } from '@/sanity/types';
 
 interface Props {
@@ -18,6 +18,8 @@ interface Props {
 }
 
 const { sede, description } = Astro.props;
+
+const openingHours = horarioToOpeningHours(sede.horario);
 
 const jsonLd = buildSedeJsonLd({
   nombre: sede.nombre,
@@ -28,11 +30,12 @@ const jsonLd = buildSedeJsonLd({
   lat: sede.lat ?? undefined,
   lng: sede.lng ?? undefined,
   url: `${Astro.site}sedes/${sede.slug}`,
+  openingHours,
 });
 ---
 
 <BaseLayout
-  title={`Laboratorio Clínico en ${sede.ciudad}`}
+  title={`Laboratorio Clínico en ${sede.ciudad} — ${sede.nombre} | CIC Laboratorios`}
   description={description ?? `Sede de CIC Laboratorios en ${sede.ciudad}. Exámenes clínicos, resultados el mismo día.`}
   jsonLd={jsonLd}
 >

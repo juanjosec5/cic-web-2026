@@ -9,6 +9,14 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 ## [Unreleased]
 
+### Added (F-04: sede SEO — openingHours JSON-LD + title fix)
+- `src/lib/seo.ts`: new `horarioToOpeningHours(horario: Horario): string[]` function — parses Spanish freetext schedules ("6:30 am a 12:00 m y de 2:00 pm a 5:00 pm") into Schema.org `openingHours` strings ("Mo-Fr 06:30-12:00", "Mo-Fr 14:00-17:00"); consecutive same-schedule days are compressed to ranges (Mo-Fr, Sa); returns `[]` when no parseable value is found
+- `src/lib/seo.ts`: `buildSedeJsonLd()` now accepts `openingHours?: string[]` parameter and includes it in the JSON-LD output when non-empty
+- `src/layouts/SedeLayout.astro`: wires `horarioToOpeningHours(sede.horario)` into `buildSedeJsonLd()`; sede page title updated to `Laboratorio Clínico en {ciudad} — {nombre} | CIC Laboratorios` for better Google local search matching
+
+### Changed (F-07: sitemap configuration)
+- `astro.config.mjs`: sitemap now sets `changefreq: 'weekly'` and `lastmod` globally; `/estados-financieros` and `/nosotros/historia` are excluded from the sitemap via `filter`
+
 ### Added (Sanity CMS integration — sedes + promoción del mes)
 - `src/sanity/client.ts`: singleton `@sanity/client` instance using `import.meta.env.SANITY_PROJECT_ID` / `SANITY_DATASET`; `useCdn: true`, `apiVersion: '2024-01-01'`
 - `src/sanity/types.ts`: TypeScript interfaces `Horario`, `ServicioSlug`, `Sede`, `PromoMes` — replace `CollectionEntry<'sedes'>['data']` throughout; `PromoMes.modo` is `'imagen' | 'compuesto'` and drives homepage banner rendering

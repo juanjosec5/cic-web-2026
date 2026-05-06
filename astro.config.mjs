@@ -13,8 +13,11 @@ export default defineConfig({
   integrations: [
     vue(),
     sitemap({
-      // TODO (content-needed): add custom sitemap entries for priority/changefreq
-      // when real content is in place
+      changefreq: 'weekly',
+      lastmod: new Date(),
+      filter: (page) =>
+        !page.includes('/estados-financieros') &&
+        !page.includes('/nosotros/historia'),
     }),
   ],
   vite: {

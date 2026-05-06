@@ -5,6 +5,7 @@
  * TODO (content-needed): Fill in sameAs social URLs once confirmed.
  */
 import { SITE_CONFIG } from '@/lib/config';
+import type { Horario } from '@/sanity/types';
 
 export interface MedicalBusinessJsonLd {
   '@context': 'https://schema.org';
@@ -50,6 +51,82 @@ export interface MedicalTestJsonLd {
   [key: string]: unknown;
 }
 
+const DIAS_ORDER: (keyof Horario)[] = [
+  'lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo',
+];
+
+const DAY_ABBR: Record<keyof Horario, string> = {
+  lunes: 'Mo', martes: 'Tu', miercoles: 'We', jueves: 'Th',
+  viernes: 'Fr', sabado: 'Sa', domingo: 'Su',
+};
+
+const WEEK_ORDER = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
+
+function parseTimeToken(token: string): string | null {
+  const m = token.trim().match(/^(\d{1,2}):(\d{2})\s*(am|pm|m)$/i);
+  if (!m) return null;
+  let h = parseInt(m[1], 10);
+  const min = m[2];
+  const period = m[3].toLowerCase();
+  if (period === 'am') {
+    if (h === 12) h = 0;
+  } else if (period === 'pm') {
+    if (h !== 12) h += 12;
+  } else {
+    h = 12; // "m" = mediodía
+  }
+  return `${String(h).padStart(2, '0')}:${min}`;
+}
+
+function parseHorarioRanges(value: string): string[] {
+  return value
+    .split(/\s+y\s+de\s+/i)
+    .flatMap((seg) => {
+      const parts = seg.trim().split(/\s+a\s+/i);
+      if (parts.length !== 2) return [];
+      const open = parseTimeToken(parts[0]);
+      const close = parseTimeToken(parts[1]);
+      return open && close ? [`${open}-${close}`] : [];
+    });
+}
+
+function compressDays(abbrs: string[]): string {
+  if (abbrs.length === 1) return abbrs[0];
+  const indices = abbrs.map((d) => WEEK_ORDER.indexOf(d)).sort((a, b) => a - b);
+  const consecutive = indices.every((idx, i) => i === 0 || idx === indices[i - 1] + 1);
+  return consecutive
+    ? `${WEEK_ORDER[indices[0]]}-${WEEK_ORDER[indices[indices.length - 1]]}`
+    : abbrs.join(' ');
+}
+
+/**
+ * Convert a Sanity `Horario` object to Schema.org `openingHours` strings.
+ * Returns an empty array when no parseable schedule is available.
+ *
+ * Example output: ["Mo-Fr 06:30-12:00", "Mo-Fr 14:00-17:00", "Sa 07:00-12:00"]
+ */
+export function horarioToOpeningHours(horario: Horario): string[] {
+  const scheduleMap = new Map<string, (keyof Horario)[]>();
+  for (const dia of DIAS_ORDER) {
+    const val = horario[dia];
+    if (!val || /^TODO$/i.test(val.trim())) continue;
+    const ranges = parseHorarioRanges(val);
+    if (ranges.length === 0) continue;
+    const key = ranges.join('|');
+    if (!scheduleMap.has(key)) scheduleMap.set(key, []);
+    scheduleMap.get(key)!.push(dia);
+  }
+
+  const result: string[] = [];
+  for (const [key, days] of scheduleMap) {
+    const compressed = compressDays(days.map((d) => DAY_ABBR[d]));
+    for (const range of key.split('|')) {
+      result.push(`${compressed} ${range}`);
+    }
+  }
+  return result;
+}
+
 /**
  * Build a MedicalBusiness JSON-LD object from a sede data entry.
  */
@@ -62,6 +139,7 @@ export function buildSedeJsonLd(params: {
   lat?: number;
   lng?: number;
   url?: string;
+  openingHours?: string[];
 }): MedicalBusinessJsonLd {
   return {
     '@context': 'https://schema.org',
@@ -78,13 +156,10 @@ export function buildSedeJsonLd(params: {
       addressCountry: 'CO',
     },
     ...(params.lat !== undefined && params.lng !== undefined
-      ? {
-          geo: {
-            '@type': 'GeoCoordinates',
-            latitude: params.lat,
-            longitude: params.lng,
-          },
-        }
+      ? { geo: { '@type': 'GeoCoordinates', latitude: params.lat, longitude: params.lng } }
+      : {}),
+    ...(params.openingHours && params.openingHours.length > 0
+      ? { openingHours: params.openingHours }
       : {}),
   };
 }
