@@ -36,6 +36,10 @@ export const PROMO_MES_QUERY = `
   }
 `;
 
+export const SEDE_PRINCIPAL_MAP_QUERY = `
+  *[_type == "sede" && esSedePrincipal == true][0] { mapEmbedUrl }
+`;
+
 export const PAGINA_INICIO_QUERY = `
   *[_type == "paginaInicio"][0] {
     heroTitulo, heroSubtitulo,

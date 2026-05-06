@@ -43,3 +43,11 @@ export const CATEGORIAS = [
 ] as const;
 
 export type CategoriaSlug = (typeof CATEGORIAS)[number]['slug'];
+
+// TODO (content-needed): Fill in real social media URLs once confirmed.
+// Empty string → link is hidden in Footer. Set to real URL to activate.
+export const SOCIAL_LINKS: { facebook: string; instagram: string; linkedin: string } = {
+  facebook: '',
+  instagram: '',
+  linkedin: '',
+};

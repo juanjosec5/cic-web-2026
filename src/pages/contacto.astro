@@ -1,9 +1,13 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { SITE_CONFIG } from '@/lib/config';
+import { client } from '@/sanity/client';
+import { SEDE_PRINCIPAL_MAP_QUERY } from '@/sanity/queries';
 
 const { sedePrincipal, whatsapp } = SITE_CONFIG;
 const waUrl = `https://wa.me/${whatsapp}?text=${encodeURIComponent('Hola, quisiera información de CIC Laboratorios.')}`;
+
+const sedePrincipalData = await client.fetch<{ mapEmbedUrl?: string | null }>(SEDE_PRINCIPAL_MAP_QUERY);
 ---
 
 <BaseLayout
@@ -50,19 +54,37 @@ const waUrl = `https://wa.me/${whatsapp}?text=${encodeURIComponent('Hola, quisie
         </p>
       </section>
 
-      <!-- Right: map placeholder -->
+      <!-- Right: map embed -->
       <section aria-labelledby="mapa-contacto-heading">
         <h2 id="mapa-contacto-heading" class="sr-only">
           Ubicación de {sedePrincipal.nombre}
         </h2>
-        {/* TODO (blocking-for-v1.1): Replace with real map embed */}
-        <div
-          class="aspect-video w-full rounded-xl bg-gray-100 flex items-center justify-center text-gray-400 text-sm"
-          role="img"
-          aria-label={`Mapa de ${sedePrincipal.nombre} — próximamente`}
-        >
-          Mapa próximamente
-        </div>
+        {sedePrincipalData?.mapEmbedUrl ? (
+          <iframe
+            src={sedePrincipalData.mapEmbedUrl}
+            class="aspect-video w-full rounded-xl border-0"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title={`Mapa de ubicación de ${sedePrincipal.nombre}`}
+          ></iframe>
+        ) : (
+          <div
+            class="aspect-video w-full rounded-xl bg-gray-100 flex flex-col items-center justify-center gap-2 text-gray-400 text-sm"
+            role="img"
+            aria-label={`Mapa de ${sedePrincipal.nombre}`}
+          >
+            <p>Mapa no configurado</p>
+            <a
+              href={`https://maps.google.com/?q=${encodeURIComponent(sedePrincipal.direccion + ', ' + sedePrincipal.ciudad)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-red-600 hover:text-red-700 transition-colors duration-200"
+            >
+              Ver en Google Maps →
+            </a>
+          </div>
+        )}
       </section>
 
     </div>
