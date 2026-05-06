@@ -53,5 +53,5 @@ const ogImageAbsolute = ogImage.startsWith('http') ? ogImage : `${siteOrigin}${o
 
 <!-- JSON-LD structured data -->
 {jsonLd && (
-  <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/<\//g, '<\\/')} />
 )}

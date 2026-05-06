@@ -135,17 +135,20 @@ function measure() {
   if (w > 0) svgW.value = Math.round(w)
 }
 
+function closeTooltipOnOutsideClick() { tooltip.value = null }
+
 onMounted(() => {
   isMounted.value = true
   measure()
   ro = new ResizeObserver(measure)
   if (svgEl.value) ro.observe(svgEl.value)
-  document.addEventListener('click', () => { tooltip.value = null })
+  document.addEventListener('click', closeTooltipOnOutsideClick)
 })
 
 onUnmounted(() => {
   ro?.disconnect()
   if (hideTimer) clearTimeout(hideTimer)
+  document.removeEventListener('click', closeTooltipOnOutsideClick)
 })
 </script>
 

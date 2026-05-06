@@ -1,4 +1,11 @@
-import { defineField, defineType } from 'sanity';
+import { defineField, defineType, type StringRule } from 'sanity';
+
+const validateUrl = (R: StringRule) =>
+  R.custom((val) => {
+    if (!val) return true;
+    if (/^(\/|https?:\/\/)/.test(val)) return true;
+    return 'Debe ser una ruta relativa (/) o una URL https://';
+  });
 
 export const paginaInicioType = defineType({
   name: 'paginaInicio',
@@ -33,6 +40,7 @@ export const paginaInicioType = defineType({
       title: 'CTA 1 — URL',
       type: 'string',
       initialValue: '/sedes',
+      validation: validateUrl,
     }),
     defineField({
       name: 'heroCta2Label',
@@ -45,6 +53,7 @@ export const paginaInicioType = defineType({
       title: 'CTA 2 — URL',
       type: 'string',
       initialValue: '/examenes',
+      validation: validateUrl,
     }),
     defineField({
       name: 'heroCtaWaLabel',
@@ -99,7 +108,7 @@ export const paginaInicioType = defineType({
                   type: 'object',
                   fields: [
                     defineField({ name: 'label', title: 'Texto', type: 'string' }),
-                    defineField({ name: 'url', title: 'URL', type: 'string' }),
+                    defineField({ name: 'url', title: 'URL', type: 'string', validation: validateUrl }),
                   ],
                   preview: { select: { title: 'label', subtitle: 'url' } },
                 }),
@@ -127,7 +136,7 @@ export const paginaInicioType = defineType({
             defineField({ name: 'titulo', title: 'Título', type: 'string' }),
             defineField({ name: 'descripcion', title: 'Descripción', type: 'text', rows: 3 }),
             defineField({ name: 'linkLabel', title: 'Link — Texto (opcional)', type: 'string' }),
-            defineField({ name: 'linkUrl', title: 'Link — URL (opcional)', type: 'string' }),
+            defineField({ name: 'linkUrl', title: 'Link — URL (opcional)', type: 'string', validation: validateUrl }),
           ],
           preview: { select: { title: 'titulo', subtitle: 'descripcion' } },
         }),
