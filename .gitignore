@@ -31,3 +31,7 @@ data/reports/
 # Source data files — contain lab portfolio, never commit
 *.xlsx
 *.xls
+
+# Local tooling caches
+.sanity/
+.claude/
