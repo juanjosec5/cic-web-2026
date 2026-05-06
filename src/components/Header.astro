@@ -89,6 +89,8 @@ function isActive(link: NavLink) {
                         : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900',
                     ]}
                     aria-haspopup="true"
+                    aria-expanded="false"
+                    data-dropdown-trigger
                   >
                     {link.label}
                     <svg class="h-3.5 w-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -195,7 +197,7 @@ function isActive(link: NavLink) {
                 >
                   {link.label}
                 </span>
-                <ul role="list" class="ml-4 mt-1 space-y-1">
+                <ul role="group" aria-label={link.label} class="ml-4 mt-1 space-y-1">
                   {link.children.map((child) => (
                     <li>
                       <a
@@ -277,5 +279,32 @@ function isActive(link: NavLink) {
   // Reset mobile state when viewport reaches desktop width
   window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => {
     if (e.matches) closeNav();
+  });
+
+  // Keyboard support for desktop dropdown menus
+  document.querySelectorAll<HTMLElement>('[data-dropdown-trigger]').forEach((btn) => {
+    const panel = btn.nextElementSibling as HTMLElement | null;
+
+    btn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!isExpanded));
+        panel?.classList.toggle('block', !isExpanded);
+      }
+      if (e.key === 'Escape') {
+        btn.setAttribute('aria-expanded', 'false');
+        panel?.classList.remove('block');
+        btn.focus();
+      }
+    });
+
+    // Close when focus leaves the dropdown group
+    btn.parentElement?.addEventListener('focusout', (e) => {
+      if (!btn.parentElement?.contains(e.relatedTarget as Node | null)) {
+        btn.setAttribute('aria-expanded', 'false');
+        panel?.classList.remove('block');
+      }
+    });
   });
 </script>

@@ -9,6 +9,24 @@ const { sedePrincipal, whatsapp } = SITE_CONFIG;
 const waUrl = `https://wa.me/${whatsapp}?text=${encodeURIComponent('Hola, quisiera información de CIC Laboratorios.')}`;
 
 const sedePrincipalData = await client.fetch<{ mapEmbedUrl?: string | null }>(SEDE_PRINCIPAL_MAP_QUERY);
+
+function isSafeMapUrl(url: string | null | undefined): url is string {
+  if (!url) return false;
+  try {
+    const { protocol, hostname, pathname } = new URL(url);
+    return (
+      protocol === 'https:' &&
+      (hostname === 'www.google.com' || hostname === 'maps.google.com') &&
+      pathname.startsWith('/maps/')
+    );
+  } catch {
+    return false;
+  }
+}
+
+const safeMapUrl = isSafeMapUrl(sedePrincipalData?.mapEmbedUrl)
+  ? sedePrincipalData.mapEmbedUrl
+  : null;
 ---
 
 <BaseLayout
@@ -62,9 +80,9 @@ const sedePrincipalData = await client.fetch<{ mapEmbedUrl?: string | null }>(SE
         <h2 id="mapa-contacto-heading" class="sr-only">
           Ubicación de {sedePrincipal.nombre}
         </h2>
-        {sedePrincipalData?.mapEmbedUrl ? (
+        {safeMapUrl ? (
           <iframe
-            src={sedePrincipalData.mapEmbedUrl}
+            src={safeMapUrl}
             class="aspect-video w-full rounded-xl border-0"
             allowfullscreen
             loading="lazy"

@@ -90,18 +90,13 @@ function parseHorarioRanges(value: string): string[] {
     });
 }
 
-function compressDays(abbrs: string[]): string {
-  if (abbrs.length === 1) return abbrs[0];
-  const indices = abbrs.map((d) => WEEK_ORDER.indexOf(d)).sort((a, b) => a - b);
-  const consecutive = indices.every((idx, i) => i === 0 || idx === indices[i - 1] + 1);
-  return consecutive
-    ? `${WEEK_ORDER[indices[0]]}-${WEEK_ORDER[indices[indices.length - 1]]}`
-    : abbrs.join(' ');
-}
-
 /**
  * Convert a Sanity `Horario` object to Schema.org `openingHours` strings.
  * Returns an empty array when no parseable schedule is available.
+ *
+ * Consecutive same-schedule days are compressed to a range: ["Mo-Fr 06:30-12:00"].
+ * Non-consecutive days each get their own entry: ["Mo 06:30-12:00", "We 06:30-12:00"].
+ * Space-separated multi-day strings ("Mo We HH:MM-HH:MM") are NOT valid Schema.org.
  *
  * Example output: ["Mo-Fr 06:30-12:00", "Mo-Fr 14:00-17:00", "Sa 07:00-12:00"]
  */
@@ -109,7 +104,8 @@ export function horarioToOpeningHours(horario: Horario): string[] {
   const scheduleMap = new Map<string, (keyof Horario)[]>();
   for (const dia of DIAS_ORDER) {
     const val = horario[dia];
-    if (!val || /^TODO$/i.test(val.trim())) continue;
+    // Skip empty values — unparseable free-text also returns [] from the parser below.
+    if (!val) continue;
     const ranges = parseHorarioRanges(val);
     if (ranges.length === 0) continue;
     const key = ranges.join('|');
@@ -119,9 +115,22 @@ export function horarioToOpeningHours(horario: Horario): string[] {
 
   const result: string[] = [];
   for (const [key, days] of scheduleMap) {
-    const compressed = compressDays(days.map((d) => DAY_ABBR[d]));
-    for (const range of key.split('|')) {
-      result.push(`${compressed} ${range}`);
+    const abbrs = days.map((d) => DAY_ABBR[d]);
+    const indices = abbrs.map((a) => WEEK_ORDER.indexOf(a)).sort((a, b) => a - b);
+    const consecutive = indices.every((idx, i) => i === 0 || idx === indices[i - 1] + 1);
+    const timeRanges = key.split('|');
+
+    if (consecutive && abbrs.length > 1) {
+      const rangeStr = `${WEEK_ORDER[indices[0]]}-${WEEK_ORDER[indices[indices.length - 1]]}`;
+      for (const range of timeRanges) {
+        result.push(`${rangeStr} ${range}`);
+      }
+    } else {
+      for (const abbr of abbrs) {
+        for (const range of timeRanges) {
+          result.push(`${abbr} ${range}`);
+        }
+      }
     }
   }
   return result;

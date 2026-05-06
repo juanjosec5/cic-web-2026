@@ -9,6 +9,14 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 ## [Unreleased]
 
+### Fixed (code review cleanup — PRs #25–31)
+- `src/lib/seo.ts`: `horarioToOpeningHours` now emits one `openingHours` entry per day for non-consecutive days (e.g. Mo + We) instead of the invalid `"Mo We HH:MM-HH:MM"` Schema.org string that Google silently rejects; removed now-unneeded `compressDays` helper; updated comment to clarify parser behavior
+- `src/pages/contacto.astro`, `src/pages/sedes/[slug].astro`: `mapEmbedUrl` from Sanity is validated against `https://www.google.com/maps/` origin before being used as `<iframe src>` — rejects non-Google URLs from a compromised CMS account
+- `src/components/Header.astro`: desktop nav dropdowns now support keyboard interaction — Enter/Space toggles open/close, Escape closes and returns focus, focusout closes when focus leaves the group; `aria-expanded` toggled dynamically; mobile nav child lists use `role="group"` with `aria-label`
+- `src/pages/empresas.astro`, `src/pages/laboratorios.astro`: submit buttons replaced `disabled` with `aria-disabled="true"` + `onclick="event.preventDefault()"` so screen readers can reach and announce them; `aria-describedby` links to the "próximamente" hint text; `<option>` elements have explicit `value` attributes; WhatsApp message string extracted to a named constant to avoid duplication
+- `astro.config.mjs`: removed `lastmod: new Date()` from sitemap — identical build-time timestamps on all pages neutralize the SEO recrawl hint
+- `src/layouts/SedeLayout.astro`: removed stale TODO comment about building openingHours (implemented in PR #27)
+
 ### Added (F-04: sede SEO — openingHours JSON-LD + title fix)
 - `src/lib/seo.ts`: new `horarioToOpeningHours(horario: Horario): string[]` function — parses Spanish freetext schedules ("6:30 am a 12:00 m y de 2:00 pm a 5:00 pm") into Schema.org `openingHours` strings ("Mo-Fr 06:30-12:00", "Mo-Fr 14:00-17:00"); consecutive same-schedule days are compressed to ranges (Mo-Fr, Sa); returns `[]` when no parseable value is found
 - `src/lib/seo.ts`: `buildSedeJsonLd()` now accepts `openingHours?: string[]` parameter and includes it in the JSON-LD output when non-empty

@@ -14,7 +14,6 @@ export default defineConfig({
     vue(),
     sitemap({
       changefreq: 'weekly',
-      lastmod: new Date(),
       filter: (page) =>
         !page.includes('/estados-financieros') &&
         !page.includes('/nosotros/historia'),
