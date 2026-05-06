@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
 import { SITE_CONFIG } from '@/lib/config';
 import { client } from '@/sanity/client';
 import { SEDE_PRINCIPAL_MAP_QUERY } from '@/sanity/queries';
@@ -15,6 +16,8 @@ const sedePrincipalData = await client.fetch<{ mapEmbedUrl?: string | null }>(SE
   description="Ponte en contacto con CIC Laboratorios. Encuentra teléfonos, dirección y WhatsApp de nuestra sede principal en Guadalajara de Buga."
 >
   <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+
+    <Breadcrumb items={[{ label: 'Inicio', href: '/' }, { label: 'Contacto' }]} />
 
     <h1>Contáctenos</h1>
 

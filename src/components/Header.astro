@@ -10,7 +10,6 @@ type NavLink = {
 };
 
 const navLinks: NavLink[] = [
-  { label: 'Inicio', href: '/' },
   { label: 'Sedes', href: '/sedes' },
   {
     label: 'Exámenes',
@@ -21,7 +20,23 @@ const navLinks: NavLink[] = [
     ],
   },
   { label: 'Servicios', href: '/servicios' },
-  { label: 'Empresas', href: '/empresas' },
+  {
+    label: 'Pacientes',
+    href: '/pacientes/preguntas-frecuentes',
+    children: [
+      { label: 'Preparación de exámenes', href: '/pacientes/preparacion' },
+      { label: 'Preguntas frecuentes', href: '/pacientes/preguntas-frecuentes' },
+      { label: 'Derechos y deberes', href: '/pacientes/derechos-deberes' },
+    ],
+  },
+  {
+    label: 'Empresas',
+    href: '/empresas',
+    children: [
+      { label: 'Empresas y empleadores', href: '/empresas' },
+      { label: 'Laboratorios aliados', href: '/laboratorios' },
+    ],
+  },
   {
     label: 'Nosotros',
     href: '/nosotros',
@@ -30,6 +45,7 @@ const navLinks: NavLink[] = [
       { label: 'Estados financieros', href: '/estados-financieros' },
     ],
   },
+  { label: 'Contacto', href: '/contacto' },
   {
     label: 'Resultados',
     href: 'https://resultados.ciclaboratorios.com',
@@ -57,7 +73,7 @@ function isActive(link: NavLink) {
       </a>
 
       <!-- Desktop nav (hidden on mobile) -->
-      <nav class="hidden md:flex" aria-label="Navegación principal">
+      <nav class="hidden lg:flex" aria-label="Navegación principal">
         <ul role="list" class="flex items-center gap-1">
           {navLinks.map((link) => (
             <li class={link.children ? 'relative group' : ''}>
@@ -129,7 +145,7 @@ function isActive(link: NavLink) {
         aria-controls="mobile-nav-panel"
         aria-expanded="false"
         aria-label="Abrir menú"
-        class="-mr-2 rounded-md p-2 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 md:hidden"
+        class="-mr-2 rounded-md p-2 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 lg:hidden"
       >
         <!-- Menu icon -->
         <svg
@@ -162,7 +178,7 @@ function isActive(link: NavLink) {
   <!-- Mobile nav panel — slide-in dropdown -->
   <div
     id="mobile-nav-panel"
-    class="border-t border-gray-200 bg-white md:hidden"
+    class="border-t border-gray-200 bg-white lg:hidden"
     aria-hidden="true"
   >
     <nav aria-label="Menú móvil">
@@ -259,7 +275,7 @@ function isActive(link: NavLink) {
   });
 
   // Reset mobile state when viewport reaches desktop width
-  window.matchMedia('(min-width: 768px)').addEventListener('change', (e) => {
+  window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => {
     if (e.matches) closeNav();
   });
 </script>

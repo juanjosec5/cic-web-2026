@@ -41,6 +41,16 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 **To activate social links:** Edit `src/lib/config.ts` → `SOCIAL_LINKS` and set the real Facebook, Instagram, and LinkedIn URLs. Then open a PR.
 
+### Added (nav & breadcrumb audit)
+- `src/components/Header.astro`: new "Pacientes" dropdown (Preparación de exámenes, Preguntas frecuentes, Derechos y deberes); "Empresas" converted from flat link to dropdown (Empresas y empleadores, Laboratorios aliados); "Contacto" flat link added before "Resultados"
+- `src/pages/contacto.astro`, `src/pages/laboratorios.astro`, `src/pages/pacientes/preguntas-frecuentes.astro`, `src/pages/pacientes/derechos-deberes.astro`: `Breadcrumb` component added to each
+- `src/components/Footer.astro`: "Derechos y deberes" and "Laboratorios aliados" added to sitemap link list
+
+### Added (F-06 — preparación de exámenes dynamic content)
+- `src/pages/pacientes/preparacion.astro`: complete rewrite — dynamic exam lists loaded from the `examenes` content collection at build time; `#orina` section lists up to 20 urine-sample exams (sorted A-Z) with a "ver más" link when >20; `#heces` section lists all stool-sample exams (~7); static content for `#ayuno`, `#sin-ayuno`, and `#especial` sections (espermograma, VPH/citología, urocultivo, curva de tolerancia a glucosa); `Breadcrumb` component added (Inicio → Pacientes → Preparación de exámenes); WhatsApp CTA at the bottom; no `[ pendiente ]` placeholders remain
+
+> **Note:** No Sanity Studio changes needed. All data comes from the local `examenes` content collection.
+
 ### Added (Sanity CMS integration — sedes + promoción del mes)
 - `src/sanity/client.ts`: singleton `@sanity/client` instance using `import.meta.env.SANITY_PROJECT_ID` / `SANITY_DATASET`; `useCdn: true`, `apiVersion: '2024-01-01'`
 - `src/sanity/types.ts`: TypeScript interfaces `Horario`, `ServicioSlug`, `Sede`, `PromoMes` — replace `CollectionEntry<'sedes'>['data']` throughout; `PromoMes.modo` is `'imagen' | 'compuesto'` and drives homepage banner rendering
