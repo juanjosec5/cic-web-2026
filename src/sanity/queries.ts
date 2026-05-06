@@ -45,5 +45,6 @@ export const PAGINA_INICIO_QUERY = `
     pilares[] { titulo, descripcion },
     audiencias[] { titulo, descripcion, "links": coalesce(links[] { label, url }, []) },
     calidad[] { titulo, descripcion, linkLabel, linkUrl },
+    "testimonios": coalesce(testimonios[] { texto, nombre, ciudad, cargo }, []),
   }
 `;

@@ -58,4 +58,5 @@ export interface PaginaInicio {
   pilares?: { titulo: string; descripcion: string }[];
   audiencias?: { titulo: string; descripcion: string; links: { label: string; url: string }[] }[];
   calidad?: { titulo: string; descripcion: string; linkLabel?: string; linkUrl?: string }[];
+  testimonios?: { texto: string; nombre: string; ciudad: string; cargo?: string }[];
 }

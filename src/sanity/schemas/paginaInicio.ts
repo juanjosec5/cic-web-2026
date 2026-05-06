@@ -143,6 +143,27 @@ export const paginaInicioType = defineType({
       ],
       validation: (R) => R.min(3).max(3),
     }),
+    // ── Testimonios ──────────────────────────────────────────────────────────
+    defineField({
+      name: 'testimonios',
+      title: 'Testimonios de pacientes',
+      type: 'array',
+      description: 'La sección se oculta si el array está vacío.',
+      of: [
+        defineField({
+          name: 'testimonio',
+          title: 'Testimonio',
+          type: 'object',
+          fields: [
+            defineField({ name: 'texto', title: 'Texto del testimonio', type: 'text', rows: 3, validation: (R) => R.required() }),
+            defineField({ name: 'nombre', title: 'Nombre del paciente', type: 'string', validation: (R) => R.required() }),
+            defineField({ name: 'ciudad', title: 'Ciudad', type: 'string', validation: (R) => R.required() }),
+            defineField({ name: 'cargo', title: 'Cargo / Empresa (opcional — para testimonios B2B)', type: 'string' }),
+          ],
+          preview: { select: { title: 'nombre', subtitle: 'texto' } },
+        }),
+      ],
+    }),
   ],
   preview: {
     prepare: () => ({ title: 'Página de Inicio' }),
