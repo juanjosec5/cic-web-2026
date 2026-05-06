@@ -1,4 +1,5 @@
 ---
+import { SOCIAL_LINKS } from '@/lib/config';
 const currentYear = new Date().getFullYear();
 
 const siteLinks = [
@@ -52,26 +53,34 @@ const siteLinks = [
       </nav>
 
       <!-- Social -->
+      {(SOCIAL_LINKS.facebook || SOCIAL_LINKS.instagram || SOCIAL_LINKS.linkedin) && (
       <div>
         <h2 class="mb-4 font-semibold text-white">Síguenos</h2>
         <ul role="list" class="space-y-2 text-sm">
-          <li>
-            <a href="#" class="transition-colors hover:text-white">
-              Facebook
-            </a>
-          </li>
-          <li>
-            <a href="#" class="transition-colors hover:text-white">
-              Instagram
-            </a>
-          </li>
-          <li>
-            <a href="#" class="transition-colors hover:text-white">
-              LinkedIn
-            </a>
-          </li>
+          {SOCIAL_LINKS.facebook && (
+            <li>
+              <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-white">
+                Facebook
+              </a>
+            </li>
+          )}
+          {SOCIAL_LINKS.instagram && (
+            <li>
+              <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-white">
+                Instagram
+              </a>
+            </li>
+          )}
+          {SOCIAL_LINKS.linkedin && (
+            <li>
+              <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-white">
+                LinkedIn
+              </a>
+            </li>
+          )}
         </ul>
       </div>
+      )}
     </div>
   </div>
 
