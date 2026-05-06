@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
 import { SITE_CONFIG } from '@/lib/config';
 
 const waFaq = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent('Tengo una pregunta sobre los servicios de CIC Laboratorios.')}`;
@@ -89,6 +90,8 @@ const grupos = [
   description="Respuestas a las preguntas más frecuentes sobre los servicios, resultados y preparación en CIC Laboratorios."
 >
   <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+
+    <Breadcrumb items={[{ label: 'Inicio', href: '/' }, { label: 'Pacientes', href: '/pacientes/preguntas-frecuentes' }, { label: 'Preguntas frecuentes' }]} />
 
     <header>
       <h1>Preguntas frecuentes</h1>

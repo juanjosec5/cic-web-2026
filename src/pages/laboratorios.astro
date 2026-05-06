@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import { SITE_CONFIG } from '@/lib/config';
@@ -18,6 +19,8 @@ const waAlianza = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompone
   whatsappMessage="Quisiera información sobre alianzas con CIC Laboratorios."
 >
   <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+
+    <Breadcrumb items={[{ label: 'Inicio', href: '/' }, { label: 'Laboratorios aliados' }]} />
 
     <header>
       <h1>Alianzas con laboratorios e IPS</h1>

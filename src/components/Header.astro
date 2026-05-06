@@ -21,7 +21,23 @@ const navLinks: NavLink[] = [
     ],
   },
   { label: 'Servicios', href: '/servicios' },
-  { label: 'Empresas', href: '/empresas' },
+  {
+    label: 'Pacientes',
+    href: '/pacientes/preguntas-frecuentes',
+    children: [
+      { label: 'Preparación de exámenes', href: '/pacientes/preparacion' },
+      { label: 'Preguntas frecuentes', href: '/pacientes/preguntas-frecuentes' },
+      { label: 'Derechos y deberes', href: '/pacientes/derechos-deberes' },
+    ],
+  },
+  {
+    label: 'Empresas',
+    href: '/empresas',
+    children: [
+      { label: 'Empresas y empleadores', href: '/empresas' },
+      { label: 'Laboratorios aliados', href: '/laboratorios' },
+    ],
+  },
   {
     label: 'Nosotros',
     href: '/nosotros',
@@ -30,6 +46,7 @@ const navLinks: NavLink[] = [
       { label: 'Estados financieros', href: '/estados-financieros' },
     ],
   },
+  { label: 'Contacto', href: '/contacto' },
   {
     label: 'Resultados',
     href: 'https://resultados.ciclaboratorios.com',
