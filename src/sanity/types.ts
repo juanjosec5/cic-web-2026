@@ -46,3 +46,16 @@ export interface PromoMes {
   ctaTexto?: string;
   ctaUrl?: string;
 }
+
+export interface PaginaInicio {
+  heroTitulo?: string;
+  heroSubtitulo?: string;
+  heroCta1Label?: string;
+  heroCta1Url?: string;
+  heroCta2Label?: string;
+  heroCta2Url?: string;
+  heroCtaWaLabel?: string;
+  pilares?: { titulo: string; descripcion: string }[];
+  audiencias?: { titulo: string; descripcion: string; links: { label: string; url: string }[] }[];
+  calidad?: { titulo: string; descripcion: string; linkLabel?: string; linkUrl?: string }[];
+}
