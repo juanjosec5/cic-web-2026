@@ -66,6 +66,7 @@ const DEFAULT_CALIDAD: NonNullable<PaginaInicio['calidad']> = [
 const pilares = paginaInicio?.pilares ?? DEFAULT_PILARES;
 const audiencias = paginaInicio?.audiencias ?? DEFAULT_AUDIENCIAS;
 const calidad = paginaInicio?.calidad ?? DEFAULT_CALIDAD;
+const testimonios = paginaInicio?.testimonios ?? [];
 
 const sedesParaMapa = sedes
   .filter((s: Sede) => s.lat != null && s.lng != null)
@@ -283,28 +284,28 @@ const sedesParaMapa = sedes
     </div>
   </section>
 
-  {/* TODO (content-needed): Uncomment when patient testimonials are available */}
-  {false && (
-  <section aria-labelledby="equipo-heading" class="py-12">
+  {testimonios.length > 0 && (
+  <section aria-labelledby="testimonios-heading" class="py-12 bg-gray-50">
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
-      <h2 id="equipo-heading">Un equipo comprometido con tu salud</h2>
-      <p>
-        {/* TODO (content-needed): Replace with real copy about team and values */}
-        En CIC Laboratorios creemos que los exámenes de laboratorio son mucho
-        más que datos: son parte de la historia de vida de cada paciente.
-      </p>
-      {/* TODO (content-needed): Add team intro video embed */}
-      <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-        <blockquote>
-          <p>[ Testimonio de paciente — pendiente ]</p>
-          <cite>— Nombre, Ciudad</cite>
-        </blockquote>
-        <blockquote>
-          <p>[ Testimonio de paciente — pendiente ]</p>
-          <cite>— Nombre, Ciudad</cite>
-        </blockquote>
+      <h2 id="testimonios-heading">Lo que dicen nuestros pacientes</h2>
+      <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {testimonios.map((t) => (
+          <figure class="rounded-xl border border-gray-200 bg-white p-6">
+            <blockquote class="text-gray-700 text-sm leading-relaxed">
+              <p>"{t.texto}"</p>
+            </blockquote>
+            <figcaption class="mt-4 flex items-center gap-2">
+              <div class="h-8 w-8 rounded-full bg-red-100 flex items-center justify-center text-red-600 text-sm font-semibold" aria-hidden="true">
+                {t.nombre.charAt(0).toUpperCase()}
+              </div>
+              <div>
+                <p class="text-sm font-medium text-gray-900">{t.nombre}</p>
+                <p class="text-xs text-gray-500">{t.cargo ? `${t.cargo} · ` : ''}{t.ciudad}</p>
+              </div>
+            </figcaption>
+          </figure>
+        ))}
       </div>
-      <a href="/nosotros" class="mt-6 inline-block text-sm font-medium text-gray-700 hover:text-red-600 transition-colors duration-200">Conocer al equipo →</a>
     </div>
   </section>
   )}

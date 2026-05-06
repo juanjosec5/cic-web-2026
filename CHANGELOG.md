@@ -23,6 +23,14 @@ Versions track milestones, not npm semver — this is a content/site project.
 - `src/pages/empresas.astro`: passes `"Quiero información sobre servicios empresariales de CIC Laboratorios."`
 - `src/pages/laboratorios.astro`: passes `"Quisiera información sobre alianzas con CIC Laboratorios."`
 
+### Added (F-03: testimonios section on homepage)
+- `src/sanity/schemas/paginaInicio.ts`: new `testimonios[]` array field — each item has `texto` (required), `nombre` (required), `ciudad` (required), `cargo` (optional, for B2B testimonials); section is hidden when the array is empty
+- `src/sanity/queries.ts`: `PAGINA_INICIO_QUERY` now fetches `testimonios[]` with `coalesce(..., [])` — never returns null
+- `src/sanity/types.ts`: `PaginaInicio.testimonios` typed as `{ texto, nombre, ciudad, cargo? }[]`
+- `src/pages/index.astro`: replaced `{false && ...}` placeholder block with a real testimonials section — only rendered when at least one testimonial exists in Sanity; each card shows quote, avatar initial, name, city and optional role/company
+
+**To activate:** Add testimonials in Sanity Studio → Página de Inicio → Testimonios. The section will appear on the next build/deploy.
+
 ### Added (Sanity CMS integration — sedes + promoción del mes)
 - `src/sanity/client.ts`: singleton `@sanity/client` instance using `import.meta.env.SANITY_PROJECT_ID` / `SANITY_DATASET`; `useCdn: true`, `apiVersion: '2024-01-01'`
 - `src/sanity/types.ts`: TypeScript interfaces `Horario`, `ServicioSlug`, `Sede`, `PromoMes` — replace `CollectionEntry<'sedes'>['data']` throughout; `PromoMes.modo` is `'imagen' | 'compuesto'` and drives homepage banner rendering
