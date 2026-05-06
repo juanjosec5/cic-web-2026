@@ -12,7 +12,7 @@ const sedesOrdenadas = [...sedes].sort((a, b) =>
 );
 
 const sedesParaMapa = sedesOrdenadas
-  .filter((s: Sede) => s.lat !== undefined && s.lng !== undefined)
+  .filter((s: Sede) => s.lat != null && s.lng != null)
   .map((s: Sede) => ({
     slug: s.slug,
     nombre: s.nombre,
@@ -20,8 +20,8 @@ const sedesParaMapa = sedesOrdenadas
     direccion: s.direccion,
     telefono: s.telefono,
     whatsapp: s.whatsapp,
-    lat: s.lat!,
-    lng: s.lng!,
+    lat: s.lat as number,
+    lng: s.lng as number,
     esSedePrincipal: s.esSedePrincipal ?? false,
   }));
 ---

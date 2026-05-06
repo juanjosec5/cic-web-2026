@@ -57,10 +57,10 @@ const DEFAULT_AUDIENCIAS = [
   },
 ];
 
-const DEFAULT_CALIDAD = [
-  { titulo: 'Equipos de última generación', descripcion: 'Tecnología de punta para resultados precisos y confiables.', linkLabel: undefined as string | undefined, linkUrl: undefined as string | undefined },
-  { titulo: 'Política de seguridad del paciente', descripcion: 'Protocolos rigurosos que garantizan la seguridad en cada etapa.', linkLabel: 'Ver certificaciones' as string | undefined, linkUrl: '/nosotros#calidad' as string | undefined },
-  { titulo: 'Validación QR', descripcion: 'Verifica la autenticidad de tus resultados con el código QR único incluido en cada informe.', linkLabel: undefined as string | undefined, linkUrl: undefined as string | undefined },
+const DEFAULT_CALIDAD: NonNullable<PaginaInicio['calidad']> = [
+  { titulo: 'Equipos de última generación', descripcion: 'Tecnología de punta para resultados precisos y confiables.' },
+  { titulo: 'Política de seguridad del paciente', descripcion: 'Protocolos rigurosos que garantizan la seguridad en cada etapa.', linkLabel: 'Ver certificaciones', linkUrl: '/nosotros#calidad' },
+  { titulo: 'Validación QR', descripcion: 'Verifica la autenticidad de tus resultados con el código QR único incluido en cada informe.' },
 ];
 
 const pilares = paginaInicio?.pilares ?? DEFAULT_PILARES;
@@ -68,7 +68,7 @@ const audiencias = paginaInicio?.audiencias ?? DEFAULT_AUDIENCIAS;
 const calidad = paginaInicio?.calidad ?? DEFAULT_CALIDAD;
 
 const sedesParaMapa = sedes
-  .filter((s: Sede) => s.lat !== undefined && s.lng !== undefined)
+  .filter((s: Sede) => s.lat != null && s.lng != null)
   .map((s: Sede) => ({
     slug: s.slug,
     nombre: s.nombre,
@@ -76,8 +76,8 @@ const sedesParaMapa = sedes
     direccion: s.direccion,
     telefono: s.telefono,
     whatsapp: s.whatsapp,
-    lat: s.lat!,
-    lng: s.lng!,
+    lat: s.lat as number,
+    lng: s.lng as number,
     esSedePrincipal: s.esSedePrincipal ?? false,
   }));
 ---
@@ -139,7 +139,7 @@ const sedesParaMapa = sedes
         ) : (
           <div
             class="flex flex-col gap-4 rounded-2xl px-8 py-7 sm:flex-row sm:items-center sm:justify-between"
-            style={`background-color: ${promo.colorFondo ?? '#dc2626'};${promo.imagenFondoUrl ? ` background-image: url(${promo.imagenFondoUrl}); background-size: cover; background-position: center;` : ''}`}
+            style={`background-color: ${promo.colorFondo ?? '#dc2626'};${promo.imagenFondoUrl ? ` background-image: url("${promo.imagenFondoUrl.replace(/"/g, '%22')}"); background-size: cover; background-position: center;` : ''}`}
           >
             <div>
               <p class="text-xs font-semibold uppercase tracking-widest text-red-200">Promoción del mes</p>

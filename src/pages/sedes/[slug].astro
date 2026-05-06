@@ -195,6 +195,10 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
                 src={foto}
                 alt={`Foto de ${sede.nombre}`}
                 class="aspect-video w-full rounded-lg object-cover"
+                loading="lazy"
+                decoding="async"
+                width="400"
+                height="225"
               />
             </li>
           ))

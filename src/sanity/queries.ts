@@ -22,9 +22,6 @@ export const ALL_SEDES_QUERY = `
   *[_type == "sede"] | order(esSedePrincipal desc, nombre asc) ${SEDE_PROJECTION}
 `;
 
-export const SEDE_BY_SLUG_QUERY = `
-  *[_type == "sede" && slug.current == $slug][0] ${SEDE_PROJECTION}
-`;
 
 export const PROMO_MES_QUERY = `
   *[_type == "promocionMes" && activo == true] | order(mes desc) [0] {
@@ -46,7 +43,7 @@ export const PAGINA_INICIO_QUERY = `
     heroCta2Label, heroCta2Url,
     heroCtaWaLabel,
     pilares[] { titulo, descripcion },
-    audiencias[] { titulo, descripcion, links[] { label, url } },
+    audiencias[] { titulo, descripcion, "links": coalesce(links[] { label, url }, []) },
     calidad[] { titulo, descripcion, linkLabel, linkUrl },
   }
 `;

@@ -8,12 +8,12 @@
  * TODO (content-needed): Build openingHours array from horario object for
  *   schema.org compliance.
  */
-import type { CollectionEntry } from 'astro:content';
 import BaseLayout from './BaseLayout.astro';
 import { buildSedeJsonLd } from '@/lib/seo';
+import type { Sede } from '@/sanity/types';
 
 interface Props {
-  sede: CollectionEntry<'sedes'>['data'];
+  sede: Sede;
   description?: string;
 }
 
@@ -25,8 +25,8 @@ const jsonLd = buildSedeJsonLd({
   direccion: sede.direccion,
   ciudad: sede.ciudad,
   telefono: sede.telefono,
-  lat: sede.lat,
-  lng: sede.lng,
+  lat: sede.lat ?? undefined,
+  lng: sede.lng ?? undefined,
   url: `${Astro.site}sedes/${sede.slug}`,
 });
 ---
