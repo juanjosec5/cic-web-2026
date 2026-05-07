@@ -1,42 +1,73 @@
 ---
-/**
- * /nosotros/historia — Company history page.
- *
- * TODO (content-needed): Add real timeline with founding year, milestones, expansions.
- * TODO (design-needed): Visual timeline component.
- */
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
 ---
 
 <BaseLayout
   title="Nuestra Historia"
   description="La historia de CIC Laboratorios: fundación, crecimiento y compromiso con la salud en el Valle del Cauca."
 >
-  <nav aria-label="Migas de pan">
-    <a href="/nosotros">Nosotros</a> › Historia
-  </nav>
+  <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
 
-  <h1>Nuestra historia</h1>
-  <!-- TODO (content-needed): Add real founding year, key milestones, expansion to Tuluá -->
-  <p>[ Contenido de historia pendiente ]</p>
+    <Breadcrumb items={[
+      { label: 'Inicio', href: '/' },
+      { label: 'Nosotros', href: '/nosotros' },
+      { label: 'Historia' },
+    ]} />
 
-  <section aria-labelledby="timeline-heading">
-    <h2 id="timeline-heading">Línea de tiempo</h2>
-    <ol>
-      <li>
-        <strong>[Año fundación]</strong> —
-        Fundación de CIC Laboratorios en Guadalajara de Buga.
-        {/* TODO (content-needed): Add real year */}
-      </li>
-      <li>
-        <strong>[Año expansión]</strong> —
-        Apertura de sede Tuluá.
-        {/* TODO (content-needed): Add real year */}
-      </li>
-      <li>
-        <strong>Actualidad</strong> —
-        Más de 700 exámenes, 2 sedes y servicio a domicilio.
-      </li>
-    </ol>
-  </section>
+    <header class="mt-6">
+      <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">Nuestra historia</h1>
+      <p class="mt-2 text-gray-600">
+        Cuatro décadas construyendo diagnósticos confiables para el Valle del Cauca.
+      </p>
+    </header>
+
+    <section aria-labelledby="timeline-heading" class="mt-10">
+      <h2 id="timeline-heading" class="text-lg font-semibold text-gray-900">Línea de tiempo</h2>
+      <ol class="mt-6 space-y-6">
+        <li class="border-l-2 border-red-200 pl-4">
+          <p class="text-sm font-semibold text-red-700">1985</p>
+          <p class="mt-1 text-gray-900 font-medium">"Analizar": origen y concepto fundacional</p>
+          <p class="mt-1 text-sm text-gray-600">Nace la visión de un laboratorio clínico centrado en la precisión analítica y el acceso democrático al diagnóstico para el Valle del Cauca.</p>
+        </li>
+        <li class="border-l-2 border-red-200 pl-4">
+          <p class="text-sm font-semibold text-red-700">1987</p>
+          <p class="mt-1 text-gray-900 font-medium">Primera sede en Guadalajara de Buga</p>
+          <p class="mt-1 text-sm text-gray-600">Apertura de la sede principal en el centro histórico de Buga, punto de partida de la red de laboratorios CIC.</p>
+        </li>
+        <li class="border-l-2 border-red-200 pl-4">
+          <p class="text-sm font-semibold text-red-700">1990</p>
+          <p class="mt-1 text-gray-900 font-medium">Sistematización de procesos internos</p>
+          <p class="mt-1 text-sm text-gray-600">Implementación de sistemas de información para la gestión de resultados y trazabilidad de muestras, pionera en la región.</p>
+        </li>
+        <li class="border-l-2 border-red-200 pl-4">
+          <p class="text-sm font-semibold text-red-700">1995</p>
+          <p class="mt-1 text-gray-900 font-medium">Nace la marca CIC Laboratorios</p>
+          <p class="mt-1 text-sm text-gray-600">La organización consolida su identidad como CIC Laboratorios, unificando imagen y estándares de calidad en todas sus unidades.</p>
+        </li>
+        <li class="border-l-2 border-red-200 pl-4">
+          <p class="text-sm font-semibold text-red-700">2010</p>
+          <p class="mt-1 text-gray-900 font-medium">19 sedes en el Valle del Cauca</p>
+          <p class="mt-1 text-sm text-gray-600">Expansión sostenida hasta alcanzar 19 puntos de atención en los principales municipios del departamento.</p>
+        </li>
+        <li class="border-l-2 border-red-200 pl-4">
+          <p class="text-sm font-semibold text-red-700">2019</p>
+          <p class="mt-1 text-gray-900 font-medium">Capacidad de 1,200 pruebas por hora</p>
+          <p class="mt-1 text-sm text-gray-600">Inversión en analizadores de alta velocidad que permiten procesar hasta 1,200 pruebas por hora, garantizando resultados el mismo día.</p>
+        </li>
+        <li class="border-l-2 border-red-200 pl-4">
+          <p class="text-sm font-semibold text-red-700">2020</p>
+          <p class="mt-1 text-gray-900 font-medium">Incorporación de biología molecular</p>
+          <p class="mt-1 text-sm text-gray-600">Ampliación del portafolio con pruebas moleculares (PCR y VPH) para la detección temprana de enfermedades infecciosas y oncológicas.</p>
+        </li>
+      </ol>
+    </section>
+
+    <div class="mt-12 rounded-xl bg-gray-50 p-6">
+      <a href="/nosotros" class="text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200">
+        ← Volver a Nosotros
+      </a>
+    </div>
+
+  </div>
 </BaseLayout>
