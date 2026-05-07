@@ -9,6 +9,11 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 ## [Unreleased]
 
+### Fixed (PR #34 code review)
+- `src/pages/examenes/[slug].astro`: removed stray `}` character from `waDomicilio` template literal that produced a malformed WhatsApp URL with a trailing `}` appended after the query string
+- `src/pages/pacientes/derechos-deberes.astro`: added `text-base font-semibold text-gray-900` to `<h2>` elements inside card sections — without override they inherited global `text-2xl` (1.5rem), visually inconsistent with equivalent cards in `politica-de-privacidad.astro`
+- `src/pages/participacion-social.astro`: changed "Documentos relacionados" block from `<div>` to `<section aria-labelledby>` with a matching `id` on the `<h2>` — consistent with all other landmark regions on this page
+
 ### Added (legal pages, content fill, label corrections — marketing assets)
 - `src/pages/politica-de-privacidad.astro`: new static page with full data privacy policy per Ley 1581 de 2012 — six patient data rights, SLA (10 days consultas / 15 days reclamos), responsible entity and contact details, special note on health data; effective November 28, 2025
 - `src/pages/participacion-social.astro`: new static page — Oficina de Atención al Usuario (address, hours, phone), PQRSF channel (links to /contacto + WhatsApp + email), Comité de Ética, Asociación de Usuarios eligibility, satisfaction survey placeholder; links to privacy policy and derechos-deberes
