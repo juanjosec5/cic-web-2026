@@ -26,6 +26,8 @@ export const sedeType = defineType({
     defineField({ name: 'direccion', title: 'Dirección', type: 'string', validation: (R) => R.required() }),
     defineField({ name: 'telefono', title: 'Teléfono', type: 'string', validation: (R) => R.required() }),
     defineField({ name: 'whatsapp', title: 'WhatsApp', type: 'string', validation: (R) => R.required() }),
+    defineField({ name: 'whatsappDomicilio',   title: 'WhatsApp Domicilio',   type: 'string' }),
+    defineField({ name: 'whatsappSubgerencia', title: 'WhatsApp Subgerencia', type: 'string' }),
     defineField({ name: 'email', title: 'Email', type: 'string' }),
     defineField({
       name: 'horario',

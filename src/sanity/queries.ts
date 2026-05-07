@@ -7,6 +7,8 @@ const SEDE_PROJECTION = `{
   lng,
   telefono,
   whatsapp,
+  whatsappDomicilio,
+  whatsappSubgerencia,
   email,
   "horario": coalesce(horario, {}),
   "servicios": coalesce(servicios, []),
