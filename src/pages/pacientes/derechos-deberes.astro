@@ -14,8 +14,10 @@ import Breadcrumb from '@/components/Breadcrumb.astro';
     <header>
       <h1>Derechos y deberes del paciente</h1>
       <p>
-        En cumplimiento de la normativa colombiana de salud
-        {/* TODO (content-needed): Cite Resolución 13437 de 1991 and applicable updates */}
+        En cumplimiento de la normativa colombiana de salud y en concordancia con nuestra
+        <a href="/participacion-social" class="text-red-600 hover:text-red-700 transition-colors">
+          Política de Participación Social en Salud
+        </a>.
       </p>
     </header>
 
@@ -24,31 +26,48 @@ import Breadcrumb from '@/components/Breadcrumb.astro';
       <!-- Derechos -->
       <section aria-labelledby="derechos-heading" class="rounded-xl bg-gray-50 p-6">
         <h2 id="derechos-heading" class="border-l-4 border-red-300 pl-4">Sus derechos</h2>
-        {/* TODO (content-needed): Add full list per Colombian health law */}
         <ol class="mt-4 space-y-3 text-sm text-gray-700 list-decimal list-inside">
-          <li>Recibir atención con calidad, calidez y respeto a su dignidad.</li>
-          <li>Obtener información clara y comprensible sobre su diagnóstico.</li>
-          <li>Mantener la confidencialidad de su información de salud.</li>
-          <li>Recibir resultados oportunos y verídicos.</li>
-          <li>[ Derecho 5 — pendiente ]</li>
-          <li>[ Derecho 6 — pendiente ]</li>
+          <li>Recibir un trato digno y respetuoso sin restricción de raza, sexo, religión, idioma, creencias, costumbres, condición social y económica.</li>
+          <li>Elegir a los profesionales de la salud, instituciones y laboratorios clínicos para que le presten la atención requerida.</li>
+          <li>Recibir una comunicación completa, clara, segura y confidencial de sus resultados y condiciones para la realización de las pruebas.</li>
+          <li>Presentar quejas, reclamos y sugerencias ante la Gerencia.</li>
         </ol>
       </section>
 
       <!-- Deberes -->
       <section aria-labelledby="deberes-heading" class="rounded-xl bg-gray-50 p-6">
         <h2 id="deberes-heading" class="border-l-4 border-red-300 pl-4">Sus deberes</h2>
-        {/* TODO (content-needed): Add full list per Colombian health law */}
         <ol class="mt-4 space-y-3 text-sm text-gray-700 list-decimal list-inside">
-          <li>Proporcionar información veraz sobre su estado de salud.</li>
-          <li>Seguir las instrucciones de preparación indicadas.</li>
-          <li>Tratar con respeto al personal de salud.</li>
-          <li>Presentar la orden médica cuando sea requerido.</li>
-          <li>[ Deber 5 — pendiente ]</li>
-          <li>[ Deber 6 — pendiente ]</li>
+          <li>Seguir cuidadosamente las instrucciones recibidas para la toma de muestras.</li>
+          <li>Solicitar los servicios de manera cordial y respetuosa.</li>
+          <li>Cumplir con los requisitos establecidos por su entidad de salud: documentos, copagos o pago total de los estudios en caso de servicio particular.</li>
+          <li>Contestar con honestidad a preguntas importantes que ayudan a garantizar el buen resultado de sus exámenes.</li>
         </ol>
       </section>
 
+    </div>
+
+    <!-- PQRSF link -->
+    <div class="mt-8 rounded-xl border border-gray-200 p-6">
+      <h2 class="text-sm font-semibold text-gray-900">¿Desea presentar una queja, reclamo o sugerencia?</h2>
+      <p class="mt-2 text-sm text-gray-600">
+        Contáctenos a través de nuestra oficina de atención al usuario o consulte nuestros mecanismos de
+        participación ciudadana.
+      </p>
+      <div class="mt-4 flex flex-col gap-3 sm:flex-row">
+        <a
+          href="/contacto"
+          class="inline-flex items-center justify-center rounded-lg bg-red-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-700 active:scale-95 transition-all duration-200"
+        >
+          Contactar
+        </a>
+        <a
+          href="/participacion-social"
+          class="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200"
+        >
+          Ver política de participación social →
+        </a>
+      </div>
     </div>
 
   </div>

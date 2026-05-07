@@ -3,7 +3,7 @@ import { defineField, defineType } from 'sanity';
 const SERVICIOS = [
   { title: 'Toma de muestras', value: 'toma-muestras' },
   { title: 'Domicilio', value: 'domicilio' },
-  { title: 'Ginecología / VPH', value: 'ginecologia-vph' },
+  { title: 'Citología / VPH', value: 'ginecologia-vph' },
   { title: 'Jornadas empresariales', value: 'jornadas-empresariales' },
   { title: 'Salud ocupacional', value: 'salud-ocupacional' },
   { title: 'Validación QR', value: 'validacion-qr' },
