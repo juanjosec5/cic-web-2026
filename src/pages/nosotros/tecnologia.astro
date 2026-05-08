@@ -2,43 +2,57 @@
 /**
  * /nosotros/tecnologia — Technology page.
  *
- * TODO (content-needed): Add real equipment list (brands, models, capabilities).
+ * TODO (content-needed): Replace placeholder list with real equipment (brands, models, capabilities).
  * TODO (content-needed): Add equipment photos.
- * TODO (design-needed): Equipment showcase grid/carousel.
  */
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
 ---
 
 <BaseLayout
   title="Nuestra Tecnología"
   description="CIC Laboratorios cuenta con equipos de última generación para garantizar resultados precisos y confiables."
 >
-  <nav aria-label="Migas de pan">
-    <a href="/nosotros">Nosotros</a> › Tecnología
-  </nav>
+  <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
 
-  <h1>Nuestra tecnología</h1>
-  <p>
-    Inversión permanente en equipos y metodologías de vanguardia para ofrecer
-    diagnósticos precisos y oportunos.
-  </p>
+    <Breadcrumb items={[
+      { label: 'Inicio', href: '/' },
+      { label: 'Nosotros', href: '/nosotros' },
+      { label: 'Tecnología' },
+    ]} />
 
-  <!-- TODO (content-needed): Replace with real equipment inventory -->
-  <section aria-labelledby="equipos-heading">
-    <h2 id="equipos-heading">Equipos principales</h2>
-    <ul>
-      <li>[ Analizador hematológico — modelo pendiente ]</li>
-      <li>[ Analizador de química clínica — modelo pendiente ]</li>
-      <li>[ Equipo de inmunoanálisis — modelo pendiente ]</li>
-    </ul>
-  </section>
+    <header class="mt-6">
+      <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">Nuestra tecnología</h1>
+      <p class="mt-2 text-gray-600">
+        Inversión permanente en equipos y metodologías de vanguardia para ofrecer diagnósticos precisos y oportunos.
+      </p>
+    </header>
 
-  <section aria-labelledby="qr-heading">
-    <h2 id="qr-heading">Validación QR de resultados</h2>
-    <p>
-      Cada resultado entregado incluye un código QR único que permite verificar
-      su autenticidad en línea.
-      <!-- TODO (content-needed): Add link to the QR validation portal -->
-    </p>
-  </section>
+    <section aria-labelledby="equipos-heading" class="mt-8 rounded-xl border border-gray-200 p-6">
+      <h2 id="equipos-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
+        Equipos principales
+      </h2>
+      <ul role="list" class="mt-4 divide-y divide-gray-100 text-sm text-gray-400">
+        <li class="py-3 italic">[ Analizador hematológico — modelo pendiente ]</li>
+        <li class="py-3 italic">[ Analizador de química clínica — modelo pendiente ]</li>
+        <li class="py-3 italic">[ Equipo de inmunoanálisis — modelo pendiente ]</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="qr-heading" class="mt-6 rounded-xl border border-gray-200 p-6">
+      <h2 id="qr-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
+        Validación QR de resultados
+      </h2>
+      <p class="mt-4 text-sm text-gray-600">
+        Cada resultado entregado incluye un código QR único que permite verificar su autenticidad en línea.
+      </p>
+    </section>
+
+    <div class="mt-12 rounded-xl bg-gray-50 p-6">
+      <a href="/nosotros" class="text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200">
+        ← Volver a Nosotros
+      </a>
+    </div>
+
+  </div>
 </BaseLayout>
