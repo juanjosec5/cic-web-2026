@@ -9,6 +9,11 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 ## [Unreleased]
 
+### Changed (PR #39 — footer redesign)
+- `src/components/Footer.astro`: full redesign — flat 13-link list replaced with 5 categorized `<details>/<summary>` accordion groups (Pacientes, Exámenes, Servicios, Nosotros, Empresas y aliados); mobile collapses per group, sm+ shows 2-col grid, lg shows 5-col grid via `display: contents` on `<details>`; contact info now reads from `SITE_CONFIG.sedePrincipal` (fixes stale hardcoded `Calle 5 # 14-23` address); legal links (Contacto, Política de privacidad, Participación social, Estados financieros) moved to copyright bar; all site subpages now linked (nosotros/*, examenes/perfiles, servicios/*)
+
+
+
 ### Fixed (PR #34 code review)
 - `src/pages/examenes/[slug].astro`: removed stray `}` character from `waDomicilio` template literal that produced a malformed WhatsApp URL with a trailing `}` appended after the query string
 - `src/pages/pacientes/derechos-deberes.astro`: added `text-base font-semibold text-gray-900` to `<h2>` elements inside card sections — without override they inherited global `text-2xl` (1.5rem), visually inconsistent with equivalent cards in `politica-de-privacidad.astro`
