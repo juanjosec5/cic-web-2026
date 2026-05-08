@@ -7,17 +7,47 @@ import type { CollectionEntry } from 'astro:content';
 const aliados = await getCollection('aliados');
 
 const anchorLinks = [
+  { id: 'mision', label: 'Misión' },
+  { id: 'vision', label: 'Visión' },
   { id: 'historia', label: 'Historia' },
+  { id: 'valores', label: 'Valores' },
   { id: 'equipo', label: 'Equipo' },
   { id: 'tecnologia', label: 'Tecnología' },
   { id: 'calidad', label: 'Calidad' },
   { id: 'aliados', label: 'Aliados' },
 ];
+
+const valores = [
+  {
+    nombre: 'Amor por el trabajo',
+    metafora: 'Somos como el corazón, inyectamos fuerzas para lograr desempeños superiores.',
+  },
+  {
+    nombre: 'Oportunidad',
+    metafora: 'Somos como los glóbulos blancos, actuamos en el lugar y momento adecuado.',
+  },
+  {
+    nombre: 'Innovación permanente',
+    metafora: 'Somos como los pulmones, transformamos ideas en hechos y servicios de mejora continua.',
+  },
+  {
+    nombre: 'Calidez',
+    metafora: 'Somos como el algodón en el trato a nuestros usuarios.',
+  },
+  {
+    nombre: 'Compromiso y respeto',
+    metafora: 'Somos como los elementos de protección personal, aportamos conocimiento para el beneficio de todos.',
+  },
+  {
+    nombre: 'Confiabilidad y transparencia',
+    metafora: 'Somos como el microscopio, ampliamos nuestros objetivos para generar tranquilidad.',
+  },
+];
 ---
 
 <BaseLayout
   title="Nosotros"
-  description="Conoce la historia, el equipo y los valores de CIC Laboratorios, referente en diagnóstico clínico en el Valle del Cauca."
+  description="Conoce la misión, visión, historia y valores de CIC Laboratorios, referente en diagnóstico clínico en el Valle del Cauca."
 >
   <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
     <Breadcrumb items={[{ label: 'Inicio', href: '/' }, { label: 'Nosotros' }]} />
@@ -43,25 +73,62 @@ const anchorLinks = [
       <!-- Main content -->
       <div class="flex-1 space-y-16">
 
-        <section id="historia" aria-labelledby="historia-heading">
-          <h2 id="historia-heading">Historia</h2>
-          <p>
-            {/* TODO (content-needed): Replace with real history copy */}
-            Con más de 30 años de trayectoria, CIC Laboratorios nació en
-            Guadalajara de Buga con la misión de democratizar el acceso a
-            diagnósticos de calidad en el Valle del Cauca.
+        <!-- Misión -->
+        <section id="mision" aria-labelledby="mision-heading">
+          <h2 id="mision-heading">Misión</h2>
+          <p class="mt-4 text-gray-700 leading-relaxed">
+            Somos una organización del sector de la salud dedicada al procesamiento y análisis de exámenes de
+            Laboratorio Clínico, atendiendo amable y profesionalmente a los pacientes de las EPS, Hospitales,
+            Clínicas, Particulares y demás entidades de la Salud, con tecnología y equipos de última generación,
+            entregando información en tiempo real en todas nuestras sedes, comprometidos con la calidad de vida
+            para el Valle del Cauca.
           </p>
-          <p class="mt-4">
-            <strong>+30 años</strong> al servicio de la salud regional.
-          </p>
-          {/* TODO (content-needed): Add timeline or milestone list */}
         </section>
 
+        <!-- Visión -->
+        <section id="vision" aria-labelledby="vision-heading">
+          <h2 id="vision-heading">Visión</h2>
+          <p class="mt-4 text-gray-700 leading-relaxed">
+            Ser al 2027 líder en el procesamiento y análisis de exámenes de laboratorio Clínico en diferentes
+            niveles de complejidad, logrando ampliar nuestra cobertura del suroccidente Colombiano a un alcance
+            nacional e internacional para el beneficio de nuestros aliados, pacientes, colaboradores y socios.
+          </p>
+        </section>
+
+        <!-- Historia -->
+        <section id="historia" aria-labelledby="historia-heading">
+          <h2 id="historia-heading">Historia</h2>
+          <p class="mt-4 text-gray-700 leading-relaxed">
+            Desde 1985 hasta hoy, CIC Laboratorios ha crecido de una sede en Guadalajara de Buga a más de 18
+            sedes en el Valle del Cauca.
+          </p>
+          <p class="mt-3 text-gray-700 leading-relaxed">
+            Cuatro décadas de crecimiento sostenido, inversión en tecnología y compromiso con el bienestar de
+            nuestros pacientes han convertido a CIC en el referente de diagnóstico clínico de la región.
+          </p>
+          <a href="/nosotros/historia" class="mt-4 inline-block text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200">
+            Ver historia completa →
+          </a>
+        </section>
+
+        <!-- Valores -->
+        <section id="valores" aria-labelledby="valores-heading">
+          <h2 id="valores-heading">Valores</h2>
+          <div class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {valores.map((valor) => (
+              <div class="rounded-xl border border-gray-200 p-5">
+                <h3 class="text-base font-semibold text-gray-900">{valor.nombre}</h3>
+                <p class="mt-2 text-sm text-gray-600 leading-relaxed">{valor.metafora}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- Equipo -->
         <section id="equipo" aria-labelledby="equipo-heading">
           <h2 id="equipo-heading">Equipo</h2>
           <p>
-            {/* TODO (content-needed): Replace with real team intro copy */}
-            Nuestro equipo de bacteriólogos, enfermeros y personal administrativo
+            Nuestro equipo de bacteriólogos, auxiliar de laboratorio y personal administrativo
             trabaja con vocación de servicio y compromiso con la excelencia.
           </p>
           {/* TODO (content-needed): Replace placeholder grid with real team member cards (photos, names, roles) */}
