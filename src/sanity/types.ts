@@ -25,6 +25,8 @@ export interface Sede {
   lng?: number | null;
   telefono: string;
   whatsapp: string;
+  whatsappDomicilio?: string | null;
+  whatsappSubgerencia?: string | null;
   email?: string | null;
   horario: Horario;
   servicios: ServicioSlug[];

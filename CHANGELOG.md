@@ -24,6 +24,25 @@ Versions track milestones, not npm semver — this is a content/site project.
 - `src/pages/sedes/[slug].astro`, `src/content/servicios/ginecologia-vph.json`, `src/sanity/schemas/sede.ts`, `src/pages/servicios/index.astro`: renamed "Ginecología/VPH" → "Citología/VPH" across all user-facing labels (URL slug unchanged for stability)
 - `src/pages/examenes/[slug].astro`: renamed stat label "Tiempo de informe" → "Oportunidad en resultados" per marketing team request
 
+### Added (per-service WhatsApp routing on sede detail pages)
+- `src/sanity/schemas/sede.ts`: new optional fields `whatsappDomicilio` and `whatsappSubgerencia` — allow CMS editors to set separate WhatsApp numbers for domicilio orders and subgerencia (empresarial/salud ocupacional) contacts per sede
+- `src/sanity/types.ts`: `Sede` interface extended with `whatsappDomicilio?: string | null` and `whatsappSubgerencia?: string | null`
+- `src/sanity/queries.ts`: `SEDE_PROJECTION` now projects `whatsappDomicilio` and `whatsappSubgerencia` alongside existing `whatsapp`
+- `src/pages/sedes/[slug].astro`: `WA_ROUTING` lookup map derives per-service WhatsApp URLs from the new fields; service chips for domicilio, jornadas-empresariales, and salud-ocupacional display a secondary "Solicitar por WhatsApp →" link when the field is set in Sanity; chips without a matching field degrade to the existing service page link only — fully backwards-compatible
+
+### Changed (button-first UX on service cards, footer WhatsApp link)
+- `src/pages/servicios/index.astro`: "Saber más →" text span replaced with a visually button-styled span (`bg-red-600 px-4 py-2 rounded-lg`) — card remains a single `<a>` (no nested interactive elements); `group-hover:bg-red-700` provides hover feedback; label changed to "Ver servicio"
+- `src/pages/servicios/[slug].astro`: CTA action block moved above the Disponibilidad section so the primary action is visible without scrolling; added "Ver sedes disponibles" secondary button linking to `/sedes`
+- `src/components/Footer.astro`: added WhatsApp link in the contact `<address>` block after the email address; imports `SITE_CONFIG` from `@/lib/config` for the phone number
+
+### Added (nosotros: mission, vision, values, timeline; breadcrumb fix; team role label)
+- `src/pages/nosotros/index.astro`: added official Misión and Visión sections with brand-approved text; added values grid (6 values with biological metaphors) using `grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3`; historia section reduced to 2-sentence teaser + "Ver historia completa →" link; anchor nav updated with Misión and Visión entries before Historia and Valores; "enfermeros" → "auxiliar de laboratorio" in equipo section copy
+- `src/pages/nosotros/historia.astro`: replaced hardcoded `<nav aria-label="Migas de pan">` with `<Breadcrumb>` component; populated timeline `<ol>` with 7 official milestones (1985–2020) styled with `border-l-2 border-red-200 pl-4`; added proper page header with `<h1>`
+- `src/pages/nosotros/equipo.astro`: "enfermeros" → "auxiliar de laboratorio" in meta description
+
+### Changed (empresas: fill value proposition copy from brand documents)
+- `src/pages/empresas.astro`: replaced three `TODO (content-needed)` placeholder blocks with approved brand copy — intro paragraph highlighting 1,200 pruebas/hora throughput and Valle del Cauca coverage; detail copy for "Resultados el mismo día" (digital email delivery, same-day turnaround), "Toma en sitio" (certified team, ingreso/periódico/retiro jornadas), and "Informes consolidados" (SST-compatible group report for Recursos Humanos)
+
 ### Fixed (code review cleanup — PRs #25–31)
 - `src/lib/seo.ts`: `horarioToOpeningHours` now emits one `openingHours` entry per day for non-consecutive days (e.g. Mo + We) instead of the invalid `"Mo We HH:MM-HH:MM"` Schema.org string that Google silently rejects; removed now-unneeded `compressDays` helper; updated comment to clarify parser behavior
 - `src/pages/contacto.astro`, `src/pages/sedes/[slug].astro`: `mapEmbedUrl` from Sanity is validated against `https://www.google.com/maps/` origin before being used as `<iframe src>` — rejects non-Google URLs from a compromised CMS account

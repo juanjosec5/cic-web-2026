@@ -60,6 +60,18 @@ const ALL_SERVICES = [
   { slug: 'validacion-qr', label: 'Validación QR' },
 ] as const;
 
+const WA_ROUTING: Partial<Record<typeof ALL_SERVICES[number]['slug'], string | null>> = {
+  domicilio: sede.whatsappDomicilio
+    ? `https://wa.me/${sede.whatsappDomicilio}?text=${encodeURIComponent(`Quiero solicitar toma de muestras a domicilio en ${sede.ciudad}.`)}`
+    : null,
+  'jornadas-empresariales': sede.whatsappSubgerencia
+    ? `https://wa.me/${sede.whatsappSubgerencia}?text=${encodeURIComponent('Quiero información sobre jornadas empresariales.')}`
+    : null,
+  'salud-ocupacional': sede.whatsappSubgerencia
+    ? `https://wa.me/${sede.whatsappSubgerencia}?text=${encodeURIComponent('Quiero información sobre salud ocupacional.')}`
+    : null,
+};
+
 const DIAS = ['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo'] as const;
 
 const CONVENIOS_PREVIEW = 3;
@@ -179,12 +191,20 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
           const available = sede.servicios.includes(slug);
           return (
             <li class:list={[
-              'flex items-center gap-2 rounded-lg px-4 py-3 text-sm font-medium',
+              'flex items-start gap-2 rounded-lg px-4 py-3 text-sm font-medium',
               available ? 'bg-green-50 text-green-800' : 'bg-gray-50 text-gray-400',
             ]}>
               <span class="font-bold leading-none">{available ? '✓' : '—'}</span>
               {available ? (
-                <a href={`/servicios/${slug}`} class="hover:underline">{label}</a>
+                <span class="flex flex-col gap-1">
+                  <a href={`/servicios/${slug}`} class="hover:underline">{label}</a>
+                  {WA_ROUTING[slug] && (
+                    <a href={WA_ROUTING[slug]!} target="_blank" rel="noopener noreferrer"
+                       class="text-xs font-medium text-green-700 hover:underline">
+                      Solicitar por WhatsApp →
+                    </a>
+                  )}
+                </span>
               ) : (
                 <span>{label}</span>
               )}
