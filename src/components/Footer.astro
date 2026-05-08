@@ -164,10 +164,6 @@ const hasSocial = SOCIAL_LINKS.facebook || SOCIAL_LINKS.instagram || SOCIAL_LINK
 
 <style>
   @media (min-width: 640px) {
-    /* Force links visible — browser hides non-summary children of a closed <details> */
-    details.footer-group > ul {
-      display: block;
-    }
     details.footer-group > summary {
       list-style: none;
       cursor: default;
@@ -182,3 +178,18 @@ const hasSocial = SOCIAL_LINKS.facebook || SOCIAL_LINKS.instagram || SOCIAL_LINK
     transform: rotate(180deg);
   }
 </style>
+
+<script>
+  const mq = window.matchMedia('(min-width: 640px)');
+  const groups = [...document.querySelectorAll('details.footer-group')] as HTMLDetailsElement[];
+
+  function syncOpen(e: MediaQueryList | MediaQueryListEvent) {
+    groups.forEach((el) => {
+      if (e.matches) el.setAttribute('open', '');
+      else el.removeAttribute('open');
+    });
+  }
+
+  mq.addEventListener('change', syncOpen);
+  syncOpen(mq);
+</script>
