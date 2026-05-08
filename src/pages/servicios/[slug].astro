@@ -52,6 +52,28 @@ const ctaUrl =
       <h1>{servicio.nombre}</h1>
       <p class="mt-4">{servicio.descripcion}</p>
 
+      <!-- CTA -->
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a
+          href={ctaUrl}
+          class:list={[
+            servicio.ctaTipo === 'whatsapp'
+              ? "inline-flex items-center gap-2 rounded-lg bg-green-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-700 active:scale-95 transition-all duration-200"
+              : "inline-flex items-center rounded-lg bg-red-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-700 active:scale-95 transition-all duration-200"
+          ]}
+          {...(servicio.ctaTipo === 'whatsapp'
+            ? { target: '_blank', rel: 'noopener noreferrer' }
+            : {})}
+        >
+          {servicio.ctaTipo === 'whatsapp'
+            ? 'Solicitar por WhatsApp'
+            : 'Solicitar información'}
+        </a>
+        <a href="/sedes" class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200">
+          Ver sedes disponibles
+        </a>
+      </div>
+
       <!-- Available sedes -->
       <section aria-labelledby="disponibilidad-heading" class="mt-10">
         <h2 id="disponibilidad-heading">Disponibilidad</h2>
@@ -70,25 +92,6 @@ const ctaUrl =
           </ul>
         )}
       </section>
-
-      <!-- CTA -->
-      <div class="mt-8">
-        <a
-          href={ctaUrl}
-          class:list={[
-            servicio.ctaTipo === 'whatsapp'
-              ? "inline-flex items-center gap-2 rounded-lg bg-green-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-700 active:scale-95 transition-all duration-200"
-              : "inline-flex items-center rounded-lg bg-red-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-700 active:scale-95 transition-all duration-200"
-          ]}
-          {...(servicio.ctaTipo === 'whatsapp'
-            ? { target: '_blank', rel: 'noopener noreferrer' }
-            : {})}
-        >
-          {servicio.ctaTipo === 'whatsapp'
-            ? 'Solicitar por WhatsApp'
-            : 'Solicitar información'}
-        </a>
-      </div>
     </article>
 
   </div>

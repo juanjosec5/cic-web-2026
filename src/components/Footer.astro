@@ -1,5 +1,5 @@
 ---
-import { SOCIAL_LINKS } from '@/lib/config';
+import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/config';
 const currentYear = new Date().getFullYear();
 
 const siteLinks = [
@@ -37,6 +37,12 @@ const siteLinks = [
           <p>
             <a href="mailto:buga@ciclaboratorios.com" class="transition-colors hover:text-white">
               buga@ciclaboratorios.com
+            </a>
+          </p>
+          <p>
+            <a href={`https://wa.me/${SITE_CONFIG.whatsapp}`} target="_blank" rel="noopener noreferrer"
+               class="transition-colors hover:text-white">
+              WhatsApp: {SITE_CONFIG.whatsapp}
             </a>
           </p>
         </address>
