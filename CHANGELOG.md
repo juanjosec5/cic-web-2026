@@ -9,6 +9,21 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 ## [Unreleased]
 
+### Fixed (PR #34 code review)
+- `src/pages/examenes/[slug].astro`: removed stray `}` character from `waDomicilio` template literal that produced a malformed WhatsApp URL with a trailing `}` appended after the query string
+- `src/pages/pacientes/derechos-deberes.astro`: added `text-base font-semibold text-gray-900` to `<h2>` elements inside card sections — without override they inherited global `text-2xl` (1.5rem), visually inconsistent with equivalent cards in `politica-de-privacidad.astro`
+- `src/pages/participacion-social.astro`: changed "Documentos relacionados" block from `<div>` to `<section aria-labelledby>` with a matching `id` on the `<h2>` — consistent with all other landmark regions on this page
+
+### Added (legal pages, content fill, label corrections — marketing assets)
+- `src/pages/politica-de-privacidad.astro`: new static page with full data privacy policy per Ley 1581 de 2012 — six patient data rights, SLA (10 days consultas / 15 days reclamos), responsible entity and contact details, special note on health data; effective November 28, 2025
+- `src/pages/participacion-social.astro`: new static page — Oficina de Atención al Usuario (address, hours, phone), PQRSF channel (links to /contacto + WhatsApp + email), Comité de Ética, Asociación de Usuarios eligibility, satisfaction survey placeholder; links to privacy policy and derechos-deberes
+- `src/components/Footer.astro`: added "Política de privacidad" and "Participación social en salud" links to siteLinks
+
+### Changed (label corrections per marketing team)
+- `src/pages/pacientes/derechos-deberes.astro`: replaced six placeholder `[ pendiente ]` items with the four official derechos and four official deberes from the MISION/VISION document; citation now links to /participacion-social; added PQRSF action block
+- `src/pages/sedes/[slug].astro`, `src/content/servicios/ginecologia-vph.json`, `src/sanity/schemas/sede.ts`, `src/pages/servicios/index.astro`: renamed "Ginecología/VPH" → "Citología/VPH" across all user-facing labels (URL slug unchanged for stability)
+- `src/pages/examenes/[slug].astro`: renamed stat label "Tiempo de informe" → "Oportunidad en resultados" per marketing team request
+
 ### Fixed (code review cleanup — PRs #25–31)
 - `src/lib/seo.ts`: `horarioToOpeningHours` now emits one `openingHours` entry per day for non-consecutive days (e.g. Mo + We) instead of the invalid `"Mo We HH:MM-HH:MM"` Schema.org string that Google silently rejects; removed now-unneeded `compressDays` helper; updated comment to clarify parser behavior
 - `src/pages/contacto.astro`, `src/pages/sedes/[slug].astro`: `mapEmbedUrl` from Sanity is validated against `https://www.google.com/maps/` origin before being used as `<iframe src>` — rejects non-Google URLs from a compromised CMS account

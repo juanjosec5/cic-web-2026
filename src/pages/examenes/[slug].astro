@@ -46,7 +46,7 @@ const categoriaLabel =
   CATEGORIAS.find((c) => c.slug === examen.categoria)?.label ?? examen.categoria;
 
 const waCotizar = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(`Quisiera cotizar el examen: ${examen.nombre}`)}`;
-const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(`Quisiera solicitar toma a domicilio para: ${examen.nombre}`)}}`;
+const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(`Quisiera solicitar toma a domicilio para: ${examen.nombre}`)}`;
 ---
 
 <ExamenLayout examen={examen}>
@@ -111,7 +111,7 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
         )}
         {examen.oportunidadResultados && (
           <div class="bg-white p-4">
-            <dt class="text-xs font-medium uppercase tracking-wide text-gray-500">Tiempo de informe</dt>
+            <dt class="text-xs font-medium uppercase tracking-wide text-gray-500">Oportunidad en resultados</dt>
             <dd class="mt-1 font-semibold text-gray-900">{examen.oportunidadResultados}</dd>
           </div>
         )}
