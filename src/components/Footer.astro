@@ -129,7 +129,7 @@ const hasSocial = SOCIAL_LINKS.facebook || SOCIAL_LINKS.instagram || SOCIAL_LINK
                 <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
               </svg>
             </summary>
-            <ul role="list" class="space-y-2 pb-3 pt-1 text-sm sm:mt-3 sm:pb-0 sm:pt-0">
+            <ul role="list" class="space-y-2 pb-3 pt-1 text-sm sm:mt-2 sm:pb-0 sm:pt-0">
               {group.links.map((link) => (
                 <li>
                   <a href={link.href} class="transition-colors hover:text-white">{link.label}</a>
@@ -164,15 +164,14 @@ const hasSocial = SOCIAL_LINKS.facebook || SOCIAL_LINKS.instagram || SOCIAL_LINK
 
 <style>
   @media (min-width: 640px) {
-    details.footer-group {
-      display: contents;
+    /* Force links visible — browser hides non-summary children of a closed <details> */
+    details.footer-group > ul {
+      display: block;
     }
     details.footer-group > summary {
       list-style: none;
       cursor: default;
       pointer-events: none;
-      display: block;
-      margin-bottom: 0.75rem;
     }
     details.footer-group > summary::marker,
     details.footer-group > summary::-webkit-details-marker {
