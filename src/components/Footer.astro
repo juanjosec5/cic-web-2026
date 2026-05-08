@@ -2,104 +2,184 @@
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/config';
 const currentYear = new Date().getFullYear();
 
-const siteLinks = [
-  { label: 'Sedes', href: '/sedes' },
-  { label: 'Exámenes', href: '/examenes' },
-  { label: 'Servicios', href: '/servicios' },
-  { label: 'Empresas', href: '/empresas' },
-  { label: 'Nosotros', href: '/nosotros' },
-  { label: 'Preparación de exámenes', href: '/pacientes/preparacion' },
-  { label: 'Preguntas frecuentes', href: '/pacientes/preguntas-frecuentes' },
-  { label: 'Derechos y deberes', href: '/pacientes/derechos-deberes' },
-  { label: 'Laboratorios aliados', href: '/laboratorios' },
-  { label: 'Contacto', href: '/contacto' },
-  { label: 'Política de privacidad', href: '/politica-de-privacidad' },
-  { label: 'Participación social en salud', href: '/participacion-social' },
-  { label: 'Estados financieros', href: '/estados-financieros' },
+interface LinkItem { label: string; href: string; }
+interface LinkGroup { heading: string; links: LinkItem[]; }
+
+const linkGroups: LinkGroup[] = [
+  {
+    heading: 'Pacientes',
+    links: [
+      { label: 'Preparación de exámenes', href: '/pacientes/preparacion' },
+      { label: 'Preguntas frecuentes',    href: '/pacientes/preguntas-frecuentes' },
+      { label: 'Derechos y deberes',      href: '/pacientes/derechos-deberes' },
+    ],
+  },
+  {
+    heading: 'Exámenes',
+    links: [
+      { label: 'Catálogo de exámenes', href: '/examenes' },
+      { label: 'Perfiles',             href: '/examenes/perfiles' },
+    ],
+  },
+  {
+    heading: 'Servicios',
+    links: [
+      { label: 'Todos los servicios',    href: '/servicios' },
+      { label: 'Toma a domicilio',       href: '/servicios/domicilio' },
+      { label: 'Citología y VPH',        href: '/servicios/ginecologia-vph' },
+      { label: 'Jornadas empresariales', href: '/servicios/jornadas-empresariales' },
+      { label: 'Salud ocupacional',      href: '/servicios/salud-ocupacional' },
+    ],
+  },
+  {
+    heading: 'Nosotros',
+    links: [
+      { label: 'Quiénes somos',    href: '/nosotros' },
+      { label: 'Historia',         href: '/nosotros/historia' },
+      { label: 'Equipo',           href: '/nosotros/equipo' },
+      { label: 'Calidad',          href: '/nosotros/calidad' },
+      { label: 'Tecnología',       href: '/nosotros/tecnologia' },
+      { label: 'Aliados',          href: '/nosotros/aliados' },
+    ],
+  },
+  {
+    heading: 'Empresas y aliados',
+    links: [
+      { label: 'Sedes',               href: '/sedes' },
+      { label: 'Empresas',            href: '/empresas' },
+      { label: 'Laboratorios aliados', href: '/laboratorios' },
+    ],
+  },
 ];
+
+const legalLinks: LinkItem[] = [
+  { label: 'Contacto',                      href: '/contacto' },
+  { label: 'Política de privacidad',        href: '/politica-de-privacidad' },
+  { label: 'Participación social en salud', href: '/participacion-social' },
+  { label: 'Estados financieros',           href: '/estados-financieros' },
+];
+
+const hasSocial = SOCIAL_LINKS.facebook || SOCIAL_LINKS.instagram || SOCIAL_LINKS.linkedin;
 ---
 
 <footer class="mt-auto bg-gray-900 text-gray-300">
   <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6">
-    <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+
+    <!-- Top row: contact + social (always visible) -->
+    <div class="mb-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 border-b border-gray-800 pb-8">
 
       <!-- Contact block -->
       <div>
-        <h2 class="mb-4 font-semibold text-white">CIC Laboratorios</h2>
+        <h2 class="mb-4 font-semibold text-white">{SITE_CONFIG.name}</h2>
         <address class="space-y-1 text-sm not-italic leading-relaxed">
-          <p>Calle 5 # 14-23, Centro</p>
-          <p>Guadalajara de Buga, Valle del Cauca</p>
+          <p>{SITE_CONFIG.sedePrincipal.direccion}</p>
+          <p>{SITE_CONFIG.sedePrincipal.ciudad}, Valle del Cauca</p>
           <p>
-            <a href="tel:+576022280000" class="transition-colors hover:text-white">
-              Tel: 602 228 0000
-            </a>
-          </p>
-          <p>
-            <a href="mailto:buga@ciclaboratorios.com" class="transition-colors hover:text-white">
-              buga@ciclaboratorios.com
+            <a href={`tel:${SITE_CONFIG.sedePrincipal.telefono}`} class="transition-colors hover:text-white">
+              Tel: {SITE_CONFIG.sedePrincipal.telefono}
             </a>
           </p>
           <p>
             <a href={`https://wa.me/${SITE_CONFIG.whatsapp}`} target="_blank" rel="noopener noreferrer"
                class="transition-colors hover:text-white">
-              WhatsApp: {SITE_CONFIG.whatsapp}
+              WhatsApp: {SITE_CONFIG.sedePrincipal.whatsapp}
             </a>
           </p>
         </address>
       </div>
 
-      <!-- Sitemap -->
-      <nav aria-label="Mapa del sitio">
-        <h2 class="mb-4 font-semibold text-white">Mapa del sitio</h2>
-        <ul role="list" class="space-y-2 text-sm">
-          {siteLinks.map((link) => (
-            <li>
-              <a href={link.href} class="transition-colors hover:text-white">
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-
-      <!-- Social -->
-      {(SOCIAL_LINKS.facebook || SOCIAL_LINKS.instagram || SOCIAL_LINKS.linkedin) && (
-      <div>
-        <h2 class="mb-4 font-semibold text-white">Síguenos</h2>
-        <ul role="list" class="space-y-2 text-sm">
-          {SOCIAL_LINKS.facebook && (
-            <li>
-              <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-white">
-                Facebook
-              </a>
-            </li>
-          )}
-          {SOCIAL_LINKS.instagram && (
-            <li>
-              <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-white">
-                Instagram
-              </a>
-            </li>
-          )}
-          {SOCIAL_LINKS.linkedin && (
-            <li>
-              <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-white">
-                LinkedIn
-              </a>
-            </li>
-          )}
-        </ul>
-      </div>
+      <!-- Social block -->
+      {hasSocial && (
+        <div>
+          <h2 class="mb-4 font-semibold text-white">Síguenos</h2>
+          <ul role="list" class="space-y-2 text-sm">
+            {SOCIAL_LINKS.facebook && (
+              <li>
+                <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer"
+                   class="transition-colors hover:text-white">Facebook</a>
+              </li>
+            )}
+            {SOCIAL_LINKS.instagram && (
+              <li>
+                <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer"
+                   class="transition-colors hover:text-white">Instagram</a>
+              </li>
+            )}
+            {SOCIAL_LINKS.linkedin && (
+              <li>
+                <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer"
+                   class="transition-colors hover:text-white">LinkedIn</a>
+              </li>
+            )}
+          </ul>
+        </div>
       )}
     </div>
+
+    <!-- Link groups: accordion on mobile, grid on sm+ -->
+    <nav aria-label="Mapa del sitio">
+      <div class="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-8 lg:grid-cols-5">
+        {linkGroups.map((group) => (
+          <details class="footer-group border-b border-gray-800 sm:border-0">
+            <summary class="flex cursor-pointer items-center justify-between py-3 font-semibold text-white sm:cursor-default sm:py-0 sm:pointer-events-none">
+              {group.heading}
+              <svg class="footer-chevron h-4 w-4 shrink-0 text-gray-400 transition-transform sm:hidden"
+                   xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                   stroke-width="2" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
+            </summary>
+            <ul role="list" class="space-y-2 pb-3 pt-1 text-sm sm:mt-3 sm:pb-0 sm:pt-0">
+              {group.links.map((link) => (
+                <li>
+                  <a href={link.href} class="transition-colors hover:text-white">{link.label}</a>
+                </li>
+              ))}
+            </ul>
+          </details>
+        ))}
+      </div>
+    </nav>
+
   </div>
 
   <!-- Copyright bar -->
   <div class="border-t border-gray-800">
     <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6">
       <p class="text-center text-sm text-gray-500">
-        &copy; {currentYear} CIC Laboratorios. Todos los derechos reservados.
+        &copy; {currentYear} {SITE_CONFIG.name}. Todos los derechos reservados.
       </p>
+      <ul role="list" class="mt-2 flex flex-wrap justify-center gap-x-4 gap-y-1">
+        {legalLinks.map((link) => (
+          <li>
+            <a href={link.href} class="text-xs text-gray-600 transition-colors hover:text-gray-400">
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   </div>
 </footer>
+
+<style>
+  @media (min-width: 640px) {
+    details.footer-group {
+      display: contents;
+    }
+    details.footer-group > summary {
+      list-style: none;
+      cursor: default;
+      pointer-events: none;
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+    details.footer-group > summary::marker,
+    details.footer-group > summary::-webkit-details-marker {
+      display: none;
+    }
+  }
+  details.footer-group[open] .footer-chevron {
+    transform: rotate(180deg);
+  }
+</style>
