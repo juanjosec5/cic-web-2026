@@ -4,9 +4,9 @@
  *
  * TODO (content-needed): Add full list of EPS/ARL/insurance convenios.
  * TODO (content-needed): Add aliado logos once available.
- * TODO (design-needed): Logo grid layout for aliados.
  */
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 
@@ -17,32 +17,63 @@ const aliados = await getCollection('aliados');
   title="Aliados y Convenios"
   description="Conoce los aliados estratégicos y convenios de CIC Laboratorios con EPS, ARL, clínicas y laboratorios de la región."
 >
-  <nav aria-label="Migas de pan">
-    <a href="/nosotros">Nosotros</a> › Aliados
-  </nav>
+  <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
 
-  <h1>Aliados y convenios</h1>
+    <Breadcrumb items={[
+      { label: 'Inicio', href: '/' },
+      { label: 'Nosotros', href: '/nosotros' },
+      { label: 'Aliados' },
+    ]} />
 
-  <section aria-labelledby="aliados-heading">
-    <h2 id="aliados-heading">Aliados estratégicos</h2>
-    <ul>
-      {aliados.map((aliado: CollectionEntry<'aliados'>) => (
-        <li>
-          <strong>{aliado.data.nombre}</strong>
-          <p>{aliado.data.descripcion}</p>
-          {aliado.data.url && (
-            <a href={aliado.data.url} target="_blank" rel="noopener noreferrer">
-              Visitar sitio web
-            </a>
-          )}
-        </li>
-      ))}
-    </ul>
-  </section>
+    <header class="mt-6">
+      <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">Aliados y convenios</h1>
+      <p class="mt-2 text-gray-600">
+        Trabajamos con instituciones y organismos que comparten nuestro compromiso con la salud.
+      </p>
+    </header>
 
-  <section aria-labelledby="convenios-heading">
-    <h2 id="convenios-heading">Convenios activos</h2>
-    <!-- TODO (content-needed): Add full list of EPS, ARL, pre-pagas with which CIC has agreements -->
-    <p>[ Lista de convenios pendiente ]</p>
-  </section>
+    {aliados.length > 0 && (
+      <section aria-labelledby="aliados-heading" class="mt-8">
+        <h2 id="aliados-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
+          Aliados estratégicos
+        </h2>
+        <ul role="list" class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {aliados.map((aliado: CollectionEntry<'aliados'>) => (
+            <li class="rounded-xl border border-gray-200 p-6">
+              <p class="font-semibold text-gray-900">{aliado.data.nombre}</p>
+              {aliado.data.descripcion && (
+                <p class="mt-2 text-sm text-gray-600">{aliado.data.descripcion}</p>
+              )}
+              {aliado.data.url && (
+                <a
+                  href={aliado.data.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="mt-3 inline-block text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200"
+                >
+                  Visitar sitio web →
+                </a>
+              )}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <section aria-labelledby="convenios-heading" class="mt-8 rounded-xl border border-gray-200 p-6">
+      <h2 id="convenios-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
+        Convenios activos
+      </h2>
+      <p class="mt-4 text-sm text-gray-400 italic">
+        Lista de convenios con EPS, ARL y medicina prepagada — pendiente.
+      </p>
+    </section>
+
+    <div class="mt-12 rounded-xl bg-gray-50 p-6">
+      <a href="/nosotros" class="text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200">
+        ← Volver a Nosotros
+      </a>
+    </div>
+
+  </div>
 </BaseLayout>
