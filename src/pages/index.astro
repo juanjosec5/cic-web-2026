@@ -5,6 +5,7 @@ import SedeMapD3 from '@/components/islands/SedeMapD3.vue';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import { SITE_CONFIG, CATEGORIAS } from '@/lib/config';
+import { SERVICE_ICONS } from '@/lib/icons';
 import { buildOrganizationJsonLd } from '@/lib/seo';
 import { client } from '@/sanity/client';
 import { ALL_SEDES_QUERY, PROMO_MES_QUERY, PAGINA_INICIO_QUERY } from '@/sanity/queries';
@@ -280,6 +281,9 @@ const sedesParaMapa = sedes
           <li>
             <a href={`/servicios/${servicio.data.slug}`}
                class="group block rounded-xl border border-gray-200 p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
+              {SERVICE_ICONS[servicio.data.slug] && (
+                <HeroIcon path={SERVICE_ICONS[servicio.data.slug]} class="mb-3 h-8 w-8 text-red-600" />
+              )}
               <h3 class="font-semibold transition-colors duration-200 group-hover:text-red-600">
                 {servicio.data.nombre}
               </h3>
