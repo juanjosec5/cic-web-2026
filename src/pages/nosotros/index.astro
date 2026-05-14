@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
+import HeroIcon from '@/components/HeroIcon.astro';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 
@@ -123,9 +124,7 @@ const valores = [
           <div class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {valores.map((valor) => (
               <div class="rounded-xl border border-gray-200 p-5">
-                <svg class="mb-3 h-8 w-8 text-red-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d={valor.icono} />
-                </svg>
+                <HeroIcon path={valor.icono} class="mb-3 h-8 w-8 text-red-600" />
                 <h3 class="text-base font-semibold text-gray-900">{valor.nombre}</h3>
                 <p class="mt-2 text-sm text-gray-600 leading-relaxed">{valor.metafora}</p>
               </div>

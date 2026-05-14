@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import HeroIcon from '@/components/HeroIcon.astro';
 import SedeMapD3 from '@/components/islands/SedeMapD3.vue';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
@@ -67,6 +68,12 @@ const pilares = paginaInicio?.pilares ?? DEFAULT_PILARES;
 const audiencias = paginaInicio?.audiencias ?? DEFAULT_AUDIENCIAS;
 const calidad = paginaInicio?.calidad ?? DEFAULT_CALIDAD;
 const testimonios = paginaInicio?.testimonios ?? [];
+
+const AUDIENCE_ICONS: Record<string, string> = {
+  'Soy paciente':          'M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z',
+  'Soy empresa':           'M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21',
+  'Soy laboratorio / IPS': 'M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15M14.25 3.104c.251.023.501.05.75.082M19.8 15a2.25 2.25 0 0 1 .244 1.028l-.001.002a2.25 2.25 0 0 1-2.244 2.22H6.2a2.25 2.25 0 0 1-2.244-2.22l-.001-.002A2.25 2.25 0 0 1 4.2 15m15.6 0-3.675-1.845a2.25 2.25 0 0 0-2.25 0L9.75 15M8.25 2.25h7.5',
+};
 
 const sedesParaMapa = sedes
   .filter((s: Sede) => s.lat != null && s.lng != null)
@@ -196,18 +203,12 @@ const sedesParaMapa = sedes
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
       <h2 id="audience-heading">¿Cómo podemos ayudarte?</h2>
       <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-        {(() => {
-          const AUDIENCE_ICONS = [
-            'M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z',
-            'M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21',
-            'M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15M14.25 3.104c.251.023.501.05.75.082M19.8 15a2.25 2.25 0 0 1 .244 1.028l-.001.002a2.25 2.25 0 0 1-2.244 2.22H6.2a2.25 2.25 0 0 1-2.244-2.22l-.001-.002A2.25 2.25 0 0 1 4.2 15m15.6 0-3.675-1.845a2.25 2.25 0 0 0-2.25 0L9.75 15M8.25 2.25h7.5',
-          ];
-          return audiencias.map((aud, i) => (
-            <article class="relative cursor-pointer rounded-xl border border-gray-200 p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
-              <svg class="mb-3 h-8 w-8 text-red-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d={AUDIENCE_ICONS[i]} />
-              </svg>
-              <h3>{aud.titulo}</h3>
+        {audiencias.map((aud) => (
+          <article class="relative cursor-pointer rounded-xl border border-gray-200 p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
+            {AUDIENCE_ICONS[aud.titulo] && (
+              <HeroIcon path={AUDIENCE_ICONS[aud.titulo]} class="mb-3 h-8 w-8 text-red-600" />
+            )}
+            <h3>{aud.titulo}</h3>
             <p class="mt-2 text-gray-600">{aud.descripcion}</p>
             <div class="mt-4 flex flex-col gap-2">
               {aud.links.map((lnk, li) => (
@@ -223,8 +224,7 @@ const sedesParaMapa = sedes
               ))}
             </div>
           </article>
-          ));
-        })()}
+        ))}
       </div>
     </div>
   </section>
