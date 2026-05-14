@@ -9,6 +9,15 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 ## [Unreleased]
 
+### Added (icons, bullet points, mobile nav scroll lock)
+- `src/pages/index.astro`: promo banner moved above hero so it acts as a top-of-page alert; audience cards ("¿Cómo podemos ayudarte?") now show Heroicons per role — user-circle (Paciente), building-office-2 (Empresa), beaker (Laboratorio/IPS)
+- `src/pages/servicios/index.astro`: `SERVICE_ICONS` lookup map — each service card renders a contextual Heroicon (home → domicilio, heart → ginecología/VPH, user-group → jornadas empresariales, shield-check → salud ocupacional)
+- `src/pages/empresas.astro`: three value-proposition cards now each show a Heroicon above the heading (clock → resultados el mismo día, map-pin → toma en sitio, document → informes consolidados)
+- `src/pages/nosotros/index.astro`: six valores cards now each show a Heroicon above the heading (heart, clock, light-bulb, sun, shield-check, magnifying-glass matching each biological metaphor)
+- `src/pages/pacientes/preguntas-frecuentes.astro`: `GRUPO_ICONS` map adds a leading Heroicon to each FAQ group `<h2>` (question-mark-circle → General, beaker → Exámenes, home → Domicilio, document-text → Resultados); FAQ answer `<p>` now uses `set:html` so links render correctly (fixes QR verification link added in prior PR)
+- `src/pages/pacientes/preparacion.astro`: added `list-disc pl-4` to orina amber box `<ul>`, heces amber box `<ul>`, and all four preparación especial article `<ul>` elements so bullet points appear
+- `src/components/Header.astro`: `openNav()` adds `overflow-hidden` to `<body>` and `closeNav()` removes it — prevents page background from scrolling while the mobile nav panel is open
+
 ### Changed (PR #39 — footer redesign)
 - `src/components/Footer.astro`: full redesign — flat 13-link list replaced with 5 categorized `<details>/<summary>` accordion groups (Pacientes, Exámenes, Servicios, Nosotros, Empresas y aliados); mobile collapses per group, sm+ shows 2-col grid, lg shows 5-col grid via `display: contents` on `<details>`; contact info now reads from `SITE_CONFIG.sedePrincipal` (fixes stale hardcoded `Calle 5 # 14-23` address); legal links (Contacto, Política de privacidad, Participación social, Estados financieros) moved to copyright bar; all site subpages now linked (nosotros/*, examenes/perfiles, servicios/*)
 

@@ -1,14 +1,11 @@
 ---
-/**
- * /servicios — Services listing page.
- *
- * TODO (design-needed): Icon cards for each service.
- * TODO (content-needed): Add service images/icons.
- */
+/** /servicios — Services listing page. */
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
+import HeroIcon from '@/components/HeroIcon.astro';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
+import { SERVICE_ICONS } from '@/lib/icons';
 
 const servicios = await getCollection('servicios');
 ---
@@ -29,6 +26,9 @@ const servicios = await getCollection('servicios');
         <li class="flex">
           <a href={`/servicios/${servicio.data.slug}`}
              class="group flex h-full w-full flex-col rounded-xl border border-gray-200 p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
+            {SERVICE_ICONS[servicio.data.slug] && (
+              <HeroIcon path={SERVICE_ICONS[servicio.data.slug]} class="mb-3 h-8 w-8 text-red-600" />
+            )}
             <h2 class="font-semibold transition-colors duration-200 group-hover:text-red-600">
               {servicio.data.nombre}
             </h2>
