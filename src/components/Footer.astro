@@ -59,7 +59,11 @@ const legalLinks: LinkItem[] = [
   { label: 'Estados financieros',           href: '/estados-financieros' },
 ];
 
-const hasSocial = SOCIAL_LINKS.facebook || SOCIAL_LINKS.instagram || SOCIAL_LINKS.linkedin;
+const socialLinks = [
+  { href: SOCIAL_LINKS.facebook,  label: 'Facebook' },
+  { href: SOCIAL_LINKS.instagram, label: 'Instagram' },
+  { href: SOCIAL_LINKS.linkedin,  label: 'LinkedIn' },
+].filter((s) => s.href) as { href: string; label: string }[];
 ---
 
 <footer class="mt-auto bg-navy-950 text-gray-300">
@@ -89,28 +93,16 @@ const hasSocial = SOCIAL_LINKS.facebook || SOCIAL_LINKS.instagram || SOCIAL_LINK
       </div>
 
       <!-- Social block -->
-      {hasSocial && (
+      {socialLinks.length > 0 && (
         <div>
           <h2 class="mb-4 font-semibold text-white">Síguenos</h2>
           <ul role="list" class="space-y-2 text-sm">
-            {SOCIAL_LINKS.facebook && (
+            {socialLinks.map((s) => (
               <li>
-                <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer"
-                   class="transition-colors hover:text-white">Facebook</a>
+                <a href={s.href} target="_blank" rel="noopener noreferrer"
+                   class="transition-colors hover:text-white">{s.label}</a>
               </li>
-            )}
-            {SOCIAL_LINKS.instagram && (
-              <li>
-                <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer"
-                   class="transition-colors hover:text-white">Instagram</a>
-              </li>
-            )}
-            {SOCIAL_LINKS.linkedin && (
-              <li>
-                <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer"
-                   class="transition-colors hover:text-white">LinkedIn</a>
-              </li>
-            )}
+            ))}
           </ul>
         </div>
       )}
@@ -184,10 +176,7 @@ const hasSocial = SOCIAL_LINKS.facebook || SOCIAL_LINKS.instagram || SOCIAL_LINK
   const groups = [...document.querySelectorAll('details.footer-group')] as HTMLDetailsElement[];
 
   function syncOpen(e: MediaQueryList | MediaQueryListEvent) {
-    groups.forEach((el) => {
-      if (e.matches) el.setAttribute('open', '');
-      else el.removeAttribute('open');
-    });
+    groups.forEach((el) => el.toggleAttribute('open', e.matches));
   }
 
   mq.addEventListener('change', syncOpen);

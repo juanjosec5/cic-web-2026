@@ -2,7 +2,6 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
 
 const perfiles = await getCollection('perfiles');
 const sorted = [...perfiles].sort((a, b) => (a.data.precio ?? 0) - (b.data.precio ?? 0));
@@ -27,6 +26,8 @@ const CATEGORIA_MAP: Record<string, string> = {
   'prostatico':           'masculino',
   'general-hombres':      'masculino',
 };
+
+const PREVIEW_COUNT = 3;
 
 const FILTROS = [
   { value: 'todos',         label: 'Todos' },
@@ -79,7 +80,7 @@ const FILTROS = [
 
     <!-- Cards -->
     <ul id="perfiles-grid" role="list" class="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {sorted.map((perfil: CollectionEntry<'perfiles'>) => (
+      {sorted.map((perfil) => (
         <li
           class="relative flex flex-col rounded-lg border border-gray-200 bg-white transition-shadow duration-200 hover:shadow-md"
           data-categoria={CATEGORIA_MAP[perfil.data.slug] ?? 'general'}
@@ -101,15 +102,15 @@ const FILTROS = [
 
             <!-- Exam preview (first 3) -->
             <ul class="mt-3 space-y-1">
-              {perfil.data.examenesIncluidos.slice(0, 3).map((examen: { nombre: string; slug?: string }) => (
+              {perfil.data.examenesIncluidos.slice(0, PREVIEW_COUNT).map((examen: { nombre: string; slug?: string }) => (
                 <li class="flex items-center gap-1.5 text-xs text-gray-600">
                   <span class="text-green-500 font-bold shrink-0">✓</span>
                   <span class="truncate">{examen.nombre}</span>
                 </li>
               ))}
-              {perfil.data.examenesIncluidos.length > 3 && (
+              {perfil.data.examenesIncluidos.length > PREVIEW_COUNT && (
                 <li class="text-xs text-gray-400 pl-4">
-                  +{perfil.data.examenesIncluidos.length - 3} más
+                  +{perfil.data.examenesIncluidos.length - PREVIEW_COUNT} más
                 </li>
               )}
             </ul>

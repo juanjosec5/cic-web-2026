@@ -58,13 +58,11 @@ const navLinks: NavLink[] = [
   },
 ];
 
+const isPathMatch = (href: string) =>
+  pathname === href || (href !== '/' && pathname.startsWith(href));
+
 function isActive(link: NavLink) {
-  if (link.children) {
-    return link.children.some(
-      (c) => pathname === c.href || (c.href !== '/' && pathname.startsWith(c.href))
-    );
-  }
-  return pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
+  return link.children ? link.children.some((c) => isPathMatch(c.href)) : isPathMatch(link.href);
 }
 ---
 
@@ -264,7 +262,7 @@ function isActive(link: NavLink) {
     document.body.style.top = `-${scrollY}px`;
     document.body.style.width = '100%';
     document.body.dataset.scrollY = String(scrollY);
-    panel.style.maxHeight = panel.scrollHeight + 'px';
+    panel.style.maxHeight = `${panel.scrollHeight}px`;
     panel.setAttribute('aria-hidden', 'false');
     iconMenu?.classList.add('hidden');
     iconClose?.classList.remove('hidden');
@@ -298,18 +296,18 @@ function isActive(link: NavLink) {
 
   // Keyboard support for desktop dropdown menus
   document.querySelectorAll<HTMLElement>('[data-dropdown-trigger]').forEach((btn) => {
-    const panel = btn.nextElementSibling as HTMLElement | null;
+    const dropdownPanel = btn.nextElementSibling as HTMLElement | null;
 
     btn.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
         const isExpanded = btn.getAttribute('aria-expanded') === 'true';
         btn.setAttribute('aria-expanded', String(!isExpanded));
-        panel?.classList.toggle('block', !isExpanded);
+        dropdownPanel?.classList.toggle('block', !isExpanded);
       }
       if (e.key === 'Escape') {
         btn.setAttribute('aria-expanded', 'false');
-        panel?.classList.remove('block');
+        dropdownPanel?.classList.remove('block');
         btn.focus();
       }
     });
@@ -318,7 +316,7 @@ function isActive(link: NavLink) {
     btn.parentElement?.addEventListener('focusout', (e) => {
       if (!btn.parentElement?.contains(e.relatedTarget as Node | null)) {
         btn.setAttribute('aria-expanded', 'false');
-        panel?.classList.remove('block');
+        dropdownPanel?.classList.remove('block');
       }
     });
   });
