@@ -15,8 +15,12 @@ interface SedePin {
 
 const props = defineProps<{ sedes: SedePin[]; showSidebar?: boolean }>()
 
+const COLOR_ACTIVE    = '#dc2626'
+const COLOR_PRINCIPAL = '#059669'
+const COLOR_DEFAULT   = '#2563eb'
+
 // Alphabetical sort gives stable, predictable numbering across renders
-const sorted = computed(() =>
+const sortedSedes = computed(() =>
   [...props.sedes].sort((a, b) => a.ciudad.localeCompare(b.ciudad, 'es'))
 )
 
@@ -81,7 +85,7 @@ const polygonPoints = computed(() =>
 )
 
 const sedePoints = computed(() =>
-  sorted.value.map((sede, i) => {
+  sortedSedes.value.map((sede, i) => {
     const [cx, cy] = project(sede.lng, sede.lat, svgW.value, svgH.value)
     return { ...sede, cx, cy, num: i + 1 }
   })
@@ -91,7 +95,7 @@ const sedePoints = computed(() =>
 const activeSlug = ref<string | null>(null)
 
 // ─── Responsive width via ResizeObserver ─────────────────────────────────────
-let ro: ResizeObserver | null = null
+let resizeObserver: ResizeObserver | null = null
 
 function measure() {
   if (!svgEl.value) return
@@ -101,17 +105,17 @@ function measure() {
 
 onMounted(() => {
   measure()
-  ro = new ResizeObserver(measure)
-  if (svgEl.value) ro.observe(svgEl.value)
+  resizeObserver = new ResizeObserver(measure)
+  if (svgEl.value) resizeObserver.observe(svgEl.value)
 })
 
 onUnmounted(() => {
-  ro?.disconnect()
+  resizeObserver?.disconnect()
 })
 </script>
 
 <template>
-  <div :class="showSidebar ? 'flex items-start gap-4' : 'block'">
+  <div :class="showSidebar ? 'flex items-stretch gap-4' : 'block'">
 
     <!-- SVG map -->
     <div :class="showSidebar ? 'flex-1 min-w-0' : 'w-full'">
@@ -147,7 +151,7 @@ onUnmounted(() => {
             :cx="sede.cx"
             :cy="sede.cy"
             :r="sede.esSedePrincipal ? pinR : dotR"
-            :fill="activeSlug === sede.slug ? '#dc2626' : sede.esSedePrincipal ? '#059669' : '#2563eb'"
+            :fill="activeSlug === sede.slug ? COLOR_ACTIVE : sede.esSedePrincipal ? COLOR_PRINCIPAL : COLOR_DEFAULT"
             stroke="white"
             stroke-width="1.5"
           />
@@ -170,8 +174,7 @@ onUnmounted(() => {
     <nav
       v-if="showSidebar"
       aria-label="Lista de sedes"
-      class="w-44 shrink-0 overflow-y-auto rounded-xl border border-gray-100"
-      style="max-height: 420px"
+      class="w-44 shrink-0 rounded-xl border border-gray-100"
     >
       <ul role="list">
         <li v-for="sede in sedePoints" :key="sede.slug">
@@ -186,7 +189,7 @@ onUnmounted(() => {
           >
             <span
               class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full text-[8px] font-bold text-white transition-colors duration-100"
-              :style="{ backgroundColor: activeSlug === sede.slug ? '#dc2626' : sede.esSedePrincipal ? '#059669' : '#2563eb' }"
+              :style="{ backgroundColor: activeSlug === sede.slug ? COLOR_ACTIVE : sede.esSedePrincipal ? COLOR_PRINCIPAL : COLOR_DEFAULT }"
             >{{ sede.num }}</span>
             <span class="truncate leading-none">
               <span class="font-medium">{{ sede.ciudad }}</span>
