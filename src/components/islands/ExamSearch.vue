@@ -129,6 +129,13 @@ const filtered = computed(() => {
 
 .pills-nav {
   margin-top: 0.75rem;
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .pills-nav {
+    display: block;
+  }
 }
 
 .pills-list {
