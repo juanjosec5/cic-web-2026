@@ -72,7 +72,7 @@ const zonas = {
         { label: 'Centro del Valle', sedes: zonas.centro },
         { label: 'Sur del Valle', sedes: zonas.sur },
       ].filter(z => z.sedes.length > 0).map(zona => (
-        <details class="group rounded-xl border border-gray-200 overflow-hidden" open>
+        <details class="group rounded-xl border border-gray-200 overflow-hidden">
           <summary class="flex cursor-pointer items-center justify-between px-4 py-3 text-sm font-semibold text-gray-800 select-none list-none">
             <span>{zona.label}</span>
             <span class="flex items-center gap-2 text-gray-400">

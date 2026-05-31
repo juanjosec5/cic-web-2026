@@ -187,20 +187,23 @@ function isActive(link: NavLink) {
     aria-hidden="true"
   >
     <nav aria-label="Menú móvil">
-      <ul role="list" class="space-y-1 px-4 py-3">
+      <ul role="list" class="space-y-0.5 px-4 py-3">
         {navLinks.map((link) => (
           <li>
             {link.children ? (
-              <>
-                <span
+              <details class="group/m">
+                <summary
                   class:list={[
-                    'block rounded-md px-3 py-2 text-base font-medium',
-                    isActive(link) ? 'text-navy-800 font-semibold' : 'text-gray-500',
+                    'flex cursor-pointer list-none items-center justify-between rounded-md px-3 py-2.5 text-base font-medium select-none',
+                    isActive(link) ? 'text-navy-800 font-semibold' : 'text-gray-700',
                   ]}
                 >
                   {link.label}
-                </span>
-                <ul role="group" aria-label={link.label} class="ml-4 mt-1 space-y-1">
+                  <svg class="h-4 w-4 shrink-0 text-gray-400 transition-transform duration-200 group-open/m:rotate-180" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                  </svg>
+                </summary>
+                <ul role="group" aria-label={link.label} class="mb-1 ml-3 space-y-0.5 border-l border-gray-100 pl-3">
                   {link.children.map((child) => (
                     <li>
                       <a
@@ -209,7 +212,7 @@ function isActive(link: NavLink) {
                           'block rounded-md px-3 py-2 text-sm font-medium transition-colors',
                           pathname === child.href
                             ? 'bg-navy-50 text-navy-800 font-semibold'
-                            : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900',
+                            : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900',
                         ]}
                       >
                         {child.label}
@@ -217,12 +220,12 @@ function isActive(link: NavLink) {
                     </li>
                   ))}
                 </ul>
-              </>
+              </details>
             ) : (
               <a
                 href={link.href}
                 class:list={[
-                  'block rounded-md px-3 py-2 text-base font-medium transition-colors',
+                  'block rounded-md px-3 py-2.5 text-base font-medium transition-colors',
                   isActive(link)
                     ? 'bg-navy-50 text-navy-800 font-semibold'
                     : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900',
@@ -262,8 +265,14 @@ function isActive(link: NavLink) {
     document.body.style.top = `-${scrollY}px`;
     document.body.style.width = '100%';
     document.body.dataset.scrollY = String(scrollY);
-    panel.style.maxHeight = `${panel.scrollHeight}px`;
+    const headerH = (document.querySelector('header') as HTMLElement)?.offsetHeight ?? 64;
+    const availH = window.innerHeight - headerH;
+    const naturalH = panel.scrollHeight;
+    panel.style.maxHeight = `${Math.min(naturalH, availH)}px`;
     panel.setAttribute('aria-hidden', 'false');
+    if (naturalH > availH) {
+      setTimeout(() => { panel.style.overflowY = 'auto'; }, 310);
+    }
     iconMenu?.classList.add('hidden');
     iconClose?.classList.remove('hidden');
     toggle?.setAttribute('aria-expanded', 'true');
@@ -272,6 +281,7 @@ function isActive(link: NavLink) {
 
   function closeNav() {
     if (!panel) return;
+    panel.style.overflowY = '';
     const scrollY = parseInt(document.body.dataset.scrollY ?? '0', 10);
     document.body.style.position = '';
     document.body.style.top = '';

@@ -81,14 +81,23 @@ const safeMapUrl = isSafeMapUrl(sedePrincipalData?.mapEmbedUrl)
           Ubicación de {sedePrincipal.nombre}
         </h2>
         {safeMapUrl ? (
-          <iframe
-            src={safeMapUrl}
-            class="aspect-video w-full rounded-lg border-0"
-            allowfullscreen
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title={`Mapa de ubicación de ${sedePrincipal.nombre}`}
-          ></iframe>
+          <div class="relative aspect-video w-full overflow-hidden rounded-lg bg-gray-100">
+            <div class="map-loader pointer-events-none absolute inset-0 flex items-center justify-center">
+              <svg class="h-8 w-8 animate-spin text-gray-300" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.568 3 7.938l3-2.647z" />
+              </svg>
+            </div>
+            <iframe
+              src={safeMapUrl}
+              class="absolute inset-0 h-full w-full border-0"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title={`Mapa de ubicación de ${sedePrincipal.nombre}`}
+              onload="this.previousElementSibling.style.display='none'"
+            ></iframe>
+          </div>
         ) : (
           <div
             class="aspect-video w-full rounded-lg bg-gray-100 flex flex-col items-center justify-center gap-2 text-gray-400 text-sm"
