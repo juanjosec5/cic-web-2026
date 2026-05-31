@@ -14,7 +14,7 @@
 
   /* Typography */
   --font-sans:    "IBM Plex Sans", system-ui, -apple-system, sans-serif;
-  --font-display: "DM Serif Display", Georgia, serif;
+  --font-display: "Epilogue", system-ui, -apple-system, sans-serif;
 }
 
 img {
@@ -30,10 +30,11 @@ img {
 
   /* ── Headings ─────────────────────────────────────────────── */
   h1 {
+    font-family: var(--font-display);
     font-size: 1.875rem;
-    font-weight: 700;
-    letter-spacing: -0.025em;
-    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
     color: #122d52; /* navy-900 */
   }
   @media (min-width: 640px) {
@@ -41,34 +42,42 @@ img {
   }
 
   h2 {
+    font-family: var(--font-display);
     font-size: 1.5rem;
-    font-weight: 600;
-    letter-spacing: -0.015em;
-    line-height: 1.3;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
     color: #1a3d6a; /* navy-800 */
   }
 
   h3 {
+    font-family: var(--font-display);
     font-size: 1.25rem;
-    font-weight: 600;
-    line-height: 1.4;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.3;
     color: #1a3d6a;
   }
 
   h4 {
+    font-family: var(--font-display);
     font-size: 1.125rem;
     font-weight: 600;
+    letter-spacing: -0.01em;
     line-height: 1.4;
   }
 
   h5, h6 {
+    font-family: var(--font-display);
     font-size: 1rem;
     font-weight: 600;
+    letter-spacing: -0.005em;
   }
 
   /* ── Body text ────────────────────────────────────────────── */
   p {
     line-height: 1.625;
+    color: #374151; /* gray-700 */
   }
 
   strong, b {

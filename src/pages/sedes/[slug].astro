@@ -98,7 +98,7 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
     <!-- Header card -->
     <div class="mt-6 rounded-lg border border-gray-200 p-6">
       <header>
-        <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">{sede.nombre}</h1>
+        <h1 class="text-2xl font-bold sm:text-3xl">{sede.nombre}</h1>
         <p class="mt-1 text-sm text-gray-500">
           {sede.direccion}, {sede.ciudad} · Sin cita previa
         </p>
@@ -150,10 +150,10 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
           Contacto
         </h2>
         <address class="mt-4 not-italic space-y-2 text-sm text-gray-700">
-          <p>Tel: <a href={`tel:${sede.telefono}`} class="hover:text-red-600 transition-colors duration-200">{sede.telefono}</a></p>
-          <p>WhatsApp: <a href={waUrl} target="_blank" rel="noopener noreferrer" class="hover:text-red-600 transition-colors duration-200">{sede.whatsapp}</a></p>
+          <p>Tel: <a href={`tel:${sede.telefono}`} class="hover:text-navy-700 transition-colors duration-200">{sede.telefono}</a></p>
+          <p>WhatsApp: <a href={waUrl} target="_blank" rel="noopener noreferrer" class="hover:text-navy-700 transition-colors duration-200">{sede.whatsapp}</a></p>
           {safeEmail && (
-            <p>Email: <a href={`mailto:${safeEmail}`} class="text-red-600 hover:text-red-700 transition-colors duration-200">{safeEmail}</a></p>
+            <p>Email: <a href={`mailto:${safeEmail}`} class="text-navy-700 hover:text-navy-600 transition-colors duration-200">{safeEmail}</a></p>
           )}
           <p class="text-gray-500">{sede.direccion}, {sede.ciudad}</p>
         </address>
@@ -291,14 +291,14 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
           <li>
             <a
               href={`/sedes/${otra.slug}`}
-              class="text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200"
+              class="text-sm font-medium text-navy-700 hover:text-navy-600 transition-colors duration-200"
             >
               {otra.nombre} →
             </a>
           </li>
         ))}
       </ul>
-      <a href="/sedes" class="mt-4 inline-block text-sm text-gray-500 hover:text-red-600 transition-colors duration-200">
+      <a href="/sedes" class="mt-4 inline-block text-sm text-gray-500 hover:text-navy-700 transition-colors duration-200">
         Ver todas las sedes →
       </a>
     </section>
