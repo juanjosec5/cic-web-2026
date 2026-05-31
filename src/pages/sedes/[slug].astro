@@ -46,6 +46,13 @@ const safeMapUrl = isSafeMapUrl(sede.mapEmbedUrl)
   ? sede.mapEmbedUrl
   : `https://maps.google.com/maps?q=${encodeURIComponent(`${sede.direccion}, ${sede.ciudad}, Valle del Cauca, Colombia`)}&z=16&output=embed`;
 
+function isSafeEmail(email: string | null | undefined): email is string {
+  if (!email) return false;
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && !email.includes('?');
+}
+
+const safeEmail = isSafeEmail(sede.email) ? sede.email : null;
+
 const mapsUrl =
   sede.lat && sede.lng
     ? `https://www.google.com/maps/dir/?api=1&destination=${sede.lat},${sede.lng}`
@@ -145,8 +152,8 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
         <address class="mt-4 not-italic space-y-2 text-sm text-gray-700">
           <p>Tel: <a href={`tel:${sede.telefono}`} class="hover:text-red-600 transition-colors duration-200">{sede.telefono}</a></p>
           <p>WhatsApp: <a href={waUrl} target="_blank" rel="noopener noreferrer" class="hover:text-red-600 transition-colors duration-200">{sede.whatsapp}</a></p>
-          {sede.email && (
-            <p>Email: <a href={`mailto:${sede.email}`} class="text-red-600 hover:text-red-700 transition-colors duration-200">{sede.email}</a></p>
+          {safeEmail && (
+            <p>Email: <a href={`mailto:${safeEmail}`} class="text-red-600 hover:text-red-700 transition-colors duration-200">{safeEmail}</a></p>
           )}
           <p class="text-gray-500">{sede.direccion}, {sede.ciudad}</p>
         </address>
