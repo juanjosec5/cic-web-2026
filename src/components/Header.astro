@@ -267,12 +267,15 @@ function isActive(link: NavLink) {
     document.body.dataset.scrollY = String(scrollY);
     const headerH = (document.querySelector('header') as HTMLElement)?.offsetHeight ?? 64;
     const availH = window.innerHeight - headerH;
-    const naturalH = panel.scrollHeight;
-    panel.style.maxHeight = `${Math.min(naturalH, availH)}px`;
+    // Animate to the natural (collapsed) height for a smooth open
+    panel.style.maxHeight = `${panel.scrollHeight}px`;
     panel.setAttribute('aria-hidden', 'false');
-    if (naturalH > availH) {
-      setTimeout(() => { panel.style.overflowY = 'auto'; }, 310);
-    }
+    // After the CSS transition finishes, release to viewport cap so
+    // <details> accordions can expand freely inside a scrollable panel
+    setTimeout(() => {
+      panel.style.maxHeight = `${availH}px`;
+      panel.style.overflowY = 'auto';
+    }, 310);
     iconMenu?.classList.add('hidden');
     iconClose?.classList.remove('hidden');
     toggle?.setAttribute('aria-expanded', 'true');
@@ -282,13 +285,13 @@ function isActive(link: NavLink) {
   function closeNav() {
     if (!panel) return;
     panel.style.overflowY = '';
+    panel.style.maxHeight = '0';
+    panel.setAttribute('aria-hidden', 'true');
     const scrollY = parseInt(document.body.dataset.scrollY ?? '0', 10);
     document.body.style.position = '';
     document.body.style.top = '';
     document.body.style.width = '';
     window.scrollTo(0, scrollY);
-    panel.style.maxHeight = '0';
-    panel.setAttribute('aria-hidden', 'true');
     iconMenu?.classList.remove('hidden');
     iconClose?.classList.add('hidden');
     toggle?.setAttribute('aria-expanded', 'false');
