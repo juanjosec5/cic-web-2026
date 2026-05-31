@@ -37,7 +37,7 @@ const waPreparacion = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICom
     ]} />
 
     <header>
-      <h1>Preparación para exámenes</h1>
+      <h1 class="text-2xl sm:text-3xl">Preparación para exámenes</h1>
       <p>
         Seguir correctamente las instrucciones de preparación garantiza la
         confiabilidad de sus resultados. Ante cualquier duda, consulte con
@@ -120,7 +120,7 @@ const waPreparacion = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICom
       <h2 id="orina-heading" class="border-l-4 border-navy-600 pl-4">Exámenes de orina</h2>
 
       <div class="mt-4 rounded-lg border border-amber-200 bg-amber-50 px-5 py-4">
-        <h3 class="text-sm font-semibold text-amber-800">Instrucciones para muestra de orina</h3>
+        <h3 class="text-sm text-amber-800">Instrucciones para muestra de orina</h3>
         <ul class="mt-2 list-disc pl-4 space-y-1 text-sm text-amber-700">
           <li>Recolecte la <strong>segunda micción de la mañana</strong> (deseche la primera).</li>
           <li>Limpie bien la zona genital antes de recolectar.</li>
@@ -131,7 +131,7 @@ const waPreparacion = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICom
         </ul>
       </div>
 
-      <h3 class="mt-6 text-sm font-semibold text-gray-700">
+      <h3 class="mt-6 text-sm text-gray-700">
         Exámenes de orina disponibles ({examenesOrina.length} en total)
       </h3>
       <ul role="list" class="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
@@ -163,7 +163,7 @@ const waPreparacion = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICom
       <h2 id="heces-heading" class="border-l-4 border-navy-600 pl-4">Exámenes de heces</h2>
 
       <div class="mt-4 rounded-lg border border-amber-200 bg-amber-50 px-5 py-4">
-        <h3 class="text-sm font-semibold text-amber-800">Instrucciones para muestra de materia fecal</h3>
+        <h3 class="text-sm text-amber-800">Instrucciones para muestra de materia fecal</h3>
         <ul class="mt-2 list-disc pl-4 space-y-1 text-sm text-amber-700">
           <li>Use el recipiente estéril suministrado por el laboratorio.</li>
           <li>Recolecte preferiblemente en la <strong>mañana</strong>.</li>
@@ -175,7 +175,7 @@ const waPreparacion = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICom
 
       {examenesHeces.length > 0 && (
         <>
-          <h3 class="mt-6 text-sm font-semibold text-gray-700">Exámenes de heces disponibles</h3>
+          <h3 class="mt-6 text-sm text-gray-700">Exámenes de heces disponibles</h3>
           <ul role="list" class="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
             {examenesHeces.map((e: CollectionEntry<'examenes'>) => (
               <li>

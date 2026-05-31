@@ -126,7 +126,7 @@ const sedesParaMapa = sedes
           >
             <div>
               <p class="text-xs font-semibold uppercase tracking-widest text-red-200">Promoción del mes</p>
-              <h2 id="promo-heading" class="mt-1 text-xl font-bold text-white">{promo.titulo}</h2>
+              <h2 id="promo-heading" class="mt-1 text-xl text-white">{promo.titulo}</h2>
               {promo.descripcion && <p class="mt-1 text-sm text-red-100">{promo.descripcion}</p>}
             </div>
             <a
@@ -147,7 +147,7 @@ const sedesParaMapa = sedes
   <section aria-labelledby="hero-heading" class="hero-bg py-20 md:py-32">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 text-center">
       <p class="mb-4 text-xs font-semibold uppercase tracking-widest text-navy-700">Laboratorio clínico · Valle del Cauca</p>
-      <h1 id="hero-heading" class="text-4xl font-extrabold md:text-5xl lg:text-6xl">
+      <h1 id="hero-heading" class="text-4xl md:text-5xl lg:text-6xl">
         {paginaInicio?.heroTitulo ?? 'Resultados que transforman vidas'}
       </h1>
       <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-600">
@@ -296,7 +296,7 @@ const sedesParaMapa = sedes
                   <HeroIcon path={SERVICE_ICONS[servicio.data.slug]} class="h-6 w-6 text-navy-700" />
                 </div>
               )}
-              <h3 class="text-base font-semibold transition-colors duration-200 group-hover:text-navy-700">
+              <h3 class="text-base transition-colors duration-200 group-hover:text-navy-700">
                 {servicio.data.nombre}
               </h3>
               <p class="mt-2 flex-1 text-sm text-gray-600">{servicio.data.descripcion}</p>
