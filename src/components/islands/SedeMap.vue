@@ -76,9 +76,9 @@ function project(lng: number, lat: number, w: number, h: number, pad = 18): [num
 const svgEl  = ref<SVGSVGElement | null>(null)
 const svgW   = ref(400)
 const svgH   = computed(() => Math.round(svgW.value * RATIO))
-const dotR   = computed(() => svgW.value < 420 ? 10 : 8)
-const pinR   = computed(() => svgW.value < 420 ? 12 : 10)  // principal sede
-const fSize  = computed(() => svgW.value < 420 ? 7  : 6)
+const dotR   = computed(() => svgW.value < 420 ? 13 : 11)
+const pinR   = computed(() => svgW.value < 420 ? 15 : 13)  // principal sede
+const fSize  = computed(() => svgW.value < 420 ? 10 : 9)
 
 const polygonPoints = computed(() =>
   POLY.map(([lng, lat]) => project(lng, lat, svgW.value, svgH.value).join(',')).join(' ')
@@ -182,7 +182,7 @@ onUnmounted(() => {
             :href="`/sedes/${sede.slug}`"
             class="flex items-center gap-2.5 border-l-2 px-3 py-2 text-xs transition-colors duration-100"
             :class="activeSlug === sede.slug
-              ? 'border-red-500 bg-red-50 text-red-700'
+              ? 'border-navy-600 bg-navy-50 text-navy-800'
               : 'border-transparent text-gray-600 hover:bg-gray-50 hover:text-gray-900'"
             @mouseenter="activeSlug = sede.slug"
             @mouseleave="activeSlug = null"

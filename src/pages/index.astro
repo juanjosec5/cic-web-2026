@@ -256,19 +256,8 @@ const sedesParaMapa = sedes
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
       <h2 id="sedes-map-heading">{sedes.length} sedes en el Valle del Cauca</h2>
 
-      <div class="mt-6 mx-auto max-w-lg">
-        <SedeMap sedes={sedesParaMapa} client:visible />
-        <div class="mt-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-xs text-gray-500">
-          <span class="flex items-center gap-1.5">
-            <span class="inline-block h-2.5 w-2.5 rounded-full bg-blue-600"></span>
-            Sede
-          </span>
-          <span class="flex items-center gap-1.5">
-            <span class="inline-block h-2.5 w-2.5 rounded-full bg-emerald-600"></span>
-            Sede principal
-          </span>
-          <span class="text-gray-400">· Toca o pasa el cursor sobre un punto</span>
-        </div>
+      <div class="mt-6">
+        <SedeMap sedes={sedesParaMapa} showSidebar={true} client:visible />
       </div>
 
       <a href="/sedes" class="mt-6 inline-block text-sm font-medium text-gray-700 hover:text-navy-700 transition-colors duration-200">Ver todas las sedes →</a>
