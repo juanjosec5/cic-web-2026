@@ -123,8 +123,8 @@ const filtered = computed(() => {
 }
 
 .search-input:focus {
-  border-color: #dc2626;
-  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+  border-color: #1a3d6a;
+  box-shadow: 0 0 0 3px rgba(26, 61, 106, 0.1);
 }
 
 .pills-nav {
@@ -154,8 +154,8 @@ const filtered = computed(() => {
 }
 
 .pill:hover {
-  background-color: #fff1f2;
-  color: #b91c1c;
+  background-color: #f0f4f8;
+  color: #1a3d6a;
 }
 
 .result-count {
@@ -185,8 +185,8 @@ const filtered = computed(() => {
 }
 
 .result-row:hover {
-  border-color: #fca5a5;
-  background-color: #fff1f2;
+  border-color: #b8d1e7;
+  background-color: #f0f4f8;
 }
 
 .result-left {

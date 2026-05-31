@@ -42,7 +42,7 @@ const safeMapUrl = isSafeMapUrl(sedePrincipalData?.mapEmbedUrl)
     <div class="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2">
 
       <!-- Left: sede principal info + CTAs -->
-      <section aria-labelledby="contacto-info-heading" class="rounded-xl border border-gray-200 p-6">
+      <section aria-labelledby="contacto-info-heading" class="rounded-lg border border-gray-200 p-6">
         <h2 id="contacto-info-heading">{sedePrincipal.nombre}</h2>
         <address class="mt-4 not-italic space-y-1 text-sm text-gray-600">
           <p>{sedePrincipal.direccion}</p>
@@ -83,7 +83,7 @@ const safeMapUrl = isSafeMapUrl(sedePrincipalData?.mapEmbedUrl)
         {safeMapUrl ? (
           <iframe
             src={safeMapUrl}
-            class="aspect-video w-full rounded-xl border-0"
+            class="aspect-video w-full rounded-lg border-0"
             allowfullscreen
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
@@ -91,7 +91,7 @@ const safeMapUrl = isSafeMapUrl(sedePrincipalData?.mapEmbedUrl)
           ></iframe>
         ) : (
           <div
-            class="aspect-video w-full rounded-xl bg-gray-100 flex flex-col items-center justify-center gap-2 text-gray-400 text-sm"
+            class="aspect-video w-full rounded-lg bg-gray-100 flex flex-col items-center justify-center gap-2 text-gray-400 text-sm"
             role="img"
             aria-label={`Mapa de ${sedePrincipal.nombre}`}
           >

@@ -67,10 +67,16 @@ const valores = [
           aria-label="Secciones de Nosotros"
           class="md:sticky md:top-20 md:self-start"
         >
-          <ol>
+          <p class="hidden md:block mb-2 text-xs font-semibold uppercase tracking-widest text-gray-400">Contenido</p>
+          <ol class="border-l-2 border-gray-200 pl-3 space-y-1">
             {anchorLinks.map((link) => (
               <li>
-                <a href={`#${link.id}`}>{link.label}</a>
+                <a
+                  href={`#${link.id}`}
+                  class="block py-1 text-sm text-gray-500 hover:text-navy-800 transition-colors duration-150"
+                >
+                  {link.label}
+                </a>
               </li>
             ))}
           </ol>
@@ -123,8 +129,8 @@ const valores = [
           <h2 id="valores-heading">Valores</h2>
           <div class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {valores.map((valor) => (
-              <div class="rounded-xl border border-gray-200 p-5">
-                <HeroIcon path={valor.icono} class="mb-3 h-8 w-8 text-red-600" />
+              <div class="rounded-lg border border-gray-200 p-5">
+                <HeroIcon path={valor.icono} class="mb-3 h-8 w-8 text-navy-700" />
                 <h3 class="text-base font-semibold text-gray-900">{valor.nombre}</h3>
                 <p class="mt-2 text-sm text-gray-600 leading-relaxed">{valor.metafora}</p>
               </div>
