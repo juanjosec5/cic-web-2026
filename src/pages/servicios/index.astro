@@ -25,7 +25,7 @@ const servicios = await getCollection('servicios');
       {servicios.map((servicio: CollectionEntry<'servicios'>) => (
         <li class="flex">
           <a href={`/servicios/${servicio.data.slug}`}
-             class="group flex h-full w-full flex-col rounded-xl border border-gray-200 p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
+             class="group flex h-full w-full flex-col rounded-lg border border-gray-200 p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
             {SERVICE_ICONS[servicio.data.slug] && (
               <HeroIcon path={SERVICE_ICONS[servicio.data.slug]} class="mb-3 h-8 w-8 text-red-600" />
             )}
@@ -33,7 +33,7 @@ const servicios = await getCollection('servicios');
               {servicio.data.nombre}
             </h2>
             <p class="mt-2 flex-1 text-sm text-gray-600">{servicio.data.descripcion}</p>
-            <span class="mt-4 inline-flex items-center rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white transition-colors duration-200 group-hover:bg-red-700">
+            <span class="mt-4 inline-flex items-center rounded-lg bg-navy-800 px-4 py-2 text-sm font-semibold text-white transition-colors duration-200 group-hover:bg-navy-700">
               Ver servicio
             </span>
           </a>

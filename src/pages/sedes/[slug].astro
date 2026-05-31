@@ -96,7 +96,7 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
     ]} />
 
     <!-- Header card -->
-    <div class="mt-6 rounded-xl border border-gray-200 p-6">
+    <div class="mt-6 rounded-lg border border-gray-200 p-6">
       <header>
         <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">{sede.nombre}</h1>
         <p class="mt-1 text-sm text-gray-500">
@@ -122,7 +122,7 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
     <!-- Horarios + Contacto -->
     <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
 
-      <section aria-labelledby="horario-heading" class="rounded-xl border border-gray-200 p-6">
+      <section aria-labelledby="horario-heading" class="rounded-lg border border-gray-200 p-6">
         <h2 id="horario-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
           Horarios
         </h2>
@@ -145,7 +145,7 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
         )}
       </section>
 
-      <section aria-labelledby="contacto-heading" class="rounded-xl border border-gray-200 p-6">
+      <section aria-labelledby="contacto-heading" class="rounded-lg border border-gray-200 p-6">
         <h2 id="contacto-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
           Contacto
         </h2>
@@ -162,7 +162,7 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
     </div>
 
     <!-- Map -->
-    <section aria-labelledby="mapa-heading" class="mt-6 rounded-xl border border-gray-200 p-6">
+    <section aria-labelledby="mapa-heading" class="mt-6 rounded-lg border border-gray-200 p-6">
       <h2 id="mapa-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
         Ubicación
       </h2>
@@ -189,7 +189,7 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
     </section>
 
     <!-- Services ✓/— grid -->
-    <section aria-labelledby="servicios-sede-heading" class="mt-6 rounded-xl border border-gray-200 p-6">
+    <section aria-labelledby="servicios-sede-heading" class="mt-6 rounded-lg border border-gray-200 p-6">
       <h2 id="servicios-sede-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
         Servicios disponibles en esta sede
       </h2>
@@ -223,13 +223,13 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
 
     <!-- Promo banner -->
     {sede.domicilioGratisDesde != null && (
-      <div class="mt-6 rounded-xl border border-blue-200 bg-blue-50 px-6 py-4 text-sm font-medium text-blue-700">
+      <div class="mt-6 rounded-lg border border-blue-200 bg-blue-50 px-6 py-4 text-sm font-medium text-blue-700">
         Domicilio gratis en {sede.ciudad} para exámenes ≥ ${sede.domicilioGratisDesde.toLocaleString('es-CO')}
       </div>
     )}
 
     <!-- Gallery — always shown, placeholder squares when no photos -->
-    <section aria-labelledby="galeria-heading" class="mt-6 rounded-xl border border-gray-200 p-6">
+    <section aria-labelledby="galeria-heading" class="mt-6 rounded-lg border border-gray-200 p-6">
       <h2 id="galeria-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
         Galería
       </h2>
@@ -258,7 +258,7 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
 
     <!-- Convenios — only when data exists -->
     {sede.convenios.length > 0 && (
-      <section aria-labelledby="convenios-heading" class="mt-6 rounded-xl border border-gray-200 p-6">
+      <section aria-labelledby="convenios-heading" class="mt-6 rounded-lg border border-gray-200 p-6">
         <h2 id="convenios-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
           Convenios activos en esta sede
         </h2>
@@ -282,7 +282,7 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
     )}
 
     <!-- Nearby sedes -->
-    <section aria-labelledby="otras-sedes-heading" class="mt-6 rounded-xl border border-gray-200 p-6">
+    <section aria-labelledby="otras-sedes-heading" class="mt-6 rounded-lg border border-gray-200 p-6">
       <h2 id="otras-sedes-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
         Otras sedes cercanas
       </h2>

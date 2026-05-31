@@ -90,7 +90,7 @@ function isActive(link: NavLink) {
                     class:list={[
                       'flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors',
                       isActive(link)
-                        ? 'bg-red-50 text-red-700 font-semibold'
+                        ? 'bg-navy-50 text-navy-800 font-semibold'
                         : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900',
                     ]}
                     aria-haspopup="true"
@@ -114,7 +114,7 @@ function isActive(link: NavLink) {
                           class:list={[
                             'block px-4 py-2.5 text-sm font-medium transition-colors',
                             pathname === child.href
-                              ? 'bg-red-50 text-red-700'
+                              ? 'bg-navy-50 text-navy-800'
                               : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900',
                           ]}
                         >
@@ -130,7 +130,7 @@ function isActive(link: NavLink) {
                   class:list={[
                     'block rounded-md px-3 py-2 text-sm font-medium transition-colors',
                     isActive(link)
-                      ? 'bg-red-50 text-red-700 font-semibold'
+                      ? 'bg-navy-50 text-navy-800 font-semibold'
                       : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900',
                   ]}
                   {...(link.external
@@ -152,7 +152,7 @@ function isActive(link: NavLink) {
         aria-controls="mobile-nav-panel"
         aria-expanded="false"
         aria-label="Abrir menú"
-        class="-mr-2 rounded-md p-2 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 lg:hidden"
+        class="-mr-2 rounded-md p-2 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy-800 lg:hidden"
       >
         <!-- Menu icon -->
         <svg
@@ -197,7 +197,7 @@ function isActive(link: NavLink) {
                 <span
                   class:list={[
                     'block rounded-md px-3 py-2 text-base font-medium',
-                    isActive(link) ? 'text-red-700 font-semibold' : 'text-gray-500',
+                    isActive(link) ? 'text-navy-800 font-semibold' : 'text-gray-500',
                   ]}
                 >
                   {link.label}
@@ -210,7 +210,7 @@ function isActive(link: NavLink) {
                         class:list={[
                           'block rounded-md px-3 py-2 text-sm font-medium transition-colors',
                           pathname === child.href
-                            ? 'bg-red-50 text-red-700 font-semibold'
+                            ? 'bg-navy-50 text-navy-800 font-semibold'
                             : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900',
                         ]}
                       >
@@ -226,7 +226,7 @@ function isActive(link: NavLink) {
                 class:list={[
                   'block rounded-md px-3 py-2 text-base font-medium transition-colors',
                   isActive(link)
-                    ? 'bg-red-50 text-red-700 font-semibold'
+                    ? 'bg-navy-50 text-navy-800 font-semibold'
                     : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900',
                 ]}
                 {...(link.external

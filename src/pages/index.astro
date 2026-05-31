@@ -144,55 +144,72 @@ const sedesParaMapa = sedes
   )}
 
   <!-- 2. HERO -->
-  <section aria-labelledby="hero-heading" class="py-16 md:py-24">
+  <section aria-labelledby="hero-heading" class="hero-bg py-20 md:py-32">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 text-center">
-      <h1 id="hero-heading">{paginaInicio?.heroTitulo ?? 'Resultados que transforman vidas'}</h1>
-      <p>
-        Más de {examenes.length} exámenes clínicos —
-        {paginaInicio?.heroSubtitulo ?? 'resultados el mismo día, sin cita previa, en'}
-        {sedes.length} sedes del Valle del Cauca.
+      <p class="mb-4 text-xs font-semibold uppercase tracking-widest text-navy-700">Laboratorio clínico · Valle del Cauca</p>
+      <h1 id="hero-heading" class="font-display text-4xl font-normal md:text-5xl lg:text-6xl">
+        {paginaInicio?.heroTitulo ?? 'Resultados que transforman vidas'}
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-600">
+        {paginaInicio?.heroSubtitulo ?? 'Más de'} {examenes.length} exámenes clínicos — resultados el mismo día, sin cita previa, en {sedes.length} sedes del Valle del Cauca.
       </p>
-      <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <div class="mt-10 flex flex-wrap justify-center gap-3">
         <a href={paginaInicio?.heroCta1Url ?? '/sedes'}
-           class="inline-flex items-center rounded-lg bg-red-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-red-700 active:scale-95 transition-all duration-200">
+           class="inline-flex items-center rounded-lg bg-navy-800 px-7 py-3.5 text-sm font-semibold text-white shadow-sm hover:bg-navy-700 active:scale-95 transition-all duration-200">
           {paginaInicio?.heroCta1Label ?? 'Encontrar sede'}
         </a>
         <a href={paginaInicio?.heroCta2Url ?? '/examenes'}
-           class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200">
+           class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-7 py-3.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200">
           {paginaInicio?.heroCta2Label ?? 'Ver exámenes'}
         </a>
         <a href={waHero} target="_blank" rel="noopener noreferrer"
-           class="inline-flex items-center rounded-lg bg-green-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-green-700 active:scale-95 transition-all duration-200">
-          {paginaInicio?.heroCtaWaLabel ?? 'Contáctanos por WhatsApp'}
+           class="inline-flex items-center gap-2 rounded-lg bg-green-600 px-5 py-3.5 text-sm font-semibold text-white shadow-sm hover:bg-green-700 active:scale-95 transition-all duration-200">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          {paginaInicio?.heroCtaWaLabel ?? 'WhatsApp'}
         </a>
       </div>
+      <!-- Key stats -->
+      <dl class="mt-14 grid grid-cols-3 gap-4 border-t border-navy-100 pt-10 sm:grid-cols-3">
+        <div class="text-center">
+          <dt class="text-xs font-medium uppercase tracking-wide text-gray-500">Exámenes</dt>
+          <dd class="mt-1 text-3xl font-bold text-navy-900">+{examenes.length}</dd>
+        </div>
+        <div class="text-center">
+          <dt class="text-xs font-medium uppercase tracking-wide text-gray-500">Sedes</dt>
+          <dd class="mt-1 text-3xl font-bold text-navy-900">{sedes.length}</dd>
+        </div>
+        <div class="text-center">
+          <dt class="text-xs font-medium uppercase tracking-wide text-gray-500">Resultados</dt>
+          <dd class="mt-1 text-3xl font-bold text-navy-900">Mismo día</dd>
+        </div>
+      </dl>
     </div>
   </section>
 
   <!-- 3. PILLARS STRIP -->
-  <section aria-labelledby="pillars-heading" class="py-12">
+  <section aria-labelledby="pillars-heading" class="bg-navy-50 py-12">
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
       <h2 id="pillars-heading" class="sr-only">Por qué CIC Laboratorios</h2>
-      <ul role="list" class="grid grid-cols-2 gap-6 md:grid-cols-4">
+      <ul role="list" class="grid grid-cols-2 gap-5 md:grid-cols-4">
         {pilares.map((pilar, i) => {
           const link = PILAR_LINKS[i];
           const content = (
             <>
-              <svg class="h-7 w-7 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <svg class="h-7 w-7 text-navy-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d={PILAR_SVGS[i]} />
               </svg>
-              <strong class:list={['mt-3 block text-lg font-bold text-gray-900', link ? 'transition-colors duration-200 group-hover:text-red-600' : '']}>{pilar.titulo}</strong>
+              <strong class:list={['mt-3 block text-lg font-bold', link ? 'transition-colors duration-200 group-hover:text-navy-600' : 'text-navy-900']}>{pilar.titulo}</strong>
               <p class="mt-1 text-sm text-gray-600">{pilar.descripcion}</p>
             </>
           );
           return link ? (
             <li>
-              <a href={link} class="group block h-full rounded-xl border border-gray-100 bg-gray-50 p-6 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5">
+              <a href={link} class="group block h-full rounded-lg border border-navy-100 bg-white p-6 transition-shadow duration-200 hover:shadow-md">
                 {content}
               </a>
             </li>
           ) : (
-            <li class="rounded-xl border border-gray-100 bg-gray-50 p-6">{content}</li>
+            <li class="rounded-lg border border-navy-100 bg-white p-6">{content}</li>
           );
         })}
       </ul>
@@ -200,24 +217,28 @@ const sedesParaMapa = sedes
   </section>
 
   <!-- 4. AUDIENCE SEGMENTATION -->
-  <section aria-labelledby="audience-heading" class="py-12">
+  <section aria-labelledby="audience-heading" class="py-14">
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
       <h2 id="audience-heading">¿Cómo podemos ayudarte?</h2>
-      <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+      <div class="mt-8 grid grid-cols-1 gap-5 md:grid-cols-3">
         {audiencias.map((aud) => (
-          <article class="relative cursor-pointer rounded-xl border border-gray-200 p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
+          <article class="relative flex flex-col rounded-lg border border-gray-200 p-6 transition-shadow duration-200 hover:shadow-md">
             {AUDIENCE_ICONS[aud.titulo] && (
-              <HeroIcon path={AUDIENCE_ICONS[aud.titulo]} class="mb-3 h-8 w-8 text-red-600" />
+              <div class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-navy-50">
+                <HeroIcon path={AUDIENCE_ICONS[aud.titulo]} class="h-6 w-6 text-navy-700" />
+              </div>
             )}
-            <h3>{aud.titulo}</h3>
-            <p class="mt-2 text-gray-600">{aud.descripcion}</p>
-            <div class="mt-4 flex flex-col gap-2">
+            <h3 class="text-base">{aud.titulo}</h3>
+            <p class="mt-2 flex-1 text-sm text-gray-600">{aud.descripcion}</p>
+            <div class="mt-5 flex flex-col gap-2">
               {aud.links.map((lnk, li) => (
                 <a
                   href={lnk.url}
                   class:list={[
-                    'text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200',
-                    li === 0 ? 'after:absolute after:inset-0 after:rounded-xl' : 'relative z-10',
+                    'text-sm font-semibold transition-colors duration-200',
+                    li === 0
+                      ? 'text-navy-800 hover:text-navy-600 after:absolute after:inset-0 after:rounded-lg'
+                      : 'relative z-10 text-gray-500 hover:text-navy-700',
                   ]}
                 >
                   {lnk.label} →
@@ -231,7 +252,7 @@ const sedesParaMapa = sedes
   </section>
 
   <!-- 5. SEDE MAP PREVIEW -->
-  <section aria-labelledby="sedes-map-heading" class="py-12">
+  <section aria-labelledby="sedes-map-heading" class="bg-navy-50 py-14">
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
       <h2 id="sedes-map-heading">{sedes.length} sedes en el Valle del Cauca</h2>
 
@@ -255,40 +276,42 @@ const sedesParaMapa = sedes
   </section>
 
   <!-- 6. EXAM CATEGORIES -->
-  <section aria-labelledby="categorias-heading" class="py-12">
+  <section aria-labelledby="categorias-heading" class="py-14">
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
       <h2 id="categorias-heading">Exámenes por categoría</h2>
-      <ul role="list" class="mt-8 flex flex-wrap gap-3">
+      <ul role="list" class="mt-8 flex flex-wrap gap-2">
         {CATEGORIAS.map((cat) => (
           <li>
             <a href={`/examenes/categoria/${cat.slug}`}
-               class="inline-flex items-center rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-red-50 hover:text-red-700 transition-colors duration-200">
+               class="inline-flex items-center rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:border-navy-200 hover:bg-navy-50 hover:text-navy-800 transition-colors duration-200">
               {cat.label}
             </a>
           </li>
         ))}
       </ul>
-      <a href="/examenes" class="mt-6 inline-block text-sm font-medium text-gray-700 hover:text-red-600 transition-colors duration-200">Ver todos los exámenes →</a>
+      <a href="/examenes" class="mt-6 inline-block text-sm font-semibold text-navy-800 hover:text-navy-600 transition-colors duration-200">Ver todos los exámenes →</a>
     </div>
   </section>
 
   <!-- 7. SERVICES -->
-  <section aria-labelledby="servicios-heading" class="py-12">
+  <section aria-labelledby="servicios-heading" class="bg-gray-50 py-14">
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
       <h2 id="servicios-heading">Nuestros servicios</h2>
-      <ul role="list" class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <ul role="list" class="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
         {servicios.map((servicio: CollectionEntry<'servicios'>) => (
           <li>
             <a href={`/servicios/${servicio.data.slug}`}
-               class="group block rounded-xl border border-gray-200 p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
+               class="group flex h-full flex-col rounded-lg border border-gray-200 bg-white p-6 transition-shadow duration-200 hover:shadow-md">
               {SERVICE_ICONS[servicio.data.slug] && (
-                <HeroIcon path={SERVICE_ICONS[servicio.data.slug]} class="mb-3 h-8 w-8 text-red-600" />
+                <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-red-50">
+                  <HeroIcon path={SERVICE_ICONS[servicio.data.slug]} class="h-6 w-6 text-red-600" />
+                </div>
               )}
-              <h3 class="font-semibold transition-colors duration-200 group-hover:text-red-600">
+              <h3 class="text-base font-semibold transition-colors duration-200 group-hover:text-navy-700">
                 {servicio.data.nombre}
               </h3>
-              <p class="mt-2 text-sm text-gray-600">{servicio.data.descripcion}</p>
-              <span class="mt-4 inline-block text-sm font-medium text-red-600 transition-transform duration-200 group-hover:translate-x-1">
+              <p class="mt-2 flex-1 text-sm text-gray-600">{servicio.data.descripcion}</p>
+              <span class="mt-4 inline-block text-sm font-semibold text-navy-800 transition-transform duration-200 group-hover:translate-x-1">
                 Ver servicio →
               </span>
             </a>
@@ -324,17 +347,25 @@ const sedesParaMapa = sedes
   </section>
   )}
 
-  <!-- 8. QUALITY STRIP -->
-  <section aria-labelledby="calidad-heading" class="py-12">
+  <!-- 8. QUALITY — trust anchor dark section -->
+  <section aria-labelledby="calidad-heading" class="bg-navy-900 py-16 text-white">
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
-      <h2 id="calidad-heading">Calidad y tecnología al servicio de tu salud</h2>
-      <ul role="list" class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+      <div class="text-center">
+        <p class="text-xs font-semibold uppercase tracking-widest text-navy-200">Estándares de calidad</p>
+        <h2 id="calidad-heading" class="mt-2 text-white">Calidad y tecnología al servicio de tu salud</h2>
+      </div>
+      <ul role="list" class="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
         {calidad.map((item) => (
-          <li>
-            <strong>{item.titulo}</strong>
-            <p>{item.descripcion}</p>
+          <li class="flex flex-col rounded-lg border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+            <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-navy-700">
+              <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+            </div>
+            <strong class="text-base font-semibold text-white">{item.titulo}</strong>
+            <p class="mt-2 flex-1 text-sm text-navy-200">{item.descripcion}</p>
             {item.linkLabel && item.linkUrl && (
-              <a href={item.linkUrl} class="text-sm font-medium text-gray-700 hover:text-red-600 transition-colors duration-200">
+              <a href={item.linkUrl} class="mt-4 inline-block text-sm font-semibold text-navy-200 underline-offset-2 hover:text-white hover:underline transition-colors duration-200">
                 {item.linkLabel} →
               </a>
             )}
@@ -345,7 +376,7 @@ const sedesParaMapa = sedes
   </section>
 
   <!-- 9. CONVENIOS / ALIADOS -->
-  <section aria-labelledby="aliados-heading" class="py-12">
+  <section aria-labelledby="aliados-heading" class="py-14">
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
       <h2 id="aliados-heading">Convenios y aliados estratégicos</h2>
       {aliados.length > 0 && (
