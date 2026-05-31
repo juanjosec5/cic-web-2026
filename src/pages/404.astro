@@ -8,15 +8,45 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 >
   <div class="flex flex-1 items-center justify-center px-4 py-24">
     <div class="text-center">
-      <h1>Página no encontrada</h1>
-      <p class="mt-4">Lo sentimos, no pudimos encontrar la página que buscas.</p>
+
+      <p class="font-display text-[9rem] font-normal leading-none text-navy-100 select-none sm:text-[12rem]" aria-hidden="true">
+        404
+      </p>
+
+      <h1 class="-mt-4 text-2xl font-bold sm:text-3xl">Página no encontrada</h1>
+      <p class="mx-auto mt-3 max-w-sm text-gray-500">
+        Lo sentimos, no pudimos encontrar lo que buscas. Intenta con alguna de estas opciones:
+      </p>
+
       <nav aria-label="Sugerencias de navegación" class="mt-8">
-        <ul role="list" class="flex flex-wrap justify-center gap-6">
-          <li><a href="/">Inicio</a></li>
-          <li><a href="/sedes">Sedes</a></li>
-          <li><a href="/examenes">Exámenes</a></li>
+        <ul role="list" class="flex flex-wrap justify-center gap-3">
+          <li>
+            <a
+              href="/"
+              class="inline-flex items-center rounded-lg bg-navy-800 px-5 py-2.5 text-sm font-semibold text-white hover:bg-navy-700 transition-colors duration-200"
+            >
+              Inicio
+            </a>
+          </li>
+          <li>
+            <a
+              href="/examenes"
+              class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition-colors duration-200"
+            >
+              Buscar examen
+            </a>
+          </li>
+          <li>
+            <a
+              href="/sedes"
+              class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition-colors duration-200"
+            >
+              Encontrar sede
+            </a>
+          </li>
         </ul>
       </nav>
+
     </div>
   </div>
 </BaseLayout>

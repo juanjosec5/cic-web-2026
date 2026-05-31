@@ -34,16 +34,16 @@ const waUrl = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(`
 
     <article>
       <header class="mt-6">
-        <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">{perfil.nombre}</h1>
+        <h1 class="text-2xl font-bold sm:text-3xl">{perfil.nombre}</h1>
         <p class="mt-2 text-gray-600">{perfil.descripcion}</p>
       </header>
 
       <!-- Price + note -->
       <div class="mt-6 flex flex-wrap items-center gap-4">
         {perfil.precio && (
-          <div class="inline-flex items-center gap-3 rounded-xl border border-blue-200 bg-blue-50 px-5 py-3">
-            <span class="text-sm text-blue-600">Precio referencial</span>
-            <span class="text-xl font-bold text-blue-700">
+          <div class="inline-flex items-center gap-3 rounded-lg border border-navy-200 bg-navy-50 px-5 py-3">
+            <span class="text-sm text-navy-700">Precio referencial</span>
+            <span class="text-xl font-bold text-navy-900">
               ${perfil.precio.toLocaleString('es-CO')} COP
             </span>
           </div>
@@ -65,7 +65,7 @@ const waUrl = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(`
               {examen.slug ? (
                 <a
                   href={`/examenes/${examen.slug}`}
-                  class="flex items-center gap-1.5 hover:text-red-600 transition-colors duration-200"
+                  class="flex items-center gap-1.5 hover:text-navy-700 transition-colors duration-200"
                 >
                   {examen.nombre}
                   <svg

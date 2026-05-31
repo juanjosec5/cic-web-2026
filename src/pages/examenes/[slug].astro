@@ -62,11 +62,11 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
     <article>
 
       <!-- Header card -->
-      <header class="mt-6 rounded-xl border border-gray-200 p-6">
+      <header class="mt-6 rounded-lg border border-gray-200 p-6">
         <p class="text-xs font-medium uppercase tracking-wide text-gray-500">
           Categoría · {categoriaLabel}
         </p>
-        <h1 class="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl">{examen.nombre}</h1>
+        <h1 class="mt-2 text-2xl font-bold sm:text-3xl">{examen.nombre}</h1>
         {examen.nombresAlternativos.length > 0 && (
           <p class="mt-1 text-sm text-gray-500">
             También conocido como: {examen.nombresAlternativos.join(', ')}
@@ -96,7 +96,7 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
       </header>
 
       <!-- Stat strip -->
-      <dl class="mt-6 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-gray-200 bg-gray-200 sm:grid-cols-4">
+      <dl class="mt-6 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-gray-200 bg-gray-200 sm:grid-cols-4">
         {examen.muestra && (
           <div class="bg-white p-4">
             <dt class="text-xs font-medium uppercase tracking-wide text-gray-500">Muestra</dt>
@@ -128,7 +128,7 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
 
       <!-- Condiciones del paciente / Preparación -->
       {examen.preparacion && (
-        <section aria-labelledby="preparacion-heading" class="mt-6 rounded-xl border border-gray-200 p-6">
+        <section aria-labelledby="preparacion-heading" class="mt-6 rounded-lg border border-gray-200 p-6">
           <h2 id="preparacion-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
             Condiciones del paciente
           </h2>
@@ -138,7 +138,7 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
 
       <!-- Perfiles que incluyen este examen -->
       {perfilesData.length > 0 && (
-        <section aria-labelledby="perfiles-heading" class="mt-6 rounded-xl border border-gray-200 p-6">
+        <section aria-labelledby="perfiles-heading" class="mt-6 rounded-lg border border-gray-200 p-6">
           <h2 id="perfiles-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
             Incluido en estos perfiles
           </h2>
@@ -146,7 +146,7 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
             {perfilesData.map(({ slug, nombre, descripcion }) => (
               <li>
                 <a href={`/examenes/perfiles/${slug}`}
-                   class="block rounded-lg border border-gray-200 px-4 py-3 transition-colors duration-200 hover:border-red-200 hover:bg-red-50">
+                   class="block rounded-lg border border-gray-200 px-4 py-3 transition-colors duration-200 hover:border-navy-200 hover:bg-navy-50">
                   <span class="text-sm font-medium text-gray-900">{nombre}</span>
                   <span class="mt-0.5 block text-xs text-gray-500">{descripcion}</span>
                 </a>
@@ -158,7 +158,7 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
 
       <!-- Exámenes relacionados -->
       {relacionadosData.length > 0 && (
-        <section aria-labelledby="relacionados-heading" class="mt-6 rounded-xl border border-gray-200 p-6">
+        <section aria-labelledby="relacionados-heading" class="mt-6 rounded-lg border border-gray-200 p-6">
           <h2 id="relacionados-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
             Exámenes relacionados
           </h2>
@@ -166,7 +166,7 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
             {relacionadosData.map(({ slug, nombre }) => (
               <li>
                 <a href={`/examenes/${slug}`}
-                   class="block rounded-lg border border-gray-200 px-4 py-3 text-sm font-medium text-gray-900 hover:border-red-200 hover:text-red-700 transition-colors duration-200">
+                   class="block rounded-lg border border-gray-200 px-4 py-3 text-sm font-medium text-gray-900 hover:border-red-200 hover:text-navy-800 transition-colors duration-200">
                   {nombre} →
                 </a>
               </li>
@@ -176,7 +176,7 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
       )}
 
       <!-- WhatsApp CTA banner -->
-      <section aria-labelledby="wa-cta-heading" class="mt-6 rounded-xl bg-gray-50 p-8 text-center">
+      <section aria-labelledby="wa-cta-heading" class="mt-6 rounded-lg border border-navy-100 bg-navy-50 p-8 text-center">
         <h2 id="wa-cta-heading" class="text-lg font-semibold text-gray-900">
           ¿Tienes preguntas sobre este examen?
         </h2>

@@ -2,7 +2,6 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
 
 const perfiles = await getCollection('perfiles');
 const sorted = [...perfiles].sort((a, b) => (a.data.precio ?? 0) - (b.data.precio ?? 0));
@@ -28,6 +27,8 @@ const CATEGORIA_MAP: Record<string, string> = {
   'general-hombres':      'masculino',
 };
 
+const PREVIEW_COUNT = 3;
+
 const FILTROS = [
   { value: 'todos',         label: 'Todos' },
   { value: 'cardiovascular',label: 'Cardiovascular' },
@@ -52,7 +53,7 @@ const FILTROS = [
     ]} />
 
     <header class="mt-6">
-      <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">Paquetes y perfiles</h1>
+      <h1 class="text-2xl font-bold sm:text-3xl">Paquetes y perfiles</h1>
       <p class="mt-2 text-gray-600 max-w-2xl">
         Baterías de exámenes diseñadas para etapas de vida, seguimiento médico y detección temprana.
         No es obligatorio tomar la totalidad de los exámenes de cada perfil.
@@ -68,8 +69,8 @@ const FILTROS = [
           class:list={[
             'filter-pill rounded-full border px-4 py-1.5 text-sm font-medium transition-colors duration-150',
             f.value === 'todos'
-              ? 'border-red-600 bg-red-600 text-white'
-              : 'border-gray-300 bg-white text-gray-600 hover:border-gray-400 hover:text-gray-900',
+              ? 'border-navy-800 bg-navy-800 text-white'
+              : 'border-gray-300 bg-white text-gray-600 hover:border-navy-300 hover:bg-navy-50 hover:text-navy-800',
           ]}
         >
           {f.label}
@@ -79,39 +80,37 @@ const FILTROS = [
 
     <!-- Cards -->
     <ul id="perfiles-grid" role="list" class="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {sorted.map((perfil: CollectionEntry<'perfiles'>) => (
+      {sorted.map((perfil) => (
         <li
-          class="relative flex flex-col rounded-xl border border-gray-200 bg-white transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
+          class="relative flex flex-col rounded-lg border border-gray-200 bg-white transition-shadow duration-200 hover:shadow-md"
           data-categoria={CATEGORIA_MAP[perfil.data.slug] ?? 'general'}
         >
-          <!-- Price badge -->
-          {perfil.data.precio && (
-            <div class="absolute right-4 top-4">
-              <span class="inline-block rounded-full bg-blue-50 px-3 py-1 text-sm font-semibold text-blue-700">
-                ${perfil.data.precio.toLocaleString('es-CO')} COP
-              </span>
+          <div class="flex flex-1 flex-col p-5">
+            <div class="flex items-start justify-between gap-3">
+              <h2 class="min-w-0 text-base font-semibold text-gray-900 leading-snug">
+                {perfil.data.nombre}
+              </h2>
+              {perfil.data.precio && (
+                <span class="shrink-0 whitespace-nowrap rounded-full bg-navy-50 px-2.5 py-1 text-xs font-semibold text-navy-800">
+                  ${perfil.data.precio.toLocaleString('es-CO')} COP
+                </span>
+              )}
             </div>
-          )}
-
-          <div class="flex flex-1 flex-col p-5 pr-28">
-            <h2 class="text-base font-semibold text-gray-900 leading-snug">
-              {perfil.data.nombre}
-            </h2>
             <p class="mt-1.5 text-xs text-gray-500 leading-relaxed line-clamp-2">
               {perfil.data.descripcion}
             </p>
 
             <!-- Exam preview (first 3) -->
             <ul class="mt-3 space-y-1">
-              {perfil.data.examenesIncluidos.slice(0, 3).map((examen: { nombre: string; slug?: string }) => (
+              {perfil.data.examenesIncluidos.slice(0, PREVIEW_COUNT).map((examen: { nombre: string; slug?: string }) => (
                 <li class="flex items-center gap-1.5 text-xs text-gray-600">
                   <span class="text-green-500 font-bold shrink-0">✓</span>
                   <span class="truncate">{examen.nombre}</span>
                 </li>
               ))}
-              {perfil.data.examenesIncluidos.length > 3 && (
+              {perfil.data.examenesIncluidos.length > PREVIEW_COUNT && (
                 <li class="text-xs text-gray-400 pl-4">
-                  +{perfil.data.examenesIncluidos.length - 3} más
+                  +{perfil.data.examenesIncluidos.length - PREVIEW_COUNT} más
                 </li>
               )}
             </ul>
@@ -124,7 +123,7 @@ const FILTROS = [
             </span>
             <a
               href={`/examenes/perfiles/${perfil.data.slug}`}
-              class="text-xs font-semibold text-red-600 hover:text-red-700 transition-colors after:absolute after:inset-0"
+              class="text-xs font-semibold text-navy-800 hover:text-navy-600 transition-colors after:absolute after:inset-0"
             >
               Ver perfil →
             </a>
@@ -159,11 +158,11 @@ const FILTROS = [
   pills.forEach((pill) => {
     pill.addEventListener('click', () => {
       pills.forEach((p) => {
-        p.classList.remove('border-red-600', 'bg-red-600', 'text-white');
+        p.classList.remove('border-navy-800', 'bg-navy-800', 'text-white');
         p.classList.add('border-gray-300', 'bg-white', 'text-gray-600');
       });
       pill.classList.remove('border-gray-300', 'bg-white', 'text-gray-600');
-      pill.classList.add('border-red-600', 'bg-red-600', 'text-white');
+      pill.classList.add('border-navy-800', 'bg-navy-800', 'text-white');
       applyFilter(pill.dataset.filter ?? 'todos');
     });
   });
