@@ -253,6 +253,7 @@ function isActive(link: NavLink) {
 </style>
 
 <script>
+  const NAV_TRANSITION_MS = 300;
   const toggle = document.getElementById('nav-toggle') as HTMLButtonElement | null;
   const panel = document.getElementById('mobile-nav-panel') as HTMLElement | null;
   const iconMenu = document.getElementById('icon-menu');
@@ -265,17 +266,14 @@ function isActive(link: NavLink) {
     document.body.style.top = `-${scrollY}px`;
     document.body.style.width = '100%';
     document.body.dataset.scrollY = String(scrollY);
-    const headerH = (document.querySelector('header') as HTMLElement)?.offsetHeight ?? 64;
+    const headerH = (document.querySelector('header') as HTMLElement).offsetHeight;
     const availH = window.innerHeight - headerH;
-    // Animate to the natural (collapsed) height for a smooth open
     panel.style.maxHeight = `${panel.scrollHeight}px`;
     panel.setAttribute('aria-hidden', 'false');
-    // After the CSS transition finishes, release to viewport cap so
-    // <details> accordions can expand freely inside a scrollable panel
     setTimeout(() => {
       panel.style.maxHeight = `${availH}px`;
       panel.style.overflowY = 'auto';
-    }, 310);
+    }, NAV_TRANSITION_MS + 10);
     iconMenu?.classList.add('hidden');
     iconClose?.classList.remove('hidden');
     toggle?.setAttribute('aria-expanded', 'true');
@@ -302,7 +300,6 @@ function isActive(link: NavLink) {
     toggle.getAttribute('aria-expanded') === 'true' ? closeNav() : openNav();
   });
 
-  // Reset mobile state when viewport reaches desktop width
   window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => {
     if (e.matches) closeNav();
   });

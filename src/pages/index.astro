@@ -82,6 +82,7 @@ const sedesOrdenadas = [...sedes].sort((a, b) =>
 
 const NORTE_LAT = 4.3;
 const SUR_LAT   = 3.8;
+const MOBILE_CAT_LIMIT = 12;
 const zonas = {
   norte:  sedesOrdenadas.filter(s => (s.lat ?? 0) >= NORTE_LAT),
   centro: sedesOrdenadas.filter(s => (s.lat ?? 0) >= SUR_LAT && (s.lat ?? 0) < NORTE_LAT),
@@ -325,7 +326,7 @@ const sedesParaMapa = sedes
       <h2 id="categorias-heading">Exámenes por categoría</h2>
       <ul role="list" class="mt-8 flex flex-wrap gap-2">
         {CATEGORIAS.map((cat, i) => (
-          <li class={i >= 12 ? 'hidden sm:list-item' : ''}>
+          <li class={i >= MOBILE_CAT_LIMIT ? 'hidden sm:list-item' : ''}>
             <a href={`/examenes/categoria/${cat.slug}`}
                class="inline-flex items-center rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:border-navy-200 hover:bg-navy-50 hover:text-navy-800 transition-colors duration-200">
               {cat.label}
