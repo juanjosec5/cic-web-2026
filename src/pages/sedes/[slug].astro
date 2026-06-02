@@ -207,14 +207,12 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
       </div>
     )}
 
-    <!-- Gallery — always shown, placeholder squares when no photos -->
-    <section aria-labelledby="galeria-heading" class="mt-6 card">
-      <h2 id="galeria-heading" class="h2-sm">
-        Galería
-      </h2>
-      <ul role="list" class="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4">
-        {sede.fotos.length > 0 ? (
-          sede.fotos.map((foto: string) => (
+    <!-- Gallery — only shown when photos exist in Sanity -->
+    {sede.fotos.length > 0 && (
+      <section aria-labelledby="galeria-heading" class="mt-6 card">
+        <h2 id="galeria-heading" class="h2-sm">Galería</h2>
+        <ul role="list" class="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4">
+          {sede.fotos.map((foto: string) => (
             <li>
               <img
                 src={foto}
@@ -226,14 +224,10 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
                 height="225"
               />
             </li>
-          ))
-        ) : (
-          [0, 1, 2, 3].map((_) => (
-            <li class="aspect-video rounded-lg bg-gray-100" aria-hidden="true" />
-          ))
-        )}
-      </ul>
-    </section>
+          ))}
+        </ul>
+      </section>
+    )}
 
     <!-- Convenios — only when data exists -->
     {sede.convenios.length > 0 && (
