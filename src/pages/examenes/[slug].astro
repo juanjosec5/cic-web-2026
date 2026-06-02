@@ -66,7 +66,7 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
         <p class="text-xs font-medium uppercase tracking-wide text-gray-500">
           Categoría · {categoriaLabel}
         </p>
-        <h1 class="mt-2 text-2xl sm:text-3xl">{examen.nombre}</h1>
+        <h1 class="mt-2">{examen.nombre}</h1>
         {examen.nombresAlternativos.length > 0 && (
           <p class="mt-1 text-sm text-gray-500">
             También conocido como: {examen.nombresAlternativos.join(', ')}
@@ -116,7 +116,7 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
           </div>
         )}
         <div class="bg-white p-4">
-          <dt class="text-xs font-medium uppercase tracking-wide text-gray-500">Cotizar precio</dt>
+          <dt class="text-4xl">Cotizar precio</dt>
           <dd class="mt-1">
             <a href={waCotizar} target="_blank" rel="noopener noreferrer"
                class="font-semibold text-green-700 hover:text-green-800 transition-colors duration-200">
@@ -129,7 +129,7 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
       <!-- Condiciones del paciente / Preparación -->
       {examen.preparacion && (
         <section aria-labelledby="preparacion-heading" class="mt-6 rounded-lg border border-gray-200 p-6">
-          <h2 id="preparacion-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
+          <h2 id="preparacion-heading" class="text-4xl">
             Condiciones del paciente
           </h2>
           <p class="mt-3 text-gray-700">{examen.preparacion}</p>
@@ -139,14 +139,14 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
       <!-- Perfiles que incluyen este examen -->
       {perfilesData.length > 0 && (
         <section aria-labelledby="perfiles-heading" class="mt-6 rounded-lg border border-gray-200 p-6">
-          <h2 id="perfiles-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
+          <h2 id="perfiles-heading" class="text-4xl">
             Incluido en estos perfiles
           </h2>
           <ul role="list" class="mt-4 space-y-2">
             {perfilesData.map(({ slug, nombre, descripcion }) => (
               <li>
                 <a href={`/examenes/perfiles/${slug}`}
-                   class="block rounded-lg border border-gray-200 px-4 py-3 transition-colors duration-200 hover:border-navy-200 hover:bg-navy-50">
+                   class="block rounded-lg border border-gray-200 px-4 py-3 transition-colors duration-200 hover:border-red-200 hover:bg-red-50">
                   <span class="text-sm font-medium text-gray-900">{nombre}</span>
                   <span class="mt-0.5 block text-xs text-gray-500">{descripcion}</span>
                 </a>
@@ -159,14 +159,14 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
       <!-- Exámenes relacionados -->
       {relacionadosData.length > 0 && (
         <section aria-labelledby="relacionados-heading" class="mt-6 rounded-lg border border-gray-200 p-6">
-          <h2 id="relacionados-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
+          <h2 id="relacionados-heading" class="text-4xl">
             Exámenes relacionados
           </h2>
           <ul role="list" class="mt-4 space-y-2">
             {relacionadosData.map(({ slug, nombre }) => (
               <li>
                 <a href={`/examenes/${slug}`}
-                   class="block rounded-lg border border-gray-200 px-4 py-3 text-sm font-medium text-gray-900 hover:border-red-200 hover:text-navy-800 transition-colors duration-200">
+                   class="block rounded-lg border border-gray-200 px-4 py-3 text-sm font-medium text-gray-900 hover:border-red-200 hover:text-red-700 transition-colors duration-200">
                   {nombre} →
                 </a>
               </li>
@@ -176,7 +176,7 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
       )}
 
       <!-- WhatsApp CTA banner -->
-      <section aria-labelledby="wa-cta-heading" class="mt-6 rounded-lg border border-navy-100 bg-navy-50 p-8 text-center">
+      <section aria-labelledby="wa-cta-heading" class="mt-6 rounded-lg border border-red-100 bg-red-50 p-8 text-center">
         <h2 id="wa-cta-heading" class="text-lg text-gray-900">
           ¿Tienes preguntas sobre este examen?
         </h2>

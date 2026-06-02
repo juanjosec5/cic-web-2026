@@ -15,9 +15,8 @@ interface SedePin {
 
 const props = defineProps<{ sedes: SedePin[]; showSidebar?: boolean }>()
 
-const COLOR_ACTIVE    = '#dc2626'
-const COLOR_PRINCIPAL = '#059669'
-const COLOR_DEFAULT   = '#2563eb'
+const COLOR_DEFAULT = '#98191a'
+const COLOR_ACTIVE  = '#1d71a3'
 
 // Alphabetical sort gives stable, predictable numbering across renders
 const sortedSedes = computed(() =>
@@ -73,12 +72,14 @@ function project(lng: number, lat: number, w: number, h: number, pad = 18): [num
 }
 
 // ─── SVG dimensions ───────────────────────────────────────────────────────────
+const MOBILE_BREAKPOINT = 420
+
 const svgEl  = ref<SVGSVGElement | null>(null)
 const svgW   = ref(400)
 const svgH   = computed(() => Math.round(svgW.value * RATIO))
-const dotR   = computed(() => svgW.value < 420 ? 13 : 11)
-const pinR   = computed(() => svgW.value < 420 ? 15 : 13)  // principal sede
-const fSize  = computed(() => svgW.value < 420 ? 10 : 9)
+const dotR   = computed(() => svgW.value < MOBILE_BREAKPOINT ? 13 : 11)
+const pinR   = computed(() => svgW.value < MOBILE_BREAKPOINT ? 15 : 13)
+const fSize  = computed(() => svgW.value < MOBILE_BREAKPOINT ? 10 : 9)
 
 const polygonPoints = computed(() =>
   POLY.map(([lng, lat]) => project(lng, lat, svgW.value, svgH.value).join(',')).join(' ')
@@ -151,7 +152,7 @@ onUnmounted(() => {
             :cx="sede.cx"
             :cy="sede.cy"
             :r="sede.esSedePrincipal ? pinR : dotR"
-            :fill="activeSlug === sede.slug ? COLOR_ACTIVE : sede.esSedePrincipal ? COLOR_PRINCIPAL : COLOR_DEFAULT"
+            :fill="activeSlug === sede.slug ? COLOR_ACTIVE : COLOR_DEFAULT"
             stroke="white"
             stroke-width="1.5"
           />
@@ -189,11 +190,10 @@ onUnmounted(() => {
           >
             <span
               class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full text-[8px] font-bold text-white transition-colors duration-100"
-              :style="{ backgroundColor: activeSlug === sede.slug ? COLOR_ACTIVE : sede.esSedePrincipal ? COLOR_PRINCIPAL : COLOR_DEFAULT }"
+              :style="{ backgroundColor: activeSlug === sede.slug ? COLOR_ACTIVE : COLOR_DEFAULT }"
             >{{ sede.num }}</span>
             <span class="truncate leading-none">
               <span class="font-medium">{{ sede.ciudad }}</span>
-              <span v-if="sede.esSedePrincipal" class="ml-1 text-[9px] text-emerald-600">★</span>
             </span>
           </a>
         </li>

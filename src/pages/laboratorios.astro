@@ -24,7 +24,7 @@ const waAlianza = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompone
     <Breadcrumb items={[{ label: 'Inicio', href: '/' }, { label: 'Laboratorios aliados' }]} />
 
     <header>
-      <h1 class="text-2xl sm:text-3xl">Alianzas con laboratorios e IPS</h1>
+      <h1>Alianzas con laboratorios e IPS</h1>
       <p>
         {/* TODO (content-needed): Replace with real intro copy */}
         CIC Laboratorios actúa como laboratorio de referencia regional para IPS y
@@ -201,7 +201,7 @@ const waAlianza = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompone
               aria-disabled="true"
               aria-describedby="submit-hint-alianza"
               onclick="event.preventDefault()"
-              class="w-full rounded-lg bg-navy-800 px-6 py-3 text-sm font-semibold text-white shadow-sm opacity-50 cursor-not-allowed"
+              class="w-full rounded-lg bg-red-600 px-6 py-3 text-sm font-semibold text-white shadow-sm opacity-50 cursor-not-allowed"
             >
               Enviar propuesta
             </button>
@@ -219,7 +219,7 @@ const waAlianza = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompone
           WhatsApp →
         </a>
         <a href="mailto:alianzas@ciclaboratorios.com?subject=Propuesta%20de%20alianza"
-           class="text-sm font-medium text-gray-500 hover:text-navy-700 transition-colors duration-200">
+           class="text-sm font-medium text-gray-500 hover:text-red-700 transition-colors duration-200">
           alianzas@ciclaboratorios.com →
         </a>
       </div>

@@ -44,7 +44,7 @@ const zonas = {
     <Breadcrumb items={[{ label: 'Inicio', href: '/' }, { label: 'Sedes' }]} />
 
     <header>
-      <h1 class="text-2xl sm:text-3xl">Nuestras sedes</h1>
+      <h1>Nuestras sedes</h1>
       <p>Atendemos en {sedes.length} sedes en el Valle del Cauca — sin cita previa.</p>
     </header>
 
@@ -53,12 +53,8 @@ const zonas = {
       <SedeMap sedes={sedesParaMapa} showSidebar={true} client:visible />
       <div class="mt-3 flex flex-wrap items-center gap-x-5 gap-y-1 text-xs text-gray-400">
         <span class="flex items-center gap-1.5">
-          <span class="inline-block h-2.5 w-2.5 rounded-full bg-blue-600"></span>
+          <span class="inline-block h-2.5 w-2.5 rounded-full bg-red-600"></span>
           Sede
-        </span>
-        <span class="flex items-center gap-1.5">
-          <span class="inline-block h-2.5 w-2.5 rounded-full bg-emerald-600"></span>
-          Sede principal
         </span>
         <span>· Pasa el cursor sobre un punto o nombre para resaltarlo</span>
       </div>
@@ -114,9 +110,10 @@ const zonas = {
           <li class="flex">
             <article class="flex h-full w-full flex-col rounded-lg border border-gray-200 p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
               <header class="flex items-start justify-between gap-3">
-                <h2 class="text-base text-gray-900">
-                  <a href={`/sedes/${sede.slug}`} class="hover:text-navy-700 transition-colors duration-200">
-                    {sede.nombre}
+                <h2 class="text-3xl text-red-600 leading-tight">
+                  <a href={`/sedes/${sede.slug}`} class="cursor-pointer hover:text-red-700 transition-colors duration-200">
+                    <span class="block text-xl font-medium text-gray-400">CIC Laboratorios</span>
+                    <span class="block">{sede.ciudad}</span>
                   </a>
                 </h2>
                 {sede.esSedePrincipal && (

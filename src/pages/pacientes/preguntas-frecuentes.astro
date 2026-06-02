@@ -101,7 +101,7 @@ const grupos = [
     <Breadcrumb items={[{ label: 'Inicio', href: '/' }, { label: 'Pacientes', href: '/pacientes/preguntas-frecuentes' }, { label: 'Preguntas frecuentes' }]} />
 
     <header>
-      <h1 class="text-2xl sm:text-3xl">Preguntas frecuentes</h1>
+      <h1>Preguntas frecuentes</h1>
       <p>Todo lo que necesita saber antes de su visita a CIC Laboratorios.</p>
     </header>
 
@@ -109,7 +109,7 @@ const grupos = [
       {grupos.map((grupo) => (
         <section id={grupo.id} aria-labelledby={`${grupo.id}-heading`}>
           <h2 id={`${grupo.id}-heading`} class="flex items-center gap-2">
-            <HeroIcon path={GRUPO_ICONS[grupo.id]} class="h-6 w-6 shrink-0 text-navy-700" />
+            <HeroIcon path={GRUPO_ICONS[grupo.id]} class="h-6 w-6 shrink-0 text-red-600" />
             {grupo.titulo}
           </h2>
           <div class="mt-6 space-y-3">
