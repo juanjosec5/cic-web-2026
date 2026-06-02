@@ -26,7 +26,7 @@ const aliados = await getCollection('aliados');
     ]} />
 
     <header class="mt-6">
-      <h1 class="text-2xl sm:text-3xl">Aliados y convenios</h1>
+      <h1>Aliados y convenios</h1>
       <p class="mt-2 text-gray-600">
         Trabajamos con instituciones y organismos que comparten nuestro compromiso con la salud.
       </p>
@@ -34,7 +34,7 @@ const aliados = await getCollection('aliados');
 
     {aliados.length > 0 && (
       <section aria-labelledby="aliados-heading" class="mt-8">
-        <h2 id="aliados-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
+        <h2 id="aliados-heading" class="text-4xl">
           Aliados estratégicos
         </h2>
         <ul role="list" class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -49,7 +49,7 @@ const aliados = await getCollection('aliados');
                   href={aliado.data.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="mt-3 inline-block text-sm font-medium text-navy-700 hover:text-navy-600 transition-colors duration-200"
+                  class="mt-3 inline-block text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200"
                 >
                   Visitar sitio web →
                 </a>
@@ -61,7 +61,7 @@ const aliados = await getCollection('aliados');
     )}
 
     <section aria-labelledby="convenios-heading" class="mt-8 rounded-xl border border-gray-200 p-6">
-      <h2 id="convenios-heading" class="text-xs font-medium uppercase tracking-wide text-gray-500">
+      <h2 id="convenios-heading" class="text-4xl">
         Convenios activos
       </h2>
       <p class="mt-4 text-sm text-gray-400 italic">
@@ -70,7 +70,7 @@ const aliados = await getCollection('aliados');
     </section>
 
     <div class="mt-12 rounded-xl bg-gray-50 p-6">
-      <a href="/nosotros" class="text-sm font-medium text-navy-700 hover:text-navy-600 transition-colors duration-200">
+      <a href="/nosotros" class="text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200">
         ← Volver a Nosotros
       </a>
     </div>

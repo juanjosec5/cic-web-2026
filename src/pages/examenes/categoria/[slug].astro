@@ -60,7 +60,7 @@ const { categoria, label, examenes } = Astro.props;
     ]} />
 
     <header>
-      <h1 class="text-2xl sm:text-3xl">Exámenes de {label}</h1>
+      <h1>Exámenes de {label}</h1>
       <p class="mt-2">{examenes.length} exámen(es) en esta categoría.</p>
     </header>
 
@@ -68,7 +68,7 @@ const { categoria, label, examenes } = Astro.props;
       {examenes.map((ex) => (
         <li>
           <a href={`/examenes/${ex.slug}`}
-             class="flex items-center justify-between rounded-lg border border-gray-200 px-4 py-3 text-sm font-medium text-gray-900 transition-colors duration-200 hover:border-navy-200 hover:bg-navy-50 hover:text-navy-800">
+             class="flex items-center justify-between rounded-lg border border-gray-200 px-4 py-3 text-sm font-medium text-gray-900 transition-colors duration-200 hover:border-red-200 hover:bg-red-50 hover:text-red-700">
             <span>{ex.nombre}</span>
             {ex.requiereAyuno && (
               <span class="ml-2 shrink-0 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-700">Ayuno</span>

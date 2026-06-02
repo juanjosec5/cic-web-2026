@@ -152,17 +152,19 @@ const filtered = computed(() => {
   align-items: center;
   padding: 0.375rem 1rem;
   border-radius: 9999px;
-  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
   font-size: 0.875rem;
   font-weight: 500;
   color: #374151;
   text-decoration: none;
-  transition: background-color 150ms ease, color 150ms ease;
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
 }
 
 .pill:hover {
-  background-color: #f0f4f8;
-  color: #1a3d6a;
+  background-color: #fce4e4;
+  border-color: #fce4e4;
+  color: #7d1516;
 }
 
 .result-count {

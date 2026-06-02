@@ -12,10 +12,10 @@ import Breadcrumb from '@/components/Breadcrumb.astro';
     <Breadcrumb items={[{ label: 'Inicio', href: '/' }, { label: 'Pacientes', href: '/pacientes/preguntas-frecuentes' }, { label: 'Derechos y deberes' }]} />
 
     <header>
-      <h1 class="text-2xl sm:text-3xl">Derechos y deberes del paciente</h1>
+      <h1>Derechos y deberes del paciente</h1>
       <p>
         En cumplimiento de la normativa colombiana de salud y en concordancia con nuestra
-        <a href="/participacion-social" class="text-navy-700 hover:text-navy-600 transition-colors">
+        <a href="/participacion-social" class="text-red-600 hover:text-red-700 transition-colors">
           Política de Participación Social en Salud
         </a>.
       </p>
@@ -25,7 +25,7 @@ import Breadcrumb from '@/components/Breadcrumb.astro';
 
       <!-- Derechos -->
       <section aria-labelledby="derechos-heading" class="rounded-xl bg-gray-50 p-6">
-        <h2 id="derechos-heading" class="border-l-4 border-navy-200 pl-4 text-base text-gray-900">Sus derechos</h2>
+        <h2 id="derechos-heading" class="border-l-4 border-red-200 pl-4 text-base text-gray-900">Sus derechos</h2>
         <ol class="mt-4 space-y-3 text-sm text-gray-700 list-decimal list-inside">
           <li>Recibir un trato digno y respetuoso sin restricción de raza, sexo, religión, idioma, creencias, costumbres, condición social y económica.</li>
           <li>Elegir a los profesionales de la salud, instituciones y laboratorios clínicos para que le presten la atención requerida.</li>
@@ -36,7 +36,7 @@ import Breadcrumb from '@/components/Breadcrumb.astro';
 
       <!-- Deberes -->
       <section aria-labelledby="deberes-heading" class="rounded-xl bg-gray-50 p-6">
-        <h2 id="deberes-heading" class="border-l-4 border-navy-200 pl-4 text-base text-gray-900">Sus deberes</h2>
+        <h2 id="deberes-heading" class="border-l-4 border-red-200 pl-4 text-base text-gray-900">Sus deberes</h2>
         <ol class="mt-4 space-y-3 text-sm text-gray-700 list-decimal list-inside">
           <li>Seguir cuidadosamente las instrucciones recibidas para la toma de muestras.</li>
           <li>Solicitar los servicios de manera cordial y respetuosa.</li>
@@ -57,7 +57,7 @@ import Breadcrumb from '@/components/Breadcrumb.astro';
       <div class="mt-4 flex flex-col gap-3 sm:flex-row">
         <a
           href="/contacto"
-          class="inline-flex items-center justify-center rounded-lg bg-navy-800 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-navy-700 active:scale-95 transition-all duration-200"
+          class="inline-flex items-center justify-center rounded-lg bg-red-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-700 active:scale-95 transition-all duration-200"
         >
           Contactar
         </a>

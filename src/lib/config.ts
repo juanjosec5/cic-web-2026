@@ -8,7 +8,7 @@ export const SITE_CONFIG = {
     slug: 'buga',
     nombre: 'CIC Laboratorios — Buga',
     direccion: 'Cra 13 # 4 - 51',
-    ciudad: 'Guadalajara de Buga',
+    ciudad: 'Buga',
     telefono: '315 819 7366',
     whatsapp: '317 432 8255',
   },
