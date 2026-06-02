@@ -231,7 +231,7 @@ const sedesParaMapa = sedes
                 <HeroIcon path={AUDIENCE_ICONS[aud.titulo]} class="h-6 w-6 text-red-600" />
               </div>
             )}
-            <h3>{aud.titulo}</h3>
+            <h3 class="text-4xl">{aud.titulo}</h3>
             <p class="mt-2 flex-1 text-sm text-gray-600">{aud.descripcion}</p>
             <div class="mt-5 flex flex-col gap-2">
               {aud.links.map((lnk, li) => (
@@ -345,7 +345,7 @@ const sedesParaMapa = sedes
                   <HeroIcon path={SERVICE_ICONS[servicio.data.slug]} class="h-6 w-6 text-red-600" />
                 </div>
               )}
-              <h3 class="transition-colors duration-200 group-hover:text-navy-700">
+              <h3 class="text-4xl transition-colors duration-200 group-hover:text-navy-700">
                 {servicio.data.nombre}
               </h3>
               <p class="mt-2 flex-1 text-sm text-gray-600">{servicio.data.descripcion}</p>
