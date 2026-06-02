@@ -20,21 +20,14 @@ const examenes = await getCollection('examenes', ({ data }: CollectionEntry<'exa
 const servicios = await getCollection('servicios');
 const aliados = await getCollection('aliados');
 
-const PILAR_SVGS = [
-  'M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z',
-  'M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5',
-  'M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z',
-  'm2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25',
-] as const;
-
-const PILAR_LINKS: (string | null)[] = [null, null, '/nosotros/calidad', '/servicios/domicilio'];
-
-const DEFAULT_PILARES = [
-  { titulo: 'Resultados oportunos', descripcion: 'Resultados disponibles el mismo día de la toma.' },
-  { titulo: 'Sin cita previa', descripcion: `Atención en las ${sedes.length} sedes.` },
-  { titulo: 'Calidad certificada', descripcion: 'Certificados por ICONTEC para resultados confiables.' },
-  { titulo: 'Servicio a domicilio', descripcion: 'Toma de muestras en tu hogar o empresa.' },
+const PILARES_CONFIG = [
+  { svg: 'M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z',                                                                                                                                                                                                                                                                                                                                                                   href: null,                    titulo: 'Resultados oportunos', descripcion: 'Resultados disponibles el mismo día de la toma.' },
+  { svg: 'M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5', href: null,                    titulo: 'Sin cita previa',      descripcion: `Atención en las ${sedes.length} sedes.` },
+  { svg: 'M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z',                                                                                              href: '/nosotros/calidad',     titulo: 'Calidad certificada',  descripcion: 'Certificados por ICONTEC para resultados confiables.' },
+  { svg: 'm2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25',                                                                       href: '/servicios/domicilio',  titulo: 'Servicio a domicilio', descripcion: 'Toma de muestras en tu hogar o empresa.' },
 ];
+
+const DEFAULT_PILARES = PILARES_CONFIG.map(({ titulo, descripcion }) => ({ titulo, descripcion }));
 
 const DEFAULT_AUDIENCIAS = [
   {
@@ -198,20 +191,20 @@ const sedesParaMapa = sedes
     <div class="mx-auto max-w-5xl px-4 sm:px-6">
       <h2 id="pillars-heading" class="sr-only">Por qué CIC Laboratorios</h2>
       <ul role="list" class="grid grid-cols-2 gap-5 md:grid-cols-4">
-        {pilares.map((pilar, i) => {
-          const link = PILAR_LINKS[i];
+        {PILARES_CONFIG.map((config, i) => {
+          const pilar = pilares[i] ?? config;
           const content = (
             <>
               <svg class="h-7 w-7 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d={PILAR_SVGS[i]} />
+                <path stroke-linecap="round" stroke-linejoin="round" d={config.svg} />
               </svg>
-              <h3 class:list={['mt-3 text-4xl', link && 'transition-colors duration-200 group-hover:text-navy-600']}>{pilar.titulo}</h3>
+              <h3 class:list={['mt-3 text-4xl', config.href && 'transition-colors duration-200 group-hover:text-navy-600']}>{pilar.titulo}</h3>
               <p class="mt-1 text-sm text-gray-600">{pilar.descripcion}</p>
             </>
           );
-          return link ? (
+          return config.href ? (
             <li>
-              <a href={link} class="group block h-full rounded-lg border border-navy-100 bg-white p-6 transition-shadow duration-200 hover:shadow-md">
+              <a href={config.href} class="group block h-full rounded-lg border border-navy-100 bg-white p-6 transition-shadow duration-200 hover:shadow-md">
                 {content}
               </a>
             </li>

@@ -158,11 +158,14 @@ const FILTROS = [
   pills.forEach((pill) => {
     pill.addEventListener('click', () => {
       pills.forEach((p) => {
-        p.classList.remove('border-red-600', 'bg-red-600', 'text-white');
-        p.classList.add('border-gray-300', 'bg-white', 'text-gray-600');
+        const active = p === pill;
+        p.classList.toggle('border-red-600', active);
+        p.classList.toggle('bg-red-600', active);
+        p.classList.toggle('text-white', active);
+        p.classList.toggle('border-gray-300', !active);
+        p.classList.toggle('bg-white', !active);
+        p.classList.toggle('text-gray-600', !active);
       });
-      pill.classList.remove('border-gray-300', 'bg-white', 'text-gray-600');
-      pill.classList.add('border-red-600', 'bg-red-600', 'text-white');
       applyFilter(pill.dataset.filter ?? 'todos');
     });
   });

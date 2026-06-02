@@ -72,12 +72,14 @@ function project(lng: number, lat: number, w: number, h: number, pad = 18): [num
 }
 
 // ─── SVG dimensions ───────────────────────────────────────────────────────────
+const MOBILE_BREAKPOINT = 420
+
 const svgEl  = ref<SVGSVGElement | null>(null)
 const svgW   = ref(400)
 const svgH   = computed(() => Math.round(svgW.value * RATIO))
-const dotR   = computed(() => svgW.value < 420 ? 13 : 11)
-const pinR   = computed(() => svgW.value < 420 ? 15 : 13)  // principal sede
-const fSize  = computed(() => svgW.value < 420 ? 10 : 9)
+const dotR   = computed(() => svgW.value < MOBILE_BREAKPOINT ? 13 : 11)
+const pinR   = computed(() => svgW.value < MOBILE_BREAKPOINT ? 15 : 13)
+const fSize  = computed(() => svgW.value < MOBILE_BREAKPOINT ? 10 : 9)
 
 const polygonPoints = computed(() =>
   POLY.map(([lng, lat]) => project(lng, lat, svgW.value, svgH.value).join(',')).join(' ')
