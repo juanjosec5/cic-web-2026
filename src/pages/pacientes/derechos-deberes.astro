@@ -7,7 +7,7 @@ import Breadcrumb from '@/components/Breadcrumb.astro';
   title="Derechos y Deberes del Paciente"
   description="Conozca sus derechos y deberes como paciente de CIC Laboratorios, en cumplimiento de la normativa colombiana de salud."
 >
-  <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+  <div class="container-page">
 
     <Breadcrumb items={[{ label: 'Inicio', href: '/' }, { label: 'Pacientes', href: '/pacientes/preguntas-frecuentes' }, { label: 'Derechos y deberes' }]} />
 
@@ -48,7 +48,7 @@ import Breadcrumb from '@/components/Breadcrumb.astro';
     </div>
 
     <!-- PQRSF link -->
-    <div class="mt-8 rounded-xl border border-gray-200 p-6">
+    <div class="mt-8 card-xl">
       <h2 class="text-sm text-gray-900">¿Desea presentar una queja, reclamo o sugerencia?</h2>
       <p class="mt-2 text-sm text-gray-600">
         Contáctenos a través de nuestra oficina de atención al usuario o consulte nuestros mecanismos de

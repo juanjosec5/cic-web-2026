@@ -231,7 +231,7 @@ const [sedes, promo, paginaInicio] = await Promise.all([
 **Hero section** — replace hardcoded strings with fallback pattern:
 
 ```astro
-<h1 id="hero-heading">{paginaInicio?.heroTitulo ?? 'Resultados que transforman vidas'}</h1>
+<h1 id="hero-heading">{paginaInicio?.heroTitulo ?? 'Más que resultados'}</h1>
 <p>
   Más de {examenes.length} exámenes clínicos —
   {paginaInicio?.heroSubtitulo ?? 'resultados el mismo día, sin cita previa, en'} {sedes.length} sedes del Valle del Cauca.

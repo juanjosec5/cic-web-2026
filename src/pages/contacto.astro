@@ -1,7 +1,9 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
+import MapEmbed from '@/components/MapEmbed.astro';
 import { SITE_CONFIG } from '@/lib/config';
+import { isSafeMapUrl } from '@/lib/maps';
 import { client } from '@/sanity/client';
 import { SEDE_PRINCIPAL_MAP_QUERY } from '@/sanity/queries';
 
@@ -9,20 +11,6 @@ const { sedePrincipal, whatsapp } = SITE_CONFIG;
 const waUrl = `https://wa.me/${whatsapp}?text=${encodeURIComponent('Hola, quisiera información de CIC Laboratorios.')}`;
 
 const sedePrincipalData = await client.fetch<{ mapEmbedUrl?: string | null }>(SEDE_PRINCIPAL_MAP_QUERY);
-
-function isSafeMapUrl(url: string | null | undefined): url is string {
-  if (!url) return false;
-  try {
-    const { protocol, hostname, pathname } = new URL(url);
-    return (
-      protocol === 'https:' &&
-      (hostname === 'www.google.com' || hostname === 'maps.google.com') &&
-      pathname.startsWith('/maps/')
-    );
-  } catch {
-    return false;
-  }
-}
 
 const safeMapUrl = isSafeMapUrl(sedePrincipalData?.mapEmbedUrl)
   ? sedePrincipalData.mapEmbedUrl
@@ -33,7 +21,7 @@ const safeMapUrl = isSafeMapUrl(sedePrincipalData?.mapEmbedUrl)
   title="Contacto"
   description="Ponte en contacto con CIC Laboratorios. Encuentra teléfonos, dirección y WhatsApp de nuestra sede principal en Guadalajara de Buga."
 >
-  <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+  <div class="container-page">
 
     <Breadcrumb items={[{ label: 'Inicio', href: '/' }, { label: 'Contacto' }]} />
 
@@ -42,7 +30,7 @@ const safeMapUrl = isSafeMapUrl(sedePrincipalData?.mapEmbedUrl)
     <div class="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2">
 
       <!-- Left: sede principal info + CTAs -->
-      <section aria-labelledby="contacto-info-heading" class="rounded-lg border border-gray-200 p-6">
+      <section aria-labelledby="contacto-info-heading" class="card">
         <h2 id="contacto-info-heading">{sedePrincipal.nombre}</h2>
         <address class="mt-4 not-italic space-y-1 text-sm text-gray-600">
           <p>{sedePrincipal.direccion}</p>
@@ -55,7 +43,7 @@ const safeMapUrl = isSafeMapUrl(sedePrincipalData?.mapEmbedUrl)
             WhatsApp: {sedePrincipal.whatsapp}
           </a>
           <a href={`tel:${sedePrincipal.telefono}`}
-             class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200">
+             class="btn-outline">
             Llamar: {sedePrincipal.telefono}
           </a>
         </div>
@@ -81,23 +69,7 @@ const safeMapUrl = isSafeMapUrl(sedePrincipalData?.mapEmbedUrl)
           Ubicación de {sedePrincipal.nombre}
         </h2>
         {safeMapUrl ? (
-          <div class="relative aspect-video w-full overflow-hidden rounded-lg bg-gray-100">
-            <div class="map-loader pointer-events-none absolute inset-0 flex items-center justify-center">
-              <svg class="h-8 w-8 animate-spin text-gray-300" fill="none" viewBox="0 0 24 24" aria-hidden="true">
-                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
-                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.568 3 7.938l3-2.647z" />
-              </svg>
-            </div>
-            <iframe
-              src={safeMapUrl}
-              class="absolute inset-0 h-full w-full border-0"
-              allowfullscreen
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title={`Mapa de ubicación de ${sedePrincipal.nombre}`}
-              onload="this.previousElementSibling.style.display='none'"
-            ></iframe>
-          </div>
+          <MapEmbed url={safeMapUrl} title={`Mapa de ubicación de ${sedePrincipal.nombre}`} />
         ) : (
           <div
             class="aspect-video w-full rounded-lg bg-gray-100 flex flex-col items-center justify-center gap-2 text-gray-400 text-sm"
@@ -109,7 +81,7 @@ const safeMapUrl = isSafeMapUrl(sedePrincipalData?.mapEmbedUrl)
               href={`https://maps.google.com/?q=${encodeURIComponent(sedePrincipal.direccion + ', ' + sedePrincipal.ciudad)}`}
               target="_blank"
               rel="noopener noreferrer"
-              class="text-red-600 hover:text-red-700 transition-colors duration-200"
+              class="link-action"
             >
               Ver en Google Maps →
             </a>

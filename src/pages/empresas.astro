@@ -34,7 +34,7 @@ const PROPUESTA_ICONS = {
   description="Salud ocupacional, jornadas empresariales y toma de muestras para empresas. CIC Laboratorios — su aliado en bienestar corporativo."
   whatsappMessage={WA_MESSAGE_EMPRESA}
 >
-  <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+  <div class="container-page">
 
     <Breadcrumb items={[{ label: 'Inicio', href: '/' }, { label: 'Empresas' }]} />
 
@@ -52,21 +52,21 @@ const PROPUESTA_ICONS = {
       <h2 id="propuestas-heading" class="sr-only">Por qué elegirnos</h2>
       <ul role="list" class="grid grid-cols-1 gap-6 md:grid-cols-3">
         <li class="flex">
-          <article class="h-full w-full rounded-lg border border-gray-200 p-6">
+          <article class="h-full w-full card">
             <HeroIcon path={PROPUESTA_ICONS.reloj} class="mb-3 h-8 w-8 text-red-600" />
             <h3>Resultados el mismo día</h3>
             <p class="mt-2 text-sm text-gray-600">Informe disponible en horas para que su colaborador regrese a su jornada sin contratiempos. Entrega digital al correo electrónico.</p>
           </article>
         </li>
         <li class="flex">
-          <article class="h-full w-full rounded-lg border border-gray-200 p-6">
+          <article class="h-full w-full card">
             <HeroIcon path={PROPUESTA_ICONS.ubicacion} class="mb-3 h-8 w-8 text-red-600" />
             <h3>Toma en sitio</h3>
             <p class="mt-2 text-sm text-gray-600">Nuestro equipo certificado se desplaza a sus instalaciones. Ideal para jornadas de ingreso, periódicos o retiro.</p>
           </article>
         </li>
         <li class="flex">
-          <article class="h-full w-full rounded-lg border border-gray-200 p-6">
+          <article class="h-full w-full card">
             <HeroIcon path={PROPUESTA_ICONS.documento} class="mb-3 h-8 w-8 text-red-600" />
             <h3>Informes consolidados</h3>
             <p class="mt-2 text-sm text-gray-600">Reporte único para Recursos Humanos con resultados de todo el grupo. Compatible con el sistema de gestión de SST.</p>
@@ -81,12 +81,12 @@ const PROPUESTA_ICONS = {
       <ul role="list" class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
         {serviciosEmpresa.map((s: CollectionEntry<'servicios'>) => (
           <li class="flex">
-            <article class="flex h-full w-full flex-col rounded-lg border border-gray-200 p-6">
+            <article class="flex h-full w-full flex-col card">
               {SERVICE_ICONS[s.data.slug] && (
                 <HeroIcon path={SERVICE_ICONS[s.data.slug]} class="mb-3 h-8 w-8 text-red-600" />
               )}
               <h3>
-                <a href={`/servicios/${s.data.slug}`} class="text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200">{s.data.nombre}</a>
+                <a href={`/servicios/${s.data.slug}`} class="link-action">{s.data.nombre}</a>
               </h3>
               <p class="mt-2 flex-1 text-sm text-gray-600">{s.data.descripcion}</p>
             </article>
@@ -132,7 +132,7 @@ const PROPUESTA_ICONS = {
             </label>
             <input
               type="text" id="nombre" name="nombre" required
-              class="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none"
+              class="form-input"
               placeholder="María García"
             />
           </div>
@@ -143,7 +143,7 @@ const PROPUESTA_ICONS = {
             </label>
             <input
               type="text" id="empresa" name="empresa" required
-              class="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none"
+              class="form-input"
               placeholder="Empresa S.A.S."
             />
           </div>
@@ -154,7 +154,7 @@ const PROPUESTA_ICONS = {
             </label>
             <select
               id="ciudad" name="ciudad" required
-              class="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none bg-white"
+              class="form-input bg-white"
             >
               <option value="" disabled selected>Seleccionar ciudad…</option>
               <option value="buga">Buga</option>
@@ -179,7 +179,7 @@ const PROPUESTA_ICONS = {
             </label>
             <select
               id="colaboradores" name="colaboradores" required
-              class="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none bg-white"
+              class="form-input bg-white"
             >
               <option value="" disabled selected>Seleccionar rango…</option>
               <option value="1-50">1 – 50</option>
@@ -195,7 +195,7 @@ const PROPUESTA_ICONS = {
             </label>
             <input
               type="tel" id="telefono" name="telefono" required
-              class="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none"
+              class="form-input"
               placeholder="310 000 0000"
             />
           </div>
@@ -206,7 +206,7 @@ const PROPUESTA_ICONS = {
             </label>
             <input
               type="email" id="email" name="email" required
-              class="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none"
+              class="form-input"
               placeholder="contacto@empresa.com"
             />
           </div>
@@ -241,7 +241,7 @@ const PROPUESTA_ICONS = {
             </label>
             <textarea
               id="mensaje" name="mensaje" rows={3}
-              class="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none resize-none"
+              class="form-input resize-none"
               placeholder="Cuéntenos sobre sus necesidades…"
             ></textarea>
           </div>

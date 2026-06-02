@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import BackLink from '@/components/BackLink.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
 ---
 
@@ -7,7 +8,7 @@ import Breadcrumb from '@/components/Breadcrumb.astro';
   title="Nuestra Historia"
   description="La historia de CIC Laboratorios: fundación, crecimiento y compromiso con la salud en el Valle del Cauca."
 >
-  <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+  <div class="container-page">
 
     <Breadcrumb items={[
       { label: 'Inicio', href: '/' },
@@ -63,11 +64,7 @@ import Breadcrumb from '@/components/Breadcrumb.astro';
       </ol>
     </section>
 
-    <div class="mt-12 rounded-xl bg-gray-50 p-6">
-      <a href="/nosotros" class="text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200">
-        ← Volver a Nosotros
-      </a>
-    </div>
+    <BackLink href="/nosotros" label="Nosotros" />
 
   </div>
 </BaseLayout>

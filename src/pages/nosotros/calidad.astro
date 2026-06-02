@@ -6,6 +6,7 @@
  * TODO (content-needed): Add downloadable quality policy PDF.
  */
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import BackLink from '@/components/BackLink.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
 ---
 
@@ -13,7 +14,7 @@ import Breadcrumb from '@/components/Breadcrumb.astro';
   title="Calidad y Certificaciones"
   description="CIC Laboratorios cumple con los más altos estándares de calidad en el diagnóstico clínico. Conozca nuestras certificaciones y política de calidad."
 >
-  <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+  <div class="container-page">
 
     <Breadcrumb items={[
       { label: 'Inicio', href: '/' },
@@ -28,7 +29,7 @@ import Breadcrumb from '@/components/Breadcrumb.astro';
       </p>
     </header>
 
-    <section aria-labelledby="acreditacion-heading" class="mt-8 rounded-xl border border-gray-200 p-6">
+    <section aria-labelledby="acreditacion-heading" class="mt-8 card-xl">
       <h2 id="acreditacion-heading" class="text-4xl">
         Acreditación
       </h2>
@@ -37,7 +38,7 @@ import Breadcrumb from '@/components/Breadcrumb.astro';
       </p>
     </section>
 
-    <section aria-labelledby="control-calidad-heading" class="mt-6 rounded-xl border border-gray-200 p-6">
+    <section aria-labelledby="control-calidad-heading" class="mt-6 card-xl">
       <h2 id="control-calidad-heading" class="text-4xl">
         Control de calidad interno y externo
       </h2>
@@ -46,7 +47,7 @@ import Breadcrumb from '@/components/Breadcrumb.astro';
       </p>
     </section>
 
-    <section aria-labelledby="politica-heading" class="mt-6 rounded-xl border border-gray-200 p-6">
+    <section aria-labelledby="politica-heading" class="mt-6 card-xl">
       <h2 id="politica-heading" class="text-4xl">
         Política de calidad
       </h2>
@@ -55,11 +56,7 @@ import Breadcrumb from '@/components/Breadcrumb.astro';
       </p>
     </section>
 
-    <div class="mt-12 rounded-xl bg-gray-50 p-6">
-      <a href="/nosotros" class="text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200">
-        ← Volver a Nosotros
-      </a>
-    </div>
+    <BackLink href="/nosotros" label="Nosotros" />
 
   </div>
 </BaseLayout>

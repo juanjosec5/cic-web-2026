@@ -5,6 +5,7 @@
  * TODO (content-needed): Replace placeholder cards with real team members (photos, names, roles, bios).
  */
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import BackLink from '@/components/BackLink.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
 ---
 
@@ -12,7 +13,7 @@ import Breadcrumb from '@/components/Breadcrumb.astro';
   title="Nuestro Equipo"
   description="Conoce al equipo de profesionales de CIC Laboratorios: bacteriólogos, auxiliares de laboratorio y personal administrativo al servicio de tu salud."
 >
-  <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+  <div class="container-page">
 
     <Breadcrumb items={[
       { label: 'Inicio', href: '/' },
@@ -33,17 +34,17 @@ import Breadcrumb from '@/components/Breadcrumb.astro';
       </h2>
 
       <ul role="list" class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <li class="rounded-xl border border-gray-200 p-6">
+        <li class="card-xl">
           <p class="text-xs font-medium uppercase tracking-wide text-gray-500">Director/a Técnico/a</p>
           <p class="mt-2 font-semibold text-gray-900">[ Nombre — pendiente ]</p>
           <p class="mt-2 text-sm italic text-gray-400">Bacteriólogo/a · Especialidad pendiente</p>
         </li>
-        <li class="rounded-xl border border-gray-200 p-6">
+        <li class="card-xl">
           <p class="text-xs font-medium uppercase tracking-wide text-gray-500">Bacteriólogo/a</p>
           <p class="mt-2 font-semibold text-gray-900">[ Nombre — pendiente ]</p>
           <p class="mt-2 text-sm italic text-gray-400">Área clínica pendiente</p>
         </li>
-        <li class="rounded-xl border border-gray-200 p-6">
+        <li class="card-xl">
           <p class="text-xs font-medium uppercase tracking-wide text-gray-500">Auxiliar de laboratorio</p>
           <p class="mt-2 font-semibold text-gray-900">[ Nombre — pendiente ]</p>
           <p class="mt-2 text-sm italic text-gray-400">Sede pendiente</p>
@@ -51,11 +52,7 @@ import Breadcrumb from '@/components/Breadcrumb.astro';
       </ul>
     </section>
 
-    <div class="mt-12 rounded-xl bg-gray-50 p-6">
-      <a href="/nosotros" class="text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200">
-        ← Volver a Nosotros
-      </a>
-    </div>
+    <BackLink href="/nosotros" label="Nosotros" />
 
   </div>
 </BaseLayout>

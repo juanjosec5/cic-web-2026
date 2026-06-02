@@ -19,7 +19,7 @@ export const paginaInicioType = defineType({
       name: 'heroTitulo',
       title: 'Título principal',
       type: 'string',
-      initialValue: 'Resultados que transforman vidas',
+      initialValue: 'Más que resultados',
     }),
     defineField({
       name: 'heroSubtitulo',

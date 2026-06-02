@@ -6,6 +6,7 @@
  * TODO (content-needed): Add equipment photos.
  */
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import BackLink from '@/components/BackLink.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
 ---
 
@@ -13,7 +14,7 @@ import Breadcrumb from '@/components/Breadcrumb.astro';
   title="Nuestra Tecnología"
   description="CIC Laboratorios cuenta con equipos de última generación para garantizar resultados precisos y confiables."
 >
-  <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+  <div class="container-page">
 
     <Breadcrumb items={[
       { label: 'Inicio', href: '/' },
@@ -28,7 +29,7 @@ import Breadcrumb from '@/components/Breadcrumb.astro';
       </p>
     </header>
 
-    <section aria-labelledby="equipos-heading" class="mt-8 rounded-xl border border-gray-200 p-6">
+    <section aria-labelledby="equipos-heading" class="mt-8 card-xl">
       <h2 id="equipos-heading" class="text-4xl">
         Equipos principales
       </h2>
@@ -39,7 +40,7 @@ import Breadcrumb from '@/components/Breadcrumb.astro';
       </ul>
     </section>
 
-    <section aria-labelledby="qr-heading" class="mt-6 rounded-xl border border-gray-200 p-6">
+    <section aria-labelledby="qr-heading" class="mt-6 card-xl">
       <h2 id="qr-heading" class="text-4xl">
         Validación QR de resultados
       </h2>
@@ -50,17 +51,13 @@ import Breadcrumb from '@/components/Breadcrumb.astro';
         href="https://r2.ciclaboratorios.com:8081/VerificadorResultadosJavaEnvironment/servlet/com.verificadorresultados.webpanelprincipal"
         target="_blank"
         rel="noopener noreferrer"
-        class="mt-4 inline-block text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200"
+        class="mt-4 inline-block link-action"
       >
         Verificar un resultado →
       </a>
     </section>
 
-    <div class="mt-12 rounded-xl bg-gray-50 p-6">
-      <a href="/nosotros" class="text-sm font-medium text-navy-700 hover:text-navy-600 transition-colors duration-200">
-        ← Volver a Nosotros
-      </a>
-    </div>
+    <BackLink href="/nosotros" label="Nosotros" />
 
   </div>
 </BaseLayout>

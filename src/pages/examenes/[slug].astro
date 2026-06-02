@@ -50,7 +50,7 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
 ---
 
 <ExamenLayout examen={examen}>
-  <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+  <div class="container-page">
 
     <Breadcrumb items={[
       { label: 'Inicio', href: '/' },
@@ -62,7 +62,7 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
     <article>
 
       <!-- Header card -->
-      <header class="mt-6 rounded-lg border border-gray-200 p-6">
+      <header class="mt-6 card">
         <p class="text-xs font-medium uppercase tracking-wide text-gray-500">
           Categoría · {categoriaLabel}
         </p>
@@ -85,11 +85,11 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
             Cotizar por WhatsApp
           </a>
           <a href={waDomicilio} target="_blank" rel="noopener noreferrer"
-             class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200">
+             class="btn-outline">
             Solicitar domicilio
           </a>
           <a href="/sedes"
-             class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200">
+             class="btn-outline">
             Ver sedes disponibles
           </a>
         </div>
@@ -128,7 +128,7 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
 
       <!-- Condiciones del paciente / Preparación -->
       {examen.preparacion && (
-        <section aria-labelledby="preparacion-heading" class="mt-6 rounded-lg border border-gray-200 p-6">
+        <section aria-labelledby="preparacion-heading" class="mt-6 card">
           <h2 id="preparacion-heading" class="text-4xl">
             Condiciones del paciente
           </h2>
@@ -138,7 +138,7 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
 
       <!-- Perfiles que incluyen este examen -->
       {perfilesData.length > 0 && (
-        <section aria-labelledby="perfiles-heading" class="mt-6 rounded-lg border border-gray-200 p-6">
+        <section aria-labelledby="perfiles-heading" class="mt-6 card">
           <h2 id="perfiles-heading" class="text-4xl">
             Incluido en estos perfiles
           </h2>
@@ -158,7 +158,7 @@ const waDomicilio = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompo
 
       <!-- Exámenes relacionados -->
       {relacionadosData.length > 0 && (
-        <section aria-labelledby="relacionados-heading" class="mt-6 rounded-lg border border-gray-200 p-6">
+        <section aria-labelledby="relacionados-heading" class="mt-6 card">
           <h2 id="relacionados-heading" class="text-4xl">
             Exámenes relacionados
           </h2>

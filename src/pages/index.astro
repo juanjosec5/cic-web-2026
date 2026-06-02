@@ -32,7 +32,7 @@ const DEFAULT_PILARES = PILARES_CONFIG.map(({ titulo, descripcion }) => ({ titul
 const DEFAULT_AUDIENCIAS = [
   {
     titulo: 'Soy paciente',
-    descripcion: 'Resultados rápidos, sin cita, con atención humanizada.',
+    descripcion: 'Resultados rápidos, sin cita previa, con atención humanizada.',
     links: [
       { label: 'Ver exámenes', url: '/examenes' },
       { label: 'Preparación de exámenes', url: '/pacientes/preparacion' },
@@ -104,7 +104,7 @@ const sedesParaMapa = sedes
   <!-- 1. MONTHLY PROMOTION BANNER (alert strip above hero) -->
   {promo && (
     <section aria-labelledby="promo-heading" class="py-6">
-      <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="container-wide">
         {promo.modo === 'imagen' && promo.imagenCompletaUrl ? (
           <a href={promo.ctaUrl ?? '#'} target="_blank" rel="noopener noreferrer">
             <img
@@ -171,16 +171,18 @@ const sedesParaMapa = sedes
       <!-- Key stats -->
       <dl class="mt-14 grid grid-cols-3 gap-4 border-t border-navy-100 pt-10">
         <div class="text-center">
-          <dd class="text-3xl font-bold text-navy-900">+{examenes.length}</dd>
-          <dt class="mt-1 text-xs font-medium text-gray-500">El portafolio más completo de la región</dt>
+          <dt class="text-xs font-semibold uppercase tracking-widest text-gray-400">Exámenes</dt>
+          <dd class="mt-1 text-3xl font-bold text-navy-900">+{examenes.length}</dd>
         </div>
         <div class="text-center">
-          <dd class="text-3xl font-bold text-navy-900">{sedes.length}</dd>
-          <dt class="mt-1 text-xs font-medium text-gray-500">sedes en el Valle del Cauca</dt>
+          <dt class="text-xs font-semibold uppercase tracking-widest text-gray-400">Sedes</dt>
+          <dd class="mt-1 text-3xl font-bold text-navy-900">{sedes.length}</dd>
+          <p class="mt-1 text-xs font-medium text-gray-500">en el Valle del Cauca</p>
         </div>
         <div class="text-center">
-          <dd class="text-3xl font-bold text-navy-900">+30</dd>
-          <dt class="mt-1 text-xs font-medium text-gray-500">años de experiencia</dt>
+          <dt class="text-xs font-semibold uppercase tracking-widest text-gray-400">Experiencia</dt>
+          <dd class="mt-1 text-3xl font-bold text-navy-900">+30</dd>
+          <p class="mt-1 text-xs font-medium text-gray-500">años</p>
         </div>
       </dl>
     </div>
@@ -188,7 +190,7 @@ const sedesParaMapa = sedes
 
   <!-- 3. PILLARS STRIP -->
   <section aria-labelledby="pillars-heading" class="bg-navy-50 py-12">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+    <div class="container-wide">
       <h2 id="pillars-heading" class="sr-only">Por qué CIC Laboratorios</h2>
       <ul role="list" class="grid grid-cols-2 gap-5 md:grid-cols-4">
         {PILARES_CONFIG.map((config, i) => {
@@ -218,11 +220,11 @@ const sedesParaMapa = sedes
 
   <!-- 4. AUDIENCE SEGMENTATION -->
   <section aria-labelledby="audience-heading" class="py-14">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+    <div class="container-wide">
       <h2 id="audience-heading">¿Cómo podemos ayudarte?</h2>
       <div class="mt-8 grid grid-cols-1 gap-5 md:grid-cols-3">
         {audiencias.map((aud) => (
-          <article class="relative flex flex-col rounded-lg border border-gray-200 p-6 transition-shadow duration-200 hover:shadow-md">
+          <article class="relative flex flex-col card transition-shadow duration-200 hover:shadow-md">
             {AUDIENCE_ICONS[aud.titulo] && (
               <div class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-red-50">
                 <HeroIcon path={AUDIENCE_ICONS[aud.titulo]} class="h-6 w-6 text-red-600" />
@@ -253,7 +255,7 @@ const sedesParaMapa = sedes
 
   <!-- 5. EXAM CATEGORIES -->
   <section aria-labelledby="categorias-heading" class="py-14">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+    <div class="container-wide">
       <h2 id="categorias-heading">Exámenes por categoría</h2>
       <ul role="list" class="mt-8 flex flex-wrap gap-2">
         {CATEGORIAS.map((cat, i) => (
@@ -271,7 +273,7 @@ const sedesParaMapa = sedes
 
   <!-- 6. SEDE MAP PREVIEW -->
   <section aria-labelledby="sedes-map-heading" class="bg-navy-50 py-14">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+    <div class="container-wide">
       <h2 id="sedes-map-heading">
         <span class="block text-5xl font-bold text-navy-900">{sedes.length} sedes</span>
         <span class="block">en el Valle del Cauca</span>
@@ -330,7 +332,7 @@ const sedesParaMapa = sedes
 
   <!-- 7. SERVICES -->
   <section aria-labelledby="servicios-heading" class="bg-gray-50 py-14">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+    <div class="container-wide">
       <h2 id="servicios-heading">Nuestros servicios</h2>
       <ul role="list" class="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
         {servicios.map((servicio: CollectionEntry<'servicios'>) => (
@@ -358,7 +360,7 @@ const sedesParaMapa = sedes
 
   {testimonios.length > 0 && (
   <section aria-labelledby="testimonios-heading" class="py-12 bg-gray-50">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+    <div class="container-wide">
       <h2 id="testimonios-heading">Lo que dicen nuestros pacientes</h2>
       <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {testimonios.map((t) => (
@@ -384,7 +386,7 @@ const sedesParaMapa = sedes
 
   <!-- 8. QUALITY — trust anchor dark section -->
   <section aria-labelledby="calidad-heading" class="bg-navy-900 py-16 text-white">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+    <div class="container-wide">
       <div class="text-center">
         <p class="text-xs font-semibold uppercase tracking-widest text-navy-200">Estándares de calidad</p>
         <h2 id="calidad-heading" class="mt-2 text-white">Calidad y tecnología al servicio de tu salud</h2>
@@ -412,7 +414,7 @@ const sedesParaMapa = sedes
 
   <!-- 9. CONVENIOS / ALIADOS -->
   <section aria-labelledby="aliados-heading" class="py-14">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+    <div class="container-wide">
       <h2 id="aliados-heading">Convenios y aliados estratégicos</h2>
       {aliados.length > 0 && (
         <ul role="list" class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">

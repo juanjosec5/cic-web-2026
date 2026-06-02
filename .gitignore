@@ -31,7 +31,14 @@ data/reports/
 # Source data files — contain lab portfolio, never commit
 *.xlsx
 *.xls
+*.csv
 
 # Local tooling caches
 .sanity/
 .claude/
+
+# Local planning and handoff docs
+HANDOFF.md
+tasks.md
+docs/plan-*.md
+assets/

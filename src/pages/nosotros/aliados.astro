@@ -6,6 +6,7 @@
  * TODO (content-needed): Add aliado logos once available.
  */
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import BackLink from '@/components/BackLink.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
@@ -17,7 +18,7 @@ const aliados = await getCollection('aliados');
   title="Aliados y Convenios"
   description="Conoce los aliados estratégicos y convenios de CIC Laboratorios con EPS, ARL, clínicas y laboratorios de la región."
 >
-  <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+  <div class="container-page">
 
     <Breadcrumb items={[
       { label: 'Inicio', href: '/' },
@@ -39,7 +40,7 @@ const aliados = await getCollection('aliados');
         </h2>
         <ul role="list" class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
           {aliados.map((aliado: CollectionEntry<'aliados'>) => (
-            <li class="rounded-xl border border-gray-200 p-6">
+            <li class="card-xl">
               <p class="font-semibold text-gray-900">{aliado.data.nombre}</p>
               {aliado.data.descripcion && (
                 <p class="mt-2 text-sm text-gray-600">{aliado.data.descripcion}</p>
@@ -49,7 +50,7 @@ const aliados = await getCollection('aliados');
                   href={aliado.data.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="mt-3 inline-block text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200"
+                  class="mt-3 inline-block link-action"
                 >
                   Visitar sitio web →
                 </a>
@@ -60,7 +61,7 @@ const aliados = await getCollection('aliados');
       </section>
     )}
 
-    <section aria-labelledby="convenios-heading" class="mt-8 rounded-xl border border-gray-200 p-6">
+    <section aria-labelledby="convenios-heading" class="mt-8 card-xl">
       <h2 id="convenios-heading" class="text-4xl">
         Convenios activos
       </h2>
@@ -69,11 +70,7 @@ const aliados = await getCollection('aliados');
       </p>
     </section>
 
-    <div class="mt-12 rounded-xl bg-gray-50 p-6">
-      <a href="/nosotros" class="text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200">
-        ← Volver a Nosotros
-      </a>
-    </div>
+    <BackLink href="/nosotros" label="Nosotros" />
 
   </div>
 </BaseLayout>

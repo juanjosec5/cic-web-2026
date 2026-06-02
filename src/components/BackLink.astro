@@ -1,0 +1,12 @@
+---
+interface Props {
+  href: string;
+  label: string;
+}
+
+const { href, label } = Astro.props;
+---
+
+<div class="mt-12 rounded-xl bg-gray-50 p-6">
+  <a href={href} class="link-action">← Volver a {label}</a>
+</div>

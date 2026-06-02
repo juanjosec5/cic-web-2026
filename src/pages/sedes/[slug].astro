@@ -1,7 +1,9 @@
 ---
 import SedeLayout from '@/layouts/SedeLayout.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
+import MapEmbed from '@/components/MapEmbed.astro';
 import { SITE_CONFIG } from '@/lib/config';
+import { isSafeMapUrl } from '@/lib/maps';
 import { client } from '@/sanity/client';
 import { ALL_SEDES_QUERY } from '@/sanity/queries';
 import type { Sede } from '@/sanity/types';
@@ -27,20 +29,6 @@ export async function getStaticPaths() {
 const { sede, otrosSedes } = Astro.props;
 
 const waUrl = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(`Hola, quisiera información sobre la sede ${sede.nombre}.`)}`;
-
-function isSafeMapUrl(url: string | null | undefined): url is string {
-  if (!url) return false;
-  try {
-    const { protocol, hostname, pathname } = new URL(url);
-    return (
-      protocol === 'https:' &&
-      (hostname === 'www.google.com' || hostname === 'maps.google.com') &&
-      pathname.startsWith('/maps/')
-    );
-  } catch {
-    return false;
-  }
-}
 
 const safeMapUrl = isSafeMapUrl(sede.mapEmbedUrl)
   ? sede.mapEmbedUrl
@@ -87,7 +75,7 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
 ---
 
 <SedeLayout sede={sede}>
-  <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+  <div class="container-page">
 
     <Breadcrumb items={[
       { label: 'Inicio', href: '/' },
@@ -96,7 +84,7 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
     ]} />
 
     <!-- Header card -->
-    <div class="mt-6 rounded-lg border border-gray-200 p-6">
+    <div class="mt-6 card">
       <header>
         <h1>{sede.nombre}</h1>
         <p class="mt-1 text-sm text-gray-500">
@@ -122,7 +110,7 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
     <!-- Horarios + Contacto -->
     <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
 
-      <section aria-labelledby="horario-heading" class="rounded-lg border border-gray-200 p-6">
+      <section aria-labelledby="horario-heading" class="card">
         <h2 id="horario-heading" class="text-4xl">
           Horarios
         </h2>
@@ -145,7 +133,7 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
         )}
       </section>
 
-      <section aria-labelledby="contacto-heading" class="rounded-lg border border-gray-200 p-6">
+      <section aria-labelledby="contacto-heading" class="card">
         <h2 id="contacto-heading" class="text-4xl">
           Contacto
         </h2>
@@ -162,28 +150,12 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
     </div>
 
     <!-- Map -->
-    <section aria-labelledby="mapa-heading" class="mt-6 rounded-lg border border-gray-200 p-6">
+    <section aria-labelledby="mapa-heading" class="mt-6 card">
       <h2 id="mapa-heading" class="text-4xl">
         Ubicación
       </h2>
-      <div class="relative mt-4 overflow-hidden rounded-lg bg-gray-100" style="height:320px">
-        <div class="map-loader pointer-events-none absolute inset-0 flex items-center justify-center">
-          <svg class="h-8 w-8 animate-spin text-gray-300" fill="none" viewBox="0 0 24 24" aria-hidden="true">
-            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
-            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.568 3 7.938l3-2.647z" />
-          </svg>
-        </div>
-        <iframe
-          src={safeMapUrl}
-          width="100%"
-          height="320"
-          style="border:0"
-          allowfullscreen
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title={`Mapa de ${sede.nombre}`}
-          onload="this.previousElementSibling.style.display='none'"
-        ></iframe>
+      <div class="mt-4">
+        <MapEmbed url={safeMapUrl} title={`Mapa de ${sede.nombre}`} />
       </div>
       <a
         href={mapsUrl}
@@ -196,7 +168,7 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
     </section>
 
     <!-- Services ✓/— grid -->
-    <section aria-labelledby="servicios-sede-heading" class="mt-6 rounded-lg border border-gray-200 p-6">
+    <section aria-labelledby="servicios-sede-heading" class="mt-6 card">
       <h2 id="servicios-sede-heading" class="text-4xl">
         Servicios disponibles en esta sede
       </h2>
@@ -236,7 +208,7 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
     )}
 
     <!-- Gallery — always shown, placeholder squares when no photos -->
-    <section aria-labelledby="galeria-heading" class="mt-6 rounded-lg border border-gray-200 p-6">
+    <section aria-labelledby="galeria-heading" class="mt-6 card">
       <h2 id="galeria-heading" class="text-4xl">
         Galería
       </h2>
@@ -265,7 +237,7 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
 
     <!-- Convenios — only when data exists -->
     {sede.convenios.length > 0 && (
-      <section aria-labelledby="convenios-heading" class="mt-6 rounded-lg border border-gray-200 p-6">
+      <section aria-labelledby="convenios-heading" class="mt-6 card">
         <h2 id="convenios-heading" class="text-4xl">
           Convenios activos en esta sede
         </h2>
@@ -289,7 +261,7 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
     )}
 
     <!-- Nearby sedes -->
-    <section aria-labelledby="otras-sedes-heading" class="mt-6 rounded-lg border border-gray-200 p-6">
+    <section aria-labelledby="otras-sedes-heading" class="mt-6 card">
       <h2 id="otras-sedes-heading" class="text-4xl">
         Otras sedes cercanas
       </h2>
