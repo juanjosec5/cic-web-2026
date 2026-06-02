@@ -201,7 +201,7 @@ const sedesParaMapa = sedes
               <svg class="h-7 w-7 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d={config.svg} />
               </svg>
-              <h3 class:list={['mt-3 text-4xl', config.href && 'transition-colors duration-200 group-hover:text-navy-600']}>{pilar.titulo}</h3>
+              <h3 class:list={['mt-3', config.href && 'transition-colors duration-200 group-hover:text-navy-600']}>{pilar.titulo}</h3>
               <p class="mt-1 text-sm text-gray-600">{pilar.descripcion}</p>
             </>
           );
@@ -231,7 +231,7 @@ const sedesParaMapa = sedes
                 <HeroIcon path={AUDIENCE_ICONS[aud.titulo]} class="h-6 w-6 text-red-600" />
               </div>
             )}
-            <h3 class="text-4xl">{aud.titulo}</h3>
+            <h3>{aud.titulo}</h3>
             <p class="mt-2 flex-1 text-sm text-gray-600">{aud.descripcion}</p>
             <div class="mt-5 flex flex-col gap-2">
               {aud.links.map((lnk, li) => (
@@ -345,7 +345,7 @@ const sedesParaMapa = sedes
                   <HeroIcon path={SERVICE_ICONS[servicio.data.slug]} class="h-6 w-6 text-red-600" />
                 </div>
               )}
-              <h3 class="text-4xl transition-colors duration-200 group-hover:text-navy-700">
+              <h3 class="transition-colors duration-200 group-hover:text-navy-700">
                 {servicio.data.nombre}
               </h3>
               <p class="mt-2 flex-1 text-sm text-gray-600">{servicio.data.descripcion}</p>
