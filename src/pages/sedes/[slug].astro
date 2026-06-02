@@ -111,7 +111,7 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
     <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
 
       <section aria-labelledby="horario-heading" class="card">
-        <h2 id="horario-heading" class="text-4xl">
+        <h2 id="horario-heading" class="h2-sm">
           Horarios
         </h2>
         <table class="mt-4 w-full text-sm">
@@ -134,7 +134,7 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
       </section>
 
       <section aria-labelledby="contacto-heading" class="card">
-        <h2 id="contacto-heading" class="text-4xl">
+        <h2 id="contacto-heading" class="h2-sm">
           Contacto
         </h2>
         <address class="mt-4 not-italic space-y-2 text-sm text-gray-700">
@@ -151,7 +151,7 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
 
     <!-- Map -->
     <section aria-labelledby="mapa-heading" class="mt-6 card">
-      <h2 id="mapa-heading" class="text-4xl">
+      <h2 id="mapa-heading" class="h2-sm">
         Ubicación
       </h2>
       <div class="mt-4">
@@ -169,7 +169,7 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
 
     <!-- Services ✓/— grid -->
     <section aria-labelledby="servicios-sede-heading" class="mt-6 card">
-      <h2 id="servicios-sede-heading" class="text-4xl">
+      <h2 id="servicios-sede-heading" class="h2-sm">
         Servicios disponibles en esta sede
       </h2>
       <ul role="list" class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -209,7 +209,7 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
 
     <!-- Gallery — always shown, placeholder squares when no photos -->
     <section aria-labelledby="galeria-heading" class="mt-6 card">
-      <h2 id="galeria-heading" class="text-4xl">
+      <h2 id="galeria-heading" class="h2-sm">
         Galería
       </h2>
       <ul role="list" class="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4">
@@ -238,7 +238,7 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
     <!-- Convenios — only when data exists -->
     {sede.convenios.length > 0 && (
       <section aria-labelledby="convenios-heading" class="mt-6 card">
-        <h2 id="convenios-heading" class="text-4xl">
+        <h2 id="convenios-heading" class="h2-sm">
           Convenios activos en esta sede
         </h2>
         <ul role="list" class="mt-4 flex flex-wrap gap-2">
@@ -262,7 +262,7 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
 
     <!-- Nearby sedes -->
     <section aria-labelledby="otras-sedes-heading" class="mt-6 card">
-      <h2 id="otras-sedes-heading" class="text-4xl">
+      <h2 id="otras-sedes-heading" class="h2-sm">
         Otras sedes cercanas
       </h2>
       <ul role="list" class="mt-4 flex flex-wrap gap-6">

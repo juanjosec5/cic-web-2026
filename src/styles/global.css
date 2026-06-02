@@ -45,7 +45,7 @@ img {
     font-size: 2.5rem;
     font-weight: 700;
     letter-spacing: 0;
-    line-height: 1.15;
+    line-height: 0.9;
     color: #122d52; /* navy-900 */
   }
   @media (min-width: 640px) {
@@ -57,7 +57,7 @@ img {
     font-size: 2.75rem;
     font-weight: 700;
     letter-spacing: 0;
-    line-height: 1.15;
+    line-height: 0.9;
     color: #1a3d6a; /* navy-800 */
   }
 
@@ -66,7 +66,7 @@ img {
     font-size: 2.25rem;
     font-weight: 700;
     letter-spacing: 0;
-    line-height: 1.2;
+    line-height: 0.9;
     color: #1a3d6a;
   }
 
@@ -75,7 +75,7 @@ img {
     font-size: 1.875rem;
     font-weight: 700;
     letter-spacing: 0;
-    line-height: 1.25;
+    line-height: 0.9;
   }
 
   h5, h6 {
@@ -83,6 +83,7 @@ img {
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: 0;
+    line-height: 0.9;
   }
 
   /* ── Body text ────────────────────────────────────────────── */
@@ -130,6 +131,9 @@ img {
   /* Page wrappers */
   .container-page { @apply mx-auto max-w-4xl px-4 py-12 sm:px-6; }
   .container-wide { @apply mx-auto max-w-5xl px-4 sm:px-6; }
+
+  /* Card-internal section label — smaller than page-level h2 */
+  .h2-sm { font-size: 1.5rem; line-height: 1.2; }
 
   /* Card containers */
   .card     { @apply rounded-lg border border-gray-200 p-6; }

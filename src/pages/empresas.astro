@@ -54,21 +54,21 @@ const PROPUESTA_ICONS = {
         <li class="flex">
           <article class="h-full w-full card">
             <HeroIcon path={PROPUESTA_ICONS.reloj} class="mb-3 h-8 w-8 text-red-600" />
-            <h3>Resultados el mismo día</h3>
+            <h3 class="text-4xl">Resultados el mismo día</h3>
             <p class="mt-2 text-sm text-gray-600">Informe disponible en horas para que su colaborador regrese a su jornada sin contratiempos. Entrega digital al correo electrónico.</p>
           </article>
         </li>
         <li class="flex">
           <article class="h-full w-full card">
             <HeroIcon path={PROPUESTA_ICONS.ubicacion} class="mb-3 h-8 w-8 text-red-600" />
-            <h3>Toma en sitio</h3>
+            <h3 class="text-4xl">Toma en sitio</h3>
             <p class="mt-2 text-sm text-gray-600">Nuestro equipo certificado se desplaza a sus instalaciones. Ideal para jornadas de ingreso, periódicos o retiro.</p>
           </article>
         </li>
         <li class="flex">
           <article class="h-full w-full card">
             <HeroIcon path={PROPUESTA_ICONS.documento} class="mb-3 h-8 w-8 text-red-600" />
-            <h3>Informes consolidados</h3>
+            <h3 class="text-4xl">Informes consolidados</h3>
             <p class="mt-2 text-sm text-gray-600">Reporte único para Recursos Humanos con resultados de todo el grupo. Compatible con el sistema de gestión de SST.</p>
           </article>
         </li>
@@ -85,8 +85,8 @@ const PROPUESTA_ICONS = {
               {SERVICE_ICONS[s.data.slug] && (
                 <HeroIcon path={SERVICE_ICONS[s.data.slug]} class="mb-3 h-8 w-8 text-red-600" />
               )}
-              <h3>
-                <a href={`/servicios/${s.data.slug}`} class="link-action">{s.data.nombre}</a>
+              <h3 class="text-4xl">
+                <a href={`/servicios/${s.data.slug}`} class="text-red-600 hover:text-red-700 transition-colors duration-200">{s.data.nombre}</a>
               </h3>
               <p class="mt-2 flex-1 text-sm text-gray-600">{s.data.descripcion}</p>
             </article>
