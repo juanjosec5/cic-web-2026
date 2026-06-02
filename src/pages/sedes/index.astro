@@ -5,6 +5,7 @@ import SedeMap from '@/components/islands/SedeMap.vue';
 import { client } from '@/sanity/client';
 import { ALL_SEDES_QUERY } from '@/sanity/queries';
 import type { Sede } from '@/sanity/types';
+import { buildZonas } from '@/lib/sedes';
 
 const sedes: Sede[] = await client.fetch(ALL_SEDES_QUERY);
 const sedesOrdenadas = [...sedes].sort((a, b) =>
@@ -25,14 +26,7 @@ const sedesParaMapa = sedesOrdenadas
     esSedePrincipal: s.esSedePrincipal ?? false,
   }));
 
-const NORTE_LAT = 4.3
-const SUR_LAT   = 3.8
-
-const zonas = {
-  norte:  sedesOrdenadas.filter(s => (s.lat ?? 0) >= NORTE_LAT),
-  centro: sedesOrdenadas.filter(s => (s.lat ?? 0) >= SUR_LAT && (s.lat ?? 0) < NORTE_LAT),
-  sur:    sedesOrdenadas.filter(s => (s.lat ?? 0) < SUR_LAT),
-}
+const zonas = buildZonas(sedesOrdenadas);
 ---
 
 <BaseLayout
@@ -62,11 +56,7 @@ const zonas = {
 
     <!-- Mobile: accordion by geographic zone (below md) -->
     <div class="md:hidden mt-8 space-y-2">
-      {[
-        { label: 'Norte del Valle', sedes: zonas.norte },
-        { label: 'Centro del Valle', sedes: zonas.centro },
-        { label: 'Sur del Valle', sedes: zonas.sur },
-      ].filter(z => z.sedes.length > 0).map(zona => (
+      {zonas.map(zona => (
         <details class="group rounded-xl border border-gray-200 overflow-hidden">
           <summary class="flex cursor-pointer items-center justify-between px-4 py-3 text-sm font-semibold text-gray-800 select-none list-none">
             <span>{zona.label}</span>
