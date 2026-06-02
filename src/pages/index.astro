@@ -7,6 +7,7 @@ import type { CollectionEntry } from 'astro:content';
 import { SITE_CONFIG, CATEGORIAS } from '@/lib/config';
 import { SERVICE_ICONS } from '@/lib/icons';
 import { buildOrganizationJsonLd } from '@/lib/seo';
+import { buildZonas } from '@/lib/sedes';
 import { client } from '@/sanity/client';
 import { ALL_SEDES_QUERY, PROMO_MES_QUERY, PAGINA_INICIO_QUERY } from '@/sanity/queries';
 import type { Sede, PromoMes, PaginaInicio } from '@/sanity/types';
@@ -71,14 +72,8 @@ const sedesOrdenadas = [...sedes].sort((a, b) =>
   a.esSedePrincipal ? -1 : b.esSedePrincipal ? 1 : 0
 );
 
-const NORTE_LAT = 4.3;
-const SUR_LAT   = 3.8;
 const MOBILE_CAT_LIMIT = 12;
-const zonas = {
-  norte:  sedesOrdenadas.filter(s => (s.lat ?? 0) >= NORTE_LAT),
-  centro: sedesOrdenadas.filter(s => (s.lat ?? 0) >= SUR_LAT && (s.lat ?? 0) < NORTE_LAT),
-  sur:    sedesOrdenadas.filter(s => (s.lat ?? 0) < SUR_LAT),
-};
+const zonas = buildZonas(sedesOrdenadas);
 
 const sedesParaMapa = sedes
   .filter((s: Sede) => s.lat != null && s.lng != null)
@@ -287,11 +282,7 @@ const sedesParaMapa = sedes
 
       <!-- Mobile: accordion by geographic zone -->
       <div class="mt-6 space-y-2 md:hidden">
-        {[
-          { label: 'Norte del Valle', sedes: zonas.norte },
-          { label: 'Centro del Valle', sedes: zonas.centro },
-          { label: 'Sur del Valle', sedes: zonas.sur },
-        ].filter(z => z.sedes.length > 0).map(zona => (
+        {zonas.map(zona => (
           <details class="group rounded-xl border border-gray-200 bg-white overflow-hidden">
             <summary class="flex cursor-pointer list-none items-center justify-between px-4 py-3 text-sm font-semibold text-gray-800 select-none">
               <span>{zona.label}</span>
