@@ -56,9 +56,7 @@ const ALL_SERVICES = [
 ] as const;
 
 const WA_ROUTING: Partial<Record<typeof ALL_SERVICES[number]['slug'], string | null>> = {
-  domicilio: sede.whatsappDomicilio
-    ? `https://wa.me/${sede.whatsappDomicilio}?text=${encodeURIComponent(`Quiero solicitar toma de muestras a domicilio en ${sede.ciudad}.`)}`
-    : null,
+  domicilio: `https://wa.me/${sede.whatsappDomicilio ?? SITE_CONFIG.whatsappDomicilio}?text=${encodeURIComponent(`Quiero solicitar toma de muestras a domicilio en ${sede.ciudad}.`)}`,
   'jornadas-empresariales': sede.whatsappSubgerencia
     ? `https://wa.me/${sede.whatsappSubgerencia}?text=${encodeURIComponent('Quiero información sobre jornadas empresariales.')}`
     : null,

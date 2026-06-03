@@ -2,8 +2,10 @@
 export const SITE_CONFIG = {
   name: 'CIC Laboratorios',
   url: 'https://www.ciclaboratorios.com',
-  /** Pre-formatted for wa.me (Colombia +57 + 10-digit mobile) */
+  /** Recepción — pre-formatted for wa.me (Colombia +57 + 10-digit mobile) */
   whatsapp: '573174328255',
+  /** Domicilios — pre-formatted for wa.me */
+  whatsappDomicilio: '573158197366',
   sedePrincipal: {
     slug: 'buga',
     nombre: 'CIC Laboratorios — Buga',
