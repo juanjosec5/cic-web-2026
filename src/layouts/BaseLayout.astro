@@ -1,18 +1,9 @@
 ---
-/**
- * BaseLayout.astro
- * Root layout used by all pages. Renders <html>, SEO head, Header,
- * default slot, Footer, and the WhatsApp floating island.
- *
- * TODO (design-needed): Add skip-to-main-content accessibility link.
- * TODO (design-needed): Add cookie consent banner.
- * TODO (content-needed): Replace hardcoded WhatsApp phone with env var or
- *   sede principal data from collection.
- */
 import SEO from '@/components/SEO.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import WhatsAppFloating from '@/components/islands/WhatsAppFloating.vue';
+import Analytics from '@vercel/analytics/astro';
 import { SITE_CONFIG } from '@/lib/config';
 import '@/styles/global.css';
 
@@ -58,5 +49,6 @@ const { title, description, canonical, ogImage, jsonLd, whatsappMessage } = Astr
     </main>
     <Footer />
     <WhatsAppFloating phone={SITE_CONFIG.whatsapp} message={whatsappMessage} client:load />
+    <Analytics />
   </body>
 </html>
