@@ -4,9 +4,12 @@ import Breadcrumb from '@/components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import { SITE_CONFIG } from '@/lib/config';
+import { client } from '@/sanity/client';
+import { ALL_SEDES_QUERY } from '@/sanity/queries';
+import type { Sede } from '@/sanity/types';
 
 const [sedes, examenes] = await Promise.all([
-  getCollection('sedes'),
+  client.fetch<Sede[]>(ALL_SEDES_QUERY),
   getCollection('examenes', ({ data }: CollectionEntry<'examenes'>) => data.activo),
 ]);
 
