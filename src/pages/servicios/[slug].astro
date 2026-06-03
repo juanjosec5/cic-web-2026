@@ -4,6 +4,9 @@ import type { CollectionEntry } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
 import { SITE_CONFIG } from '@/lib/config';
+import { client } from '@/sanity/client';
+import { ALL_SEDES_QUERY } from '@/sanity/queries';
+import type { Sede } from '@/sanity/types';
 
 interface Props {
   servicio: CollectionEntry<'servicios'>['data'];
@@ -13,9 +16,9 @@ interface Props {
 export async function getStaticPaths() {
   const [servicios, sedes] = await Promise.all([
     getCollection('servicios'),
-    getCollection('sedes'),
+    client.fetch<Sede[]>(ALL_SEDES_QUERY),
   ]);
-  const sedeMap = new Map(sedes.map((s: CollectionEntry<'sedes'>) => [s.data.slug, s.data.nombre]));
+  const sedeMap = new Map(sedes.map((s: Sede) => [s.slug, s.nombre]));
 
   return servicios.map((servicio: CollectionEntry<'servicios'>) => ({
     params: { slug: servicio.data.slug },
