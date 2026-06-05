@@ -2,6 +2,11 @@
   "slug": "salud-ocupacional",
   "nombre": "Salud Ocupacional",
   "descripcion": "Exámenes de ingreso, periódicos y de egreso para empresas. Incluye visiometría, audiometría y perfil de laboratorio ocupacional según normativa colombiana.",
-  "sedesDisponibles": ["buga", "tulua"],
-  "ctaTipo": "contacto"
+  "sedesDisponibles": ["andalucia","ansermanuevo","buga","bugalagrande","caicedonia","cartago","dagua","darien","guacari","la-cumbre","la-union","obando","restrepo","roldanillo","san-pedro","tulua","yotoco","zarzal"],
+  "ctaTipo": "contacto",
+  "clinicaAliada": {
+    "nombre": "Clínica Sane — Sede Administrativa",
+    "direccion": "Cra 13 #4 - 49, Buga",
+    "telefono": "318 743 7530"
+  }
 }

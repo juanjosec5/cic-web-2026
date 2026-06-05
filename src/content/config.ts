@@ -65,6 +65,11 @@ const serviciosCollection = defineCollection({
     descripcion: z.string(),
     sedesDisponibles: z.array(z.string()),
     ctaTipo: z.enum(['whatsapp', 'contacto', 'mailto']),
+    clinicaAliada: z.object({
+      nombre: z.string(),
+      direccion: z.string(),
+      telefono: z.string(),
+    }).optional(),
   }),
 });
 

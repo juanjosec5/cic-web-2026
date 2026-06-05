@@ -73,7 +73,7 @@ const ctaUrl =
             : 'Solicitar información'}
         </a>
         <a href="/sedes" class="btn-outline">
-          Ver sedes disponibles
+          Ver todas las sedes
         </a>
       </div>
 
@@ -95,6 +95,20 @@ const ctaUrl =
           </ul>
         )}
       </section>
+
+      {servicio.clinicaAliada && (
+        <section aria-labelledby="aliada-heading" class="mt-10">
+          <h2 id="aliada-heading">Clínica aliada</h2>
+          <div class="mt-4 card flex flex-col gap-1">
+            <p class="font-semibold text-gray-900">{servicio.clinicaAliada.nombre}</p>
+            <p class="text-sm text-gray-600">{servicio.clinicaAliada.direccion}</p>
+            <a href={`tel:${servicio.clinicaAliada.telefono.replace(/\s/g,'')}`}
+               class="text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200">
+              {servicio.clinicaAliada.telefono}
+            </a>
+          </div>
+        </section>
+      )}
     </article>
 
   </div>
