@@ -101,7 +101,14 @@ const ctaUrl =
           <h2 id="aliada-heading">Clínica aliada</h2>
           <div class="mt-4 card flex flex-col gap-1">
             <p class="font-semibold text-gray-900">{servicio.clinicaAliada.nombre}</p>
-            <p class="text-sm text-gray-600">{servicio.clinicaAliada.direccion}</p>
+            <a
+              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(servicio.clinicaAliada.direccion)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm text-gray-600 hover:text-red-600 transition-colors duration-200"
+            >
+              {servicio.clinicaAliada.direccion} →
+            </a>
             <a href={`tel:${servicio.clinicaAliada.telefono.replace(/\s/g,'')}`}
                class="text-sm font-medium text-red-600 hover:text-red-700 transition-colors duration-200">
               {servicio.clinicaAliada.telefono}
