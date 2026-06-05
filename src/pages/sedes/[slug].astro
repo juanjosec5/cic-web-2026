@@ -2,6 +2,7 @@
 import SedeLayout from '@/layouts/SedeLayout.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
 import MapEmbed from '@/components/MapEmbed.astro';
+import GaleriaLightbox from '@/components/islands/GaleriaLightbox.vue';
 import { SITE_CONFIG } from '@/lib/config';
 import { isSafeMapUrl } from '@/lib/maps';
 import { client } from '@/sanity/client';
@@ -209,21 +210,7 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
     {sede.fotos.length > 0 && (
       <section aria-labelledby="galeria-heading" class="mt-6 card">
         <h2 id="galeria-heading" class="h2-sm">Galería</h2>
-        <ul role="list" class="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4">
-          {sede.fotos.map((foto: string) => (
-            <li>
-              <img
-                src={foto}
-                alt={`Foto de ${sede.nombre}`}
-                class="aspect-video w-full rounded-lg object-cover"
-                loading="lazy"
-                decoding="async"
-                width="400"
-                height="225"
-              />
-            </li>
-          ))}
-        </ul>
+        <GaleriaLightbox fotos={sede.fotos} nombre={sede.nombre} client:visible />
       </section>
     )}
 
