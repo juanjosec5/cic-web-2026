@@ -7,6 +7,7 @@ const props = defineProps<{
 }>();
 
 const activeIndex = ref<number | null>(null);
+const touchStartX = ref<number | null>(null);
 
 const isOpen = computed(() => activeIndex.value !== null);
 const activePhoto = computed(() =>
@@ -33,6 +34,19 @@ function prev() {
 
 function next() {
   if (hasNext.value && activeIndex.value !== null) activeIndex.value++;
+}
+
+function onTouchStart(e: TouchEvent) {
+  touchStartX.value = e.touches[0].clientX;
+}
+
+function onTouchEnd(e: TouchEvent) {
+  if (touchStartX.value === null) return;
+  const delta = e.changedTouches[0].clientX - touchStartX.value;
+  touchStartX.value = null;
+  if (Math.abs(delta) < 50) return;
+  if (delta < 0) next();
+  else prev();
 }
 
 function onKeydown(e: KeyboardEvent) {
@@ -81,6 +95,8 @@ onUnmounted(() => {
       aria-modal="true"
       :aria-label="`Galería de ${nombre}`"
       @click.self="close"
+      @touchstart.passive="onTouchStart"
+      @touchend.passive="onTouchEnd"
     >
       <!-- Close -->
       <button
