@@ -12,9 +12,7 @@ const anchorLinks = [
   { id: 'vision', label: 'Visión' },
   { id: 'historia', label: 'Historia' },
   { id: 'valores', label: 'Valores' },
-  { id: 'equipo', label: 'Equipo' },
   { id: 'tecnologia', label: 'Tecnología' },
-  { id: 'calidad', label: 'Calidad' },
   { id: 'aliados', label: 'Aliados' },
 ];
 
@@ -138,27 +136,6 @@ const valores = [
           </div>
         </section>
 
-        <!-- Equipo -->
-        <section id="equipo" aria-labelledby="equipo-heading">
-          <h2 id="equipo-heading">Equipo</h2>
-          <p>
-            Nuestro equipo de bacteriólogos, auxiliar de laboratorio y personal administrativo
-            trabaja con vocación de servicio y compromiso con la excelencia.
-          </p>
-          {/* TODO (content-needed): Replace placeholder grid with real team member cards (photos, names, roles) */}
-          <ul role="list" class="mt-6 grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
-            {Array.from({ length: 4 }).map((_, i) => (
-              <li>
-                <div class="aspect-square w-full" aria-label={`Foto integrante ${i + 1} — pendiente`}>
-                  [ Foto ]
-                </div>
-                <p>[ Nombre — pendiente ]</p>
-                <p>[ Cargo — pendiente ]</p>
-              </li>
-            ))}
-          </ul>
-        </section>
-
         <section id="tecnologia" aria-labelledby="tecnologia-heading">
           <h2 id="tecnologia-heading">Tecnología</h2>
           <p>
@@ -174,17 +151,6 @@ const valores = [
           >
             [ Video de equipos — pendiente ]
           </div>
-        </section>
-
-        <section id="calidad" aria-labelledby="calidad-heading">
-          <h2 id="calidad-heading">Calidad</h2>
-          <p>
-            {/* TODO (content-needed): Add official patient safety policy text */}
-            La política de seguridad del paciente de CIC Laboratorios establece
-            los estándares mínimos de calidad que deben cumplirse en cada etapa
-            del proceso analítico.
-          </p>
-          {/* TODO (content-needed): Add certifications list (ICONTEC, etc.) */}
         </section>
 
         <section id="aliados" aria-labelledby="aliados-heading">
