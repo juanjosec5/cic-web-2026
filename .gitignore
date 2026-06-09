@@ -40,5 +40,5 @@ data/reports/
 # Local planning and handoff docs
 HANDOFF.md
 tasks.md
-docs/plan-*.md
+docs/
 assets/
