@@ -60,6 +60,7 @@ const DEFAULT_CALIDAD: NonNullable<PaginaInicio['calidad']> = [
 const pilares = paginaInicio?.pilares ?? DEFAULT_PILARES;
 const audiencias = paginaInicio?.audiencias ?? DEFAULT_AUDIENCIAS;
 const calidad = paginaInicio?.calidad ?? DEFAULT_CALIDAD;
+const equipoImagenes = paginaInicio?.equipoImagenes ?? [];
 const testimonios = paginaInicio?.testimonios ?? [];
 
 const AUDIENCE_ICONS: Record<string, string> = {
@@ -383,6 +384,23 @@ const sedesParaMapa = sedes
         <p class="text-xs font-semibold uppercase tracking-widest text-navy-200">Estándares de calidad</p>
         <h2 id="calidad-heading" class="mt-2 text-white">Calidad y tecnología al servicio de tu salud</h2>
       </div>
+      {equipoImagenes.length > 0 && (
+        <div class="mt-10 grid grid-cols-2 gap-4">
+          {equipoImagenes.map((url, i) => (
+            <img
+              src={`${url}?w=800&auto=format&q=85`}
+              srcset={`${url}?w=400&auto=format&q=85 400w, ${url}?w=800&auto=format&q=85 800w`}
+              sizes="(max-width: 640px) calc(50vw - 1rem), 400px"
+              alt={`Equipos de laboratorio CIC ${i + 1}`}
+              class="w-full rounded-xl object-cover aspect-[4/3]"
+              loading="lazy"
+              decoding="async"
+              width="800"
+              height="600"
+            />
+          ))}
+        </div>
+      )}
       <ul role="list" class="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
         {calidad.map((item) => (
           <li class="flex flex-col rounded-lg border border-white/10 bg-white/5 p-6 backdrop-blur-sm">

@@ -143,6 +143,16 @@ export const paginaInicioType = defineType({
       ],
       validation: (R) => R.min(3).max(3),
     }),
+    // ── Equipo / Imágenes ────────────────────────────────────────────────────
+    defineField({
+      name: 'equipoImagenes',
+      title: 'Imágenes de equipos (máx. 2)',
+      type: 'array',
+      description: 'Fotos del laboratorio/equipos que aparecen en la franja de Calidad y tecnología.',
+      of: [{ type: 'image', options: { hotspot: true } }],
+      validation: (R) => R.max(2),
+    }),
+
     // ── Testimonios ──────────────────────────────────────────────────────────
     defineField({
       name: 'testimonios',
