@@ -210,6 +210,26 @@ const waAlianza = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompone
           </div>
 
         </form>
+
+        <!-- Success state -->
+        <div id="success-alianza" class="hidden flex flex-col items-center justify-center py-12 text-center gap-4">
+          <div class="flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
+            <svg class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900">¡Propuesta enviada!</h3>
+            <p class="mt-1 text-sm text-gray-500">Un especialista se comunicará con usted en breve.</p>
+          </div>
+          <button
+            id="reset-alianza"
+            type="button"
+            class="mt-2 rounded-lg border border-gray-300 px-5 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200"
+          >
+            Enviar otra propuesta
+          </button>
+        </div>
       </div>
 
       <!-- Secondary fallbacks -->
@@ -235,8 +255,9 @@ const waAlianza = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompone
     formId: 'form-alianza',
     btnId: 'btn-alianza',
     msgId: 'msg-alianza',
+    successId: 'success-alianza',
+    resetBtnId: 'reset-alianza',
     endpoint: '/api/alianza',
     defaultText: 'Enviar propuesta',
-    successText: '¡Propuesta enviada! Un especialista se comunicará con usted.',
   });
 </script>
