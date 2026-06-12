@@ -10,6 +10,10 @@ export default defineConfig({
   site: 'https://www.ciclaboratorios.com',
   output: 'static',
   adapter: vercel(),
+  // Origin checking is done in src/middleware.ts against x-forwarded-host;
+  // Astro's built-in check compares against the serverless function's internal
+  // origin (localhost on Vercel) and 403s every legitimate browser POST.
+  security: { checkOrigin: false },
   integrations: [
     vue(),
     sitemap({
