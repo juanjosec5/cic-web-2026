@@ -75,7 +75,7 @@ const waAlianza = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompone
       <p class="mt-2 text-gray-600">Complete el formulario y un especialista se comunicará con usted.</p>
 
       <div class="mt-6 rounded-lg border border-gray-200 bg-white p-8">
-        <form action="#" method="POST" class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <form id="form-alianza" action="/api/alianza" method="POST" class="grid grid-cols-1 gap-6 sm:grid-cols-2">
 
           <!-- Honeypot — hidden from humans, traps bots -->
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
@@ -200,15 +200,13 @@ const waAlianza = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompone
 
           <div class="sm:col-span-2">
             <button
+              id="btn-alianza"
               type="submit"
-              aria-disabled="true"
-              aria-describedby="submit-hint-alianza"
-              onclick="event.preventDefault()"
-              class="w-full rounded-lg bg-red-600 px-6 py-3 text-sm font-semibold text-white shadow-sm opacity-50 cursor-not-allowed"
+              class="w-full rounded-lg bg-red-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-red-700 active:scale-95 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
             >
               Enviar propuesta
             </button>
-            <p id="submit-hint-alianza" class="mt-2 text-center text-xs text-gray-400">El envío estará disponible próximamente.</p>
+            <p id="msg-alianza" class="mt-2 text-center text-xs hidden"></p>
           </div>
 
         </form>
@@ -230,3 +228,38 @@ const waAlianza = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompone
 
   </div>
 </BaseLayout>
+
+<script>
+  const form = document.getElementById('form-alianza') as HTMLFormElement | null;
+  const btn = document.getElementById('btn-alianza') as HTMLButtonElement | null;
+  const msg = document.getElementById('msg-alianza') as HTMLParagraphElement | null;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!btn || !msg) return;
+
+    btn.disabled = true;
+    btn.textContent = 'Enviando…';
+    msg.className = 'mt-2 text-center text-xs hidden';
+
+    try {
+      const res = await fetch('/api/alianza', { method: 'POST', body: new FormData(form) });
+      const json = await res.json();
+
+      if (res.ok && json.ok) {
+        msg.textContent = '¡Propuesta enviada! Un especialista se comunicará con usted.';
+        msg.className = 'mt-2 text-center text-xs text-green-600';
+        form.reset();
+      } else {
+        throw new Error(json.error ?? 'Error desconocido');
+      }
+    } catch (err) {
+      msg.textContent = 'Ocurrió un error al enviar. Por favor intente de nuevo.';
+      msg.className = 'mt-2 text-center text-xs text-red-600';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Enviar propuesta';
+      msg.classList.remove('hidden');
+    }
+  });
+</script>

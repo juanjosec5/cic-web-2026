@@ -121,7 +121,7 @@ const PROPUESTA_ICONS = {
       <p class="mt-2 text-gray-600">Nos ponemos en contacto en menos de 24 horas hábiles.</p>
 
       <div class="mt-6 rounded-lg border border-gray-200 bg-white p-8">
-        <form action="#" method="POST" class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <form id="form-empresa" action="/api/contact" method="POST" class="grid grid-cols-1 gap-6 sm:grid-cols-2">
 
           <!-- Honeypot — hidden from humans, traps bots -->
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
@@ -248,15 +248,13 @@ const PROPUESTA_ICONS = {
 
           <div class="sm:col-span-2">
             <button
+              id="btn-empresa"
               type="submit"
-              aria-disabled="true"
-              aria-describedby="submit-hint-empresa"
-              onclick="event.preventDefault()"
-              class="w-full rounded-lg bg-red-600 px-6 py-3 text-sm font-semibold text-white shadow-sm opacity-50 cursor-not-allowed"
+              class="w-full rounded-lg bg-red-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-red-700 active:scale-95 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
             >
               Enviar solicitud
             </button>
-            <p id="submit-hint-empresa" class="mt-2 text-center text-xs text-gray-400">El envío estará disponible próximamente.</p>
+            <p id="msg-empresa" class="mt-2 text-center text-xs hidden"></p>
           </div>
 
         </form>
@@ -278,3 +276,38 @@ const PROPUESTA_ICONS = {
 
   </div>
 </BaseLayout>
+
+<script>
+  const form = document.getElementById('form-empresa') as HTMLFormElement | null;
+  const btn = document.getElementById('btn-empresa') as HTMLButtonElement | null;
+  const msg = document.getElementById('msg-empresa') as HTMLParagraphElement | null;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!btn || !msg) return;
+
+    btn.disabled = true;
+    btn.textContent = 'Enviando…';
+    msg.className = 'mt-2 text-center text-xs hidden';
+
+    try {
+      const res = await fetch('/api/contact', { method: 'POST', body: new FormData(form) });
+      const json = await res.json();
+
+      if (res.ok && json.ok) {
+        msg.textContent = '¡Solicitud enviada! Nos pondremos en contacto pronto.';
+        msg.className = 'mt-2 text-center text-xs text-green-600';
+        form.reset();
+      } else {
+        throw new Error(json.error ?? 'Error desconocido');
+      }
+    } catch (err) {
+      msg.textContent = 'Ocurrió un error al enviar. Por favor intente de nuevo.';
+      msg.className = 'mt-2 text-center text-xs text-red-600';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Enviar solicitud';
+      msg.classList.remove('hidden');
+    }
+  });
+</script>
