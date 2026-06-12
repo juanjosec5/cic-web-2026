@@ -278,42 +278,13 @@ const PROPUESTA_ICONS = {
 </BaseLayout>
 
 <script>
-  const form = document.getElementById('form-empresa') as HTMLFormElement | null;
-  const btn = document.getElementById('btn-empresa') as HTMLButtonElement | null;
-  const msg = document.getElementById('msg-empresa') as HTMLParagraphElement | null;
-
-  form?.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (!btn || !msg) return;
-
-    btn.disabled = true;
-    btn.textContent = 'Enviando…';
-    msg.className = 'mt-2 text-center text-xs hidden';
-
-    try {
-      const res = await fetch('/api/contact', { method: 'POST', body: new FormData(form) });
-
-      if (res.ok) {
-        const json = await res.json();
-        if (json.ok) {
-          msg.textContent = '¡Solicitud enviada! Nos pondremos en contacto pronto.';
-          msg.className = 'mt-2 text-center text-xs text-green-600';
-          form.reset();
-          return;
-        }
-        throw new Error(json.error ?? 'Error desconocido');
-      }
-
-      let errMsg = 'Error desconocido';
-      try { errMsg = (await res.json()).error ?? errMsg; } catch { /* non-JSON error body */ }
-      throw new Error(errMsg);
-    } catch (err) {
-      msg.textContent = 'Ocurrió un error al enviar. Por favor intente de nuevo.';
-      msg.className = 'mt-2 text-center text-xs text-red-600';
-    } finally {
-      btn.disabled = false;
-      btn.textContent = 'Enviar solicitud';
-      msg.classList.remove('hidden');
-    }
+  import { initContactForm } from '@/lib/contactForm';
+  initContactForm({
+    formId: 'form-empresa',
+    btnId: 'btn-empresa',
+    msgId: 'msg-empresa',
+    endpoint: '/api/contact',
+    defaultText: 'Enviar solicitud',
+    successText: '¡Solicitud enviada! Nos pondremos en contacto pronto.',
   });
 </script>

@@ -230,42 +230,13 @@ const waAlianza = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompone
 </BaseLayout>
 
 <script>
-  const form = document.getElementById('form-alianza') as HTMLFormElement | null;
-  const btn = document.getElementById('btn-alianza') as HTMLButtonElement | null;
-  const msg = document.getElementById('msg-alianza') as HTMLParagraphElement | null;
-
-  form?.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (!btn || !msg) return;
-
-    btn.disabled = true;
-    btn.textContent = 'Enviando…';
-    msg.className = 'mt-2 text-center text-xs hidden';
-
-    try {
-      const res = await fetch('/api/alianza', { method: 'POST', body: new FormData(form) });
-
-      if (res.ok) {
-        const json = await res.json();
-        if (json.ok) {
-          msg.textContent = '¡Propuesta enviada! Un especialista se comunicará con usted.';
-          msg.className = 'mt-2 text-center text-xs text-green-600';
-          form.reset();
-          return;
-        }
-        throw new Error(json.error ?? 'Error desconocido');
-      }
-
-      let errMsg = 'Error desconocido';
-      try { errMsg = (await res.json()).error ?? errMsg; } catch { /* non-JSON error body */ }
-      throw new Error(errMsg);
-    } catch (err) {
-      msg.textContent = 'Ocurrió un error al enviar. Por favor intente de nuevo.';
-      msg.className = 'mt-2 text-center text-xs text-red-600';
-    } finally {
-      btn.disabled = false;
-      btn.textContent = 'Enviar propuesta';
-      msg.classList.remove('hidden');
-    }
+  import { initContactForm } from '@/lib/contactForm';
+  initContactForm({
+    formId: 'form-alianza',
+    btnId: 'btn-alianza',
+    msgId: 'msg-alianza',
+    endpoint: '/api/alianza',
+    defaultText: 'Enviar propuesta',
+    successText: '¡Propuesta enviada! Un especialista se comunicará con usted.',
   });
 </script>
