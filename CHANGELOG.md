@@ -9,6 +9,10 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 ## [Unreleased]
 
+### Fixed (CSRF check broke contact forms on Vercel)
+- `astro.config.mjs`: disabled Astro's built-in `security.checkOrigin` — inside Vercel serverless functions Astro computes its own origin as `localhost`, so every legitimate browser POST to `/api/*` was rejected with 403 ("Cross-site POST form submissions are forbidden"); forms only ever worked on `npm run dev`
+- `src/middleware.ts`: equivalent CSRF protection re-implemented correctly — when an `Origin` header is present, its host must match `x-forwarded-host` (the host the visitor actually requested, set reliably by Vercel) or the request is rejected with 403
+
 ### Added (icons, bullet points, mobile nav scroll lock)
 - `src/pages/index.astro`: promo banner moved above hero so it acts as a top-of-page alert; audience cards ("¿Cómo podemos ayudarte?") now show Heroicons per role — user-circle (Paciente), building-office-2 (Empresa), beaker (Laboratorio/IPS)
 - `src/pages/servicios/index.astro`: `SERVICE_ICONS` lookup map — each service card renders a contextual Heroicon (home → domicilio, heart → ginecología/VPH, user-group → jornadas empresariales, shield-check → salud ocupacional)
