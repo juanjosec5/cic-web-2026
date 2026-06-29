@@ -8,10 +8,10 @@ import type { CollectionEntry } from 'astro:content';
 const aliados = await getCollection('aliados');
 
 const anchorLinks = [
+  { id: 'valores', label: 'Valores' },
   { id: 'mision', label: 'Misión' },
   { id: 'vision', label: 'Visión' },
   { id: 'historia', label: 'Historia' },
-  { id: 'valores', label: 'Valores' },
   { id: 'tecnologia', label: 'Tecnología' },
   { id: 'aliados', label: 'Aliados' },
 ];
@@ -84,6 +84,20 @@ const valores = [
       <!-- Main content -->
       <div class="flex-1 space-y-16">
 
+        <!-- Valores -->
+        <section id="valores" aria-labelledby="valores-heading">
+          <h2 id="valores-heading">Valores</h2>
+          <div class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {valores.map((valor) => (
+              <div class="rounded-lg border border-gray-200 p-5">
+                <HeroIcon path={valor.icono} class="mb-3 h-8 w-8 text-red-600" />
+                <h3 class="text-4xl">{valor.nombre}</h3>
+                <p class="mt-2 text-sm text-gray-600 leading-relaxed">{valor.metafora}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         <!-- Misión -->
         <section id="mision" aria-labelledby="mision-heading">
           <h2 id="mision-heading">Misión</h2>
@@ -120,20 +134,6 @@ const valores = [
           <a href="/nosotros/historia" class="mt-4 inline-block link-action">
             Ver historia completa →
           </a>
-        </section>
-
-        <!-- Valores -->
-        <section id="valores" aria-labelledby="valores-heading">
-          <h2 id="valores-heading">Valores</h2>
-          <div class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {valores.map((valor) => (
-              <div class="rounded-lg border border-gray-200 p-5">
-                <HeroIcon path={valor.icono} class="mb-3 h-8 w-8 text-red-600" />
-                <h3 class="text-4xl">{valor.nombre}</h3>
-                <p class="mt-2 text-sm text-gray-600 leading-relaxed">{valor.metafora}</p>
-              </div>
-            ))}
-          </div>
         </section>
 
         <section id="tecnologia" aria-labelledby="tecnologia-heading">

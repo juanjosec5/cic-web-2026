@@ -18,20 +18,19 @@ const waAlianza = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompone
 ---
 
 <BaseLayout
-  title="Alianzas con Laboratorios e IPS"
-  description="CIC Laboratorios como laboratorio de referencia para IPS y laboratorios clínicos de la región. Referencia de muestras especializadas."
+  title="Laboratorio de referencia para IPS y otros laboratorios"
+  description="CIC Laboratorios actúa como laboratorio de referencia para IPS y laboratorios clínicos que necesitan servicio de muestras especializadas."
   whatsappMessage={WA_MESSAGE_ALIANZA}
 >
   <div class="container-page">
 
-    <Breadcrumb items={[{ label: 'Inicio', href: '/' }, { label: 'Laboratorios aliados' }]} />
+    <Breadcrumb items={[{ label: 'Inicio', href: '/' }, { label: 'Laboratorios de referencia' }]} />
 
     <header>
-      <h1>Alianzas con laboratorios e IPS</h1>
+      <h1>Laboratorio de referencia para IPS y otros laboratorios</h1>
       <p>
-        {/* TODO (content-needed): Replace with real intro copy */}
-        CIC Laboratorios actúa como laboratorio de referencia regional para IPS y
-        laboratorios clínicos que necesiten envío de muestras especializadas.
+        CIC Laboratorios actúa como laboratorio de referencia para IPS y
+        laboratorios clínicos que necesitan servicio de muestras especializadas.
       </p>
     </header>
 
@@ -52,8 +51,8 @@ const waAlianza = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompone
           <article class="card">
             <h3 class="text-4xl">Portafolio amplio</h3>
             <p class="mt-2 text-sm text-gray-600">
-              {examenes.length} exámenes disponibles — desde rutinas básicas
-              hasta pruebas de alta complejidad.
+              {/* TODO (content-needed): Confirm exact count and level breakdown with Sandra */}
+              660+ exámenes disponibles desde Niveles I, II y III.
             </p>
           </article>
         </li>
@@ -71,165 +70,13 @@ const waAlianza = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompone
 
     <!-- CTA — form mockup (submission not yet wired) -->
     <section aria-labelledby="alianza-cta-heading" class="mt-12">
-      <h2 id="alianza-cta-heading">Proponer una alianza</h2>
-      <p class="mt-2 text-gray-600">Complete el formulario y un especialista se comunicará con usted.</p>
+      <h2 id="alianza-cta-heading">Solicita información</h2>
+      <p class="mt-2 text-gray-600">Complete el formulario y nos pondremos en contacto.</p>
 
-      <div class="mt-6 rounded-lg border border-gray-200 bg-white p-8">
-        <form id="form-alianza" action="/api/alianza" method="POST" class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-
-          <!-- Honeypot — hidden from humans, traps bots -->
-          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
-
-          <div>
-            <label for="organizacion" class="block text-sm font-medium text-gray-700 mb-1">
-              Nombre de la organización <span class="text-red-500">*</span>
-            </label>
-            <input
-              type="text" id="organizacion" name="organizacion" required
-              class="form-input"
-              placeholder="IPS Regional S.A.S."
-            />
-          </div>
-
-          <div>
-            <label for="tipo" class="block text-sm font-medium text-gray-700 mb-1">
-              Tipo de organización <span class="text-red-500">*</span>
-            </label>
-            <select
-              id="tipo" name="tipo" required
-              class="form-input bg-white"
-            >
-              <option value="" disabled selected>Seleccionar tipo…</option>
-              <option value="ips">IPS</option>
-              <option value="laboratorio-clinico">Laboratorio clínico</option>
-              <option value="centro-medico">Centro médico</option>
-              <option value="clinica">Clínica</option>
-              <option value="otro">Otro</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="nombre" class="block text-sm font-medium text-gray-700 mb-1">
-              Nombre del contacto <span class="text-red-500">*</span>
-            </label>
-            <input
-              type="text" id="nombre" name="nombre" required
-              class="form-input"
-              placeholder="Dr. Juan Pérez"
-            />
-          </div>
-
-          <div>
-            <label for="cargo" class="block text-sm font-medium text-gray-700 mb-1">
-              Cargo
-            </label>
-            <input
-              type="text" id="cargo" name="cargo"
-              class="form-input"
-              placeholder="Director Médico"
-            />
-          </div>
-
-          <div>
-            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
-              Correo electrónico <span class="text-red-500">*</span>
-            </label>
-            <input
-              type="email" id="email" name="email" required
-              class="form-input"
-              placeholder="contacto@ips.com"
-            />
-          </div>
-
-          <div>
-            <label for="telefono" class="block text-sm font-medium text-gray-700 mb-1">
-              Teléfono <span class="text-red-500">*</span>
-            </label>
-            <input
-              type="tel" id="telefono" name="telefono" required
-              class="form-input"
-              placeholder="310 000 0000"
-            />
-          </div>
-
-          <div class="sm:col-span-2">
-            <label for="ciudad" class="block text-sm font-medium text-gray-700 mb-1">
-              Ciudad / Municipio de operación <span class="text-red-500">*</span>
-            </label>
-            <input
-              type="text" id="ciudad" name="ciudad" required
-              class="form-input"
-              placeholder="Ej: Buga, Tuluá, Cali…"
-            />
-          </div>
-
-          <div class="sm:col-span-2">
-            <fieldset>
-              <legend class="block text-sm font-medium text-gray-700 mb-2">
-                Servicios de interés <span class="text-red-500">*</span>
-              </legend>
-              <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                {[
-                  'Referencia de muestras',
-                  'Educación continuada',
-                  'Perfil de precios especial',
-                  'Otro',
-                ].map((s) => (
-                  <label class="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
-                    <input
-                      type="checkbox" name="servicio[]" value={s}
-                      class="h-4 w-4 rounded border-gray-300 text-red-600 focus:ring-red-500"
-                    />
-                    {s}
-                  </label>
-                ))}
-              </div>
-            </fieldset>
-          </div>
-
-          <div class="sm:col-span-2">
-            <label for="mensaje" class="block text-sm font-medium text-gray-700 mb-1">
-              Descripción de la alianza propuesta
-            </label>
-            <textarea
-              id="mensaje" name="mensaje" rows={4}
-              class="form-input resize-none"
-              placeholder="Cuéntenos sobre su organización y qué tipo de alianza busca…"
-            ></textarea>
-          </div>
-
-          <div class="sm:col-span-2">
-            <button
-              id="btn-alianza"
-              type="submit"
-              class="w-full rounded-lg bg-red-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-red-700 active:scale-95 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
-            >
-              Enviar propuesta
-            </button>
-            <p id="msg-alianza" class="mt-2 text-center text-xs hidden"></p>
-          </div>
-
-        </form>
-
-        <!-- Success state -->
-        <div id="success-alianza" class="hidden flex flex-col items-center justify-center py-12 text-center gap-4">
-          <div class="flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
-            <svg class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold text-gray-900">¡Propuesta enviada!</h3>
-            <p class="mt-1 text-sm text-gray-500">Un especialista se comunicará con usted en breve.</p>
-          </div>
-          <button
-            id="reset-alianza"
-            type="button"
-            class="mt-2 rounded-lg border border-gray-300 px-5 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200"
-          >
-            Enviar otra propuesta
-          </button>
-        </div>
+      {/* TODO: Re-enable form once Resend DNS is confirmed working */}
+      <div class="mt-6 rounded-lg border border-amber-200 bg-amber-50 px-6 py-8 text-center">
+        <p class="text-sm font-semibold text-amber-800">Formulario temporalmente no disponible</p>
+        <p class="mt-1 text-sm text-amber-700">Estamos configurando el sistema de envío. Por favor contáctenos directamente por los canales de abajo.</p>
       </div>
 
       <!-- Secondary fallbacks -->
@@ -249,15 +96,3 @@ const waAlianza = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompone
   </div>
 </BaseLayout>
 
-<script>
-  import { initContactForm } from '@/lib/contactForm';
-  initContactForm({
-    formId: 'form-alianza',
-    btnId: 'btn-alianza',
-    msgId: 'msg-alianza',
-    successId: 'success-alianza',
-    resetBtnId: 'reset-alianza',
-    endpoint: '/api/alianza',
-    defaultText: 'Enviar propuesta',
-  });
-</script>
