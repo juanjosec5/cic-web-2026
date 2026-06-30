@@ -52,23 +52,23 @@ const PROPUESTA_ICONS = {
       <h2 id="propuestas-heading" class="sr-only">Por qué elegirnos</h2>
       <ul role="list" class="grid grid-cols-1 gap-6 md:grid-cols-3">
         <li class="flex">
-          <article class="h-full w-full card">
-            <HeroIcon path={PROPUESTA_ICONS.reloj} class="mb-3 h-8 w-8 text-red-600" />
-            <h3 class="text-4xl">Resultados el mismo día</h3>
+          <article class="flex flex-col h-full w-full card">
+            <HeroIcon path={PROPUESTA_ICONS.reloj} class="mb-3 h-8 w-8 shrink-0 text-red-600" />
+            <h3 class="text-4xl min-h-[5rem]">Resultados el mismo día</h3>
             <p class="mt-2 text-sm text-gray-600">Informe disponible en horas para que su colaborador regrese a su jornada sin contratiempos. Entrega digital al correo electrónico.</p>
           </article>
         </li>
         <li class="flex">
-          <article class="h-full w-full card">
-            <HeroIcon path={PROPUESTA_ICONS.ubicacion} class="mb-3 h-8 w-8 text-red-600" />
-            <h3 class="text-4xl">Toma en sitio</h3>
+          <article class="flex flex-col h-full w-full card">
+            <HeroIcon path={PROPUESTA_ICONS.ubicacion} class="mb-3 h-8 w-8 shrink-0 text-red-600" />
+            <h3 class="text-4xl min-h-[5rem]">Toma en sitio</h3>
             <p class="mt-2 text-sm text-gray-600">Nuestro equipo certificado se desplaza a sus instalaciones. Ideal para jornadas de ingreso, periódicos o retiro.</p>
           </article>
         </li>
         <li class="flex">
-          <article class="h-full w-full card">
-            <HeroIcon path={PROPUESTA_ICONS.documento} class="mb-3 h-8 w-8 text-red-600" />
-            <h3 class="text-4xl">Informes consolidados</h3>
+          <article class="flex flex-col h-full w-full card">
+            <HeroIcon path={PROPUESTA_ICONS.documento} class="mb-3 h-8 w-8 shrink-0 text-red-600" />
+            <h3 class="text-4xl min-h-[5rem]">Informes consolidados</h3>
             <p class="mt-2 text-sm text-gray-600">Reporte único para Recursos Humanos con resultados de todo el grupo. Compatible con el sistema de gestión de SST.</p>
           </article>
         </li>
@@ -120,164 +120,10 @@ const PROPUESTA_ICONS = {
       <h2 id="cotizacion-heading">Solicitar cotización empresarial</h2>
       <p class="mt-2 text-gray-600">Nos ponemos en contacto en menos de 24 horas hábiles.</p>
 
-      <div class="mt-6 rounded-lg border border-gray-200 bg-white p-8">
-        <form id="form-empresa" action="/api/contact" method="POST" class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-
-          <!-- Honeypot — hidden from humans, traps bots -->
-          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
-
-          <div>
-            <label for="nombre" class="block text-sm font-medium text-gray-700 mb-1">
-              Nombre del contacto <span class="text-red-500">*</span>
-            </label>
-            <input
-              type="text" id="nombre" name="nombre" required
-              class="form-input"
-              placeholder="María García"
-            />
-          </div>
-
-          <div>
-            <label for="empresa" class="block text-sm font-medium text-gray-700 mb-1">
-              Empresa / Razón social <span class="text-red-500">*</span>
-            </label>
-            <input
-              type="text" id="empresa" name="empresa" required
-              class="form-input"
-              placeholder="Empresa S.A.S."
-            />
-          </div>
-
-          <div>
-            <label for="ciudad" class="block text-sm font-medium text-gray-700 mb-1">
-              Ciudad <span class="text-red-500">*</span>
-            </label>
-            <select
-              id="ciudad" name="ciudad" required
-              class="form-input bg-white"
-            >
-              <option value="" disabled selected>Seleccionar ciudad…</option>
-              <option value="buga">Buga</option>
-              <option value="cali">Cali</option>
-              <option value="palmira">Palmira</option>
-              <option value="tulua">Tuluá</option>
-              <option value="cartago">Cartago</option>
-              <option value="buenaventura">Buenaventura</option>
-              <option value="yumbo">Yumbo</option>
-              <option value="jamundi">Jamundí</option>
-              <option value="zarzal">Zarzal</option>
-              <option value="la-union">La Unión</option>
-              <option value="roldanillo">Roldanillo</option>
-              <option value="sevilla">Sevilla</option>
-              <option value="otra">Otra</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="colaboradores" class="block text-sm font-medium text-gray-700 mb-1">
-              Número de colaboradores <span class="text-red-500">*</span>
-            </label>
-            <select
-              id="colaboradores" name="colaboradores" required
-              class="form-input bg-white"
-            >
-              <option value="" disabled selected>Seleccionar rango…</option>
-              <option value="1-50">1 – 50</option>
-              <option value="51-200">51 – 200</option>
-              <option value="201-500">201 – 500</option>
-              <option value="500+">Más de 500</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="telefono" class="block text-sm font-medium text-gray-700 mb-1">
-              Teléfono / WhatsApp <span class="text-red-500">*</span>
-            </label>
-            <input
-              type="tel" id="telefono" name="telefono" required
-              class="form-input"
-              placeholder="310 000 0000"
-            />
-          </div>
-
-          <div>
-            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
-              Correo electrónico <span class="text-red-500">*</span>
-            </label>
-            <input
-              type="email" id="email" name="email" required
-              class="form-input"
-              placeholder="contacto@empresa.com"
-            />
-          </div>
-
-          <div class="sm:col-span-2">
-            <fieldset>
-              <legend class="block text-sm font-medium text-gray-700 mb-2">
-                Servicio de interés <span class="text-red-500">*</span>
-              </legend>
-              <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
-                {[
-                  'Salud ocupacional',
-                  'Jornada empresarial',
-                  'Toma en sede',
-                  'Convenio',
-                ].map((s) => (
-                  <label class="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
-                    <input
-                      type="checkbox" name="servicio[]" value={s}
-                      class="h-4 w-4 rounded border-gray-300 text-red-600 focus:ring-red-500"
-                    />
-                    {s}
-                  </label>
-                ))}
-              </div>
-            </fieldset>
-          </div>
-
-          <div class="sm:col-span-2">
-            <label for="mensaje" class="block text-sm font-medium text-gray-700 mb-1">
-              Mensaje adicional
-            </label>
-            <textarea
-              id="mensaje" name="mensaje" rows={3}
-              class="form-input resize-none"
-              placeholder="Cuéntenos sobre sus necesidades…"
-            ></textarea>
-          </div>
-
-          <div class="sm:col-span-2">
-            <button
-              id="btn-empresa"
-              type="submit"
-              class="w-full rounded-lg bg-red-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-red-700 active:scale-95 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
-            >
-              Enviar solicitud
-            </button>
-            <p id="msg-empresa" class="mt-2 text-center text-xs hidden"></p>
-          </div>
-
-        </form>
-
-        <!-- Success state -->
-        <div id="success-empresa" class="hidden flex flex-col items-center justify-center py-12 text-center gap-4">
-          <div class="flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
-            <svg class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold text-gray-900">¡Solicitud enviada!</h3>
-            <p class="mt-1 text-sm text-gray-500">Nos ponemos en contacto en menos de 24 horas hábiles.</p>
-          </div>
-          <button
-            id="reset-empresa"
-            type="button"
-            class="mt-2 rounded-lg border border-gray-300 px-5 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 active:scale-95 transition-all duration-200"
-          >
-            Enviar otra solicitud
-          </button>
-        </div>
+      {/* TODO: Re-enable form once Resend DNS is confirmed working */}
+      <div class="mt-6 rounded-lg border border-amber-200 bg-amber-50 px-6 py-8 text-center">
+        <p class="text-sm font-semibold text-amber-800">Formulario temporalmente no disponible</p>
+        <p class="mt-1 text-sm text-amber-700">Estamos configurando el sistema de envío. Por favor contáctenos directamente por los canales de abajo.</p>
       </div>
 
       <!-- Secondary fallbacks -->
@@ -297,15 +143,3 @@ const PROPUESTA_ICONS = {
   </div>
 </BaseLayout>
 
-<script>
-  import { initContactForm } from '@/lib/contactForm';
-  initContactForm({
-    formId: 'form-empresa',
-    btnId: 'btn-empresa',
-    msgId: 'msg-empresa',
-    successId: 'success-empresa',
-    resetBtnId: 'reset-empresa',
-    endpoint: '/api/contact',
-    defaultText: 'Enviar solicitud',
-  });
-</script>

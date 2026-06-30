@@ -34,18 +34,18 @@ const navLinks: NavLink[] = [
     href: '/empresas',
     children: [
       { label: 'Empresas y empleadores', href: '/empresas' },
-      { label: 'Laboratorios aliados', href: '/laboratorios' },
+      { label: 'Laboratorios de referencia', href: '/laboratorios' },
     ],
   },
   {
     label: 'Nosotros',
     href: '/nosotros',
     children: [
-      { label: 'Sobre nosotros',      href: '/nosotros' },
       { label: 'Historia',            href: '/nosotros/historia' },
       { label: 'Tecnología',          href: '/nosotros/tecnologia' },
       { label: 'Aliados',             href: '/nosotros/aliados' },
       { label: 'Estados financieros', href: '/estados-financieros' },
+      { label: 'Sobre nosotros',      href: '/nosotros' },
     ],
   },
   { label: 'Contacto', href: '/contacto' },
@@ -266,11 +266,12 @@ function isActive(link: NavLink) {
     document.body.dataset.scrollY = String(scrollY);
     const headerH = (document.querySelector('header') as HTMLElement).offsetHeight;
     const availH = window.innerHeight - headerH;
+    // Set overflow-y before animation so <details> can expand immediately on tap
+    panel.style.overflowY = 'auto';
     panel.style.maxHeight = `${panel.scrollHeight}px`;
     panel.setAttribute('aria-hidden', 'false');
     setTimeout(() => {
       panel.style.maxHeight = `${availH}px`;
-      panel.style.overflowY = 'auto';
     }, NAV_TRANSITION_MS + 10);
     iconMenu?.classList.add('hidden');
     iconClose?.classList.remove('hidden');
@@ -280,7 +281,7 @@ function isActive(link: NavLink) {
 
   function closeNav() {
     if (!panel) return;
-    panel.style.overflowY = '';
+    panel.style.overflowY = 'hidden';
     panel.style.maxHeight = '0';
     panel.setAttribute('aria-hidden', 'true');
     const scrollY = parseInt(document.body.dataset.scrollY ?? '0', 10);
@@ -292,30 +293,62 @@ function isActive(link: NavLink) {
     iconClose?.classList.add('hidden');
     toggle?.setAttribute('aria-expanded', 'false');
     toggle?.setAttribute('aria-label', 'Abrir menú');
+    // Reset open <details> after the slide-out animation completes
+    setTimeout(() => {
+      panel.querySelectorAll<HTMLDetailsElement>('details[open]').forEach((d) => d.removeAttribute('open'));
+    }, NAV_TRANSITION_MS);
   }
 
   toggle?.addEventListener('click', () => {
     toggle.getAttribute('aria-expanded') === 'true' ? closeNav() : openNav();
   });
 
+  // Auto-close mobile nav when navigating via a link
+  panel?.addEventListener('click', (e) => {
+    if ((e.target as HTMLElement).closest('a')) closeNav();
+  });
+
   window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => {
     if (e.matches) closeNav();
   });
 
-  // Keyboard support for desktop dropdown menus
+  // Keyboard + touch support for desktop dropdown menus
   document.querySelectorAll<HTMLElement>('[data-dropdown-trigger]').forEach((btn) => {
     const dropdownPanel = btn.nextElementSibling as HTMLElement | null;
+
+    function closeAllDesktopDropdowns() {
+      document.querySelectorAll<HTMLElement>('[data-dropdown-trigger]').forEach((other) => {
+        other.setAttribute('aria-expanded', 'false');
+        (other.nextElementSibling as HTMLElement | null)?.classList.add('hidden');
+      });
+    }
+
+    // Touch support: CSS hover doesn't fire on touch, so handle tap explicitly
+    btn.addEventListener('click', () => {
+      if (window.matchMedia('(hover: none)').matches) {
+        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+        closeAllDesktopDropdowns();
+        if (!isExpanded) {
+          btn.setAttribute('aria-expanded', 'true');
+          dropdownPanel?.classList.remove('hidden');
+        }
+      }
+    });
 
     btn.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
         const isExpanded = btn.getAttribute('aria-expanded') === 'true';
         btn.setAttribute('aria-expanded', String(!isExpanded));
-        dropdownPanel?.classList.toggle('block', !isExpanded);
+        if (!isExpanded) {
+          dropdownPanel?.classList.remove('hidden');
+        } else {
+          dropdownPanel?.classList.add('hidden');
+        }
       }
       if (e.key === 'Escape') {
         btn.setAttribute('aria-expanded', 'false');
-        dropdownPanel?.classList.remove('block');
+        dropdownPanel?.classList.add('hidden');
         btn.focus();
       }
     });
@@ -324,8 +357,20 @@ function isActive(link: NavLink) {
     btn.parentElement?.addEventListener('focusout', (e) => {
       if (!btn.parentElement?.contains(e.relatedTarget as Node | null)) {
         btn.setAttribute('aria-expanded', 'false');
-        dropdownPanel?.classList.remove('block');
+        dropdownPanel?.classList.add('hidden');
       }
     });
+  });
+
+  // Close desktop dropdowns when tapping outside on touch devices
+  document.addEventListener('click', (e) => {
+    if (window.matchMedia('(hover: none)').matches) {
+      if (!(e.target as HTMLElement).closest('.relative.group')) {
+        document.querySelectorAll<HTMLElement>('[data-dropdown-trigger]').forEach((btn) => {
+          btn.setAttribute('aria-expanded', 'false');
+          (btn.nextElementSibling as HTMLElement | null)?.classList.add('hidden');
+        });
+      }
+    }
   });
 </script>
