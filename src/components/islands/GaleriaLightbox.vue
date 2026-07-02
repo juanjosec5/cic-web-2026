@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { ref, computed } from 'vue';
 
 const props = defineProps<{
   fotos: string[];
   nombre: string;
 }>();
 
+const dialogEl = ref<HTMLDialogElement | null>(null);
 const activeIndex = ref<number | null>(null);
 const touchStartX = ref<number | null>(null);
 
-const isOpen = computed(() => activeIndex.value !== null);
 const activePhoto = computed(() =>
   activeIndex.value !== null ? props.fotos[activeIndex.value] : null
 );
@@ -20,12 +20,16 @@ const hasNext = computed(() =>
 
 function open(index: number) {
   activeIndex.value = index;
-  document.body.style.overflow = 'hidden';
+  dialogEl.value?.showModal();
 }
 
 function close() {
   activeIndex.value = null;
-  document.body.style.overflow = '';
+  dialogEl.value?.close();
+}
+
+function onBackdropClick(e: MouseEvent) {
+  if (e.target === dialogEl.value) close();
 }
 
 function prev() {
@@ -50,17 +54,9 @@ function onTouchEnd(e: TouchEvent) {
 }
 
 function onKeydown(e: KeyboardEvent) {
-  if (!isOpen.value) return;
-  if (e.key === 'Escape') close();
   if (e.key === 'ArrowLeft') prev();
   if (e.key === 'ArrowRight') next();
 }
-
-onMounted(() => window.addEventListener('keydown', onKeydown));
-onUnmounted(() => {
-  window.removeEventListener('keydown', onKeydown);
-  document.body.style.overflow = '';
-});
 </script>
 
 <template>
@@ -88,13 +84,13 @@ onUnmounted(() => {
 
   <!-- Lightbox overlay -->
   <Teleport to="body">
-    <div
-      v-if="isOpen"
-      class="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
-      role="dialog"
-      aria-modal="true"
+    <dialog
+      ref="dialogEl"
+      class="lightbox-dialog"
       :aria-label="`Galería de ${nombre}`"
-      @click.self="close"
+      @click="onBackdropClick"
+      @close="close"
+      @keydown="onKeydown"
       @touchstart.passive="onTouchStart"
       @touchend.passive="onTouchEnd"
     >
@@ -149,6 +145,30 @@ onUnmounted(() => {
           <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
         </svg>
       </button>
-    </div>
+    </dialog>
   </Teleport>
 </template>
+
+<style scoped>
+.lightbox-dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  max-width: none;
+  max-height: none;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+.lightbox-dialog[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox-dialog::backdrop {
+  background: rgb(0 0 0 / 0.9);
+}
+</style>

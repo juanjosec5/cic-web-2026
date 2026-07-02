@@ -93,9 +93,7 @@ function isActive(link: NavLink) {
                     data-dropdown-trigger
                   >
                     {link.label}
-                    <svg class="h-3.5 w-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                    </svg>
+                    <HeroIcon path="m19.5 8.25-7.5 7.5-7.5-7.5" strokeWidth={2} class="h-3.5 w-3.5 text-gray-400" />
                   </button>
                   <!-- Dropdown panel -->
                   <ul
@@ -196,6 +194,7 @@ function isActive(link: NavLink) {
     id="mobile-nav-panel"
     class="border-t border-gray-200 bg-white lg:hidden"
     aria-hidden="true"
+    inert
   >
     <nav aria-label="Menú móvil">
       <ul role="list" class="space-y-0.5 px-4 py-3">
@@ -210,9 +209,7 @@ function isActive(link: NavLink) {
                   ]}
                 >
                   {link.label}
-                  <svg class="h-4 w-4 shrink-0 text-gray-400 transition-transform duration-200 group-open/m:rotate-180" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                  </svg>
+                  <HeroIcon path="m19.5 8.25-7.5 7.5-7.5-7.5" strokeWidth={2.5} class="h-4 w-4 shrink-0 text-gray-400 transition-transform duration-200 group-open/m:rotate-180" />
                 </summary>
                 <ul role="group" aria-label={link.label} class="mb-1 ml-3 space-y-0.5 border-l border-gray-100 pl-3">
                   {link.children.map((child) => (
@@ -283,6 +280,7 @@ function isActive(link: NavLink) {
     panel.style.overflowY = 'auto';
     panel.style.maxHeight = `${panel.scrollHeight}px`;
     panel.setAttribute('aria-hidden', 'false');
+    panel.removeAttribute('inert');
     setTimeout(() => {
       panel.style.maxHeight = `${availH}px`;
     }, NAV_TRANSITION_MS + 10);
@@ -297,6 +295,7 @@ function isActive(link: NavLink) {
     panel.style.overflowY = 'hidden';
     panel.style.maxHeight = '0';
     panel.setAttribute('aria-hidden', 'true');
+    panel.setAttribute('inert', '');
     const scrollY = parseInt(document.body.dataset.scrollY ?? '0', 10);
     document.body.style.position = '';
     document.body.style.top = '';

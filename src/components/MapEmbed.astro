@@ -16,6 +16,7 @@ const { url, title, height = 320 } = Astro.props;
     </svg>
   </div>
   <iframe
+    class="map-embed-iframe"
     src={url}
     width="100%"
     height={height}
@@ -24,6 +25,13 @@ const { url, title, height = 320 } = Astro.props;
     loading="lazy"
     referrerpolicy="no-referrer-when-downgrade"
     title={title}
-    onload="this.previousElementSibling.style.display='none'"
   ></iframe>
 </div>
+
+<script>
+  document.querySelectorAll<HTMLIFrameElement>('.map-embed-iframe').forEach((iframe) => {
+    iframe.addEventListener('load', () => {
+      (iframe.previousElementSibling as HTMLElement | null)?.style.setProperty('display', 'none');
+    });
+  });
+</script>

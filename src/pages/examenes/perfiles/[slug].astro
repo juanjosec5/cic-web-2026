@@ -38,20 +38,10 @@ const waUrl = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(`
         <p class="mt-2 text-gray-600">{perfil.descripcion}</p>
       </header>
 
-      <!-- Price + note -->
-      <div class="mt-6 flex flex-wrap items-center gap-4">
-        {perfil.precio && (
-          <div class="inline-flex items-center gap-3 rounded-lg border border-red-200 bg-red-50 px-5 py-3">
-            <span class="text-sm text-red-600">Precio referencial</span>
-            <span class="text-xl font-bold text-red-800">
-              ${perfil.precio.toLocaleString('es-CO')} COP
-            </span>
-          </div>
-        )}
-        <p class="text-sm italic text-gray-500">
-          No es obligatorio tomar la totalidad de los exámenes del perfil.
-        </p>
-      </div>
+      {/* TODO (pending-business-decision): price + note section removed at the company's request
+          (pricing is not currently shown to patients). If that decision changes, the previous
+          markup showed a "Precio referencial" badge from perfil.precio plus a note that taking
+          every exam in the profile isn't mandatory — see git history for the removed block. */}
 
       <!-- Exam list -->
       <section aria-labelledby="examenes-incluidos-heading" class="mt-8">
