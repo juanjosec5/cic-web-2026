@@ -9,6 +9,16 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 ## [Unreleased]
 
+### Fixed (frontend code review — base/shared files)
+- `src/components/HeroIcon.astro`: added a `strokeWidth` prop (default `1.5`) so callers can render bolder icon variants without bypassing the shared component
+- `src/components/Header.astro`, `src/components/Footer.astro`: replaced 3 hand-rolled duplicate chevron `<svg>` blocks with `<HeroIcon>`, fixing an inconsistent stroke-width between the desktop (2) and mobile (2.5) chevrons in the process
+- `src/components/Footer.astro`: mobile accordion `<summary>` was missing `list-none`, causing the native disclosure triangle to render alongside the custom chevron on small screens; added the class and removed the now-redundant `::marker`/`::-webkit-details-marker` CSS
+- `src/components/MapEmbed.astro`: replaced the inline `onload="..."` HTML attribute (the only inline event handler in the codebase) with a scoped `<script>`, consistent with how the rest of the site wires up behavior and avoiding a CSP `unsafe-inline` dependency
+- `src/components/islands/GaleriaLightbox.vue`: swapped the `Teleport` + `role="dialog"` overlay for a native `<dialog>` element — gets focus-trapping and Escape-to-close for free (the previous version let `Tab` move focus out of the overlay into the page behind it)
+- `src/components/islands/LocationMap.vue`: deleted — confirmed unused (superseded by `SedeMap.vue`), was dead code sitting in the tree
+- `src/components/islands/SedeMap.vue`: marker colors now reference `var(--color-red-600)`/`var(--color-blue-600)` instead of duplicating their hex values, so a future rebrand only needs to update the token
+- `src/styles/global.css`: consolidated the six near-identical `h1`–`h6` rules (font-family/weight/letter-spacing/line-height were repeated in each) into one shared selector; replaced hardcoded navy hex in heading colors and the focus-ring outline with the existing `--color-navy-*` tokens
+
 ### Fixed (fabricated/inconsistent contact emails)
 - `src/pages/estados-financieros.astro`: replaced `buga@ciclaboratorios.com` with `contabilidad@ciclaboratorios.com` — the original address was never a real, confirmed company email; it was invented as a plausible-looking placeholder by an earlier session and had no backing in `SITE_CONFIG` or any content source
 - `src/pages/contacto.astro`, `src/pages/servicios/[slug].astro`: `info@ciclaboratorios.com` replaced with `administracion@ciclaboratorios.com`

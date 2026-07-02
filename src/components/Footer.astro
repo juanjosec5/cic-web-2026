@@ -1,5 +1,6 @@
 ---
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/config';
+import HeroIcon from '@/components/HeroIcon.astro';
 const currentYear = new Date().getFullYear();
 
 interface LinkItem { label: string; href: string; }
@@ -111,13 +112,9 @@ const socialLinks = [
       <div class="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-8 lg:grid-cols-5">
         {linkGroups.map((group) => (
           <details class="footer-group border-b border-navy-800/40 sm:border-0">
-            <summary class="flex cursor-pointer items-center justify-between py-3 font-semibold text-white sm:cursor-default sm:py-0 sm:pointer-events-none">
+            <summary class="flex list-none cursor-pointer items-center justify-between py-3 font-semibold text-white sm:cursor-default sm:py-0 sm:pointer-events-none">
               {group.heading}
-              <svg class="footer-chevron h-4 w-4 shrink-0 text-gray-400 transition-transform sm:hidden"
-                   xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                   stroke-width="2" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-              </svg>
+              <HeroIcon path="m19.5 8.25-7.5 7.5-7.5-7.5" strokeWidth={2} class="footer-chevron h-4 w-4 shrink-0 text-gray-400 transition-transform sm:hidden" />
             </summary>
             <ul role="list" class="space-y-2 pb-3 pt-1 text-sm sm:mt-2 sm:pb-0 sm:pt-0">
               {group.links.map((link) => (
@@ -155,13 +152,8 @@ const socialLinks = [
 <style>
   @media (min-width: 640px) {
     details.footer-group > summary {
-      list-style: none;
       cursor: default;
       pointer-events: none;
-    }
-    details.footer-group > summary::marker,
-    details.footer-group > summary::-webkit-details-marker {
-      display: none;
     }
   }
   details.footer-group[open] .footer-chevron {

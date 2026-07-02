@@ -15,8 +15,8 @@ interface SedePin {
 
 const props = defineProps<{ sedes: SedePin[]; showSidebar?: boolean }>()
 
-const COLOR_DEFAULT = '#98191a'
-const COLOR_ACTIVE  = '#1d71a3'
+const COLOR_DEFAULT = 'var(--color-red-600)'
+const COLOR_ACTIVE  = 'var(--color-blue-600)'
 
 // Alphabetical sort gives stable, predictable numbering across renders
 const sortedSedes = computed(() =>
