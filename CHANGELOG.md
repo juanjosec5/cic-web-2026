@@ -9,6 +9,11 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 ## [Unreleased]
 
+### Changed (persistent Resultados CTA, card heading fixes)
+- `src/components/Header.astro`: "Resultados" removed from the collapsible `navLinks` array and rendered instead as a persistent, always-visible solid-red CTA button (with an external-link icon) next to the desktop nav / mobile hamburger — no longer hidden inside the mobile menu, reflecting its importance as the patient-results portal link
+- `src/pages/pacientes/preparacion.astro`: the 4 "Preparación especial" card headings changed from an outlier `text-base` (1rem) to the shared `.h2-sm` utility, matching the site's other compact card-internal headings
+- `src/pages/nosotros/index.astro`: Valores card headings given `min-h-[7.5rem]` (matching the pattern already used in `empresas.astro`) so titles wrapping to 1-3 lines no longer throw off the paragraph's starting position between cards
+
 ### Changed (nav order, headings, typo-tolerant search, accordions)
 - `src/components/Header.astro`: reordered `navLinks` to Resultados, Servicios, Pacientes, Empresas, Exámenes, Nosotros, Sedes, Contacto (labels/hrefs unchanged, array order only)
 - `src/pages/estados-financieros.astro`: removed stray empty `class=""` on `<h1>` (bare h1 now inherits sitewide default); "Ejercicio {año}" `<h2>` restyled from small gray text to `h2-sm border-l-4 border-red-200 pl-4`, matching the repeated-subsection pattern in `pacientes/derechos-deberes.astro`
