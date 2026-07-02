@@ -9,6 +9,12 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 ## [Unreleased]
 
+### Fixed (fabricated/inconsistent contact emails)
+- `src/pages/estados-financieros.astro`: replaced `buga@ciclaboratorios.com` with `contabilidad@ciclaboratorios.com` — the original address was never a real, confirmed company email; it was invented as a plausible-looking placeholder by an earlier session and had no backing in `SITE_CONFIG` or any content source
+- `src/pages/contacto.astro`, `src/pages/servicios/[slug].astro`: `info@ciclaboratorios.com` replaced with `administracion@ciclaboratorios.com`
+- `src/pages/politica-de-privacidad.astro` (×2), `src/pages/participacion-social.astro`: `servicioalcliente@ciclaboratorios.com` replaced with `administracion@ciclaboratorios.com`
+- `comercial3@ciclaboratorios.com` (`laboratorios.astro`) confirmed correct by the company, left unchanged
+
 ### Changed (persistent Resultados CTA, card heading fixes)
 - `src/components/Header.astro`: "Resultados" removed from the collapsible `navLinks` array and rendered instead as a persistent, always-visible solid-red CTA button (with an external-link icon) next to the desktop nav / mobile hamburger — no longer hidden inside the mobile menu, reflecting its importance as the patient-results portal link
 - `src/pages/pacientes/preparacion.astro`: the 4 "Preparación especial" card headings changed from an outlier `text-base` (1rem) to the shared `.h2-sm` utility, matching the site's other compact card-internal headings
