@@ -10,14 +10,10 @@ type NavLink = {
 };
 
 const navLinks: NavLink[] = [
-  { label: 'Sedes', href: '/sedes' },
   {
-    label: 'Exámenes',
-    href: '/examenes',
-    children: [
-      { label: 'Catálogo de exámenes', href: '/examenes' },
-      { label: 'Paquetes y perfiles', href: '/examenes/perfiles' },
-    ],
+    label: 'Resultados',
+    href: 'https://resultados.ciclaboratorios.com',
+    external: true,
   },
   { label: 'Servicios', href: '/servicios' },
   {
@@ -38,6 +34,14 @@ const navLinks: NavLink[] = [
     ],
   },
   {
+    label: 'Exámenes',
+    href: '/examenes',
+    children: [
+      { label: 'Catálogo de exámenes', href: '/examenes' },
+      { label: 'Paquetes y perfiles', href: '/examenes/perfiles' },
+    ],
+  },
+  {
     label: 'Nosotros',
     href: '/nosotros',
     children: [
@@ -48,12 +52,8 @@ const navLinks: NavLink[] = [
       { label: 'Sobre nosotros',      href: '/nosotros' },
     ],
   },
+  { label: 'Sedes', href: '/sedes' },
   { label: 'Contacto', href: '/contacto' },
-  {
-    label: 'Resultados',
-    href: 'https://resultados.ciclaboratorios.com',
-    external: true,
-  },
 ];
 
 const isPathMatch = (href: string) =>
