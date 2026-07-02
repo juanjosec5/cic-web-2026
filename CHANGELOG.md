@@ -9,6 +9,18 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 ## [Unreleased]
 
+### Changed (persistent Resultados CTA, card heading fixes)
+- `src/components/Header.astro`: "Resultados" removed from the collapsible `navLinks` array and rendered instead as a persistent, always-visible solid-red CTA button (with an external-link icon) next to the desktop nav / mobile hamburger — no longer hidden inside the mobile menu, reflecting its importance as the patient-results portal link
+- `src/pages/pacientes/preparacion.astro`: the 4 "Preparación especial" card headings changed from an outlier `text-base` (1rem) to the shared `.h2-sm` utility, matching the site's other compact card-internal headings
+- `src/pages/nosotros/index.astro`: Valores card headings given `min-h-[7.5rem]` (matching the pattern already used in `empresas.astro`) so titles wrapping to 1-3 lines no longer throw off the paragraph's starting position between cards
+
+### Changed (nav order, headings, typo-tolerant search, accordions)
+- `src/components/Header.astro`: reordered `navLinks` to Resultados, Servicios, Pacientes, Empresas, Exámenes, Nosotros, Sedes, Contacto (labels/hrefs unchanged, array order only)
+- `src/pages/estados-financieros.astro`: removed stray empty `class=""` on `<h1>` (bare h1 now inherits sitewide default); "Ejercicio {año}" `<h2>` restyled from small gray text to `h2-sm border-l-4 border-red-200 pl-4`, matching the repeated-subsection pattern in `pacientes/derechos-deberes.astro`
+- `src/components/islands/ExamSearch.vue`: added `fuse.js` fuzzy matching as a fallback — when the exact/substring filter returns zero results, up to 5 "¿Quisiste decir...?" suggestions are shown, each linking directly to the matched exam; exact substring matching remains the primary path, unchanged
+- `src/pages/pacientes/preparacion.astro`: all 6 sections (Recomendaciones generales, Ayuno, Sin ayuno, Orina, Heces, Preparación especial) converted to `<details>/<summary>` accordion items, closed by default, reusing the pattern from `pacientes/preguntas-frecuentes.astro`; added a 6th filter pill for "Recomendaciones generales" (previously had no anchor); pill-jump `id`s moved to an inner wrapper inside each details body so native browser auto-expand-on-fragment-navigation still works
+- `src/pages/nosotros/index.astro`: Valores cards switched from a hand-rolled `rounded-lg border border-gray-200 p-5` wrapper to the shared `.card` utility, matching card styling used elsewhere on the site; Misión/Visión/Historia moved to the end of the page (after Tecnología/Aliados) and grouped into a closed-by-default `<details>` accordion, headings demoted `h2`→`h3` to preserve heading outline; sidebar `anchorLinks` order updated to match
+
 ### Fixed (CSRF check broke contact forms on Vercel)
 - `astro.config.mjs`: disabled Astro's built-in `security.checkOrigin` — inside Vercel serverless functions Astro computes its own origin as `localhost`, so every legitimate browser POST to `/api/*` was rejected with 403 ("Cross-site POST form submissions are forbidden"); forms only ever worked on `npm run dev`
 - `src/middleware.ts`: equivalent CSRF protection re-implemented correctly — when an `Origin` header is present, its host must match `x-forwarded-host` (the host the visitor actually requested, set reliably by Vercel) or the request is rejected with 403

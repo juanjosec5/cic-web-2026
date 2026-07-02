@@ -1,4 +1,6 @@
 ---
+import HeroIcon from '@/components/HeroIcon.astro';
+
 const pathname = Astro.url.pathname;
 
 type NavChild = { label: string; href: string };
@@ -10,15 +12,6 @@ type NavLink = {
 };
 
 const navLinks: NavLink[] = [
-  { label: 'Sedes', href: '/sedes' },
-  {
-    label: 'Exámenes',
-    href: '/examenes',
-    children: [
-      { label: 'Catálogo de exámenes', href: '/examenes' },
-      { label: 'Paquetes y perfiles', href: '/examenes/perfiles' },
-    ],
-  },
   { label: 'Servicios', href: '/servicios' },
   {
     label: 'Pacientes',
@@ -38,6 +31,14 @@ const navLinks: NavLink[] = [
     ],
   },
   {
+    label: 'Exámenes',
+    href: '/examenes',
+    children: [
+      { label: 'Catálogo de exámenes', href: '/examenes' },
+      { label: 'Paquetes y perfiles', href: '/examenes/perfiles' },
+    ],
+  },
+  {
     label: 'Nosotros',
     href: '/nosotros',
     children: [
@@ -48,12 +49,8 @@ const navLinks: NavLink[] = [
       { label: 'Sobre nosotros',      href: '/nosotros' },
     ],
   },
+  { label: 'Sedes', href: '/sedes' },
   { label: 'Contacto', href: '/contacto' },
-  {
-    label: 'Resultados',
-    href: 'https://resultados.ciclaboratorios.com',
-    external: true,
-  },
 ];
 
 const isPathMatch = (href: string) =>
@@ -72,6 +69,8 @@ function isActive(link: NavLink) {
       <a href="/" class="shrink-0 max-w-[180px]" aria-label="CIC Laboratorios — Inicio">
         <img src="/images/logo/logo.svg" alt="CIC Laboratorios" class="h-9 w-full" />
       </a>
+
+      <div class="flex items-center gap-3 sm:gap-4">
 
       <!-- Desktop nav (hidden on mobile) -->
       <nav class="hidden lg:flex" aria-label="Navegación principal">
@@ -141,6 +140,18 @@ function isActive(link: NavLink) {
         </ul>
       </nav>
 
+      <!-- Resultados CTA (always visible) -->
+      <a
+        href="https://resultados.ciclaboratorios.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 rounded-lg bg-red-600 px-3.5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-700 active:scale-95 transition-all duration-200 sm:px-4"
+        aria-label="Resultados — se abre en una pestaña nueva"
+      >
+        Resultados
+        <HeroIcon path="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" class="h-4 w-4 shrink-0" />
+      </a>
+
       <!-- Hamburger button (hidden on desktop) -->
       <button
         id="nav-toggle"
@@ -175,6 +186,8 @@ function isActive(link: NavLink) {
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
         </svg>
       </button>
+
+      </div>
     </div>
   </div>
 

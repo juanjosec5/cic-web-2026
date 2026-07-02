@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
+import Fuse from 'fuse.js';
 
 interface Exam {
   slug: string;
@@ -30,6 +31,24 @@ const filtered = computed(() => {
       e.nombre.toLowerCase().includes(q) ||
       e.nombresAlternativos.some((n) => n.toLowerCase().includes(q))
   );
+});
+
+const fuse = computed(
+  () =>
+    new Fuse(props.exams, {
+      keys: [
+        { name: 'nombre', weight: 0.7 },
+        { name: 'nombresAlternativos', weight: 0.3 },
+      ],
+      threshold: 0.35,
+      ignoreLocation: true,
+      minMatchCharLength: 2,
+    })
+);
+
+const fuzzySuggestions = computed(() => {
+  if (!hasQuery.value || filtered.value.length > 0) return [];
+  return fuse.value.search(query.value.trim()).slice(0, 5).map((r) => r.item);
 });
 </script>
 
@@ -84,6 +103,14 @@ const filtered = computed(() => {
     <!-- Empty state -->
     <div v-else-if="hasQuery" class="empty-state">
       <p class="empty-main">No encontramos "{{ query }}" en el catálogo.</p>
+      <template v-if="fuzzySuggestions.length > 0">
+        <p class="empty-suggest-label">¿Quisiste decir...?</p>
+        <ul role="list" class="suggest-list">
+          <li v-for="s in fuzzySuggestions" :key="s.slug">
+            <a :href="`/examenes/${s.slug}`" class="suggest-link">{{ s.nombre }}</a>
+          </li>
+        </ul>
+      </template>
       <p class="empty-sub">Intenta con otro nombre o contáctanos por WhatsApp.</p>
     </div>
 
@@ -255,6 +282,34 @@ const filtered = computed(() => {
   margin-top: 0.25rem;
   font-size: 0.75rem;
   color: #9ca3af;
+}
+
+.empty-suggest-label {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.suggest-list {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.375rem;
+  list-style: none;
+  padding: 0;
+}
+
+.suggest-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #98191a;
+  text-decoration: none;
+}
+
+.suggest-link:hover {
+  text-decoration: underline;
 }
 
 .search-hint {

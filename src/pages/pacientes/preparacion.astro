@@ -48,6 +48,7 @@ const waPreparacion = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICom
     <!-- Category filter tabs -->
     <nav aria-label="Categorías de preparación" class="mt-8">
       <ul role="list" class="flex flex-wrap gap-3">
+        <li><a href="#general"   class="inline-flex items-center rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-red-50 hover:text-red-700 transition-colors duration-200">Recomendaciones generales</a></li>
         <li><a href="#ayuno"     class="inline-flex items-center rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-red-50 hover:text-red-700 transition-colors duration-200">Ayuno</a></li>
         <li><a href="#sin-ayuno" class="inline-flex items-center rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-red-50 hover:text-red-700 transition-colors duration-200">Sin ayuno</a></li>
         <li><a href="#orina"     class="inline-flex items-center rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-red-50 hover:text-red-700 transition-colors duration-200">Orina</a></li>
@@ -58,189 +59,241 @@ const waPreparacion = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICom
 
     <!-- General recommendations -->
     <section aria-labelledby="general-heading" class="mt-10">
-      <h2 id="general-heading" class="border-l-4 border-red-600 pl-4">Recomendaciones generales</h2>
-      <ul role="list" class="mt-4 space-y-2 text-gray-700">
-        <li>Si el examen requiere ayuno, ayune mínimo 8 horas (puede tomar agua sola).</li>
-        <li>Informe al personal sobre todos los medicamentos que esté tomando al momento de la toma.</li>
-        <li>Lleve la orden médica si la tiene; si no, el personal le orientará.</li>
-        <li>Llegue con tiempo suficiente — algunos exámenes requieren espera en el laboratorio.</li>
-        <li>Para exámenes hormonales, evite el ejercicio físico intenso el día anterior.</li>
-        <li>Lleve un documento de identidad vigente.</li>
-      </ul>
+      <details class="group rounded-lg border border-gray-200 overflow-hidden">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 p-5 hover:bg-gray-50 transition-colors duration-200">
+          <h2 id="general-heading" class="border-l-4 border-red-600 pl-4">Recomendaciones generales</h2>
+          <svg class="h-5 w-5 shrink-0 text-gray-500 transition-transform duration-200 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </summary>
+        <div id="general" class="border-t border-gray-100 px-5 py-5">
+          <ul role="list" class="space-y-2 text-gray-700">
+            <li>Si el examen requiere ayuno, ayune mínimo 8 horas (puede tomar agua sola).</li>
+            <li>Informe al personal sobre todos los medicamentos que esté tomando al momento de la toma.</li>
+            <li>Lleve la orden médica si la tiene; si no, el personal le orientará.</li>
+            <li>Llegue con tiempo suficiente — algunos exámenes requieren espera en el laboratorio.</li>
+            <li>Para exámenes hormonales, evite el ejercicio físico intenso el día anterior.</li>
+            <li>Lleve un documento de identidad vigente.</li>
+          </ul>
+        </div>
+      </details>
     </section>
 
     <!-- Ayuno -->
-    <section id="ayuno" aria-labelledby="ayuno-heading" class="mt-10">
-      <h2 id="ayuno-heading" class="border-l-4 border-red-600 pl-4">Exámenes que requieren ayuno</h2>
-      <p class="mt-4 text-gray-700">
-        El ayuno mínimo requerido es de <strong>8 horas</strong> antes de la toma. Durante el ayuno
-        puede tomar agua sola. Se recomiendan tomas en las horas de la mañana.
-      </p>
-      <p class="mt-3 text-sm text-gray-600">Entre los exámenes que comúnmente requieren ayuno:</p>
-      <ul role="list" class="mt-3 grid grid-cols-1 gap-1 sm:grid-cols-2 text-sm text-gray-700">
-        <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Glucosa en ayunas</li>
-        <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Perfil lipídico (colesterol, HDL, LDL, triglicéridos)</li>
-        <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Insulina basal</li>
-        <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Ácido úrico</li>
-        <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Creatinina y BUN</li>
-        <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Proteínas totales y albúmina</li>
-        <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Perfil hepático (TGO, TGP, bilirrubinas)</li>
-        <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Química sanguínea completa</li>
-        <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Hierro sérico y ferritina</li>
-        <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Homocisteína</li>
-      </ul>
-      <p class="mt-4 text-sm text-gray-500">
-        Confirme siempre con su médico si su examen específico requiere ayuno.
-        <a href="/examenes" class="font-medium text-red-600 hover:text-red-700 transition-colors duration-200">Ver catálogo completo →</a>
-      </p>
+    <section aria-labelledby="ayuno-heading" class="mt-10">
+      <details class="group rounded-lg border border-gray-200 overflow-hidden">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 p-5 hover:bg-gray-50 transition-colors duration-200">
+          <h2 id="ayuno-heading" class="border-l-4 border-red-600 pl-4">Exámenes que requieren ayuno</h2>
+          <svg class="h-5 w-5 shrink-0 text-gray-500 transition-transform duration-200 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </summary>
+        <div id="ayuno" class="border-t border-gray-100 px-5 py-5">
+          <p class="text-gray-700">
+            El ayuno mínimo requerido es de <strong>8 horas</strong> antes de la toma. Durante el ayuno
+            puede tomar agua sola. Se recomiendan tomas en las horas de la mañana.
+          </p>
+          <p class="mt-3 text-sm text-gray-600">Entre los exámenes que comúnmente requieren ayuno:</p>
+          <ul role="list" class="mt-3 grid grid-cols-1 gap-1 sm:grid-cols-2 text-sm text-gray-700">
+            <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Glucosa en ayunas</li>
+            <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Perfil lipídico (colesterol, HDL, LDL, triglicéridos)</li>
+            <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Insulina basal</li>
+            <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Ácido úrico</li>
+            <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Creatinina y BUN</li>
+            <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Proteínas totales y albúmina</li>
+            <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Perfil hepático (TGO, TGP, bilirrubinas)</li>
+            <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Química sanguínea completa</li>
+            <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Hierro sérico y ferritina</li>
+            <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Homocisteína</li>
+          </ul>
+          <p class="mt-4 text-sm text-gray-500">
+            Confirme siempre con su médico si su examen específico requiere ayuno.
+            <a href="/examenes" class="font-medium text-red-600 hover:text-red-700 transition-colors duration-200">Ver catálogo completo →</a>
+          </p>
+        </div>
+      </details>
     </section>
 
     <!-- Sin ayuno -->
-    <section id="sin-ayuno" aria-labelledby="sin-ayuno-heading" class="mt-10">
-      <h2 id="sin-ayuno-heading" class="border-l-4 border-red-600 pl-4">Exámenes sin ayuno</h2>
-      <p class="mt-4 text-gray-700">
-        La mayoría de los exámenes de laboratorio <strong>no requieren ayuno</strong> y pueden
-        realizarse en cualquier momento del día. Algunos ejemplos frecuentes:
-      </p>
-      <ul role="list" class="mt-3 grid grid-cols-1 gap-1 sm:grid-cols-2 text-sm text-gray-700">
-        <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Hemograma completo (cuadro hemático)</li>
-        <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>TSH y perfil tiroideo</li>
-        <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Hemoglobina glicosilada (HbA1c)</li>
-        <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Pruebas de coagulación (TP, TPT)</li>
-        <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Marcadores tumorales (PSA, CA-125)</li>
-        <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Pruebas serológicas e infecciosas</li>
-        <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Cultivos bacterianos</li>
-        <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Hormonas reproductivas (FSH, LH, estradiol)</li>
-      </ul>
-      <p class="mt-3 text-sm text-gray-500">Confirme siempre con su médico tratante ante cualquier duda.</p>
+    <section aria-labelledby="sin-ayuno-heading" class="mt-10">
+      <details class="group rounded-lg border border-gray-200 overflow-hidden">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 p-5 hover:bg-gray-50 transition-colors duration-200">
+          <h2 id="sin-ayuno-heading" class="border-l-4 border-red-600 pl-4">Exámenes sin ayuno</h2>
+          <svg class="h-5 w-5 shrink-0 text-gray-500 transition-transform duration-200 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </summary>
+        <div id="sin-ayuno" class="border-t border-gray-100 px-5 py-5">
+          <p class="text-gray-700">
+            La mayoría de los exámenes de laboratorio <strong>no requieren ayuno</strong> y pueden
+            realizarse en cualquier momento del día. Algunos ejemplos frecuentes:
+          </p>
+          <ul role="list" class="mt-3 grid grid-cols-1 gap-1 sm:grid-cols-2 text-sm text-gray-700">
+            <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Hemograma completo (cuadro hemático)</li>
+            <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>TSH y perfil tiroideo</li>
+            <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Hemoglobina glicosilada (HbA1c)</li>
+            <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Pruebas de coagulación (TP, TPT)</li>
+            <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Marcadores tumorales (PSA, CA-125)</li>
+            <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Pruebas serológicas e infecciosas</li>
+            <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Cultivos bacterianos</li>
+            <li class="flex items-start gap-1"><span class="mt-0.5 text-red-600" aria-hidden="true">›</span>Hormonas reproductivas (FSH, LH, estradiol)</li>
+          </ul>
+          <p class="mt-3 text-sm text-gray-500">Confirme siempre con su médico tratante ante cualquier duda.</p>
+        </div>
+      </details>
     </section>
 
     <!-- Orina -->
-    <section id="orina" aria-labelledby="orina-heading" class="mt-10">
-      <h2 id="orina-heading" class="border-l-4 border-red-600 pl-4">Exámenes de orina</h2>
+    <section aria-labelledby="orina-heading" class="mt-10">
+      <details class="group rounded-lg border border-gray-200 overflow-hidden">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 p-5 hover:bg-gray-50 transition-colors duration-200">
+          <h2 id="orina-heading" class="border-l-4 border-red-600 pl-4">Exámenes de orina</h2>
+          <svg class="h-5 w-5 shrink-0 text-gray-500 transition-transform duration-200 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </summary>
+        <div id="orina" class="border-t border-gray-100 px-5 py-5">
+          <div class="rounded-lg border border-amber-200 bg-amber-50 px-5 py-4">
+            <h3 class="text-sm text-amber-800">Instrucciones para muestra de orina</h3>
+            <ul class="mt-2 list-disc pl-4 space-y-1 text-sm text-amber-700">
+              <li>Recolecte la <strong>segunda micción de la mañana</strong> (deseche la primera).</li>
+              <li>Limpie bien la zona genital antes de recolectar.</li>
+              <li>Use el recipiente estéril suministrado por el laboratorio.</li>
+              <li>Recolecte al menos <strong>20–50 mL</strong> según el examen indicado.</li>
+              <li>Entregue la muestra <strong>máximo 1 hora</strong> después de recolectarla.</li>
+              <li>Para orina de 24 horas: conserve refrigerada y entregue el total recolectado.</li>
+            </ul>
+          </div>
 
-      <div class="mt-4 rounded-lg border border-amber-200 bg-amber-50 px-5 py-4">
-        <h3 class="text-sm text-amber-800">Instrucciones para muestra de orina</h3>
-        <ul class="mt-2 list-disc pl-4 space-y-1 text-sm text-amber-700">
-          <li>Recolecte la <strong>segunda micción de la mañana</strong> (deseche la primera).</li>
-          <li>Limpie bien la zona genital antes de recolectar.</li>
-          <li>Use el recipiente estéril suministrado por el laboratorio.</li>
-          <li>Recolecte al menos <strong>20–50 mL</strong> según el examen indicado.</li>
-          <li>Entregue la muestra <strong>máximo 1 hora</strong> después de recolectarla.</li>
-          <li>Para orina de 24 horas: conserve refrigerada y entregue el total recolectado.</li>
-        </ul>
-      </div>
-
-      <h3 class="mt-6 text-sm text-gray-700">
-        Exámenes de orina disponibles ({examenesOrina.length} en total)
-      </h3>
-      <ul role="list" class="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
-        {orinaVisible.map((e: CollectionEntry<'examenes'>) => (
-          <li>
-            <a
-              href={`/examenes/${e.data.slug}`}
-              class="flex items-center justify-between rounded-lg border border-gray-100 bg-gray-50 px-4 py-2.5 text-sm text-gray-800 hover:border-navy-200 hover:bg-red-50 hover:text-red-700 transition-all duration-200"
-            >
-              <span>{e.data.nombre}</span>
-              <span class="ml-2 shrink-0 rounded-full bg-blue-100 px-2 py-0.5 text-xs text-blue-700">
-                {e.data.muestra?.replace(/\s*\(.*?\)/, '') ?? 'Orina'}
-              </span>
-            </a>
-          </li>
-        ))}
-      </ul>
-      {orinaExtra > 0 && (
-        <p class="mt-3 text-sm">
-          <a href="/examenes" class="font-medium text-red-600 hover:text-red-700 transition-colors duration-200">
-            Ver {orinaExtra} exámenes de orina adicionales en el catálogo →
-          </a>
-        </p>
-      )}
-    </section>
-
-    <!-- Heces -->
-    <section id="heces" aria-labelledby="heces-heading" class="mt-10">
-      <h2 id="heces-heading" class="border-l-4 border-red-600 pl-4">Exámenes de heces</h2>
-
-      <div class="mt-4 rounded-lg border border-amber-200 bg-amber-50 px-5 py-4">
-        <h3 class="text-sm text-amber-800">Instrucciones para muestra de materia fecal</h3>
-        <ul class="mt-2 list-disc pl-4 space-y-1 text-sm text-amber-700">
-          <li>Use el recipiente estéril suministrado por el laboratorio.</li>
-          <li>Recolecte preferiblemente en la <strong>mañana</strong>.</li>
-          <li>Entregue la muestra <strong>máximo 2 horas</strong> después de recolectarla.</li>
-          <li>Evite mezclar con orina o agua del sanitario.</li>
-          <li>Durante los 3 días previos evite: antiácidos, antibióticos, laxantes o estudios con bario.</li>
-        </ul>
-      </div>
-
-      {examenesHeces.length > 0 && (
-        <>
-          <h3 class="mt-6 text-sm text-gray-700">Exámenes de heces disponibles</h3>
+          <h3 class="mt-6 text-sm text-gray-700">
+            Exámenes de orina disponibles ({examenesOrina.length} en total)
+          </h3>
           <ul role="list" class="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
-            {examenesHeces.map((e: CollectionEntry<'examenes'>) => (
+            {orinaVisible.map((e: CollectionEntry<'examenes'>) => (
               <li>
                 <a
                   href={`/examenes/${e.data.slug}`}
-                  class="flex items-center rounded-lg border border-gray-100 bg-gray-50 px-4 py-2.5 text-sm text-gray-800 hover:border-navy-200 hover:bg-red-50 hover:text-red-700 transition-all duration-200"
+                  class="flex items-center justify-between rounded-lg border border-gray-100 bg-gray-50 px-4 py-2.5 text-sm text-gray-800 hover:border-navy-200 hover:bg-red-50 hover:text-red-700 transition-all duration-200"
                 >
-                  {e.data.nombre}
+                  <span>{e.data.nombre}</span>
+                  <span class="ml-2 shrink-0 rounded-full bg-blue-100 px-2 py-0.5 text-xs text-blue-700">
+                    {e.data.muestra?.replace(/\s*\(.*?\)/, '') ?? 'Orina'}
+                  </span>
                 </a>
               </li>
             ))}
           </ul>
-        </>
-      )}
+          {orinaExtra > 0 && (
+            <p class="mt-3 text-sm">
+              <a href="/examenes" class="font-medium text-red-600 hover:text-red-700 transition-colors duration-200">
+                Ver {orinaExtra} exámenes de orina adicionales en el catálogo →
+              </a>
+            </p>
+          )}
+        </div>
+      </details>
+    </section>
+
+    <!-- Heces -->
+    <section aria-labelledby="heces-heading" class="mt-10">
+      <details class="group rounded-lg border border-gray-200 overflow-hidden">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 p-5 hover:bg-gray-50 transition-colors duration-200">
+          <h2 id="heces-heading" class="border-l-4 border-red-600 pl-4">Exámenes de heces</h2>
+          <svg class="h-5 w-5 shrink-0 text-gray-500 transition-transform duration-200 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </summary>
+        <div id="heces" class="border-t border-gray-100 px-5 py-5">
+          <div class="rounded-lg border border-amber-200 bg-amber-50 px-5 py-4">
+            <h3 class="text-sm text-amber-800">Instrucciones para muestra de materia fecal</h3>
+            <ul class="mt-2 list-disc pl-4 space-y-1 text-sm text-amber-700">
+              <li>Use el recipiente estéril suministrado por el laboratorio.</li>
+              <li>Recolecte preferiblemente en la <strong>mañana</strong>.</li>
+              <li>Entregue la muestra <strong>máximo 2 horas</strong> después de recolectarla.</li>
+              <li>Evite mezclar con orina o agua del sanitario.</li>
+              <li>Durante los 3 días previos evite: antiácidos, antibióticos, laxantes o estudios con bario.</li>
+            </ul>
+          </div>
+
+          {examenesHeces.length > 0 && (
+            <>
+              <h3 class="mt-6 text-sm text-gray-700">Exámenes de heces disponibles</h3>
+              <ul role="list" class="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
+                {examenesHeces.map((e: CollectionEntry<'examenes'>) => (
+                  <li>
+                    <a
+                      href={`/examenes/${e.data.slug}`}
+                      class="flex items-center rounded-lg border border-gray-100 bg-gray-50 px-4 py-2.5 text-sm text-gray-800 hover:border-navy-200 hover:bg-red-50 hover:text-red-700 transition-all duration-200"
+                    >
+                      {e.data.nombre}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+        </div>
+      </details>
     </section>
 
     <!-- Preparación especial -->
-    <section id="especial" aria-labelledby="especial-heading" class="mt-10">
-      <h2 id="especial-heading" class="border-l-4 border-red-600 pl-4">Preparación especial</h2>
-      <p class="mt-4 text-gray-700">
-        Algunos exámenes requieren instrucciones adicionales específicas. Consulte con nuestro
-        personal antes de la toma.
-      </p>
+    <section aria-labelledby="especial-heading" class="mt-10">
+      <details class="group rounded-lg border border-gray-200 overflow-hidden">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 p-5 hover:bg-gray-50 transition-colors duration-200">
+          <h2 id="especial-heading" class="border-l-4 border-red-600 pl-4">Preparación especial</h2>
+          <svg class="h-5 w-5 shrink-0 text-gray-500 transition-transform duration-200 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </summary>
+        <div id="especial" class="border-t border-gray-100 px-5 py-5">
+          <p class="text-gray-700">
+            Algunos exámenes requieren instrucciones adicionales específicas. Consulte con nuestro
+            personal antes de la toma.
+          </p>
 
-      <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <article class="rounded-lg border border-gray-200 p-5">
-          <h3 class="text-base font-semibold text-gray-900">Espermograma / Análisis seminal</h3>
-          <ul class="mt-2 list-disc pl-4 space-y-1 text-sm text-gray-600">
-            <li>Abstinencia sexual de <strong>2 a 5 días</strong> antes de la muestra.</li>
-            <li>Recolección por masturbación en el recipiente estéril del laboratorio.</li>
-            <li>Entregue la muestra <strong>máximo 30 minutos</strong> después de recolectarla.</li>
-            <li>Mantenga la muestra a temperatura corporal durante el traslado.</li>
-          </ul>
-        </article>
+          <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <article class="rounded-lg border border-gray-200 p-5">
+              <h3 class="h2-sm text-gray-900">Espermograma / Análisis seminal</h3>
+              <ul class="mt-2 list-disc pl-4 space-y-1 text-sm text-gray-600">
+                <li>Abstinencia sexual de <strong>2 a 5 días</strong> antes de la muestra.</li>
+                <li>Recolección por masturbación en el recipiente estéril del laboratorio.</li>
+                <li>Entregue la muestra <strong>máximo 30 minutos</strong> después de recolectarla.</li>
+                <li>Mantenga la muestra a temperatura corporal durante el traslado.</li>
+              </ul>
+            </article>
 
-        <article class="rounded-lg border border-gray-200 p-5">
-          <h3 class="text-base font-semibold text-gray-900">VPH / Citología vaginal</h3>
-          <ul class="mt-2 list-disc pl-4 space-y-1 text-sm text-gray-600">
-            <li>No tener relaciones sexuales <strong>48 horas</strong> antes del examen.</li>
-            <li>No usar cremas, óvulos, lubricantes ni duchas vaginales 48 horas antes.</li>
-            <li>No realizarse durante el período menstrual.</li>
-            <li>Evite la orina 1 hora antes de la toma.</li>
-          </ul>
-        </article>
+            <article class="rounded-lg border border-gray-200 p-5">
+              <h3 class="h2-sm text-gray-900">VPH / Citología vaginal</h3>
+              <ul class="mt-2 list-disc pl-4 space-y-1 text-sm text-gray-600">
+                <li>No tener relaciones sexuales <strong>48 horas</strong> antes del examen.</li>
+                <li>No usar cremas, óvulos, lubricantes ni duchas vaginales 48 horas antes.</li>
+                <li>No realizarse durante el período menstrual.</li>
+                <li>Evite la orina 1 hora antes de la toma.</li>
+              </ul>
+            </article>
 
-        <article class="rounded-lg border border-gray-200 p-5">
-          <h3 class="text-base font-semibold text-gray-900">Cultivo de orina (Urocultivo)</h3>
-          <ul class="mt-2 list-disc pl-4 space-y-1 text-sm text-gray-600">
-            <li>Limpie bien la zona genital con toallita estéril (de adelante hacia atrás).</li>
-            <li>Deseche el primer chorro y recolecte el <strong>chorro medio</strong>.</li>
-            <li>Use el frasco estéril suministrado por el laboratorio.</li>
-            <li>Si está en tratamiento antibiótico, informe al médico antes de ordenar el cultivo.</li>
-          </ul>
-        </article>
+            <article class="rounded-lg border border-gray-200 p-5">
+              <h3 class="h2-sm text-gray-900">Cultivo de orina (Urocultivo)</h3>
+              <ul class="mt-2 list-disc pl-4 space-y-1 text-sm text-gray-600">
+                <li>Limpie bien la zona genital con toallita estéril (de adelante hacia atrás).</li>
+                <li>Deseche el primer chorro y recolecte el <strong>chorro medio</strong>.</li>
+                <li>Use el frasco estéril suministrado por el laboratorio.</li>
+                <li>Si está en tratamiento antibiótico, informe al médico antes de ordenar el cultivo.</li>
+              </ul>
+            </article>
 
-        <article class="rounded-lg border border-gray-200 p-5">
-          <h3 class="text-base font-semibold text-gray-900">Curva de tolerancia a la glucosa</h3>
-          <ul class="mt-2 list-disc pl-4 space-y-1 text-sm text-gray-600">
-            <li>Ayuno mínimo de <strong>8 horas</strong> antes del examen.</li>
-            <li>El examen tarda entre <strong>2 y 3 horas</strong> — planifique su tiempo.</li>
-            <li>Permanezca en el laboratorio durante todo el procedimiento.</li>
-            <li>No fume, no coma ni haga ejercicio durante la prueba.</li>
-          </ul>
-        </article>
-      </div>
+            <article class="rounded-lg border border-gray-200 p-5">
+              <h3 class="h2-sm text-gray-900">Curva de tolerancia a la glucosa</h3>
+              <ul class="mt-2 list-disc pl-4 space-y-1 text-sm text-gray-600">
+                <li>Ayuno mínimo de <strong>8 horas</strong> antes del examen.</li>
+                <li>El examen tarda entre <strong>2 y 3 horas</strong> — planifique su tiempo.</li>
+                <li>Permanezca en el laboratorio durante todo el procedimiento.</li>
+                <li>No fume, no coma ni haga ejercicio durante la prueba.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </details>
     </section>
 
     <!-- WhatsApp CTA -->
