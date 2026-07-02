@@ -38,7 +38,7 @@ const ctaUrl =
   servicio.ctaTipo === 'whatsapp'
     ? `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(`Quiero información sobre ${servicio.nombre}`)}`
     : servicio.ctaTipo === 'mailto'
-    ? `mailto:info@ciclaboratorios.com?subject=${encodeURIComponent(servicio.nombre)}`
+    ? `mailto:administracion@ciclaboratorios.com?subject=${encodeURIComponent(servicio.nombre)}`
     : '/contacto';
 ---
 
