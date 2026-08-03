@@ -5,7 +5,7 @@
   "examenesIncluidos": [
     { "nombre": "Hemograma", "slug": "hemograma-iv-hemoglobina-hematocrito-recuento-de-eritrocitos-indices-eritrocitarios-leucograma-recuento-de-plaquetas-indices-plaquetarios-y-morfologia-electronica-e-histograma-automatizado" },
     { "nombre": "TSH", "slug": "hormona-estimulante-de-tiroides-tsh" },
-    { "nombre": "Glucosa en suero", "slug": "glucosa-en-suero" }
+    { "nombre": "Glucosa en suero", "slug": "glucosa-en-suero-u-otro-fluido-diferente-a-orina" }
   ],
   "precio": 85000
 }

@@ -5,11 +5,11 @@
   "examenesIncluidos": [
     {
       "nombre": "Creatinina en suero",
-      "slug": "creatinina-en-suero"
+      "slug": "creatinina-en-suero-u-otros-fluidos"
     },
     {
       "nombre": "Glucosa en suero",
-      "slug": "glucosa-en-suero"
+      "slug": "glucosa-en-suero-u-otro-fluido-diferente-a-orina"
     },
     {
       "nombre": "Colesterol total",

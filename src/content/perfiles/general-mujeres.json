@@ -5,15 +5,15 @@
   "examenesIncluidos": [
     {
       "nombre": "CA 125 (cáncer de ovario)",
-      "slug": "antigeno-de-cancer-de-ovario-ca-125-automatizado"
+      "slug": "antigeno-de-cancer-de-ovario-ca-125-semiautomatizado-o-automatizado"
     },
     {
       "nombre": "CA 15-3 (cáncer de seno)",
-      "slug": "antigeno-de-cancer-de-mama-ca-15-3-automatizado"
+      "slug": "antigeno-de-cancer-de-mama-ca-15-3-semiautomatizado-o-automatizado"
     },
     {
       "nombre": "CA 19-9 (cáncer de páncreas)",
-      "slug": "antigeno-de-cancer-de-tubo-digestivo-ca-19-9-automatizado"
+      "slug": "antigeno-de-cancer-de-tubo-digestivo-ca-19-9-semiautomatizado-o-automatizado"
     },
     {
       "nombre": "Citología vaginal",
@@ -40,7 +40,7 @@
     },
     {
       "nombre": "Creatinina en suero",
-      "slug": "creatinina-en-suero"
+      "slug": "creatinina-en-suero-u-otros-fluidos"
     },
     {
       "nombre": "Fosfatasa alcalina",
@@ -48,7 +48,7 @@
     },
     {
       "nombre": "Glucosa en suero",
-      "slug": "glucosa-en-suero"
+      "slug": "glucosa-en-suero-u-otro-fluido-diferente-a-orina"
     },
     {
       "nombre": "Gamma Glutamil Transferasa (GGT)",
@@ -60,11 +60,11 @@
     },
     {
       "nombre": "Sodio en suero",
-      "slug": "sodio-en-suero"
+      "slug": "sodio-en-suero-u-otros-fluidos"
     },
     {
       "nombre": "Potasio en suero",
-      "slug": "potasio-en-suero"
+      "slug": "potasio-en-suero-u-otros-fluidos"
     },
     {
       "nombre": "Cloro sérico",

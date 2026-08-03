@@ -9,6 +9,9 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 ## [Unreleased]
 
+### Fixed (broken exam links in perfiles data)
+- `src/content/perfiles/*.json` (13 files: deportivo, diabetico, enfermedades-sexuales, femenino, general-hombres, general-mujeres, hipertension, mujer-gestante, ninos, pre-quirurgico, prenatal, prostatico, renal): 36 `examenesIncluidos[].slug` values pointed to exam slugs that don't exist in `src/content/examenes/` (e.g. `glucosa-en-suero` instead of the actual `glucosa-en-suero-u-otro-fluido-diferente-a-orina`), causing dead `/examenes/{slug}` links on the corresponding `/examenes/perfiles/{slug}` pages. The perfil data was never updated when the underlying exam slugs picked up their `-semiautomatizado-o-automatizado` / `-u-otros-fluidos` suffixes. Verified via full site build that all 11 unique target slugs now resolve to generated pages.
+
 ### Fixed (keyboard nav trap, undersized headings, price section removal)
 - `src/components/Header.astro`: the mobile nav panel (`#mobile-nav-panel`) was only visually collapsed via `max-height:0; overflow:hidden`, which doesn't remove its links from the keyboard tab order — pressing Tab landed on invisible, zero-height links with no visual feedback, giving the appearance that Tab skipped straight from the header to the footer. Fixed by toggling the `inert` attribute alongside `aria-hidden` in `openNav()`/`closeNav()`
 - `src/pages/participacion-social.astro`: 3 `<h2>` elements were overridden to `text-base`/`text-lg`/`text-sm`, far smaller than the site's standard heading scale — reset to the shared `.h2-sm` convention (matching `derechos-deberes.astro`'s pattern) or the bare default `<h2>` size where appropriate. Note: `politica-de-privacidad.astro` has the identical `text-base` override on 9 headings — not touched here since it wasn't in scope, flagging in case it should be fixed too

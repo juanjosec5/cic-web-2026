@@ -5,7 +5,7 @@
   "examenesIncluidos": [
     {
       "nombre": "HIV prueba rápida",
-      "slug": "hiv-prueba-rapida"
+      "slug": "hiv-prueba-rapida-virus-de-inmunodeficiencia-humana-1-y-2-acs"
     },
     {
       "nombre": "Prueba no treponémica manual – VDRL (Serología)",
@@ -21,7 +21,7 @@
     },
     {
       "nombre": "Hepatitis B antígeno de superficie (AG-HBs)",
-      "slug": "hepatitis-b-antigeno-de-superficie-ag-hbs-2"
+      "slug": "hepatitis-b-antigeno-de-superficie-ag-hbs"
     }
   ],
   "precio": 224000
