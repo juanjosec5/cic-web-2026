@@ -5,7 +5,7 @@
   "examenesIncluidos": [
     {
       "nombre": "Glucosa en suero",
-      "slug": "glucosa-en-suero"
+      "slug": "glucosa-en-suero-u-otro-fluido-diferente-a-orina"
     },
     {
       "nombre": "Hemograma",
@@ -13,7 +13,7 @@
     },
     {
       "nombre": "Creatinina en suero",
-      "slug": "creatinina-en-suero"
+      "slug": "creatinina-en-suero-u-otros-fluidos"
     },
     {
       "nombre": "Uroanálisis",
@@ -21,7 +21,7 @@
     },
     {
       "nombre": "HIV prueba rápida",
-      "slug": "hiv-prueba-rapida"
+      "slug": "hiv-prueba-rapida-virus-de-inmunodeficiencia-humana-1-y-2-acs"
     },
     {
       "nombre": "Prueba no treponémica manual – VDRL (Serología)",

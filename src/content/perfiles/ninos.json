@@ -17,11 +17,11 @@
     },
     {
       "nombre": "Glucosa en suero",
-      "slug": "glucosa-en-suero"
+      "slug": "glucosa-en-suero-u-otro-fluido-diferente-a-orina"
     },
     {
       "nombre": "Creatinina en suero",
-      "slug": "creatinina-en-suero"
+      "slug": "creatinina-en-suero-u-otros-fluidos"
     },
     {
       "nombre": "Bilirrubina total y directa",
@@ -29,11 +29,11 @@
     },
     {
       "nombre": "Sodio en suero",
-      "slug": "sodio-en-suero"
+      "slug": "sodio-en-suero-u-otros-fluidos"
     },
     {
       "nombre": "Potasio en suero",
-      "slug": "potasio-en-suero"
+      "slug": "potasio-en-suero-u-otros-fluidos"
     }
   ],
   "precio": 92000

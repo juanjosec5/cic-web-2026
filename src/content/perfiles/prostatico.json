@@ -5,11 +5,11 @@
   "examenesIncluidos": [
     {
       "nombre": "Antígeno prostático específico total (PSA)",
-      "slug": "antigeno-especifico-de-prostata-psa-automatizado"
+      "slug": "antigeno-especifico-de-prostata-psa-semiautomatizado-o-automatizado"
     },
     {
       "nombre": "Antígeno prostático libre (PSA)",
-      "slug": "antigeno-especifico-de-prostata-fraccion-libre-automatizado"
+      "slug": "antigeno-especifico-de-prostata-fraccion-libre-semiautomatizado-o-automatizado"
     },
     {
       "nombre": "Uroanálisis",
