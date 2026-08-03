@@ -19,6 +19,9 @@ Clinical laboratory website for CIC Laboratorios, built with Astro 5, Tailwind C
 | `npm run build`   | Build static site to `./dist`            |
 | `npm run preview` | Preview the production build locally     |
 | `npm run type-check` | Run TypeScript type checking          |
+| `npm run check-links` | Validate content cross-references (perfiles→examenes, examenes→sedes, etc.) |
+
+`check-links` also runs automatically before every `git push` via a husky pre-push hook (`.husky/pre-push`) — a push is rejected if any content reference is broken.
 
 ## Folder structure
 

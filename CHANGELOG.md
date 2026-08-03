@@ -9,6 +9,10 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 ## [Unreleased]
 
+### Added (automated content-link validator + pre-push hook)
+- `scripts/validate-content-refs.mjs`: new script checking cross-references that Astro's Zod schemas can't (schemas validate shape per-file, not that a referenced slug in another file actually exists) — duplicate slugs and filename/slug mismatches within `examenes/` and `perfiles/`, `perfiles/*.json → examenesIncluidos[].slug` against `examenes/`, `examenes/*.json → examenesRelacionados[]` against `examenes/`, and `examenes/*.json → sedesDisponibles[]` against `sedes/`. Exits 1 on any failure. Added to `package.json` as `npm run check-links`
+- `husky` added as a devDependency with a `.husky/pre-push` hook running `check-links`, so a broken content reference blocks `git push` instead of shipping silently (this is what let the 36 broken links below slip through unnoticed)
+
 ### Fixed (broken exam links in perfiles data)
 - `src/content/perfiles/*.json` (13 files: deportivo, diabetico, enfermedades-sexuales, femenino, general-hombres, general-mujeres, hipertension, mujer-gestante, ninos, pre-quirurgico, prenatal, prostatico, renal): 36 `examenesIncluidos[].slug` values pointed to exam slugs that don't exist in `src/content/examenes/` (e.g. `glucosa-en-suero` instead of the actual `glucosa-en-suero-u-otro-fluido-diferente-a-orina`), causing dead `/examenes/{slug}` links on the corresponding `/examenes/perfiles/{slug}` pages. The perfil data was never updated when the underlying exam slugs picked up their `-semiautomatizado-o-automatizado` / `-u-otros-fluidos` suffixes. Verified via full site build that all 11 unique target slugs now resolve to generated pages.
 
