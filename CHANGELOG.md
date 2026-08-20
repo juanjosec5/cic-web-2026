@@ -9,6 +9,10 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 ## [Unreleased]
 
+### Fixed (undersized headings on legal pages)
+- `src/pages/politica-de-privacidad.astro`: 9 `<h2>` section headings were overridden to `text-base` (1rem), far smaller than the site's standard heading scale — reset to the shared `.h2-sm` convention, matching the fix already applied to `derechos-deberes.astro` and `participacion-social.astro`. This was flagged as out-of-scope but unfixed in the prior "keyboard nav trap, undersized headings" commit
+- `src/pages/participacion-social.astro`: the 5 card `<h3>` titles inside "Mecanismos de participación ciudadana" (Oficina de atención al usuario, PQRSF, Encuesta de satisfacción, Comité de Ética, Asociación de usuarios) had the same `text-base` undersizing — reset to `.h2-sm`, matching the card-heading pattern used in `pacientes/preparacion.astro`
+
 ### Fixed (broken exam links in perfiles data)
 - `src/content/perfiles/*.json` (13 files: deportivo, diabetico, enfermedades-sexuales, femenino, general-hombres, general-mujeres, hipertension, mujer-gestante, ninos, pre-quirurgico, prenatal, prostatico, renal): 36 `examenesIncluidos[].slug` values pointed to exam slugs that don't exist in `src/content/examenes/` (e.g. `glucosa-en-suero` instead of the actual `glucosa-en-suero-u-otro-fluido-diferente-a-orina`), causing dead `/examenes/{slug}` links on the corresponding `/examenes/perfiles/{slug}` pages. The perfil data was never updated when the underlying exam slugs picked up their `-semiautomatizado-o-automatizado` / `-u-otros-fluidos` suffixes. Verified via full site build that all 11 unique target slugs now resolve to generated pages.
 
