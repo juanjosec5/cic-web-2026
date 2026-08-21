@@ -74,25 +74,6 @@ const serviciosCollection = defineCollection({
 });
 
 // ---------------------------------------------------------------------------
-// perfiles
-// ---------------------------------------------------------------------------
-const perfilesCollection = defineCollection({
-  type: 'data',
-  schema: z.object({
-    slug: z.string(),
-    nombre: z.string(),
-    descripcion: z.string(),
-    examenesIncluidos: z.array(
-      z.object({
-        nombre: z.string(),
-        slug: z.string().optional(),
-      })
-    ).default([]),
-    precio: z.number().optional(),
-  }),
-});
-
-// ---------------------------------------------------------------------------
 // aliados
 // ---------------------------------------------------------------------------
 const aliadosCollection = defineCollection({
@@ -113,6 +94,5 @@ const aliadosCollection = defineCollection({
 export const collections = {
   examenes: examenesCollection,
   servicios: serviciosCollection,
-  perfiles: perfilesCollection,
   aliados: aliadosCollection,
 };

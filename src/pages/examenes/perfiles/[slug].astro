@@ -1,19 +1,20 @@
 ---
-import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
 import { SITE_CONFIG } from '@/lib/config';
+import { client } from '@/sanity/client';
+import { ALL_PERFILES_QUERY } from '@/sanity/queries';
+import type { Perfil } from '@/sanity/types';
 
 interface Props {
-  perfil: CollectionEntry<'perfiles'>['data'];
+  perfil: Perfil;
 }
 
 export async function getStaticPaths() {
-  const perfiles = await getCollection('perfiles');
-  return perfiles.map((perfil: CollectionEntry<'perfiles'>) => ({
-    params: { slug: perfil.data.slug },
-    props: { perfil: perfil.data },
+  const perfiles = await client.fetch<Perfil[]>(ALL_PERFILES_QUERY);
+  return perfiles.map((perfil) => ({
+    params: { slug: perfil.slug },
+    props: { perfil },
   }));
 }
 
@@ -33,6 +34,15 @@ const waUrl = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(`
     ]} />
 
     <article>
+      {perfil.imagenPortadaUrl && (
+        <img
+          src={`${perfil.imagenPortadaUrl}?w=1200&h=400&fit=crop&auto=format&q=85`}
+          alt={perfil.nombre}
+          class="mt-6 aspect-[3/1] w-full rounded-2xl object-cover"
+          loading="eager"
+          decoding="async"
+        />
+      )}
       <header class="mt-6">
         <h1>{perfil.nombre}</h1>
         <p class="mt-2 text-gray-600">{perfil.descripcion}</p>

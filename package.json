@@ -9,6 +9,7 @@
     "type-check": "astro check",
     "migrate:examenes": "tsx scripts/migrate-examenes.ts",
     "migrate:sedes": "node scripts/migrate-sedes.mjs",
+    "migrate:perfiles": "node scripts/migrate-perfiles.mjs",
     "studio:dev": "sanity dev",
     "studio:deploy": "sanity deploy"
   },

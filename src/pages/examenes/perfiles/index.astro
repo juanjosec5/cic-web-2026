@@ -1,31 +1,11 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
-import { getCollection } from 'astro:content';
+import { client } from '@/sanity/client';
+import { ALL_PERFILES_QUERY } from '@/sanity/queries';
+import type { Perfil } from '@/sanity/types';
 
-const perfiles = await getCollection('perfiles');
-const sorted = [...perfiles].sort((a, b) => (a.data.precio ?? 0) - (b.data.precio ?? 0));
-
-const CATEGORIA_MAP: Record<string, string> = {
-  'lipidico':             'cardiovascular',
-  'hipertension':         'cardiovascular',
-  'renal':                'metabolico',
-  'hepatico':             'metabolico',
-  'diabetico':            'metabolico',
-  'tiroideo':             'metabolico',
-  'dengue-igm':           'infeccioso',
-  'dengue-ns1':           'infeccioso',
-  'enfermedades-sexuales':'infeccioso',
-  'ninos':                'general',
-  'deportivo':            'general',
-  'pre-quirurgico':       'general',
-  'prenatal':             'femenino',
-  'mujer-gestante':       'femenino',
-  'femenino':             'femenino',
-  'general-mujeres':      'femenino',
-  'prostatico':           'masculino',
-  'general-hombres':      'masculino',
-};
+const perfiles = await client.fetch<Perfil[]>(ALL_PERFILES_QUERY);
 
 const PREVIEW_COUNT = 3;
 
@@ -79,32 +59,43 @@ const FILTROS = [
 
     <!-- Cards -->
     <ul id="perfiles-grid" role="list" class="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {sorted.map((perfil) => (
+      {perfiles.map((perfil) => (
         <li
-          class="relative flex flex-col rounded-lg border border-gray-200 bg-white transition-shadow duration-200 hover:shadow-md"
-          data-categoria={CATEGORIA_MAP[perfil.data.slug] ?? 'general'}
+          class="relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white transition-shadow duration-200 hover:shadow-md"
+          data-categoria={perfil.categoria}
         >
+          {perfil.imagenPortadaUrl ? (
+            <img
+              src={`${perfil.imagenPortadaUrl}?w=600&h=450&fit=crop&auto=format&q=75`}
+              alt=""
+              class="aspect-[4/3] w-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          ) : (
+            <div class="aspect-[4/3] w-full bg-gradient-to-br from-navy-800 to-navy-600" aria-hidden="true" />
+          )}
           <div class="flex flex-1 flex-col p-5">
             <div class="flex items-start gap-3">
               <h2 class="min-w-0 text-4xl leading-snug">
-                {perfil.data.nombre}
+                {perfil.nombre}
               </h2>
             </div>
             <p class="mt-1.5 text-xs text-gray-500 leading-relaxed line-clamp-2">
-              {perfil.data.descripcion}
+              {perfil.descripcion}
             </p>
 
             <!-- Exam preview (first 3) -->
             <ul class="mt-3 space-y-1">
-              {perfil.data.examenesIncluidos.slice(0, PREVIEW_COUNT).map((examen: { nombre: string; slug?: string }) => (
+              {perfil.examenesIncluidos.slice(0, PREVIEW_COUNT).map((examen) => (
                 <li class="flex items-center gap-1.5 text-xs text-gray-600">
                   <span class="text-green-500 font-bold shrink-0">✓</span>
                   <span class="truncate">{examen.nombre}</span>
                 </li>
               ))}
-              {perfil.data.examenesIncluidos.length > PREVIEW_COUNT && (
+              {perfil.examenesIncluidos.length > PREVIEW_COUNT && (
                 <li class="text-xs text-gray-400 pl-4">
-                  +{perfil.data.examenesIncluidos.length - PREVIEW_COUNT} más
+                  +{perfil.examenesIncluidos.length - PREVIEW_COUNT} más
                 </li>
               )}
             </ul>
@@ -113,10 +104,10 @@ const FILTROS = [
           <!-- Footer -->
           <div class="flex items-center justify-between border-t border-gray-100 px-5 py-3">
             <span class="text-xs text-gray-400">
-              {perfil.data.examenesIncluidos.length} exámenes
+              {perfil.examenesIncluidos.length} exámenes
             </span>
             <a
-              href={`/examenes/perfiles/${perfil.data.slug}`}
+              href={`/examenes/perfiles/${perfil.slug}`}
               class="text-xs font-semibold text-red-600 hover:text-red-700 transition-colors after:absolute after:inset-0"
             >
               Ver perfil →
