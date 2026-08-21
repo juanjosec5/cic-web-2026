@@ -4,6 +4,9 @@ import type { CollectionEntry } from 'astro:content';
 import ExamenLayout from '@/layouts/ExamenLayout.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
 import { CATEGORIAS, SITE_CONFIG } from '@/lib/config';
+import { client } from '@/sanity/client';
+import { ALL_PERFILES_QUERY } from '@/sanity/queries';
+import type { Perfil } from '@/sanity/types';
 
 interface Props {
   examen: CollectionEntry<'examenes'>['data'];
@@ -14,7 +17,7 @@ interface Props {
 export async function getStaticPaths() {
   const [examenes, perfiles] = await Promise.all([
     getCollection('examenes', ({ data }: CollectionEntry<'examenes'>) => data.activo),
-    getCollection('perfiles'),
+    client.fetch<Perfil[]>(ALL_PERFILES_QUERY),
   ]);
 
   const examenMap = new Map(examenes.map((e: CollectionEntry<'examenes'>) => [e.data.slug, e.data.nombre]));
@@ -28,13 +31,11 @@ export async function getStaticPaths() {
         nombre: examenMap.get(slug) ?? slug,
       })),
       perfilesData: perfiles
-        .filter((p: CollectionEntry<'perfiles'>) =>
-          p.data.examenesIncluidos.includes(examen.data.slug)
-        )
-        .map((p: CollectionEntry<'perfiles'>) => ({
-          slug: p.data.slug,
-          nombre: p.data.nombre,
-          descripcion: p.data.descripcion,
+        .filter((p) => p.examenesIncluidos.some((e) => e.slug === examen.data.slug))
+        .map((p) => ({
+          slug: p.slug,
+          nombre: p.nombre,
+          descripcion: p.descripcion,
         })),
     },
   }));

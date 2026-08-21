@@ -49,6 +49,24 @@ export interface PromoMes {
   ctaUrl?: string;
 }
 
+export type PerfilCategoria =
+  | 'cardiovascular'
+  | 'metabolico'
+  | 'infeccioso'
+  | 'femenino'
+  | 'masculino'
+  | 'general';
+
+export interface Perfil {
+  slug: string;
+  nombre: string;
+  descripcion: string;
+  categoria: PerfilCategoria;
+  imagenPortadaUrl?: string | null;
+  examenesIncluidos: { nombre: string; slug?: string }[];
+  precio?: number | null;
+}
+
 export interface PaginaInicio {
   heroTitulo?: string;
   heroSubtitulo?: string;

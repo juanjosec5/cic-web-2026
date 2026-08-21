@@ -42,6 +42,18 @@ export const SEDE_PRINCIPAL_MAP_QUERY = `
   *[_type == "sede" && esSedePrincipal == true][0] { mapEmbedUrl }
 `;
 
+export const ALL_PERFILES_QUERY = `
+  *[_type == "perfil"] | order(precio asc) {
+    "slug": slug.current,
+    nombre,
+    descripcion,
+    categoria,
+    "imagenPortadaUrl": imagenPortada.asset->url,
+    "examenesIncluidos": coalesce(examenesIncluidos[] { nombre, slug }, []),
+    precio,
+  }
+`;
+
 export const PAGINA_INICIO_QUERY = `
   *[_type == "paginaInicio"][0] {
     heroTitulo, heroSubtitulo,
