@@ -9,6 +9,13 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 ## [Unreleased]
 
+### Added (multi-image promo slider)
+- `src/sanity/schemas/promocionMes.ts`: replaced the single `imagenCompleta` image field with `imagenes`, an array of up to 4 images (`R.min(1).max(4)`), so editors can upload more than one photo for the "Imagen completa" display mode
+- `src/sanity/queries.ts`, `src/sanity/types.ts`: `PROMO_MES_QUERY`/`PromoMes` updated from `imagenCompletaUrl?: string` to `imagenesUrls?: string[]` to match the new array field
+- `src/components/islands/PromoSlider.vue` (new): hand-rolled Vue island — no new dependency (Swiper was considered and rejected; the codebase already has a hand-rolled carousel precedent in `GaleriaLightbox.vue`, and 4 slides doesn't justify ~35kb of library JS on an above-the-fold section). Crossfade transition (avoids the DOM-cloning needed for a true infinite translate-carousel), autoplay every 5s with pause on hover/focus/touch, disabled entirely under `prefers-reduced-motion: reduce`, plus arrow/dot/swipe/keyboard navigation and an `aria-live` slide announcement
+- `src/pages/index.astro`: the promo banner's `modo === 'imagen'` branch now has three paths — 0 images falls back to the existing `compuesto` banner, exactly 1 image renders the original static `<img>` markup unchanged (no slider chrome, no JS cost), 2-4 images mount `<PromoSlider client:load>`
+- **Follow-up needed:** the one live "promo Mayo 2026" document still has its image on the old `imagenCompleta` field — after this schema deploys, that image needs to be manually re-added to the new `imagenes` field in Sanity Studio, or the banner will fall back to the `compuesto` display until then
+
 ### Fixed (undersized headings on legal pages)
 - `src/pages/politica-de-privacidad.astro`: 9 `<h2>` section headings were overridden to `text-base` (1rem), far smaller than the site's standard heading scale — reset to the shared `.h2-sm` convention, matching the fix already applied to `derechos-deberes.astro` and `participacion-social.astro`. This was flagged as out-of-scope but unfixed in the prior "keyboard nav trap, undersized headings" commit
 - `src/pages/participacion-social.astro`: the 5 card `<h3>` titles inside "Mecanismos de participación ciudadana" (Oficina de atención al usuario, PQRSF, Encuesta de satisfacción, Comité de Ética, Asociación de usuarios) had the same `text-base` undersizing — reset to `.h2-sm`, matching the card-heading pattern used in `pacientes/preparacion.astro`

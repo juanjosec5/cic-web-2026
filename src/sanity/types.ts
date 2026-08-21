@@ -42,7 +42,7 @@ export interface PromoMes {
   titulo?: string;
   descripcion?: string;
   modo: 'imagen' | 'compuesto';
-  imagenCompletaUrl?: string;
+  imagenesUrls?: string[];
   imagenFondoUrl?: string;
   colorFondo?: string;
   ctaTexto?: string;
