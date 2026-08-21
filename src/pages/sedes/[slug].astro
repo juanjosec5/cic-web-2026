@@ -1,4 +1,6 @@
 ---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import SedeLayout from '@/layouts/SedeLayout.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
 import MapEmbed from '@/components/MapEmbed.astro';
@@ -28,6 +30,9 @@ export async function getStaticPaths() {
 }
 
 const { sede, otrosSedes } = Astro.props;
+
+const servicios = await getCollection('servicios');
+const serviciosConPagina = new Set(servicios.map((s: CollectionEntry<'servicios'>) => s.data.slug));
 
 const waUrl = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(`Hola, quisiera información sobre la sede ${sede.nombre}.`)}`;
 
@@ -182,7 +187,11 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
               <span class="font-bold leading-none">{available ? '✓' : '—'}</span>
               {available ? (
                 <span class="flex flex-col gap-1">
-                  <a href={`/servicios/${slug}`} class="hover:underline">{label}</a>
+                  {serviciosConPagina.has(slug) ? (
+                    <a href={`/servicios/${slug}`} class="hover:underline">{label}</a>
+                  ) : (
+                    <span>{label}</span>
+                  )}
                   {WA_ROUTING[slug] && (
                     <a href={WA_ROUTING[slug]!} target="_blank" rel="noopener noreferrer"
                        class="text-xs font-medium text-green-700 hover:underline">

@@ -50,6 +50,11 @@ const fuzzySuggestions = computed(() => {
   if (!hasQuery.value || filtered.value.length > 0) return [];
   return fuse.value.search(query.value.trim()).slice(0, 5).map((r) => r.item);
 });
+
+const categoriasConExamenes = computed(() => {
+  const present = new Set(props.exams.map((e) => e.categoria));
+  return props.categorias.filter((c) => present.has(c.slug));
+});
 </script>
 
 <template>
@@ -73,7 +78,7 @@ const fuzzySuggestions = computed(() => {
     <!-- Category pills -->
     <nav aria-label="Categorías de exámenes" class="pills-nav">
       <ul role="list" class="pills-list">
-        <li v-for="cat in categorias" :key="cat.slug">
+        <li v-for="cat in categoriasConExamenes" :key="cat.slug">
           <a :href="`/examenes/categoria/${cat.slug}`" class="pill">{{ cat.label }}</a>
         </li>
       </ul>
