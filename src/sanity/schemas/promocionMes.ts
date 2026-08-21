@@ -23,11 +23,12 @@ export const promocionMesType = defineType({
       validation: (R) => R.required(),
     }),
     defineField({
-      name: 'imagenCompleta',
-      title: 'Imagen completa',
-      description: 'Usada cuando el modo es "Imagen completa". Reemplaza todo el banner.',
-      type: 'image',
-      options: { hotspot: true },
+      name: 'imagenes',
+      title: 'Imágenes (máx. 4)',
+      description: 'Usadas cuando el modo es "Imagen completa". Si hay más de una, se muestran en un slider automático.',
+      type: 'array',
+      of: [{ type: 'image', options: { hotspot: true } }],
+      validation: (R) => R.min(1).max(4),
     }),
     defineField({
       name: 'imagenFondo',
@@ -48,6 +49,6 @@ export const promocionMesType = defineType({
     defineField({ name: 'activo', title: 'Activa', type: 'boolean', initialValue: true }),
   ],
   preview: {
-    select: { title: 'titulo', subtitle: 'mes', media: 'imagenCompleta' },
+    select: { title: 'titulo', subtitle: 'mes', media: 'imagenes.0' },
   },
 });

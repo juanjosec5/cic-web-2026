@@ -2,6 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import HeroIcon from '@/components/HeroIcon.astro';
 import SedeMap from '@/components/islands/SedeMap.vue';
+import PromoSlider from '@/components/islands/PromoSlider.vue';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import { SITE_CONFIG, CATEGORIAS } from '@/lib/config';
@@ -101,14 +102,21 @@ const sedesParaMapa = sedes
   {promo && (
     <section aria-labelledby="promo-heading" class="py-6">
       <div class="container-wide">
-        {promo.modo === 'imagen' && promo.imagenCompletaUrl ? (
+        {promo.modo === 'imagen' && promo.imagenesUrls && promo.imagenesUrls.length > 1 ? (
+          <PromoSlider
+            imagenes={promo.imagenesUrls}
+            ctaUrl={promo.ctaUrl ?? '#'}
+            alt={promo.titulo ?? 'Promoción del mes'}
+            client:load
+          />
+        ) : promo.modo === 'imagen' && promo.imagenesUrls?.[0] ? (
           <a href={promo.ctaUrl ?? '#'} target="_blank" rel="noopener noreferrer">
             <img
-              src={`${promo.imagenCompletaUrl}?w=1200&auto=format&q=85`}
+              src={`${promo.imagenesUrls[0]}?w=1200&auto=format&q=85`}
               srcset={[
-                `${promo.imagenCompletaUrl}?w=640&auto=format&q=85 640w`,
-                `${promo.imagenCompletaUrl}?w=1024&auto=format&q=85 1024w`,
-                `${promo.imagenCompletaUrl}?w=1600&auto=format&q=85 1600w`,
+                `${promo.imagenesUrls[0]}?w=640&auto=format&q=85 640w`,
+                `${promo.imagenesUrls[0]}?w=1024&auto=format&q=85 1024w`,
+                `${promo.imagenesUrls[0]}?w=1600&auto=format&q=85 1600w`,
               ].join(', ')}
               sizes="(max-width: 640px) 640px, (max-width: 1024px) 1024px, 1600px"
               alt={promo.titulo ?? 'Promoción del mes'}
