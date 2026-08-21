@@ -51,7 +51,7 @@ export const POST: APIRoute = async ({ request }) => {
     from: import.meta.env.RESEND_FROM ?? 'onboarding@resend.dev',
     to: import.meta.env.CONTACT_EMAIL ?? 'juan.josecuadros1@gmail.com',
     replyTo: email,
-    subject: `Cotización empresarial — ${esc(empresa)}`,
+    subject: `Cotización empresarial — ${esc(empresa.replace(/[\r\n]/g, ' '))}`,
     html: `
       <h2>Nueva solicitud de cotización empresarial</h2>
       <table style="border-collapse:collapse;width:100%">

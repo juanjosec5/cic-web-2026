@@ -18,6 +18,22 @@ const [sedes, promo, paginaInicio] = await Promise.all([
   client.fetch<PromoMes | null>(PROMO_MES_QUERY),
   client.fetch<PaginaInicio | null>(PAGINA_INICIO_QUERY),
 ]);
+
+// Validate CMS-supplied CSS values before they're interpolated into a style
+// attribute — HTML-attribute escaping doesn't protect the CSS parser that
+// consumes the decoded value, so an unvalidated string could break out of
+// url("...") and inject arbitrary CSS declarations.
+const HEX_COLOR_RE = /^#[0-9a-fA-F]{3,8}$/;
+const promoColorFondo = promo?.colorFondo && HEX_COLOR_RE.test(promo.colorFondo) ? promo.colorFondo : '#dc2626';
+const promoImagenFondoUrl = (() => {
+  if (!promo?.imagenFondoUrl) return null;
+  try {
+    const u = new URL(promo.imagenFondoUrl);
+    return u.protocol === 'https:' && u.hostname === 'cdn.sanity.io' ? promo.imagenFondoUrl : null;
+  } catch {
+    return null;
+  }
+})();
 const examenes = await getCollection('examenes', ({ data }: CollectionEntry<'examenes'>) => data.activo);
 const servicios = await getCollection('servicios');
 const aliados = await getCollection('aliados');
@@ -130,7 +146,7 @@ const sedesParaMapa = sedes
         ) : (
           <div
             class="flex flex-col gap-4 rounded-2xl px-8 py-7 sm:flex-row sm:items-center sm:justify-between"
-            style={`background-color: ${promo.colorFondo ?? '#dc2626'};${promo.imagenFondoUrl ? ` background-image: url("${promo.imagenFondoUrl.replace(/"/g, '%22')}"); background-size: cover; background-position: center;` : ''}`}
+            style={`background-color: ${promoColorFondo};${promoImagenFondoUrl ? ` background-image: url("${promoImagenFondoUrl}"); background-size: cover; background-position: center;` : ''}`}
           >
             <div>
               <p class="text-xs font-semibold uppercase tracking-widest text-red-200">Promoción del mes</p>

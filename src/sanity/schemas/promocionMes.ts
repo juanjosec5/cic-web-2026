@@ -45,7 +45,12 @@ export const promocionMesType = defineType({
       initialValue: '#dc2626',
     }),
     defineField({ name: 'ctaTexto', title: 'Texto del botón CTA', type: 'string', initialValue: 'Consultar promoción' }),
-    defineField({ name: 'ctaUrl', title: 'URL del CTA', type: 'url' }),
+    defineField({
+      name: 'ctaUrl',
+      title: 'URL del CTA',
+      type: 'url',
+      validation: (R) => R.uri({ scheme: ['http', 'https'], allowRelative: true }),
+    }),
     defineField({ name: 'activo', title: 'Activa', type: 'boolean', initialValue: true }),
   ],
   preview: {
