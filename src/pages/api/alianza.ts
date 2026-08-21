@@ -52,7 +52,7 @@ export const POST: APIRoute = async ({ request }) => {
     from: import.meta.env.RESEND_FROM ?? 'onboarding@resend.dev',
     to: import.meta.env.CONTACT_EMAIL ?? 'juan.josecuadros1@gmail.com',
     replyTo: email,
-    subject: `Propuesta de alianza — ${esc(organizacion)}`,
+    subject: `Propuesta de alianza — ${esc(organizacion.replace(/[\r\n]/g, ' '))}`,
     html: `
       <h2>Nueva propuesta de alianza con laboratorio / IPS</h2>
       <table style="border-collapse:collapse;width:100%">

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
+import HeroIcon from '@/components/HeroIcon.astro';
 import { client } from '@/sanity/client';
 import { ALL_PERFILES_QUERY } from '@/sanity/queries';
 import type { Perfil } from '@/sanity/types';
@@ -8,6 +9,9 @@ import type { Perfil } from '@/sanity/types';
 const perfiles = await client.fetch<Perfil[]>(ALL_PERFILES_QUERY);
 
 const PREVIEW_COUNT = 3;
+
+const BEAKER_ICON =
+  'M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5m4.75-11.396c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15M14.25 3.104c.251.023.501.05.75.082M19.8 15a2.25 2.25 0 0 1 .244 1.028l-.001.002a2.25 2.25 0 0 1-2.244 2.22H6.2a2.25 2.25 0 0 1-2.244-2.22l-.001-.002A2.25 2.25 0 0 1 4.2 15m15.6 0-3.675-1.845a2.25 2.25 0 0 0-2.25 0L9.75 15M8.25 2.25h7.5';
 
 const FILTROS = [
   { value: 'todos',         label: 'Todos' },
@@ -73,7 +77,11 @@ const FILTROS = [
               decoding="async"
             />
           ) : (
-            <div class="aspect-[4/3] w-full bg-gradient-to-br from-navy-800 to-navy-600" aria-hidden="true" />
+            <div class="flex aspect-[4/3] w-full items-center justify-center bg-gradient-to-br from-navy-800 to-navy-600" aria-hidden="true">
+              <div class="rounded-full bg-white/10 p-6">
+                <HeroIcon path={BEAKER_ICON} class="h-10 w-10 text-white/70" strokeWidth={1} />
+              </div>
+            </div>
           )}
           <div class="flex flex-1 flex-col p-5">
             <div class="flex items-start gap-3">
