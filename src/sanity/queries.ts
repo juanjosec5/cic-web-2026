@@ -30,7 +30,10 @@ export const PROMO_MES_QUERY = `
     titulo,
     descripcion,
     modo,
-    "imagenesUrls": coalesce(imagenes[].asset->url, []),
+    "imagenes": coalesce(imagenes[]{
+      "url": imagen.asset->url,
+      "linkUrl": url
+    }, []),
     "imagenFondoUrl": imagenFondo.asset->url,
     colorFondo,
     ctaTexto,

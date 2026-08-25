@@ -119,21 +119,38 @@ const sedesParaMapa = sedes
   {promo && (
     <section aria-labelledby="promo-heading" class="py-6">
       <div class="container-wide">
-        {promo.modo === 'imagen' && promo.imagenesUrls && promo.imagenesUrls.length > 1 ? (
+        {promo.modo === 'imagen' && promo.imagenes && promo.imagenes.length > 1 ? (
           <PromoSlider
-            imagenes={promo.imagenesUrls}
-            ctaUrl={promo.ctaUrl ?? '#'}
+            slides={promo.imagenes}
             alt={promo.titulo ?? 'Promoción del mes'}
             client:load
           />
-        ) : promo.modo === 'imagen' && promo.imagenesUrls?.[0] ? (
-          <a href={promo.ctaUrl ?? '#'} target="_blank" rel="noopener noreferrer">
+        ) : promo.modo === 'imagen' && promo.imagenes?.[0] ? (
+          promo.imagenes[0].linkUrl ? (
+            <a href={promo.imagenes[0].linkUrl} target="_blank" rel="noopener noreferrer">
+              <img
+                src={`${promo.imagenes[0].url}?w=1200&auto=format&q=85`}
+                srcset={[
+                  `${promo.imagenes[0].url}?w=640&auto=format&q=85 640w`,
+                  `${promo.imagenes[0].url}?w=1024&auto=format&q=85 1024w`,
+                  `${promo.imagenes[0].url}?w=1600&auto=format&q=85 1600w`,
+                ].join(', ')}
+                sizes="(max-width: 640px) 640px, (max-width: 1024px) 1024px, 1600px"
+                alt={promo.titulo ?? 'Promoción del mes'}
+                class="w-full rounded-2xl object-cover"
+                loading="eager"
+                decoding="async"
+                width="1600"
+                height="600"
+              />
+            </a>
+          ) : (
             <img
-              src={`${promo.imagenesUrls[0]}?w=1200&auto=format&q=85`}
+              src={`${promo.imagenes[0].url}?w=1200&auto=format&q=85`}
               srcset={[
-                `${promo.imagenesUrls[0]}?w=640&auto=format&q=85 640w`,
-                `${promo.imagenesUrls[0]}?w=1024&auto=format&q=85 1024w`,
-                `${promo.imagenesUrls[0]}?w=1600&auto=format&q=85 1600w`,
+                `${promo.imagenes[0].url}?w=640&auto=format&q=85 640w`,
+                `${promo.imagenes[0].url}?w=1024&auto=format&q=85 1024w`,
+                `${promo.imagenes[0].url}?w=1600&auto=format&q=85 1600w`,
               ].join(', ')}
               sizes="(max-width: 640px) 640px, (max-width: 1024px) 1024px, 1600px"
               alt={promo.titulo ?? 'Promoción del mes'}
@@ -143,7 +160,7 @@ const sedesParaMapa = sedes
               width="1600"
               height="600"
             />
-          </a>
+          )
         ) : (
           <div
             class="flex flex-col gap-4 rounded-2xl px-8 py-7 sm:flex-row sm:items-center sm:justify-between"
