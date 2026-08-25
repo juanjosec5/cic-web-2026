@@ -38,11 +38,16 @@ export interface Sede {
   mapEmbedUrl?: string | null;
 }
 
+export interface PromoMesSlide {
+  url: string;
+  linkUrl?: string;
+}
+
 export interface PromoMes {
   titulo?: string;
   descripcion?: string;
   modo: 'imagen' | 'compuesto';
-  imagenesUrls?: string[];
+  imagenes?: PromoMesSlide[];
   imagenFondoUrl?: string;
   colorFondo?: string;
   ctaTexto?: string;

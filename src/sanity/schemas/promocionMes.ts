@@ -25,9 +25,39 @@ export const promocionMesType = defineType({
     defineField({
       name: 'imagenes',
       title: 'Imágenes (máx. 4)',
-      description: 'Usadas cuando el modo es "Imagen completa". Si hay más de una, se muestran en un slider automático.',
+      description:
+        'Usadas cuando el modo es "Imagen completa". Si hay más de una, se muestran en un slider automático. Cada imagen puede tener su propio enlace opcional: si tiene URL, será clicable; si no, se mostrará como imagen fija.',
       type: 'array',
-      of: [{ type: 'image', options: { hotspot: true } }],
+      of: [
+        {
+          type: 'object',
+          name: 'imagenSlide',
+          title: 'Imagen',
+          fields: [
+            defineField({
+              name: 'imagen',
+              title: 'Imagen',
+              type: 'image',
+              options: { hotspot: true },
+              validation: (R) => R.required(),
+            }),
+            defineField({
+              name: 'url',
+              title: 'URL del enlace (opcional)',
+              description:
+                'Si se define, esta imagen será clicable y abrirá el enlace en una pestaña nueva. Si se deja vacía, la imagen no será clicable.',
+              type: 'url',
+              validation: (R) => R.uri({ scheme: ['http', 'https'], allowRelative: true }),
+            }),
+          ],
+          preview: {
+            select: { media: 'imagen', subtitle: 'url' },
+            prepare({ media, subtitle }) {
+              return { title: subtitle ? 'Con enlace' : 'Sin enlace', subtitle, media };
+            },
+          },
+        },
+      ],
       validation: (R) => R.min(1).max(4),
     }),
     defineField({
@@ -54,6 +84,6 @@ export const promocionMesType = defineType({
     defineField({ name: 'activo', title: 'Activa', type: 'boolean', initialValue: true }),
   ],
   preview: {
-    select: { title: 'titulo', subtitle: 'mes', media: 'imagenes.0' },
+    select: { title: 'titulo', subtitle: 'mes', media: 'imagenes.0.imagen' },
   },
 });

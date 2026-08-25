@@ -9,6 +9,13 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 ## [Unreleased]
 
+### Changed (per-slide optional links on homepage promo carousel)
+- `src/sanity/schemas/promocionMes.ts`: the `imagenes` array's item type changed from a plain `image` to an object pairing `imagen` (required) with an optional `url` — each slide can now link somewhere different, or not link at all. Studio redeployed
+- `src/sanity/queries.ts`, `src/sanity/types.ts`: `PROMO_MES_QUERY`'s `imagenesUrls: string[]` projection replaced with `imagenes: { url, linkUrl }[]`; new `PromoMesSlide` type
+- `src/components/islands/PromoSlider.vue`: dropped the single carousel-wide `ctaUrl` prop/wrapping `<a>` in favor of `slides: PromoMesSlide[]` — each slide renders as an anchor when it has a `linkUrl`, or a plain non-clickable `<img>` otherwise; inactive slides' anchors get `tabindex="-1"`/`aria-hidden` so keyboard users can't tab into off-screen links
+- `src/pages/index.astro`: the single-image fallback branch (non-carousel `modo: 'imagen'` case) got the same optional-link treatment; the "compuesto" text-banner mode is unaffected
+- The one existing `promocionMes` document (no `ctaUrl` set, effectively linking nowhere) was migrated in Studio to the new shape with no link on its slide — matches its prior effective behavior
+
 ### Added (build-based link checker + pre-push hook)
 - `scripts/check-links.mjs` (new, `npm run check-links`): crawls the built `dist/client` output and verifies every internal `<a href>` resolves to a real generated page. Checks the final rendered HTML rather than one content source, so it catches broken links regardless of whether they came from Sanity, local JSON, or a hardcoded template — unlike the earlier content-cross-reference-only validator attempt (#74, closed as stale/superseded). Internal links only; external/`mailto:`/`tel:` links are skipped so the check doesn't fail on a third party being briefly down
 - `husky` added as a devDependency with `.husky/pre-push` running `npm run build && npm run check-links`, so a broken link blocks `git push` instead of shipping silently

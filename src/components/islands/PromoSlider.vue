@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
+import type { PromoMesSlide } from '@/sanity/types';
 
 const props = defineProps<{
-  imagenes: string[];
-  ctaUrl: string;
+  slides: PromoMesSlide[];
   alt: string;
 }>();
 
@@ -14,11 +14,11 @@ const touchStartX = ref<number | null>(null);
 let autoplayTimer: ReturnType<typeof setInterval> | null = null;
 
 function next() {
-  activeIndex.value = (activeIndex.value + 1) % props.imagenes.length;
+  activeIndex.value = (activeIndex.value + 1) % props.slides.length;
 }
 
 function prev() {
-  activeIndex.value = (activeIndex.value - 1 + props.imagenes.length) % props.imagenes.length;
+  activeIndex.value = (activeIndex.value - 1 + props.slides.length) % props.slides.length;
 }
 
 function goTo(i: number) {
@@ -79,15 +79,40 @@ function onKeydown(e: KeyboardEvent) {
     @touchend.passive="onTouchEnd"
     @keydown="onKeydown"
   >
-    <a :href="ctaUrl" target="_blank" rel="noopener noreferrer" class="absolute inset-0" :aria-label="alt">
+    <template v-for="(slide, i) in slides" :key="slide.url">
+      <a
+        v-if="slide.linkUrl"
+        :href="slide.linkUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        :aria-label="alt"
+        :tabindex="i === activeIndex ? undefined : -1"
+        :aria-hidden="i === activeIndex ? undefined : true"
+        class="absolute inset-0 transition-opacity duration-700"
+        :class="i === activeIndex ? 'opacity-100' : 'pointer-events-none opacity-0'"
+      >
+        <img
+          :src="`${slide.url}?w=1200&auto=format&q=85`"
+          :srcset="[
+            `${slide.url}?w=640&auto=format&q=85 640w`,
+            `${slide.url}?w=1024&auto=format&q=85 1024w`,
+            `${slide.url}?w=1600&auto=format&q=85 1600w`,
+          ].join(', ')"
+          sizes="(max-width: 640px) 640px, (max-width: 1024px) 1024px, 1600px"
+          alt=""
+          class="h-full w-full object-cover"
+          :loading="i === 0 ? 'eager' : 'lazy'"
+          decoding="async"
+          draggable="false"
+        />
+      </a>
       <img
-        v-for="(foto, i) in imagenes"
-        :key="foto"
-        :src="`${foto}?w=1200&auto=format&q=85`"
+        v-else
+        :src="`${slide.url}?w=1200&auto=format&q=85`"
         :srcset="[
-          `${foto}?w=640&auto=format&q=85 640w`,
-          `${foto}?w=1024&auto=format&q=85 1024w`,
-          `${foto}?w=1600&auto=format&q=85 1600w`,
+          `${slide.url}?w=640&auto=format&q=85 640w`,
+          `${slide.url}?w=1024&auto=format&q=85 1024w`,
+          `${slide.url}?w=1600&auto=format&q=85 1600w`,
         ].join(', ')"
         sizes="(max-width: 640px) 640px, (max-width: 1024px) 1024px, 1600px"
         alt=""
@@ -96,8 +121,9 @@ function onKeydown(e: KeyboardEvent) {
         :loading="i === 0 ? 'eager' : 'lazy'"
         decoding="async"
         draggable="false"
+        aria-hidden="true"
       />
-    </a>
+    </template>
 
     <!-- Prev / Next -->
     <button
@@ -124,8 +150,8 @@ function onKeydown(e: KeyboardEvent) {
     <!-- Dots -->
     <div class="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 gap-2">
       <button
-        v-for="(foto, i) in imagenes"
-        :key="foto"
+        v-for="(slide, i) in slides"
+        :key="slide.url"
         type="button"
         class="h-2 rounded-full transition-all"
         :class="i === activeIndex ? 'w-6 bg-white' : 'w-2 bg-white/60 hover:bg-white/80'"
@@ -135,6 +161,6 @@ function onKeydown(e: KeyboardEvent) {
       />
     </div>
 
-    <span class="sr-only" aria-live="polite">Imagen {{ activeIndex + 1 }} de {{ imagenes.length }}</span>
+    <span class="sr-only" aria-live="polite">Imagen {{ activeIndex + 1 }} de {{ slides.length }}</span>
   </div>
 </template>
