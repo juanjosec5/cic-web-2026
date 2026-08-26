@@ -9,6 +9,10 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 ## [Unreleased]
 
+### Fixed (promo/hero image cropping)
+- `src/components/islands/PromoSlider.vue`: the carousel container was hard-locked to `aspect-[8/3]` (~2.67:1); the Sanity `promocionMes` images are authored at 980×560 (7:4, ~1.75:1), so `object-cover` was cropping a large chunk off every slide. Changed to `aspect-[7/4]` to match
+- `src/pages/index.astro`: the single-image fallback branch hinted `width="1600" height="600"` (same wrong 2.67:1 ratio) on its `<img>` tags, causing the same crop even outside the carousel. Changed to `width="980" height="560"` to match the source images
+
 ### Changed (per-slide optional links on homepage promo carousel)
 - `src/sanity/schemas/promocionMes.ts`: the `imagenes` array's item type changed from a plain `image` to an object pairing `imagen` (required) with an optional `url` — each slide can now link somewhere different, or not link at all. Studio redeployed
 - `src/sanity/queries.ts`, `src/sanity/types.ts`: `PROMO_MES_QUERY`'s `imagenesUrls: string[]` projection replaced with `imagenes: { url, linkUrl }[]`; new `PromoMesSlide` type

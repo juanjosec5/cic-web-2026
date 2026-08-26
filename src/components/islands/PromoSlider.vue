@@ -66,7 +66,7 @@ function onKeydown(e: KeyboardEvent) {
 
 <template>
   <div
-    class="relative aspect-[8/3] overflow-hidden rounded-2xl"
+    class="relative aspect-[7/4] overflow-hidden rounded-2xl"
     role="region"
     aria-roledescription="carousel"
     :aria-label="alt"
