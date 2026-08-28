@@ -2,6 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import BackLink from '@/components/BackLink.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
+import SlimBanner from '@/components/SlimBanner.astro';
 ---
 
 <BaseLayout
@@ -9,6 +10,7 @@ import Breadcrumb from '@/components/Breadcrumb.astro';
   description="La historia de CIC Laboratorios: fundación, crecimiento y compromiso con la salud en el Valle del Cauca."
 >
   <div class="container-page">
+    <SlimBanner ruta="/nosotros/historia" />
 
     <Breadcrumb items={[
       { label: 'Inicio', href: '/' },

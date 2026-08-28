@@ -72,6 +72,35 @@ export interface Perfil {
   precio?: number | null;
 }
 
+export type RutaPagina =
+  | '/servicios'
+  | '/pacientes/preparacion'
+  | '/pacientes/derechos-deberes'
+  | '/empresas'
+  | '/laboratorios'
+  | '/examenes'
+  | '/nosotros/historia'
+  | '/nosotros/aliados'
+  | '/nosotros'
+  | '/contacto';
+
+export interface PaginaBanner {
+  alt?: string | null;
+  enlace?: string | null;
+  desktopUrl?: string | null;
+  desktopW?: number | null;
+  desktopH?: number | null;
+  mobileUrl?: string | null;
+  mobileW?: number | null;
+  mobileH?: number | null;
+}
+
+export interface Pagina {
+  ruta: RutaPagina;
+  titulo: string;
+  banner: PaginaBanner | null;
+}
+
 export interface PaginaInicio {
   heroTitulo?: string;
   heroSubtitulo?: string;

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
+import SlimBanner from '@/components/SlimBanner.astro';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import { SITE_CONFIG } from '@/lib/config';
@@ -23,6 +24,7 @@ const waAlianza = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICompone
   whatsappMessage={WA_MESSAGE_ALIANZA}
 >
   <div class="container-page">
+    <SlimBanner ruta="/laboratorios" />
 
     <Breadcrumb items={[{ label: 'Inicio', href: '/' }, { label: 'Laboratorios de referencia' }]} />
 
