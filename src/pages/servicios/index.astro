@@ -2,6 +2,7 @@
 /** /servicios — Services listing page. */
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
+import SlimBanner from '@/components/SlimBanner.astro';
 import HeroIcon from '@/components/HeroIcon.astro';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
@@ -15,6 +16,7 @@ const servicios = await getCollection('servicios');
   description="Servicios de CIC Laboratorios: toma a domicilio, citología y VPH, jornadas empresariales y salud ocupacional."
 >
   <div class="container-page">
+    <SlimBanner ruta="/servicios" />
     <Breadcrumb items={[{ label: 'Inicio', href: '/' }, { label: 'Servicios' }]} />
 
     <header>

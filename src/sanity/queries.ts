@@ -57,6 +57,26 @@ export const ALL_PERFILES_QUERY = `
   }
 `;
 
+export const PAGINAS_QUERY = `
+  *[_type == "pagina"] {
+    "ruta": ruta,
+    titulo,
+    "banner": select(
+      banner.activo == true => {
+        "alt": banner.alt,
+        "enlace": banner.enlace,
+        "desktopUrl": banner.imagenDesktop.asset->url,
+        "desktopW": banner.imagenDesktop.asset->metadata.dimensions.width,
+        "desktopH": banner.imagenDesktop.asset->metadata.dimensions.height,
+        "mobileUrl": banner.imagenMobile.asset->url,
+        "mobileW": banner.imagenMobile.asset->metadata.dimensions.width,
+        "mobileH": banner.imagenMobile.asset->metadata.dimensions.height,
+      },
+      null
+    ),
+  }
+`;
+
 export const PAGINA_INICIO_QUERY = `
   *[_type == "paginaInicio"][0] {
     heroTitulo, heroSubtitulo,

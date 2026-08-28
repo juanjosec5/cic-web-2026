@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
+import SlimBanner from '@/components/SlimBanner.astro';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import { SITE_CONFIG } from '@/lib/config';
@@ -29,6 +30,7 @@ const waPreparacion = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURICom
   description="Instrucciones completas de preparación para exámenes clínicos: ayuno, muestras de orina, heces y preparaciones especiales. CIC Laboratorios."
 >
   <div class="container-page">
+    <SlimBanner ruta="/pacientes/preparacion" />
 
     <Breadcrumb items={[
       { label: 'Inicio', href: '/' },

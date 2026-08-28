@@ -1,0 +1,78 @@
+---
+/**
+ * SlimBanner — banner delgado y art-directed en la parte superior de una página.
+ * Lee el objeto `banner` del documento `pagina` de Sanity cuya `ruta` coincide.
+ * No renderiza nada hasta que un editor sube al menos la imagen de escritorio + alt.
+ */
+import { getPagina } from '@/sanity/paginas';
+
+interface Props {
+  /** Ruta de la página, debe coincidir con un `ruta` en Sanity (ej. "/servicios"). */
+  ruta: string;
+  /** Clases extra para el elemento contenedor. */
+  className?: string;
+}
+
+const { ruta, className } = Astro.props;
+
+const pagina = await getPagina(ruta);
+const banner = pagina?.banner ?? null;
+
+// Solo confiamos en el CDN de Sanity (mismo criterio que el banner promo en index.astro).
+const SANITY_CDN = 'https://cdn.sanity.io/';
+const safe = (u?: string | null): u is string => !!u && u.startsWith(SANITY_CDN);
+
+const desktopUrl = safe(banner?.desktopUrl) ? banner!.desktopUrl! : null;
+// En móvil se usa la imagen móvil; si no hay, se reutiliza la de escritorio.
+const mobileUrl = safe(banner?.mobileUrl) ? banner!.mobileUrl! : desktopUrl;
+const alt = banner?.alt?.trim() || '';
+
+const show = Boolean(banner && desktopUrl && mobileUrl && alt);
+
+const q = (url: string, w: number) => `${url}?w=${w}&auto=format&q=85`;
+const buildSrcset = (url: string, widths: number[]) =>
+  widths.map((w) => `${q(url, w)} ${w}w`).join(', ');
+
+const MOBILE_WIDTHS = [375, 480, 640, 768, 900];
+const DESKTOP_WIDTHS = [640, 768, 900, 1024, 1280, 1536];
+
+// Enlace: ruta interna o https:// (mismo criterio que el schema).
+const enlace =
+  banner?.enlace && /^(\/|https?:\/\/)/.test(banner.enlace) ? banner.enlace : null;
+const external = !!enlace && enlace.startsWith('http');
+
+const Wrapper = enlace ? 'a' : 'div';
+---
+
+{
+  show && desktopUrl && mobileUrl && (
+    <Wrapper
+      class:list={['mt-2 mb-8', enlace && 'block', className]}
+      {...(enlace
+        ? { href: enlace, ...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {}) }
+        : {})}
+    >
+      <picture>
+        <source
+          media="(min-width: 768px)"
+          srcset={buildSrcset(desktopUrl, DESKTOP_WIDTHS)}
+          sizes="(min-width: 896px) 896px, calc(100vw - 3rem)"
+          width={banner?.desktopW ?? undefined}
+          height={banner?.desktopH ?? undefined}
+        />
+        <img
+          src={q(mobileUrl, 768)}
+          srcset={buildSrcset(mobileUrl, MOBILE_WIDTHS)}
+          sizes="calc(100vw - 2rem)"
+          alt={alt}
+          width={banner?.mobileW ?? banner?.desktopW ?? undefined}
+          height={banner?.mobileH ?? banner?.desktopH ?? undefined}
+          class="w-full rounded-2xl object-cover"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
+    </Wrapper>
+  )
+}

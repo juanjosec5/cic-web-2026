@@ -11,6 +11,7 @@
     "migrate:examenes": "tsx scripts/migrate-examenes.ts",
     "migrate:sedes": "node scripts/migrate-sedes.mjs",
     "migrate:perfiles": "node scripts/migrate-perfiles.mjs",
+    "seed:paginas": "node scripts/seed-paginas.mjs",
     "studio:dev": "sanity dev",
     "studio:deploy": "sanity deploy",
     "prepare": "husky"

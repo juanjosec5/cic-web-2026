@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
+import SlimBanner from '@/components/SlimBanner.astro';
 import ExamSearch from '@/components/islands/ExamSearch.vue';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
@@ -26,6 +27,7 @@ const examenesParaSearch = examenes.map((e: CollectionEntry<'examenes'>) => ({
   description={`${examenes.length} exámenes clínicos disponibles en CIC Laboratorios.`}
 >
   <div class="container-page">
+    <SlimBanner ruta="/examenes" />
 
     <Breadcrumb items={[{ label: 'Inicio', href: '/' }, { label: 'Exámenes' }]} />
 

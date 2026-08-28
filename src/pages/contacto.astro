@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
+import SlimBanner from '@/components/SlimBanner.astro';
 import MapEmbed from '@/components/MapEmbed.astro';
 import { SITE_CONFIG } from '@/lib/config';
 import { isSafeMapUrl } from '@/lib/maps';
@@ -22,6 +23,7 @@ const safeMapUrl = isSafeMapUrl(sedePrincipalData?.mapEmbedUrl)
   description="Ponte en contacto con CIC Laboratorios. Encuentra teléfonos, dirección y WhatsApp de nuestra sede principal en Guadalajara de Buga."
 >
   <div class="container-page">
+    <SlimBanner ruta="/contacto" />
 
     <Breadcrumb items={[{ label: 'Inicio', href: '/' }, { label: 'Contacto' }]} />
 
