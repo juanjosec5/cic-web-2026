@@ -69,7 +69,7 @@ export const paginaType = defineType({
         defineField({
           name: 'imagenDesktop',
           title: 'Imagen escritorio (≥ 768px)',
-          description: 'Franja ancha y baja. Recomendado: 1600×320 px (proporción 5:1).',
+          description: 'Franja ancha y baja. Recomendado: 1800×600 px (proporción 3:1).',
           type: 'image',
           options: { hotspot: true },
         }),
@@ -77,7 +77,7 @@ export const paginaType = defineType({
           name: 'imagenMobile',
           title: 'Imagen móvil (< 768px)',
           description:
-            'Versión compacta para celular. Recomendado: ~900×500 px. Si se deja vacía, se usa la imagen de escritorio.',
+            'Versión más cuadrada para celular. Recomendado: 1200×900 px (proporción 4:3). Si se deja vacía, se usa la imagen de escritorio.',
           type: 'image',
           options: { hotspot: true },
         }),
