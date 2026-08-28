@@ -84,9 +84,21 @@ export const paginaType = defineType({
         defineField({
           name: 'alt',
           title: 'Texto alternativo (accesibilidad / SEO)',
-          description: 'Describe la imagen. Obligatorio para que el banner se muestre.',
+          description:
+            'Describe la imagen (ej. «Equipo de laboratorio atendiendo a un paciente»). ' +
+            'Obligatorio cuando hay imagen de escritorio: sin este texto no se puede publicar la Página y el banner no aparece en el sitio.',
           type: 'string',
-          validation: (R) => R.max(140),
+          validation: (R) =>
+            R.max(140).custom((alt, ctx) => {
+              const banner = ctx.parent as
+                | { imagenDesktop?: { asset?: { _ref?: string } } }
+                | undefined;
+              const tieneImagen = Boolean(banner?.imagenDesktop?.asset?._ref);
+              if (tieneImagen && !alt?.trim()) {
+                return 'Escribe el texto alternativo: es obligatorio cuando hay imagen de escritorio.';
+              }
+              return true;
+            }),
         }),
         defineField({
           name: 'enlace',

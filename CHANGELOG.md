@@ -9,6 +9,9 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 ## [Unreleased]
 
+### Changed (banner alt text now enforced at publish)
+- `src/sanity/schemas/pagina.ts`: the `banner.alt` field is now **conditionally required** — if `banner.imagenDesktop` has an image, the Página can't be published until `alt` is filled (custom validation on `ctx.parent.imagenDesktop.asset._ref`). A Página with no banner image is still valid, so this doesn't block the 9 not-yet-configured pages. Helper text rewritten to say plainly that alt is mandatory with an image and that the banner won't render on the site without it. Motivated by a test where a banner with images but no alt silently rendered nothing (the frontend already gated on alt; now Studio does too). Studio needs redeploy (`npm run studio:deploy`)
+
 ### Added (per-page "Página" documents + slim banners)
 - `src/sanity/schemas/pagina.ts` (new): `pagina` document type — one document per site page, keyed by a `ruta` string constrained to a known-route dropdown (`RUTAS_PAGINA`, also exported for reuse) with a uniqueness check so two documents can't claim the same route. Open/creatable like the `sede`/`perfil` collections (no create/delete lock) so future routes can be added. Fields today: `titulo` (internal reference) + a collapsible `banner` object (`imagenDesktop`, `imagenMobile`, `alt`, `enlace` — relative-or-https validated like `paginaInicio`, `activo`). Deliberately structured so future per-page content (intro text, sections, SEO overrides) can be added as siblings of `banner` in later PRs. Registered in `src/sanity/schemas/index.ts`. Studio redeployed
 - `src/sanity/structure.ts` (new) + `sanity.config.ts`: first custom Studio structure — the existing types (`paginaInicio` singleton, `sede`, `perfil`, `promocionMes`) are listed explicitly plus a "Páginas" list (ordered by `ruta`); a catch-all keeps any other type visible
