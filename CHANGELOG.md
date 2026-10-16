@@ -9,6 +9,14 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 ## [Unreleased]
 
+### Changed (Astro 5.18 → 7.4 upgrade)
+- `package.json`: `astro` ^7.4.0, `@astrojs/vercel` ^11.0.15, `@astrojs/vue` ^7.1.0, `@astrojs/sitemap` ^3.7.4, `@astrojs/check` ^0.9.10, `vue` ^3.5.44, `tailwindcss` / `@tailwindcss/vite` ^4.3.3. Added `vite` ^8.3.4 as a devDependency so the hoisted copy matches Astro's Vite 8. A stale hoisted Vite 6.4 had been making `@tailwindcss/vite` and the Vue plugins resolve a different Vite than Astro (Sanity keeps its own nested Vite 7)
+- `src/content/config.ts` → `src/content.config.ts`: Astro 6 removed legacy collections. Each collection now uses `loader: glob({ pattern: '**/*.json', base: './src/content/<name>' })` instead of `type: 'data'`, and `z` is imported from `astro/zod`. Schemas are unchanged, and pages already read `entry.data.*`, so no page code changed
+- `astro.config.mjs`: `compressHTML: true` keeps the pre-v7 whitespace handling (v7 defaults to `'jsx'`, which can drop spaces between inline elements)
+- `scripts/lib/schema.ts`, `HANDOFF.md`: references updated to the new config path
+- Verified: same 743 pages; markup-only diff vs. the v5 build shows just comments now preserved, inline-script minification, entity-encoding (`&amp;`/`&quot;`) and Vue scoped CSS moved into the page stylesheet. Collection entry order is now by entry id. It matches production for servicios/aliados and differs only where one exam slug is a prefix of another (e.g. `…-avm` vs `…-avm-hplc`)
+- Note: in Astro 7, `npm run dev` starts a background daemon and returns. Use `npx astro dev logs|status|stop`
+
 ### Changed (legacy sede JSON moved out of `src/content/`)
 - `src/content/sedes/*.json` → `data/sedes/*.json` (18 files, `git mv`): sedes have come from Sanity since the CMS migration, but the leftover folder made Astro auto-generate an empty phantom `sedes` collection on every dev/build run (deprecation warning + `[glob-loader] No files found`). The JSONs are now only source data for the offline scripts, so they no longer live in the content directory. No site output change
 - `scripts/migrate-sedes.mjs`, `scripts/update-sedes.mjs`: read/write `data/sedes/` instead of `src/content/sedes/`

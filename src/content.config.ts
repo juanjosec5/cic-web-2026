@@ -1,10 +1,12 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
 
 // ---------------------------------------------------------------------------
 // examenes
 // ---------------------------------------------------------------------------
 const examenesCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/examenes' }),
   schema: z.object({
     id: z.string(),
     mongoId: z.string().optional(),
@@ -58,7 +60,7 @@ const examenesCollection = defineCollection({
 // servicios
 // ---------------------------------------------------------------------------
 const serviciosCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/servicios' }),
   schema: z.object({
     slug: z.string(),
     nombre: z.string(),
@@ -77,7 +79,7 @@ const serviciosCollection = defineCollection({
 // aliados
 // ---------------------------------------------------------------------------
 const aliadosCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/aliados' }),
   schema: z.object({
     slug: z.string(),
     nombre: z.string(),
