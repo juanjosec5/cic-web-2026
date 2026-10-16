@@ -3,6 +3,15 @@ import HeroIcon from '@/components/HeroIcon.astro';
 
 const pathname = Astro.url.pathname;
 
+const RESULTADOS_URL = 'https://resultados.ciclaboratorios.com';
+const QR_VALIDATOR_URL = 'https://validadorqr.ciclaboratorios.com';
+
+const resultadosLinks: NavChild[] = [
+  { label: 'Consultar resultados', href: RESULTADOS_URL },
+  { label: 'Validador QR', href: QR_VALIDATOR_URL },
+];
+const EXTERNAL_ICON = 'M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25';
+
 type NavChild = { label: string; href: string };
 type NavLink = {
   label: string;
@@ -138,16 +147,51 @@ function isActive(link: NavLink) {
         </ul>
       </nav>
 
-      <!-- Resultados CTA (always visible) -->
+      <!-- Resultados dropdown (desktop). A single CTA instead of two buttons
+           keeps the header from overflowing at 1024–1280px. Reuses the nav
+           dropdown script via data-dropdown-trigger. -->
+      <div class="relative group hidden lg:block">
+        <button
+          type="button"
+          class="inline-flex items-center gap-1.5 rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-700 transition-all duration-200"
+          aria-haspopup="true"
+          aria-expanded="false"
+          data-dropdown-trigger
+        >
+          Resultados
+          <HeroIcon path="m19.5 8.25-7.5 7.5-7.5-7.5" strokeWidth={2} class="h-3.5 w-3.5" />
+        </button>
+        <ul
+          role="list"
+          class="absolute right-0 top-full z-50 hidden min-w-[220px] overflow-hidden rounded-xl border border-gray-200 bg-white py-1 shadow-lg group-hover:block"
+        >
+          {resultadosLinks.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center justify-between gap-3 px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 hover:text-gray-900"
+                aria-label={`${item.label} — se abre en una pestaña nueva`}
+              >
+                {item.label}
+                <HeroIcon path={EXTERNAL_ICON} class="h-4 w-4 shrink-0 text-gray-400" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Resultados CTA (mobile; QR lives in the menu) -->
       <a
-        href="https://resultados.ciclaboratorios.com"
+        href={RESULTADOS_URL}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-1.5 rounded-lg bg-red-600 px-3.5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-700 active:scale-95 transition-all duration-200 sm:px-4"
+        class="inline-flex items-center gap-1.5 rounded-lg bg-red-600 px-3.5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-700 active:scale-95 transition-all duration-200 sm:px-4 lg:hidden"
         aria-label="Resultados — se abre en una pestaña nueva"
       >
         Resultados
-        <HeroIcon path="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" class="h-4 w-4 shrink-0" />
+        <HeroIcon path={EXTERNAL_ICON} class="h-4 w-4 shrink-0" />
       </a>
 
       <!-- Hamburger button (hidden on desktop) -->
@@ -247,6 +291,18 @@ function isActive(link: NavLink) {
             )}
           </li>
         ))}
+        <li>
+          <a
+            href={QR_VALIDATOR_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-1.5 rounded-md px-3 py-2.5 text-base font-semibold text-red-600 transition-colors hover:bg-red-50 hover:text-red-700"
+            aria-label="Validador QR — se abre en una pestaña nueva"
+          >
+            Validador QR
+            <HeroIcon path={EXTERNAL_ICON} class="h-4 w-4 shrink-0" />
+          </a>
+        </li>
       </ul>
     </nav>
   </div>
