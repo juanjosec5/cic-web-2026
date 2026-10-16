@@ -10,7 +10,8 @@ Versions track milestones, not npm semver — this is a content/site project.
 ## [Unreleased]
 
 ### Added (Validador QR link in header)
-- `src/components/Header.astro`: new "Validador QR" link to `https://validadorqr.ciclaboratorios.com` (new tab). On desktop (`lg+`) it's an outlined red button just left of the Resultados CTA. On mobile it's hidden from the header bar and appears as the last item of the hamburger menu. The URL and the external-link icon path are now shared constants (`QR_VALIDATOR_URL`, `EXTERNAL_ICON`), and Resultados reuses the icon constant
+- `src/components/Header.astro`: new "Validador QR" link to `https://validadorqr.ciclaboratorios.com` (new tab). On desktop (`lg+`) it's an outlined red button just left of the Resultados CTA. On mobile it's hidden from the header bar and appears as the last item of the hamburger menu. The URLs and the external-link icon path are now shared constants (`RESULTADOS_URL`, `QR_VALIDATOR_URL`, `EXTERNAL_ICON`)
+- `src/pages/pacientes/preguntas-frecuentes.astro`, `src/pages/nosotros/tecnologia.astro`: the result-verification links now point to `https://validadorqr.ciclaboratorios.com` instead of the raw `r2.ciclaboratorios.com:8081/VerificadorResultados…` servlet URL (the new domain redirects there). No Sanity content referenced the old URL
 
 ### Changed (sede pages + CIC Diagnóstica copy)
 - `src/pages/sedes/[slug].astro`: removed the "Otras sedes cercanas" section and the now-unused `otrosSedes` prop from `getStaticPaths`/`Props`. The breadcrumb still links back to `/sedes`
