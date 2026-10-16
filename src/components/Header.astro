@@ -3,6 +3,10 @@ import HeroIcon from '@/components/HeroIcon.astro';
 
 const pathname = Astro.url.pathname;
 
+const RESULTADOS_URL = 'https://resultados.ciclaboratorios.com';
+const QR_VALIDATOR_URL = 'https://validadorqr.ciclaboratorios.com';
+const EXTERNAL_ICON = 'M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25';
+
 type NavChild = { label: string; href: string };
 type NavLink = {
   label: string;
@@ -138,16 +142,28 @@ function isActive(link: NavLink) {
         </ul>
       </nav>
 
+      <!-- Validador QR (desktop only; on mobile it's the last menu item) -->
+      <a
+        href={QR_VALIDATOR_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden lg:inline-flex items-center gap-1.5 rounded-lg border border-red-600 bg-white px-4 py-2 text-sm font-semibold text-red-700 hover:bg-red-50 active:scale-95 transition-all duration-200"
+        aria-label="Validador QR — se abre en una pestaña nueva"
+      >
+        Validador QR
+        <HeroIcon path={EXTERNAL_ICON} class="h-4 w-4 shrink-0" />
+      </a>
+
       <!-- Resultados CTA (always visible) -->
       <a
-        href="https://resultados.ciclaboratorios.com"
+        href={RESULTADOS_URL}
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center gap-1.5 rounded-lg bg-red-600 px-3.5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-700 active:scale-95 transition-all duration-200 sm:px-4"
         aria-label="Resultados — se abre en una pestaña nueva"
       >
         Resultados
-        <HeroIcon path="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" class="h-4 w-4 shrink-0" />
+        <HeroIcon path={EXTERNAL_ICON} class="h-4 w-4 shrink-0" />
       </a>
 
       <!-- Hamburger button (hidden on desktop) -->
@@ -247,6 +263,18 @@ function isActive(link: NavLink) {
             )}
           </li>
         ))}
+        <li>
+          <a
+            href={QR_VALIDATOR_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-1.5 rounded-md px-3 py-2.5 text-base font-medium text-gray-700 transition-colors hover:bg-gray-100 hover:text-gray-900"
+            aria-label="Validador QR — se abre en una pestaña nueva"
+          >
+            Validador QR
+            <HeroIcon path={EXTERNAL_ICON} class="h-4 w-4 shrink-0 text-gray-400" />
+          </a>
+        </li>
       </ul>
     </nav>
   </div>

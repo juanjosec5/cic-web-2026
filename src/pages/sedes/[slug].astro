@@ -13,23 +13,17 @@ import type { Sede } from '@/sanity/types';
 
 interface Props {
   sede: Sede;
-  otrosSedes: Sede[];
 }
 
 export async function getStaticPaths() {
   const sedes: Sede[] = await client.fetch(ALL_SEDES_QUERY);
   return sedes.map((sede: Sede) => ({
     params: { slug: sede.slug },
-    props: {
-      sede,
-      otrosSedes: sedes
-        .filter((s: Sede) => s.slug !== sede.slug)
-        .slice(0, 3),
-    },
+    props: { sede },
   }));
 }
 
-const { sede, otrosSedes } = Astro.props;
+const { sede } = Astro.props;
 
 const servicios = await getCollection('servicios');
 const serviciosConPagina = new Set(servicios.map((s: CollectionEntry<'servicios'>) => s.data.slug));
@@ -247,28 +241,6 @@ const remainingConvenios = sede.convenios.length - CONVENIOS_PREVIEW;
         </ul>
       </section>
     )}
-
-    <!-- Nearby sedes -->
-    <section aria-labelledby="otras-sedes-heading" class="mt-6 card">
-      <h2 id="otras-sedes-heading" class="h2-sm">
-        Otras sedes cercanas
-      </h2>
-      <ul role="list" class="mt-4 flex flex-wrap gap-6">
-        {otrosSedes.map((otra) => (
-          <li>
-            <a
-              href={`/sedes/${otra.slug}`}
-              class="text-sm font-medium text-navy-700 hover:text-navy-600 transition-colors duration-200"
-            >
-              {otra.nombre} →
-            </a>
-          </li>
-        ))}
-      </ul>
-      <a href="/sedes" class="mt-4 inline-block text-sm text-gray-500 hover:text-navy-700 transition-colors duration-200">
-        Ver todas las sedes →
-      </a>
-    </section>
 
   </div>
 </SedeLayout>

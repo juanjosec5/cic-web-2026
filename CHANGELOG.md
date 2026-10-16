@@ -9,6 +9,17 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 ## [Unreleased]
 
+### Added (Validador QR link in header)
+- `src/components/Header.astro`: new "Validador QR" link to `https://validadorqr.ciclaboratorios.com` (new tab). On desktop (`lg+`) it's an outlined red button just left of the Resultados CTA. On mobile it's hidden from the header bar and appears as the last item of the hamburger menu. The URL and the external-link icon path are now shared constants (`QR_VALIDATOR_URL`, `EXTERNAL_ICON`), and Resultados reuses the icon constant
+
+### Changed (sede pages + CIC Diagnóstica copy)
+- `src/pages/sedes/[slug].astro`: removed the "Otras sedes cercanas" section and the now-unused `otrosSedes` prop from `getStaticPaths`/`Props`. The breadcrumb still links back to `/sedes`
+- `src/content/aliados/cic-diagnostica.json`: description corrected. CIC Diagnóstica is a distributor of medical and hospital supplies, not an imaging unit (no more radiología/ecografía). Shown on `/nosotros` and `/nosotros/aliados`
+
+### Removed (unused dependencies + one-off scripts)
+- `package.json`: removed `@sanity/image-url` (never imported), `pagefind` (never wired up), `tsx` and `xlsx` (only used by one-off import scripts; `xlsx` 0.18.5 also carried known advisories), plus the `migrate:examenes` npm script. `styled-components` stays because it's a required peer of `sanity`
+- `scripts/migrate-examenes.ts`, `scripts/lib/` (`cups.ts`, `schema.ts`, `slug.ts`), `scripts/import-examenes.mjs`, `scripts/import-perfiles.mjs`, `scripts/update-sedes.mjs`: removed one-time data import/migration scripts (still in git history). `migrate-sedes.mjs`, `migrate-perfiles.mjs`, `seed-paginas.mjs` and `check-links.mjs` remain
+
 ### Changed (Astro 5.18 → 7.4 upgrade)
 - `package.json`: `astro` ^7.4.0, `@astrojs/vercel` ^11.0.15, `@astrojs/vue` ^7.1.0, `@astrojs/sitemap` ^3.7.4, `@astrojs/check` ^0.9.10, `vue` ^3.5.44, `tailwindcss` / `@tailwindcss/vite` ^4.3.3. Added `vite` ^8.3.4 as a devDependency so the hoisted copy matches Astro's Vite 8. A stale hoisted Vite 6.4 had been making `@tailwindcss/vite` and the Vue plugins resolve a different Vite than Astro (Sanity keeps its own nested Vite 7)
 - `src/content/config.ts` → `src/content.config.ts`: Astro 6 removed legacy collections. Each collection now uses `loader: glob({ pattern: '**/*.json', base: './src/content/<name>' })` instead of `type: 'data'`, and `z` is imported from `astro/zod`. Schemas are unchanged, and pages already read `entry.data.*`, so no page code changed
