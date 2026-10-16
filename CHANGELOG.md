@@ -10,7 +10,7 @@ Versions track milestones, not npm semver — this is a content/site project.
 ## [Unreleased]
 
 ### Added (Validador QR link in header)
-- `src/components/Header.astro`: new "Validador QR" link to `https://validadorqr.ciclaboratorios.com` (new tab). On desktop (`lg+`) it's an outlined red button just left of the Resultados CTA. On mobile it's hidden from the header bar and appears as the last item of the hamburger menu. The URLs and the external-link icon path are now shared constants (`RESULTADOS_URL`, `QR_VALIDATOR_URL`, `EXTERNAL_ICON`)
+- `src/components/Header.astro`: new "Validador QR" link to `https://validadorqr.ciclaboratorios.com` (new tab). On desktop (`lg+`) the red Resultados CTA is now a "Resultados ▾" dropdown with "Consultar resultados" and "Validador QR". A second button pushed Resultados out of the viewport at 1024–1280px. The dropdown reuses the nav's `data-dropdown-trigger` script (hover, keyboard, touch) and is right-aligned to stay on screen. On mobile, Resultados stays a one-tap link in the header bar, and Validador QR is the last item of the hamburger menu, styled red. The URLs and the external-link icon path are now shared constants (`RESULTADOS_URL`, `QR_VALIDATOR_URL`, `EXTERNAL_ICON`)
 - `src/pages/pacientes/preguntas-frecuentes.astro`, `src/pages/nosotros/tecnologia.astro`: the result-verification links now point to `https://validadorqr.ciclaboratorios.com` instead of the raw `r2.ciclaboratorios.com:8081/VerificadorResultados…` servlet URL (the new domain redirects there). No Sanity content referenced the old URL
 
 ### Changed (sede pages + CIC Diagnóstica copy)
