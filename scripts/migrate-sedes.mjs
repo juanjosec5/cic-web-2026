@@ -48,7 +48,7 @@ const client = createClient({
   useCdn: false,
 });
 
-const sedesDir = join(ROOT, 'src/content/sedes');
+const sedesDir = join(ROOT, 'data/sedes');
 const files = readdirSync(sedesDir).filter((f) => f.endsWith('.json'));
 
 console.log(`Migrating ${files.length} sedes to Sanity (${SANITY_PROJECT_ID} / ${SANITY_DATASET ?? 'production'})...\n`);

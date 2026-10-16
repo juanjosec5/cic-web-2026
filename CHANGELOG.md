@@ -9,6 +9,11 @@ Versions track milestones, not npm semver — this is a content/site project.
 
 ## [Unreleased]
 
+### Changed (legacy sede JSON moved out of `src/content/`)
+- `src/content/sedes/*.json` → `data/sedes/*.json` (18 files, `git mv`): sedes have come from Sanity since the CMS migration, but the leftover folder made Astro auto-generate an empty phantom `sedes` collection on every dev/build run (deprecation warning + `[glob-loader] No files found`). The JSONs are now only source data for the offline scripts, so they no longer live in the content directory. No site output change
+- `scripts/migrate-sedes.mjs`, `scripts/update-sedes.mjs`: read/write `data/sedes/` instead of `src/content/sedes/`
+- `src/lib/config.ts`: source comment points to the new path
+
 ### Changed (banner alt text now enforced at publish)
 - `src/sanity/schemas/pagina.ts`: the `banner.alt` field is now **conditionally required** — if `banner.imagenDesktop` has an image, the Página can't be published until `alt` is filled (custom validation on `ctx.parent.imagenDesktop.asset._ref`). A Página with no banner image is still valid, so this doesn't block the 9 not-yet-configured pages. Helper text rewritten to say plainly that alt is mandatory with an image and that the banner won't render on the site without it. Motivated by a test where a banner with images but no alt silently rendered nothing (the frontend already gated on alt; now Studio does too). Studio needs redeploy (`npm run studio:deploy`)
 
