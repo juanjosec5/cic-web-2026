@@ -18,7 +18,7 @@ const XLSX    = require('xlsx')
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT      = join(__dirname, '..')
 const XLSX_PATH = join(ROOT, 'sedes.xlsx')
-const SEDES_DIR = join(ROOT, 'src', 'content', 'sedes')
+const SEDES_DIR = join(ROOT, 'data', 'sedes')
 
 // Format a 10-digit Colombian mobile number: 3183492569 → "318 349 2569"
 function fmtPhone(raw) {

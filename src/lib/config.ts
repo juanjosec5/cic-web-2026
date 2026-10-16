@@ -1,4 +1,4 @@
-// Values pulled from src/content/sedes/buga.json (esSedePrincipal: true)
+// Values pulled from data/sedes/buga.json (esSedePrincipal: true)
 export const SITE_CONFIG = {
   name: 'CIC Laboratorios',
   url: 'https://www.ciclaboratorios.com',
