@@ -14,6 +14,9 @@ export default defineConfig({
   // Astro's built-in check compares against the serverless function's internal
   // origin (localhost on Vercel) and 403s every legitimate browser POST.
   security: { checkOrigin: false },
+  // Astro 7 defaults to 'jsx' whitespace collapsing, which can drop spaces
+  // between inline elements; keep the v5/v6 behavior.
+  compressHTML: true,
   integrations: [
     vue(),
     sitemap({
